@@ -2,13 +2,13 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
 const rootDir = resolve(import.meta.dirname, "..");
-const localIconDir = resolve(rootDir, "icon-themes");
+const localIconDir = resolve(rootDir, "icons");
 const vaultIconDir = resolve(
-  "C:/Users/Jie/iCloudDrive/iCloud~md~obsidian/SecondBrain/project/Monokai Syntax/icon-themes",
+  "C:/Users/Jie/iCloudDrive/iCloud~md~obsidian/SecondBrain/project/Monokai Syntax/icons",
 );
 const iconDir = existsSync(localIconDir) ? localIconDir : vaultIconDir;
-const themePath = resolve(iconDir, "Monokai Pro icon-theme.json");
-const fontPath = resolve(iconDir, "monokai-pro-icons.woff");
+const themePath = resolve(iconDir, "icon-theme.json");
+const fontPath = resolve(iconDir, "icons.woff");
 const outputPath = resolve(rootDir, "src/scss/components/_file-icons.generated.scss");
 
 function readJson(path) {
