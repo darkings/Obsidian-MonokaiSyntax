@@ -90,16 +90,16 @@
 
   blockquote {
     background-color: transparent;
-    border-inline-start: 2px solid var(--monokai-blockquote-border);
+    border-inline-start: 1px solid var(--monokai-blockquote-border);
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
     color: var(--text-normal);
-    padding: #{$spacing-4} #{$spacing-4} #{$spacing-4} 2.5rem;
+    padding: #{$spacing-3} #{$spacing-3} #{$spacing-3} 1.25rem;
   }
 
   .callout {
     background-color: var(--callout-background, transparent);
     border: 0;
-    border-inline-start: 2px solid var(--callout-border, var(--monokai-callout-note-border));
+    border-inline-start: 1px solid var(--callout-border, var(--monokai-callout-note-border));
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
     padding: var(--callout-padding);
   }
@@ -274,13 +274,13 @@
   /* stylelint-disable-next-line selector-class-pattern -- Obsidian 内部类名，不能改成 kebab-case。 */
   .HyperMD-quote {
     background-color: transparent;
-    border-inline-start: 2px solid var(--monokai-blockquote-border);
+    border-inline-start: 1px solid var(--monokai-blockquote-border);
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
   }
 
   /* stylelint-disable-next-line selector-class-pattern -- Obsidian 内部类名 */
   .HyperMD-quote .cm-line {
-    padding-inline-start: 2.5rem;
+    padding-inline-start: 1.25rem;
   }
 
   .cm-quote {
@@ -301,7 +301,7 @@
   .callout {
     background-color: var(--callout-background, transparent);
     border: 0;
-    border-inline-start: 2px solid var(--callout-border, var(--monokai-callout-note-border));
+    border-inline-start: 1px solid var(--callout-border, var(--monokai-callout-note-border));
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
     padding: var(--callout-padding);
   }
