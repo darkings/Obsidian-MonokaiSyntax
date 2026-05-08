@@ -1,0 +1,51 @@
+.canvas-wrapper {
+  --canvas-background: var(--background-primary);
+  --canvas-card-label-color: var(--text-muted);
+  --canvas-color-1: var(--text-accent);
+  --canvas-color-2: var(--h2-color);
+  --canvas-color-3: var(--h3-color);
+  --canvas-color-4: var(--h4-color);
+  --canvas-color-5: var(--link-color);
+  --canvas-color-6: var(--h6-color);
+
+  background-color: var(--canvas-background);
+}
+
+.canvas-node {
+  border-color: var(--background-modifier-border);
+  border-radius: var(--radius-m);
+}
+
+.canvas-node-content {
+  color: var(--text-normal);
+  background-color: var(--background-secondary);
+  border-radius: var(--radius-m);
+}
+
+.canvas-node.is-focused,
+.canvas-node.is-selected {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 2px rgb(249 38 114 / 28%);
+}
+
+.canvas-node-label {
+  color: var(--canvas-card-label-color);
+}
+
+.canvas-path {
+  stroke: var(--text-faint);
+}
+
+.canvas-path.is-focused,
+.canvas-path.is-selected {
+  stroke: var(--link-color);
+}
+
+.canvas-node-container {
+  --color-red: var(--canvas-color-1);
+  --color-orange: var(--canvas-color-2);
+  --color-yellow: var(--canvas-color-3);
+  --color-green: var(--canvas-color-4);
+  --color-cyan: var(--canvas-color-5);
+  --color-purple: var(--canvas-color-6);
+}

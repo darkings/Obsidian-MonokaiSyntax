@@ -1,0 +1,18 @@
+@mixin focus-ring($color) {
+  outline: 2px solid $color;
+  outline-offset: 2px;
+}
+
+@mixin compact-density {
+  --nav-item-size: 26px;
+  --ribbon-item-size: 32px;
+  --input-height: 28px;
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+}

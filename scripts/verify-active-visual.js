@@ -1,0 +1,139 @@
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
+const rootDir = resolve(import.meta.dirname, "..");
+const paths = {
+  base: resolve(rootDir, "src/scss/_base.scss"),
+  editor: resolve(rootDir, "src/scss/components/_editor.scss"),
+  index: resolve(rootDir, "src/scss/index.scss"),
+  overrides: resolve(rootDir, "src/scss/_active-visual-overrides.scss"),
+  generatedIcons: resolve(rootDir, "src/scss/components/_file-icons.generated.scss"),
+  iconGenerator: resolve(rootDir, "scripts/generate-icon-theme.js"),
+  packageJson: resolve(rootDir, "package.json"),
+};
+
+const files = Object.fromEntries(
+  Object.entries(paths).map(([key, path]) => [
+    key,
+    existsSync(path) ? readFileSync(path, "utf8") : "",
+  ]),
+);
+
+const packageJson = JSON.parse(files.packageJson);
+
+const checks = [
+  [
+    "Active 视觉验证脚本已接入 release:pack",
+    packageJson.scripts?.["release:pack"]?.includes("npm run verify:active-visual"),
+  ],
+  [
+    "Active 视觉覆盖层位于插件样式之后",
+    /@use "plugins";\s*@use "active-visual-overrides";/.test(files.index)
+      && !/MONOKAI SYNTAX CSS LOADED/.test(files.base),
+  ],
+  [
+    "Active 视觉覆盖层不保留诊断描边",
+    !/box-shadow:\s*inset 0 0 0 3px/.test(files.overrides)
+      && !/#f92672/.test(files.overrides)
+      && !/box-shadow:[^;]*#66d9ef/.test(files.overrides),
+  ],
+  [
+    "文件夹不再生成额外 ::before 图标",
+    !/\.nav-folder-title::before/.test(files.generatedIcons)
+      && !/\.nav-folder-title::before/.test(files.iconGenerator),
+  ],
+  [
+    "导航折叠指示器由 Obsidian 默认图标承担第一层",
+    /\.nav-folder-collapse-indicator[\s\S]*?color:\s*var\(--icon-color\);/.test(files.base),
+  ],
+  [
+    "属性值不再绘制额外背景色",
+    !/--monokai-metadata-value-background/.test(files.base)
+      && !/\.metadata-property-value\s*\{[^}]*background-color:/s.test(files.base)
+      && !/\.metadata-property-value:focus-within\s*\{[^}]*background-color:/s.test(files.base),
+  ],
+  [
+    "行内代码背景与代码块背景一致",
+    /--monokai-inline-code-background:\s*var\(--code-background\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?code[\s\S]*?background-color:\s*var\(--monokai-inline-code-background\);/.test(files.editor),
+  ],
+  [
+    "Callout 使用截图式蓝青面板",
+    /--monokai-callout-background:\s*rgb\(102 217 239 \/ 14%\);/.test(files.editor)
+      && /--callout-padding:\s*calc\(var\(--spacing-5\) \+ var\(--spacing-2\)\) calc\(var\(--spacing-5\) \+ var\(--spacing-4\)\);/.test(files.overrides)
+      && /--callout-content-padding:\s*var\(--spacing-4\) 0 0 0;/.test(files.overrides)
+      && /body \.markdown-source-view\.mod-cm6 \.callout[\s\S]*?box-shadow:\s*inset 0 0 0 1px var\(--monokai-callout-border\);/.test(files.overrides)
+      && /body \.markdown-source-view\.mod-cm6 \.callout[\s\S]*?border-inline-start:\s*0;/.test(files.overrides)
+      && /body \.markdown-source-view\.mod-cm6 \.callout[\s\S]*?padding:\s*var\(--callout-padding\);/.test(files.overrides)
+      && /body \.markdown-source-view\.mod-cm6 \.callout-title[\s\S]*?color:\s*var\(--callout-color, #66d9ef\);/.test(files.overrides),
+  ],
+  [
+    "Callout 语义色映射到 Monokai 六色盘",
+    /\.callout\[data-callout="info"\][\s\S]*?#66d9ef/.test(files.editor)
+      && /\.callout\[data-callout="warning"\][\s\S]*?#fd971f/.test(files.editor)
+      && /\.callout\[data-callout="danger"\][\s\S]*?#f92672/.test(files.editor)
+      && /\.callout\[data-callout="success"\][\s\S]*?#a6e22e/.test(files.editor),
+  ],
+  [
+    "Callout 内容与标题之间留出呼吸感",
+    /\.callout-content[\s\S]*?margin-block-start:\s*var\(--spacing-4\);/.test(files.editor),
+  ],
+  [
+    "编辑区域顶部冗余标题被隐藏",
+    /\.markdown-source-view\.mod-cm6\s+\.inline-title[\s\S]*?display:\s*none;/.test(files.editor),
+  ],
+  [
+    "Terminal 插件面板有主题化间距",
+    /\.terminal[\s\S]*?padding:\s*var\(--spacing-3\);/.test(files.base)
+      || /\.workspace-leaf-content\[data-type="terminal"\][\s\S]*?padding:\s*var\(--spacing-3\);/.test(files.base),
+  ],
+  [
+    "行内代码文字统一使用 Monokai Pro 绿色",
+    /--monokai-inline-code-color:\s*#a6e22e;/.test(files.editor)
+      && /\.cm-inline-code[\s\S]*?color:\s*var\(--monokai-inline-code-color\);/.test(files.editor),
+  ],
+  [
+    "行内代码不再使用着色边框",
+    /\.markdown-rendered[\s\S]*?code[\s\S]*?border:\s*0;/.test(files.editor)
+      && /\.cm-inline-code[\s\S]*?border:\s*0;/.test(files.editor)
+      && !/--monokai-inline-code-border/.test(files.editor),
+  ],
+  [
+    "块引用左侧竖条改为较细的 Monokai Pro 绿色并加大间距",
+    /--blockquote-border-color:\s*#\{\$color-dark-green\};/.test(files.base)
+      && /--blockquote-background-color:\s*var\(--monokai-blockquote-background\);/.test(files.overrides)
+      && /--blockquote-border-thickness:\s*2px;/.test(files.overrides)
+      && /body \.markdown-source-view\.mod-cm6 \.cm-line\.HyperMD-quote[\s\S]*?box-shadow:\s*inset 2px 0 0 var\(--blockquote-border-color\);/.test(files.overrides)
+      && /body \.markdown-source-view\.mod-cm6 \.cm-line:has\(\.cm-quote\)[\s\S]*?box-shadow:\s*inset 2px 0 0 var\(--blockquote-border-color\);/.test(files.overrides)
+      && /body \.markdown-rendered blockquote[\s\S]*?padding:\s*var\(--spacing-4\) var\(--spacing-5\) var\(--spacing-4\) calc\(var\(--spacing-5\) \+ var\(--spacing-5\) \+ var\(--spacing-3\)\);/.test(files.overrides)
+      && /body \.markdown-source-view\.mod-cm6 \.cm-line\.HyperMD-quote[\s\S]*?padding-inline-start:\s*var\(--spacing-3\);/.test(files.overrides)
+      && /body \.markdown-source-view\.mod-cm6 \.cm-line\.HyperMD-quote[\s\S]*?text-indent:\s*calc\(var\(--spacing-5\) \+ var\(--spacing-2\)\);/.test(files.overrides)
+      && /body \.markdown-source-view\.mod-cm6 \.cm-line\.HyperMD-quote \.cm-quote[\s\S]*?margin-inline-start:\s*0;/.test(files.overrides),
+  ],
+  [
+    "复选框未选中为 Monokai Pro 黄色，选中为绿色",
+    /--monokai-checkbox-unchecked-color:\s*#\{\$color-dark-yellow\};/.test(files.base)
+      && /--monokai-checkbox-checked-color:\s*#\{\$color-dark-green\};/.test(files.base)
+      && /input\[type="checkbox"\]:not\(:checked\)[\s\S]*?border-color:\s*var\(--monokai-checkbox-unchecked-color\);/.test(files.base)
+      && /input\[type="checkbox"\]:checked[\s\S]*?background-color:\s*var\(--monokai-checkbox-checked-color\);/.test(files.base),
+  ],
+  [
+    "AGENTS.md 与 CLAUDE.md 拥有专属文件名图标规则",
+    /\[data-path="AGENTS\.md"\]::before/.test(files.generatedIcons)
+      && /\[data-path="CLAUDE\.md"\]::before/.test(files.generatedIcons),
+  ],
+];
+
+let hasFailure = false;
+
+for (const [label, passed] of checks) {
+  console.log(`${label}: ${passed ? "通过" : "失败"}`);
+
+  if (!passed) {
+    hasFailure = true;
+  }
+}
+
+if (hasFailure) {
+  process.exitCode = 1;
+}

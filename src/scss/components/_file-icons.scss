@@ -1,0 +1,20 @@
+@forward "file-icons.generated";
+
+.nav-file-title,
+.nav-folder-title {
+  align-items: center;
+}
+
+body.monokai-syntax-monochrome-icons {
+  .nav-file-title::before {
+    --monokai-file-icon-color: var(--icon-color);
+  }
+
+  .nav-file-title:hover::before {
+    --monokai-file-icon-color: var(--icon-color-hover);
+  }
+
+  .nav-file-title.is-active::before {
+    --monokai-file-icon-color: var(--icon-color-active);
+  }
+}

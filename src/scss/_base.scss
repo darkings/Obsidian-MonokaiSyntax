@@ -1,0 +1,259 @@
+@use "variables" as *;
+
+:root {
+  --font-text-theme: #{$font-text-theme};
+  --font-monospace-theme: #{$font-monospace-theme};
+  --line-height-normal: #{$line-height-normal};
+  --radius-s: #{$radius-small};
+  --radius-m: #{$radius-medium};
+  --monokai-highlight-text: var(--text-normal);
+}
+
+.theme-dark {
+  --background-primary: #{$color-dark-background-primary};
+  --background-secondary: #{$color-dark-background-secondary};
+  --background-secondary-alt: #{$color-dark-background-secondary};
+  --background-modifier-hover: #{$color-dark-hover};
+  --background-modifier-active-hover: #{$color-dark-active};
+  --text-normal: #{$color-dark-text-normal};
+  --text-muted: #{$color-dark-text-muted};
+  --text-faint: #{$color-dark-text-faint};
+  --background-modifier-border: #{$color-dark-border};
+  --text-accent: #{$color-dark-magenta};
+  --monokai-default-accent: #{$color-dark-magenta};
+  --monokai-default-link: #{$color-dark-cyan};
+  --monokai-default-success: #{$color-dark-green};
+  --monokai-default-warning: rgb(230 219 116 / 28%);
+  --monokai-default-code-background: #{$color-dark-background-secondary};
+  --text-accent-hover: #{$color-dark-red-soft};
+  --interactive-accent: #{$color-dark-magenta};
+  --interactive-accent-hover: #{$color-dark-red-soft};
+  --h1-color: #{$color-dark-magenta};
+  --h2-color: #{$color-dark-orange};
+  --h3-color: #{$color-dark-yellow};
+  --h4-color: #{$color-dark-green};
+  --h5-color: #{$color-dark-cyan};
+  --h6-color: #{$color-dark-purple};
+  --text-a: #{$color-dark-cyan};
+  --text-a-hover: #{$color-dark-cyan-soft};
+  --link-color: #{$color-dark-cyan};
+  --link-color-hover: #{$color-dark-cyan-soft};
+  --link-external-color: #{$color-dark-cyan};
+  --link-external-color-hover: #{$color-dark-cyan-soft};
+  --icon-color: #{$color-dark-text-muted};
+  --icon-color-hover: #{$color-dark-text-normal};
+  --icon-color-active: #{$color-dark-cyan};
+  --metadata-label-text-color: #{$color-dark-orange};
+  --text-highlight-bg: rgb(230 219 116 / 28%);
+  --blockquote-border-color: #{$color-dark-green};
+  --monokai-checkbox-unchecked-color: #{$color-dark-yellow};
+  --monokai-checkbox-checked-color: #{$color-dark-green};
+  --checkbox-color: #{$color-dark-yellow};
+  --checkbox-color-hover: #{$color-dark-yellow-soft};
+  --checkbox-marker-color: #{$color-dark-background-primary};
+  --checkbox-color-checked: #{$color-dark-green};
+  --list-marker-color: #{$color-dark-purple};
+  --code-normal: #{$color-dark-text-normal};
+  --code-background: #{$color-dark-background-secondary};
+  --code-comment: #{$color-dark-text-faint};
+  --code-function: #{$color-dark-green};
+  --code-important: #{$color-dark-magenta};
+  --code-keyword: #{$color-dark-magenta};
+  --code-operator: #{$color-dark-red-soft};
+  --code-property: #{$color-dark-cyan};
+  --code-punctuation: #{$color-dark-text-muted};
+  --code-string: #{$color-dark-yellow};
+  --code-tag: #{$color-dark-magenta};
+  --code-value: #{$color-dark-purple};
+  --ribbon-background: #{$color-dark-background-secondary};
+  --nav-item-background-hover: #{$color-dark-hover};
+  --nav-item-background-active: #{$color-dark-active};
+  --nav-item-color: #{$color-dark-text-muted};
+  --nav-item-color-hover: #{$color-dark-text-normal};
+  --nav-item-color-active: #{$color-dark-text-normal};
+  --metadata-input-background: transparent;
+  --metadata-input-background-active: transparent;
+  --metadata-label-text-color-hover: #{$color-dark-orange-soft};
+}
+
+.theme-light {
+  --background-primary: #{$color-light-background-primary};
+  --background-secondary: #{$color-light-background-secondary};
+  --background-secondary-alt: #{$color-light-background-secondary};
+  --background-modifier-hover: #{$color-light-hover};
+  --background-modifier-active-hover: #{$color-light-active};
+  --text-normal: #{$color-light-text-normal};
+  --text-muted: #{$color-light-text-muted};
+  --text-faint: #{$color-light-text-faint};
+  --background-modifier-border: #{$color-light-border};
+  --text-accent: #{$color-light-magenta};
+  --monokai-default-accent: #{$color-light-magenta};
+  --monokai-default-link: #{$color-light-cyan};
+  --monokai-default-success: #{$color-light-green};
+  --monokai-default-warning: rgb(232 179 10 / 24%);
+  --monokai-default-code-background: #{$color-light-background-secondary};
+  --text-accent-hover: #{$color-light-red-soft};
+  --interactive-accent: #{$color-light-magenta};
+  --interactive-accent-hover: #{$color-light-red-soft};
+  --h1-color: #{$color-light-magenta};
+  --h2-color: #{$color-light-orange};
+  --h3-color: #{$color-light-yellow};
+  --h4-color: #{$color-light-green};
+  --h5-color: #{$color-light-cyan};
+  --h6-color: #{$color-light-purple};
+  --text-a: #{$color-light-cyan};
+  --text-a-hover: #{$color-light-cyan-soft};
+  --link-color: #{$color-light-cyan};
+  --link-color-hover: #{$color-light-cyan-soft};
+  --link-external-color: #{$color-light-cyan};
+  --link-external-color-hover: #{$color-light-cyan-soft};
+  --icon-color: #{$color-light-text-muted};
+  --icon-color-hover: #{$color-light-text-normal};
+  --icon-color-active: #{$color-light-cyan};
+  --metadata-label-text-color: #{$color-light-orange};
+  --text-highlight-bg: rgb(232 179 10 / 24%);
+  --blockquote-border-color: #{$color-light-green};
+  --monokai-checkbox-unchecked-color: #{$color-light-yellow};
+  --monokai-checkbox-checked-color: #{$color-light-green};
+  --checkbox-color: #{$color-light-yellow};
+  --checkbox-color-hover: #{$color-light-yellow-soft};
+  --checkbox-marker-color: #{$color-light-background-primary};
+  --checkbox-color-checked: #{$color-light-green};
+  --list-marker-color: #{$color-light-purple};
+  --code-normal: #{$color-light-text-normal};
+  --code-background: #{$color-light-background-secondary};
+  --code-comment: #{$color-light-text-faint};
+  --code-function: #{$color-light-green};
+  --code-important: #{$color-light-magenta};
+  --code-keyword: #{$color-light-magenta};
+  --code-operator: #{$color-light-red-soft};
+  --code-property: #{$color-light-cyan};
+  --code-punctuation: #{$color-light-text-muted};
+  --code-string: #{$color-light-yellow};
+  --code-tag: #{$color-light-magenta};
+  --code-value: #{$color-light-purple};
+  --ribbon-background: #{$color-light-background-secondary};
+  --nav-item-background-hover: #{$color-light-hover};
+  --nav-item-background-active: #{$color-light-active};
+  --nav-item-color: #{$color-light-text-muted};
+  --nav-item-color-hover: #{$color-light-text-normal};
+  --nav-item-color-active: #{$color-light-text-normal};
+  --metadata-input-background: transparent;
+  --metadata-input-background-active: transparent;
+  --metadata-label-text-color-hover: #{$color-light-orange-soft};
+}
+
+.workspace,
+.workspace-split,
+.workspace-leaf,
+.workspace-leaf-content,
+.workspace-tabs {
+  background-color: var(--background-primary);
+}
+
+.nav-file-title,
+.nav-folder-title {
+  color: var(--nav-item-color);
+  border-radius: var(--radius-s);
+}
+
+.nav-file-title:hover,
+.nav-folder-title:hover {
+  color: var(--nav-item-color-hover);
+  background-color: var(--nav-item-background-hover);
+}
+
+.nav-file-title.is-active {
+  color: var(--nav-item-color-active);
+  background-color: var(--nav-item-background-active);
+}
+
+.nav-folder-collapse-indicator,
+.tree-item-icon {
+  color: var(--icon-color);
+}
+
+input[type="checkbox"]:not(:checked) {
+  background-color: transparent;
+  border-color: var(--monokai-checkbox-unchecked-color);
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--monokai-checkbox-checked-color);
+  border-color: var(--monokai-checkbox-checked-color);
+}
+
+.metadata-property-key {
+  color: var(--metadata-label-text-color);
+}
+
+.metadata-property-key:hover {
+  color: var(--metadata-label-text-color-hover);
+}
+
+.metadata-property-value {
+  color: var(--text-normal);
+  border-radius: var(--radius-s);
+}
+
+.metadata-property-value:focus-within {
+  outline: 1px solid var(--background-modifier-border);
+  outline-offset: 2px;
+}
+
+.workspace-leaf-content[data-type="terminal"] {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  padding: var(--spacing-3);
+}
+
+.workspace-leaf-content[data-type="terminal"] .view-content,
+.terminal {
+  background-color: var(--background-primary);
+  border-radius: var(--radius-s);
+  padding: var(--spacing-3);
+}
+
+.search-result-file-match,
+.backlink-pane .tree-item-self,
+.outgoing-link-pane .tree-item-self,
+.tag-pane-tag,
+.bookmark {
+  color: var(--text-muted);
+  border-radius: var(--radius-s);
+}
+
+.search-result-file-match:hover,
+.backlink-pane .tree-item-self:hover,
+.outgoing-link-pane .tree-item-self:hover,
+.tag-pane-tag:hover,
+.bookmark:hover {
+  color: var(--text-normal);
+  background-color: var(--background-modifier-hover);
+}
+
+.search-result-file-matched-text {
+  color: var(--monokai-highlight-text);
+  background-color: var(--text-highlight-bg);
+  border-radius: var(--radius-s);
+}
+
+.tree-item-self.is-clickable.is-active,
+.tag-pane-tag.is-active,
+.bookmark.is-active {
+  color: var(--text-normal);
+  background-color: var(--nav-item-background-active);
+}
+
+.tag {
+  color: var(--link-color);
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 999px;
+}
+
+.tag:hover {
+  color: var(--link-color-hover);
+  background-color: var(--background-modifier-hover);
+}

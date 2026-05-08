@@ -1,0 +1,48 @@
+@use "../mixins" as *;
+
+.modal,
+.prompt,
+.suggestion-container {
+  color: var(--text-normal);
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  box-shadow: 0 18px 50px rgb(0 0 0 / 35%);
+}
+
+.modal-title,
+.prompt-title {
+  color: var(--text-normal);
+}
+
+.prompt-input,
+.modal input[type="text"],
+.modal input[type="search"],
+.modal textarea {
+  color: var(--text-normal);
+  background-color: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+}
+
+.prompt-input:focus,
+.modal input[type="text"]:focus,
+.modal input[type="search"]:focus,
+.modal textarea:focus {
+  @include focus-ring(var(--interactive-accent));
+}
+
+.suggestion-item {
+  color: var(--text-muted);
+  border-radius: var(--radius-s);
+}
+
+.suggestion-item.is-selected,
+.suggestion-item.mod-complex.is-selected {
+  color: var(--text-normal);
+  background-color: var(--nav-item-background-active);
+}
+
+.suggestion-highlight {
+  color: var(--text-accent);
+}
