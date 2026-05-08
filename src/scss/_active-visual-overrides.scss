@@ -31,8 +31,6 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.cm-quote) {
   background-color: transparent;
   border-inline-start: 2px solid var(--monokai-blockquote-border);
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
-  padding-left: 1.25rem;
-  text-indent: 0;
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-quote,
@@ -40,7 +38,7 @@ body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-quote,
 body .markdown-source-view.mod-cm6 .cm-line:has(.cm-quote) .cm-quote {
   color: var(--text-normal);
   border-inline-start: 0;
-  margin-inline-start: 0;
+  margin-left: 0.6rem;
   padding-inline-start: 0;
 }
 
