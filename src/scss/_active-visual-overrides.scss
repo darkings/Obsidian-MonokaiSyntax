@@ -6,31 +6,31 @@ body.theme-dark,
 body.theme-light,
 .theme-dark,
 .theme-light {
-  --blockquote-background-color: var(--monokai-blockquote-background);
+  --blockquote-background-color: transparent;
   --blockquote-border-thickness: 2px;
-  --callout-padding: calc(var(--spacing-5) + var(--spacing-2)) calc(var(--spacing-5) + var(--spacing-4));
+  --callout-padding: 1.25rem;
   --callout-content-padding: var(--spacing-4) 0 0 0;
-  --callout-border-width: 1px;
+  --callout-border-width: 0;
   --callout-radius: var(--radius-s);
 }
 
 body .markdown-preview-view.markdown-rendered blockquote,
 body .markdown-rendered blockquote {
-  background-color: var(--monokai-blockquote-background);
-  border-inline-start: 2px solid var(--blockquote-border-color);
+  background-color: transparent;
+  border-inline-start: 2px solid var(--monokai-blockquote-border);
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
   color: var(--text-normal);
-  padding: var(--spacing-4) var(--spacing-5) var(--spacing-4) calc(var(--spacing-5) + var(--spacing-5) + var(--spacing-3));
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) 2rem;
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote,
 body .markdown-source-view.mod-cm6 .HyperMD-quote,
 body .markdown-source-view.mod-cm6 .cm-line:has(.cm-quote) {
-  background-color: var(--monokai-blockquote-background);
+  background-color: transparent;
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
-  box-shadow: inset 2px 0 0 var(--blockquote-border-color);
-  padding-inline-start: var(--spacing-3);
-  text-indent: calc(var(--spacing-5) + var(--spacing-2));
+  box-shadow: inset 2px 0 0 var(--monokai-blockquote-border);
+  padding-inline-start: 2rem;
+  text-indent: 0;
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-quote,
@@ -54,10 +54,11 @@ body .markdown-source-view.mod-cm6 .callout,
 body .markdown-source-view.mod-cm6 .cm-callout,
 body .markdown-source-view.mod-cm6 .cm-line:has(.callout),
 body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout) {
-  background-color: var(--monokai-callout-background);
-  border-inline-start: 0;
-  border-radius: var(--radius-s);
-  box-shadow: inset 0 0 0 1px var(--monokai-callout-border);
+  background-color: var(--callout-background, transparent);
+  border: 0;
+  border-inline-start: 2px solid var(--callout-border, var(--monokai-callout-note-border));
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  box-shadow: none;
   padding: var(--callout-padding);
 }
 
@@ -67,7 +68,7 @@ body .markdown-source-view.mod-cm6 .callout-title,
 body .markdown-source-view.mod-cm6 .cm-callout-title,
 body .markdown-source-view.mod-cm6 .cm-line:has(.callout-title),
 body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout-title) {
-  color: var(--callout-color, #66d9ef);
+  color: var(--callout-border, var(--monokai-callout-note-border));
   font-weight: 700;
   gap: var(--spacing-2);
   padding-inline-start: 0;
