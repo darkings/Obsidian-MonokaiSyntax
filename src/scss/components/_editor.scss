@@ -87,11 +87,11 @@
   }
 
   blockquote {
-    background-color: var(--monokai-blockquote-background);
-    border-inline-start: 2px solid var(--blockquote-border-color);
+    background-color: transparent;
+    border-inline-start: 2px solid var(--monokai-blockquote-border);
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
     color: var(--text-normal);
-    padding: var(--spacing-4) var(--spacing-5) var(--spacing-4) calc(var(--spacing-5) + var(--spacing-5) + var(--spacing-3));
+    padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) 1.5rem;
   }
 
   .callout {
@@ -224,10 +224,10 @@
 
   /* stylelint-disable-next-line selector-class-pattern -- Obsidian 内部类名，不能改成 kebab-case。 */
   .HyperMD-quote {
-    background-color: var(--monokai-blockquote-background);
-    border-inline-start: 2px solid var(--blockquote-border-color);
+    background-color: transparent;
+    border-inline-start: 2px solid var(--monokai-blockquote-border);
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
-    padding-inline-start: calc(var(--spacing-5) + var(--spacing-5) + var(--spacing-3));
+    padding-inline-start: 1.5rem;
   }
 
   .cm-quote {
