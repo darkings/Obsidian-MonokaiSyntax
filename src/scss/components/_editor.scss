@@ -9,12 +9,14 @@
   --monokai-heading-weight: 600;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
-  --blockquote-background-color: var(--monokai-blockquote-background);
   --blockquote-border-thickness: 2px;
-  --callout-padding: calc(var(--spacing-5) + var(--spacing-2)) calc(var(--spacing-5) + var(--spacing-4));
+  --blockquote-background-color: transparent;
+  --callout-padding: 1.25rem;
   --callout-content-padding: var(--spacing-4) 0 0 0;
-  --callout-border-width: 1px;
+  --callout-border-width: 0;
   --callout-radius: var(--radius-s);
+  --callout-blend-mode: normal;
+  --callout-icon-size: 1em;
   --p-spacing: #{$spacing-3};
 
   -webkit-font-smoothing: antialiased;
@@ -23,10 +25,15 @@
 
 .theme-dark {
   --monokai-heading-weight: 600;
-  --monokai-blockquote-background: rgb(169 220 118 / 11%);
-  --monokai-callout-background: rgb(102 217 239 / 14%);
-  --monokai-callout-content-background: transparent;
-  --monokai-callout-border: rgb(102 217 239 / 22%);
+  --monokai-blockquote-border: #{$color-dark-blockquote-border};
+  --monokai-callout-note-bg: rgb(102 217 239 / 5%);
+  --monokai-callout-note-border: #66d9ef;
+  --monokai-callout-warning-bg: rgb(253 151 31 / 5%);
+  --monokai-callout-warning-border: #fd971f;
+  --monokai-callout-error-bg: rgb(249 38 114 / 5%);
+  --monokai-callout-error-border: #f92672;
+  --monokai-callout-success-bg: rgb(166 226 46 / 5%);
+  --monokai-callout-success-border: #a6e22e;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(248 248 242 / 18%);
@@ -35,10 +42,15 @@
 
 .theme-light {
   --monokai-heading-weight: 700;
-  --monokai-blockquote-background: rgb(38 157 105 / 9%);
-  --monokai-callout-background: rgb(102 217 239 / 18%);
-  --monokai-callout-content-background: transparent;
-  --monokai-callout-border: rgb(102 217 239 / 26%);
+  --monokai-blockquote-border: #{$color-light-blockquote-border};
+  --monokai-callout-note-bg: rgb(20 116 138 / 6%);
+  --monokai-callout-note-border: #14748a;
+  --monokai-callout-warning-bg: rgb(225 96 50 / 6%);
+  --monokai-callout-warning-border: #e16032;
+  --monokai-callout-error-bg: rgb(225 71 117 / 6%);
+  --monokai-callout-error-border: #e14775;
+  --monokai-callout-success-bg: rgb(38 157 105 / 6%);
+  --monokai-callout-success-border: #269d69;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(61 61 61 / 18%);
