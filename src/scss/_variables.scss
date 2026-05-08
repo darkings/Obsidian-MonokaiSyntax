@@ -38,6 +38,10 @@ $color-light-cyan: #14748a;
 $color-light-cyan-soft: #1ba5bf;
 $color-light-purple: #7058be;
 $color-light-purple-soft: #7358cf;
+
+$color-dark-blockquote-border: $color-dark-yellow;
+$color-light-blockquote-border: $color-light-yellow;
+
 $font-text-theme: "Inter", "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
 $font-monospace-theme: "Fira Code", "Cascadia Code", "Consolas", monospace;
 $line-height-normal: 1.6;
@@ -47,6 +51,3 @@ $spacing-1: 0.25rem;
 $spacing-2: 0.5rem;
 $spacing-3: 0.75rem;
 $spacing-4: 1rem;
-
-$color-dark-blockquote-border: #e6db74;
-$color-light-blockquote-border: #cc7a0a;
