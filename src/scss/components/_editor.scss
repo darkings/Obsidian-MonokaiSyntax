@@ -96,7 +96,8 @@
     padding: #{$spacing-3} #{$spacing-3} #{$spacing-3} 1.25rem;
   }
 
-  .callout {
+  .callout,
+  .cm-callout {
     background-color: var(--callout-background, transparent);
     border: 0;
     border-inline-start: 2px solid var(--callout-border, var(--monokai-callout-note-border));
@@ -104,14 +105,16 @@
     padding: var(--callout-padding);
   }
 
-  .callout-title {
+  .callout-title,
+  .cm-callout-title {
     color: var(--callout-border, var(--monokai-callout-note-border));
     font-weight: 700;
     gap: var(--spacing-2);
     padding-inline-start: 0;
   }
 
-  .callout-content {
+  .callout-content,
+  .cm-callout-content {
     background-color: transparent;
     border-radius: 0;
     margin-block-start: var(--spacing-4);
@@ -143,7 +146,8 @@
     --callout-border: var(--monokai-callout-success-border);
   }
 
-  .callout-icon {
+  .callout-icon,
+  .cm-callout-icon {
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
@@ -152,11 +156,13 @@
     margin-right: 0.35em;
   }
 
-  .callout-icon svg {
+  .callout-icon svg,
+  .cm-callout-icon svg {
     display: none;
   }
 
-  .callout-icon::before {
+  .callout-icon::before,
+  .cm-callout-icon::before {
     display: inline;
     font-family: var(--font-monospace-theme);
     font-weight: 700;
@@ -167,22 +173,30 @@
   }
 
   .callout[data-callout="note"] .callout-icon::before,
-  .callout[data-callout="info"] .callout-icon::before {
+  .callout[data-callout="note"] .cm-callout-icon::before,
+  .callout[data-callout="info"] .callout-icon::before,
+  .callout[data-callout="info"] .cm-callout-icon::before {
     content: "#[i]";
   }
 
   .callout[data-callout="warning"] .callout-icon::before,
-  .callout[data-callout="caution"] .callout-icon::before {
+  .callout[data-callout="warning"] .cm-callout-icon::before,
+  .callout[data-callout="caution"] .callout-icon::before,
+  .callout[data-callout="caution"] .cm-callout-icon::before {
     content: "<!>";
   }
 
   .callout[data-callout="error"] .callout-icon::before,
-  .callout[data-callout="danger"] .callout-icon::before {
+  .callout[data-callout="error"] .cm-callout-icon::before,
+  .callout[data-callout="danger"] .callout-icon::before,
+  .callout[data-callout="danger"] .cm-callout-icon::before {
     content: "[\00D7]";
   }
 
   .callout[data-callout="success"] .callout-icon::before,
-  .callout[data-callout="check"] .callout-icon::before {
+  .callout[data-callout="success"] .cm-callout-icon::before,
+  .callout[data-callout="check"] .callout-icon::before,
+  .callout[data-callout="check"] .cm-callout-icon::before {
     content: "{\2713}";
   }
 
@@ -298,7 +312,8 @@
     display: none;
   }
 
-  .callout {
+  .callout,
+  .cm-callout {
     background-color: var(--callout-background, transparent);
     border: 0;
     border-inline-start: 2px solid var(--callout-border, var(--monokai-callout-note-border));
@@ -344,7 +359,8 @@
     --callout-border: var(--monokai-callout-success-border);
   }
 
-  .callout-icon {
+  .callout-icon,
+  .cm-callout-icon {
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
@@ -353,11 +369,13 @@
     margin-right: 0.35em;
   }
 
-  .callout-icon svg {
+  .callout-icon svg,
+  .cm-callout-icon svg {
     display: none;
   }
 
-  .callout-icon::before {
+  .callout-icon::before,
+  .cm-callout-icon::before {
     display: inline;
     font-family: var(--font-monospace-theme);
     font-weight: 700;
@@ -368,22 +386,30 @@
   }
 
   .callout[data-callout="note"] .callout-icon::before,
-  .callout[data-callout="info"] .callout-icon::before {
+  .callout[data-callout="note"] .cm-callout-icon::before,
+  .callout[data-callout="info"] .callout-icon::before,
+  .callout[data-callout="info"] .cm-callout-icon::before {
     content: "#[i]";
   }
 
   .callout[data-callout="warning"] .callout-icon::before,
-  .callout[data-callout="caution"] .callout-icon::before {
+  .callout[data-callout="warning"] .cm-callout-icon::before,
+  .callout[data-callout="caution"] .callout-icon::before,
+  .callout[data-callout="caution"] .cm-callout-icon::before {
     content: "<!>";
   }
 
   .callout[data-callout="error"] .callout-icon::before,
-  .callout[data-callout="danger"] .callout-icon::before {
+  .callout[data-callout="error"] .cm-callout-icon::before,
+  .callout[data-callout="danger"] .callout-icon::before,
+  .callout[data-callout="danger"] .cm-callout-icon::before {
     content: "[\00D7]";
   }
 
   .callout[data-callout="success"] .callout-icon::before,
-  .callout[data-callout="check"] .callout-icon::before {
+  .callout[data-callout="success"] .cm-callout-icon::before,
+  .callout[data-callout="check"] .callout-icon::before,
+  .callout[data-callout="check"] .cm-callout-icon::before {
     content: "{\2713}";
   }
 

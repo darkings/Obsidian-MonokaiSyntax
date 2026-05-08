@@ -29,8 +29,8 @@ body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote,
 body .markdown-source-view.mod-cm6 .HyperMD-quote,
 body .markdown-source-view.mod-cm6 .cm-line:has(.cm-quote) {
   background-color: transparent;
+  border-inline-start: 2px solid var(--monokai-blockquote-border);
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
-  box-shadow: inset 2px 0 0 var(--monokai-blockquote-border);
   padding-left: 1.25rem;
   text-indent: 0;
 }
@@ -97,6 +97,84 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout-content) {
   margin-block-start: var(--spacing-4);
   padding: var(--callout-content-padding);
   padding-inline-start: 0;
+}
+
+/* ===== Callout 图标 ===== */
+
+body .markdown-preview-view.markdown-rendered .callout-icon,
+body .markdown-rendered .callout-icon,
+body .markdown-source-view.mod-cm6 .callout-icon,
+body .markdown-source-view.mod-cm6 .cm-callout-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  margin-right: 0.35em;
+}
+
+body .markdown-preview-view.markdown-rendered .callout-icon svg,
+body .markdown-rendered .callout-icon svg,
+body .markdown-source-view.mod-cm6 .callout-icon svg,
+body .markdown-source-view.mod-cm6 .cm-callout-icon svg {
+  display: none;
+}
+
+body .markdown-preview-view.markdown-rendered .callout-icon::before,
+body .markdown-rendered .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout-icon::before,
+body .markdown-source-view.mod-cm6 .cm-callout-icon::before {
+  display: inline;
+  font-family: var(--font-monospace-theme);
+  font-weight: 700;
+  font-size: 0.95em;
+  color: var(--callout-border, var(--monokai-callout-note-border));
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="note"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="note"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="note"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="note"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="info"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="info"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="info"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="info"] .cm-callout-icon::before {
+  content: "#[i]";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="warning"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="warning"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="warning"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="warning"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="caution"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="caution"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="caution"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="caution"] .cm-callout-icon::before {
+  content: "<!>";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="error"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="error"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="error"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="error"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="danger"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="danger"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="danger"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="danger"] .cm-callout-icon::before {
+  content: "[\00D7]";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="success"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="success"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="success"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="success"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="check"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="check"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="check"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="check"] .cm-callout-icon::before {
+  content: "{\2713}";
 }
 
 /* stylelint-enable selector-class-pattern */
