@@ -1,0 +1,77 @@
+@use "../mixins" as *;
+
+body.monokai-syntax-filter-classic {
+  --monokai-filter-name: "classic";
+}
+
+body.monokai-syntax-filter-machine {
+  --background-primary: #222421;
+  --background-secondary: #191b19;
+  --text-accent: #ff4f8b;
+  --interactive-accent: #ff4f8b;
+  --monokai-filter-name: "machine";
+}
+
+body.monokai-syntax-filter-octagon {
+  --background-primary: #28252f;
+  --background-secondary: #1f1d26;
+  --text-accent: #ff6188;
+  --interactive-accent: #ff6188;
+  --link-color: #78dce8;
+  --monokai-filter-name: "octagon";
+}
+
+body.monokai-syntax-filter-ristretto {
+  --background-primary: #2b241f;
+  --background-secondary: #211b18;
+  --text-accent: #ff6188;
+  --interactive-accent: #ff6188;
+  --link-color: #fc9867;
+  --monokai-filter-name: "ristretto";
+}
+
+body.monokai-syntax-filter-spectrum {
+  --background-primary: #262933;
+  --background-secondary: #1c1f28;
+  --text-accent: #ab9df2;
+  --interactive-accent: #ab9df2;
+  --link-color: #78dce8;
+  --monokai-filter-name: "spectrum";
+}
+
+body.monokai-syntax-compact {
+  @include compact-density;
+
+  .nav-file-title,
+  .nav-folder-title {
+    line-height: var(--nav-item-size);
+    padding-block: 0;
+  }
+
+  .side-dock-ribbon-action {
+    height: var(--ribbon-item-size);
+    padding: 4px;
+  }
+
+  .markdown-rendered pre {
+    padding: 0.75rem;
+  }
+}
+
+body.monokai-syntax-monochrome-icons {
+  --icon-color: var(--text-muted);
+  --icon-color-hover: var(--text-normal);
+  --icon-color-active: var(--text-normal);
+}
+
+body {
+  --file-line-width: var(--monokai-readable-line-width, 48rem);
+  --text-accent: var(--monokai-accent-color, var(--monokai-default-accent));
+  --interactive-accent: var(--monokai-accent-color, var(--monokai-default-accent));
+  --link-color: var(--monokai-link-color, var(--monokai-default-link));
+  --link-external-color: var(--monokai-link-color, var(--monokai-default-link));
+  --blockquote-border-color: var(--monokai-success-color, var(--monokai-default-success));
+  --checkbox-color-checked: var(--monokai-success-color, var(--monokai-default-success));
+  --text-highlight-bg: var(--monokai-warning-color, var(--monokai-default-warning));
+  --code-background: var(--monokai-code-background, var(--monokai-default-code-background));
+}

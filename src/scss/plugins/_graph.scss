@@ -1,0 +1,180 @@
+.graph-view {
+  --graph-line: var(--monokai-graph-line);
+  --graph-node: var(--monokai-graph-node);
+  --graph-node-focused: var(--monokai-graph-focused);
+  --graph-node-tag: var(--monokai-graph-node-tag);
+  --graph-node-attachment: var(--monokai-graph-node-attachment);
+  --graph-node-unresolved: var(--monokai-graph-node-unresolved);
+  --graph-arrow: var(--monokai-graph-line);
+  --graph-line-highlight: var(--link-color);
+  --graph-node-highlight-fill: var(--interactive-accent);
+  --graph-node-highlight-line: var(--link-color);
+
+  background-color: var(--monokai-graph-background);
+  transition:
+    color 140ms ease,
+    background-color 180ms ease;
+}
+
+@keyframes monokai-graph-tap {
+  0% {
+    transform: translateX(0);
+  }
+
+  35% {
+    transform: translateX(1px);
+  }
+
+  70% {
+    transform: translateX(-1px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.theme-dark {
+  --monokai-graph-background: #1e1f1c;
+  --monokai-graph-panel: #2b2c26;
+  --monokai-graph-line: rgb(120 220 232 / 42%);
+  --monokai-graph-node: #c1c1bd;
+  --monokai-graph-focused: #ff6188;
+  --monokai-graph-node-tag: #ab9df2;
+  --monokai-graph-node-attachment: #a9dc76;
+  --monokai-graph-node-unresolved: #72736f;
+  --monokai-graph-ring: rgb(102 217 239 / 28%);
+}
+
+.theme-light {
+  --monokai-graph-background: #f5f0e6;
+  --monokai-graph-panel: #f2ead8;
+  --monokai-graph-line: rgb(20 116 138 / 42%);
+  --monokai-graph-node: #4f5a55;
+  --monokai-graph-focused: #c83f67;
+  --monokai-graph-node-tag: #7058be;
+  --monokai-graph-node-attachment: #269d69;
+  --monokai-graph-node-unresolved: #a39a8d;
+  --monokai-graph-ring: rgb(20 116 138 / 18%);
+}
+
+.graph-controls {
+  color: var(--text-muted);
+  background-color: var(--monokai-graph-panel);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
+  transition:
+    border-color 140ms ease,
+    box-shadow 180ms ease;
+}
+
+.graph-controls-button {
+  color: var(--icon-color);
+  border-radius: var(--radius-s);
+  transition:
+    color 140ms ease,
+    background-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
+}
+
+.graph-controls-button:hover {
+  color: var(--icon-color-hover);
+  background-color: var(--background-modifier-hover);
+  transform: translateY(-1px);
+}
+
+.graph-controls-button:active {
+  animation: monokai-graph-tap 160ms ease-out;
+  transform: translateY(0);
+}
+
+.graph-controls-button.mod-active {
+  color: var(--icon-color-active);
+  background-color: var(--nav-item-background-active);
+  box-shadow: inset 2px 0 0 var(--icon-color-active);
+}
+
+.graph-view.color-fill,
+.graph-view.color-fill-focused,
+.graph-view.color-fill-tag,
+.graph-view.color-fill-attachment,
+.graph-view.color-fill-unresolved {
+  color: var(--graph-node);
+}
+
+.graph-view.color-line,
+.graph-view.color-arrow {
+  color: var(--graph-line);
+}
+
+.graph-view.color-fill-highlight,
+.graph-view.color-line-highlight {
+  color: var(--graph-line-highlight);
+}
+
+.graph-view.color-fill-focused {
+  color: var(--graph-node-focused);
+}
+
+.graph-view.color-fill-tag {
+  color: var(--graph-node-tag);
+}
+
+.graph-view.color-fill-attachment {
+  color: var(--graph-node-attachment);
+}
+
+.graph-view.color-fill-unresolved {
+  color: var(--graph-node-unresolved);
+}
+
+.graph-view.color-line-highlight {
+  color: var(--graph-node-highlight-line);
+}
+
+.graph-view.color-fill-highlight {
+  color: var(--graph-node-highlight-fill);
+}
+
+.workspace-leaf-content[data-type="graph"],
+.workspace-leaf-content[data-type="localgraph"] {
+  background-color: var(--monokai-graph-background);
+}
+
+.workspace-leaf-content[data-type="graph"] .view-content,
+.workspace-leaf-content[data-type="localgraph"] .view-content {
+  background: var(--monokai-graph-background);
+  overflow: hidden;
+  position: relative;
+}
+
+.workspace-leaf-content[data-type="graph"],
+.workspace-leaf-content[data-type="localgraph"] {
+  transition:
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.workspace-leaf-content[data-type="graph"]:focus-within,
+.workspace-leaf-content[data-type="localgraph"]:focus-within {
+  box-shadow: inset 0 0 0 1px var(--monokai-graph-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .graph-view,
+  .graph-controls,
+  .graph-controls-button,
+  .workspace-leaf-content[data-type="graph"],
+  .workspace-leaf-content[data-type="localgraph"] {
+    transition: none;
+  }
+
+  .graph-controls-button:hover,
+  .graph-controls-button:active {
+    animation: none;
+    transform: none;
+  }
+
+}

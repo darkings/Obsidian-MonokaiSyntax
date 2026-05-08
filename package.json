@@ -1,0 +1,35 @@
+      {
+  "name": "monokai-syntax",
+  "version": "1.0.0",
+  "description": "面向 Obsidian 的 Monokai Syntax 主题。",
+  "author": "lat3ncy",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prebuild": "node scripts/generate-icon-theme.js",
+    "prelint:css": "node scripts/generate-icon-theme.js",
+    "dev": "vite build --watch",
+    "generate:icons": "node scripts/generate-icon-theme.js",
+    "build": "vite build",
+    "lint:css": "stylelint \"src/scss/**/*.scss\"",
+    "check:contrast": "node scripts/check-contrast.js",
+    "audit:css": "node scripts/audit-css.js",
+    "verify:pip-editor": "node scripts/verify-pip-editor.js",
+    "verify:icons": "node scripts/verify-icons.js",
+    "verify:graph": "node scripts/verify-graph.js",
+    "verify:active-visual": "node scripts/verify-active-visual.js",
+    "qa:create": "node scripts/create-qa-content.js",
+    "qa:verify": "node scripts/verify-qa.js",
+    "build:dev": "vite build --mode development",
+    "sync:vault": "node scripts/sync-vault-theme.js",
+    "build:vault": "npm run build && npm run sync:vault",
+    "release:pack": "npm run verify:pip-editor && npm run verify:icons && npm run verify:graph && npm run verify:active-visual && npm run lint:css && npm run check:contrast && npm run build && npm run audit:css"
+  },
+  "devDependencies": {
+    "sass": "^1.99.0",
+    "stylelint": "^17.11.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "vite": "^8.0.10"
+  }
+}
