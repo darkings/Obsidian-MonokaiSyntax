@@ -56,8 +56,7 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout),
 body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout) {
   background-color: transparent;
   border-inline-start: 0;
-  border-radius: 0 var(--radius-s) var(--radius-s) 0;
-  padding: var(--callout-padding);
+  border-radius: 0;
 }
 
 /* ===== Callout 组件（阅读 + 编辑统一：背景 + 竖线 + 内间距） ===== */
@@ -97,6 +96,56 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout-content) {
   margin-block-start: var(--spacing-4);
   padding: var(--callout-content-padding);
   padding-inline-start: 0;
+}
+
+/* ===== Callout 语义色分组映射 ===== */
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="note"],
+body .markdown-rendered .callout[data-callout="note"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="note"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="note"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="info"],
+body .markdown-rendered .callout[data-callout="info"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="info"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="info"]) {
+  --callout-background: var(--monokai-callout-note-bg);
+  --callout-border: var(--monokai-callout-note-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="warning"],
+body .markdown-rendered .callout[data-callout="warning"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="warning"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="warning"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="caution"],
+body .markdown-rendered .callout[data-callout="caution"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="caution"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="caution"]) {
+  --callout-background: var(--monokai-callout-warning-bg);
+  --callout-border: var(--monokai-callout-warning-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="error"],
+body .markdown-rendered .callout[data-callout="error"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="error"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="error"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="danger"],
+body .markdown-rendered .callout[data-callout="danger"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="danger"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="danger"]) {
+  --callout-background: var(--monokai-callout-error-bg);
+  --callout-border: var(--monokai-callout-error-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="success"],
+body .markdown-rendered .callout[data-callout="success"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="success"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="success"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="check"],
+body .markdown-rendered .callout[data-callout="check"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="check"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="check"]) {
+  --callout-background: var(--monokai-callout-success-bg);
+  --callout-border: var(--monokai-callout-success-border);
 }
 
 /* ===== Callout 图标 ===== */
