@@ -1,0 +1,3 @@
+node_modules/
+.claude/settings.local.json
+.claude/statusline-command.sh
