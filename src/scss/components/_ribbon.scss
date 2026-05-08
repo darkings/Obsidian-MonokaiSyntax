@@ -1,0 +1,27 @@
+.workspace-ribbon {
+  background-color: var(--ribbon-background);
+  border-inline-end: 1px solid var(--background-modifier-border);
+}
+
+.side-dock-ribbon-action,
+.workspace-ribbon-collapse-btn {
+  border-radius: var(--radius-s);
+  color: var(--icon-color);
+  margin-block: 2px;
+}
+
+.side-dock-ribbon-action:hover,
+.workspace-ribbon-collapse-btn:hover {
+  color: var(--icon-color-hover);
+  background-color: var(--background-modifier-hover);
+}
+
+.side-dock-ribbon-action.is-active {
+  color: var(--icon-color-active);
+  background-color: var(--background-modifier-hover);
+  box-shadow: inset 2px 0 0 var(--icon-color-active);
+}
+
+body.is-mobile .workspace-ribbon {
+  border-inline-end: 0;
+}
