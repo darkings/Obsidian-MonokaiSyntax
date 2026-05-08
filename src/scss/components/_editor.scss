@@ -27,13 +27,13 @@
   --monokai-heading-weight: 600;
   --blockquote-border-color: #{$color-dark-blockquote-border};
   --monokai-blockquote-border: #{$color-dark-blockquote-border};
-  --monokai-callout-note-bg: rgb(102 217 239 / 10%);
+  --monokai-callout-note-bg: rgb(102 217 239 / 16%);
   --monokai-callout-note-border: #66d9ef;
-  --monokai-callout-warning-bg: rgb(253 151 31 / 10%);
+  --monokai-callout-warning-bg: rgb(253 151 31 / 16%);
   --monokai-callout-warning-border: #fd971f;
-  --monokai-callout-error-bg: rgb(249 38 114 / 10%);
+  --monokai-callout-error-bg: rgb(249 38 114 / 16%);
   --monokai-callout-error-border: #f92672;
-  --monokai-callout-success-bg: rgb(166 226 46 / 10%);
+  --monokai-callout-success-bg: rgb(166 226 46 / 16%);
   --monokai-callout-success-border: #a6e22e;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
@@ -45,13 +45,13 @@
   --monokai-heading-weight: 700;
   --blockquote-border-color: #{$color-light-blockquote-border};
   --monokai-blockquote-border: #{$color-light-blockquote-border};
-  --monokai-callout-note-bg: rgb(20 116 138 / 12%);
+  --monokai-callout-note-bg: rgb(20 116 138 / 20%);
   --monokai-callout-note-border: #14748a;
-  --monokai-callout-warning-bg: rgb(225 96 50 / 12%);
+  --monokai-callout-warning-bg: rgb(225 96 50 / 20%);
   --monokai-callout-warning-border: #e16032;
-  --monokai-callout-error-bg: rgb(225 71 117 / 12%);
+  --monokai-callout-error-bg: rgb(225 71 117 / 20%);
   --monokai-callout-error-border: #e14775;
-  --monokai-callout-success-bg: rgb(38 157 105 / 12%);
+  --monokai-callout-success-bg: rgb(38 157 105 / 20%);
   --monokai-callout-success-border: #269d69;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
@@ -93,7 +93,10 @@
     border-inline-start: 2px solid var(--monokai-blockquote-border);
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
     color: var(--text-normal);
-    padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) 2rem;
+    padding-top: var(--spacing-4);
+    padding-bottom: var(--spacing-4);
+    padding-right: var(--spacing-4);
+    padding-inline-start: 2rem;
   }
 
   .callout {
@@ -148,8 +151,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--callout-icon-size);
-    height: var(--callout-icon-size);
+    overflow: visible;
   }
 
   .callout-icon svg {
@@ -157,15 +159,12 @@
   }
 
   .callout-icon::before {
-    display: block;
-    width: var(--callout-icon-size);
-    height: var(--callout-icon-size);
-    line-height: var(--callout-icon-size);
-    text-align: center;
+    display: inline;
     font-family: var(--font-monospace-theme);
     font-weight: 700;
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: var(--callout-border, var(--monokai-callout-note-border));
+    white-space: nowrap;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -279,6 +278,10 @@
     background-color: transparent;
     border-inline-start: 2px solid var(--monokai-blockquote-border);
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  }
+
+  /* stylelint-disable-next-line selector-class-pattern -- Obsidian 内部类名 */
+  .HyperMD-quote .cm-line {
     padding-inline-start: 2rem;
   }
 
@@ -348,8 +351,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--callout-icon-size);
-    height: var(--callout-icon-size);
+    overflow: visible;
   }
 
   .callout-icon svg {
@@ -357,15 +359,12 @@
   }
 
   .callout-icon::before {
-    display: block;
-    width: var(--callout-icon-size);
-    height: var(--callout-icon-size);
-    line-height: var(--callout-icon-size);
-    text-align: center;
+    display: inline;
     font-family: var(--font-monospace-theme);
     font-weight: 700;
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: var(--callout-border, var(--monokai-callout-note-border));
+    white-space: nowrap;
     -webkit-font-smoothing: antialiased;
   }
 
