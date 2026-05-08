@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Stylelint
+        run: npm run lint:css
+
+      - name: Build
+        run: npm run build
+
+      - name: CSS Audit
+        run: npm run audit:css
+
+      - name: Contrast Check
+        run: npm run check:contrast
