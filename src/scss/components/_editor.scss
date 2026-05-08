@@ -27,13 +27,13 @@
   --monokai-heading-weight: 600;
   --blockquote-border-color: #{$color-dark-blockquote-border};
   --monokai-blockquote-border: #{$color-dark-blockquote-border};
-  --monokai-callout-note-bg: rgb(102 217 239 / 16%);
+  --monokai-callout-note-bg: rgb(102 217 239 / 12%);
   --monokai-callout-note-border: #66d9ef;
-  --monokai-callout-warning-bg: rgb(253 151 31 / 16%);
+  --monokai-callout-warning-bg: rgb(253 151 31 / 12%);
   --monokai-callout-warning-border: #fd971f;
-  --monokai-callout-error-bg: rgb(249 38 114 / 16%);
+  --monokai-callout-error-bg: rgb(249 38 114 / 12%);
   --monokai-callout-error-border: #f92672;
-  --monokai-callout-success-bg: rgb(166 226 46 / 16%);
+  --monokai-callout-success-bg: rgb(166 226 46 / 12%);
   --monokai-callout-success-border: #a6e22e;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
@@ -45,13 +45,13 @@
   --monokai-heading-weight: 700;
   --blockquote-border-color: #{$color-light-blockquote-border};
   --monokai-blockquote-border: #{$color-light-blockquote-border};
-  --monokai-callout-note-bg: rgb(20 116 138 / 20%);
+  --monokai-callout-note-bg: rgb(20 116 138 / 14%);
   --monokai-callout-note-border: #14748a;
-  --monokai-callout-warning-bg: rgb(225 96 50 / 20%);
+  --monokai-callout-warning-bg: rgb(225 96 50 / 14%);
   --monokai-callout-warning-border: #e16032;
-  --monokai-callout-error-bg: rgb(225 71 117 / 20%);
+  --monokai-callout-error-bg: rgb(225 71 117 / 14%);
   --monokai-callout-error-border: #e14775;
-  --monokai-callout-success-bg: rgb(38 157 105 / 20%);
+  --monokai-callout-success-bg: rgb(38 157 105 / 14%);
   --monokai-callout-success-border: #269d69;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
@@ -93,10 +93,7 @@
     border-inline-start: 2px solid var(--monokai-blockquote-border);
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
     color: var(--text-normal);
-    padding-top: var(--spacing-4);
-    padding-bottom: var(--spacing-4);
-    padding-right: var(--spacing-4);
-    padding-inline-start: 2rem;
+    padding: #{$spacing-4} #{$spacing-4} #{$spacing-4} 2.5rem;
   }
 
   .callout {
@@ -152,6 +149,7 @@
     align-items: center;
     justify-content: center;
     overflow: visible;
+    margin-right: 0.35em;
   }
 
   .callout-icon svg {
@@ -282,7 +280,7 @@
 
   /* stylelint-disable-next-line selector-class-pattern -- Obsidian 内部类名 */
   .HyperMD-quote .cm-line {
-    padding-inline-start: 2rem;
+    padding-inline-start: 2.5rem;
   }
 
   .cm-quote {
@@ -352,6 +350,7 @@
     align-items: center;
     justify-content: center;
     overflow: visible;
+    margin-right: 0.35em;
   }
 
   .callout-icon svg {
