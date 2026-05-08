@@ -14,13 +14,15 @@ body.theme-light,
   --callout-radius: var(--radius-s);
 }
 
+/* ===== 块引用 ===== */
+
 body .markdown-preview-view.markdown-rendered blockquote,
 body .markdown-rendered blockquote {
   background-color: transparent;
   border-inline-start: 2px solid var(--monokai-blockquote-border);
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
   color: var(--text-normal);
-  padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) 2rem;
+  padding: #{$spacing-4} #{$spacing-4} #{$spacing-4} 2.5rem;
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote,
@@ -29,7 +31,7 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.cm-quote) {
   background-color: transparent;
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
   box-shadow: inset 2px 0 0 var(--monokai-blockquote-border);
-  padding-inline-start: 2rem;
+  padding-left: 2.5rem;
   text-indent: 0;
 }
 
@@ -48,18 +50,36 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.cm-quote) .cm-formatting-quote 
   display: none;
 }
 
-body .markdown-preview-view.markdown-rendered .callout,
-body .markdown-rendered .callout,
-body .markdown-source-view.mod-cm6 .callout,
-body .markdown-source-view.mod-cm6 .cm-callout,
+/* ===== Callout - CodeMirror 行容器（背景 + padding，无竖线） ===== */
+
 body .markdown-source-view.mod-cm6 .cm-line:has(.callout),
 body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout) {
+  background-color: var(--callout-background, transparent);
+  border-inline-start: 0;
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  padding: var(--callout-padding);
+}
+
+/* ===== Callout 组件（竖线 + 标题色，无背景） ===== */
+
+body .markdown-preview-view.markdown-rendered .callout,
+body .markdown-rendered .callout {
   background-color: var(--callout-background, transparent);
   border: 0;
   border-inline-start: 2px solid var(--callout-border, var(--monokai-callout-note-border));
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
   box-shadow: none;
   padding: var(--callout-padding);
+}
+
+body .markdown-source-view.mod-cm6 .callout,
+body .markdown-source-view.mod-cm6 .cm-callout {
+  background-color: transparent;
+  border: 0;
+  border-inline-start: 2px solid var(--callout-border, var(--monokai-callout-note-border));
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
 body .markdown-preview-view.markdown-rendered .callout-title,
