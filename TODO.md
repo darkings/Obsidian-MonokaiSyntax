@@ -421,20 +421,33 @@
 
 ## 阶段 10：CI 与发布自动化
 
-- [ ] 创建 GitHub Actions 工作流。
-  - [ ] 安装依赖。
-  - [ ] 运行 Stylelint。
-  - [ ] 运行生产构建。
-  - [ ] 打包 `theme.css`、`manifest.json` 与所需发布资产。
-- [ ] 添加由语义化版本标签触发的发布工作流。
-  - [ ] 使用 `v1.0.0` 等标签触发。
-  - [ ] 将构建后的 CSS 与 manifest 附加到 GitHub Release。
-  - [ ] 构建产物缺失时让发布失败。
-- [ ] 添加发布前检查清单。
-  - [ ] 确认各元数据文件中的版本号一致。
-  - [ ] 确认存在变更日志条目。
+- [x] 创建 GitHub Actions 工作流。
+  - [x] 安装依赖。
+  - [x] 运行 Stylelint。
+  - [x] 运行生产构建。
+  - [x] 打包 `theme.css`、`manifest.json` 与所需发布资产。
+- [x] 添加由语义化版本标签触发的发布工作流。
+  - [x] 使用 `v1.0.0` 等标签触发。
+  - [x] 将构建后的 CSS 与 manifest 附加到 GitHub Release。
+  - [x] 构建产物缺失时让发布失败（`fail_on_unmatched_files: true`）。
+- [x] 添加发布前检查清单。
+  - [x] 确认各元数据文件中的版本号一致（`release:pack` 脚本已包含）。
+  - [x] 确认存在变更日志条目（`CHANGELOG.md` 已创建）。
   - [ ] 确认截图为最新版本。
-  - [ ] 确认没有引用远程资源。
+  - [x] 确认没有引用远程资源（`audit:css` 已包含）。
+
+## 阶段 10.5：Callout 与块引用 Monokai Pro 重设计（进行中）
+
+> Callout 和块引用样式对齐 Monokai Pro 编辑器的装订线式彩色竖线风格。
+
+- [x] 块引用：暖金色竖线（`#e6db74`/`#cc7a0a`），无背景，阅读+编辑模式统一
+- [x] Callout：语义色左侧竖线（青/橙/洋红/绿），极微着色背景（暗 12%/浅 14%）
+- [x] Callout 图标：代码符号风格（`#[i]` `<!>` `[×]` `{✓}`），隐藏默认 Lucide SVG
+- [x] 间距优化：块引用左间距 1.25rem，Callout 内边距 1.25rem
+- [x] 修复编辑模式块引用 inline style 覆盖问题（`:has(.cm-quote)` + `margin-left` 方案）
+- [x] 修复 Callout 双竖条（`.cm-callout` 与 `.callout` 分离）
+- [x] CSS 规则收归 `_active-visual-overrides.scss` 单一源
+- [ ] 最终视觉 QA 确认：编辑模式 Callout 图标显示、背景可见度、间距统一性
 
 ## 阶段 11：社区主题提交
 
@@ -460,5 +473,5 @@
 - [ ] 里程碑 3：Markdown 编辑器与阅读视图完成打磨。
 - [ ] 里程碑 4：Obsidian UI 界面符合 Monokai Syntax 视觉语言。
 - [ ] 里程碑 5：关系图谱、Canvas 与 Style Settings 可正常使用。
-- [ ] 里程碑 6：Lint、构建与发布自动化通过。
+- [x] 里程碑 6：Lint、构建与发布自动化通过。
 - [ ] 里程碑 7：社区主题提交材料准备完成。
