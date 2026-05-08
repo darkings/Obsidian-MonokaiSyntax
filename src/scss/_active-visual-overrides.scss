@@ -61,14 +61,20 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout) {
 
 body .markdown-preview-view.markdown-rendered .callout,
 body .markdown-rendered .callout,
-body .markdown-source-view.mod-cm6 .callout,
-body .markdown-source-view.mod-cm6 .cm-callout {
+body .markdown-source-view.mod-cm6 .callout {
   background-color: var(--callout-background, transparent);
   border: 0;
   border-inline-start: 2px solid var(--callout-border, var(--monokai-callout-note-border));
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
   box-shadow: none;
   padding: var(--callout-padding);
+}
+
+body .markdown-source-view.mod-cm6 .cm-callout {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  padding: 0;
 }
 
 body .markdown-preview-view.markdown-rendered .callout-title,
