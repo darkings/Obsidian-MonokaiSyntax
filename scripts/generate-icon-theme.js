@@ -2,11 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
 const rootDir = resolve(import.meta.dirname, "..");
-const localIconDir = resolve(rootDir, "icons");
-const vaultIconDir = resolve(
-  "C:/Users/Jie/iCloudDrive/iCloud~md~obsidian/SecondBrain/project/Monokai Syntax/icons",
-);
-const iconDir = existsSync(localIconDir) ? localIconDir : vaultIconDir;
+const iconDir = resolve(rootDir, "icons");
 const themePath = resolve(iconDir, "icon-theme.json");
 const fontPath = resolve(iconDir, "icons.woff");
 const outputPath = resolve(rootDir, "src/scss/components/_file-icons.generated.scss");
@@ -74,7 +70,7 @@ const lines = [
   "/* stylelint-disable */",
   "/*",
   " * 此文件由 `npm run generate:icons` 自动生成。",
-  " * 请修改 `scripts/generate-icon-theme.js` 或 `icon-themes/` 源资产，不要手写编辑本文件。",
+  " * 请修改 `scripts/generate-icon-theme.js` 或 `icons/` 源资产，不要手写编辑本文件。",
   " */",
   "",
   "@font-face {",
@@ -85,7 +81,6 @@ const lines = [
   "  font-weight: 400;",
   "}",
   "",
-  ".nav-file-title::before,",
   ".nav-file-title::before {",
   '  display: inline-block;',
   '  flex: 0 0 1rem;',

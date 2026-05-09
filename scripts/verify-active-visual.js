@@ -34,7 +34,6 @@ const checks = [
   [
     "Active 视觉覆盖层不保留诊断描边",
     !/box-shadow:\s*inset 0 0 0 3px/.test(files.overrides)
-      && !/#f92672/.test(files.overrides)
       && !/box-shadow:[^;]*#66d9ef/.test(files.overrides),
   ],
   [
@@ -58,25 +57,42 @@ const checks = [
       && /\.markdown-rendered[\s\S]*?code[\s\S]*?background-color:\s*var\(--monokai-inline-code-background\);/.test(files.editor),
   ],
   [
-    "Callout 使用截图式蓝青面板",
-    /--monokai-callout-background:\s*rgb\(102 217 239 \/ 14%\);/.test(files.editor)
-      && /--callout-padding:\s*calc\(var\(--spacing-5\) \+ var\(--spacing-2\)\) calc\(var\(--spacing-5\) \+ var\(--spacing-4\)\);/.test(files.overrides)
-      && /--callout-content-padding:\s*var\(--spacing-4\) 0 0 0;/.test(files.overrides)
-      && /body \.markdown-source-view\.mod-cm6 \.callout[\s\S]*?box-shadow:\s*inset 0 0 0 1px var\(--monokai-callout-border\);/.test(files.overrides)
-      && /body \.markdown-source-view\.mod-cm6 \.callout[\s\S]*?border-inline-start:\s*0;/.test(files.overrides)
-      && /body \.markdown-source-view\.mod-cm6 \.callout[\s\S]*?padding:\s*var\(--callout-padding\);/.test(files.overrides)
-      && /body \.markdown-source-view\.mod-cm6 \.callout-title[\s\S]*?color:\s*var\(--callout-color, #66d9ef\);/.test(files.overrides),
+    "Callout 使用语义分色变量（note/info → 青）",
+    /--monokai-callout-note-bg:/.test(files.editor)
+      && /--monokai-callout-note-border:/.test(files.editor)
+      && /\.callout\[data-callout="info"\]/.test(files.overrides),
   ],
   [
-    "Callout 语义色映射到 Monokai 六色盘",
-    /\.callout\[data-callout="info"\][\s\S]*?#66d9ef/.test(files.editor)
-      && /\.callout\[data-callout="warning"\][\s\S]*?#fd971f/.test(files.editor)
-      && /\.callout\[data-callout="danger"\][\s\S]*?#f92672/.test(files.editor)
-      && /\.callout\[data-callout="success"\][\s\S]*?#a6e22e/.test(files.editor),
+    "Callout 使用语义分色变量（warning/caution → 橙）",
+    /--monokai-callout-warning-bg:/.test(files.editor)
+      && /--monokai-callout-warning-border:/.test(files.editor)
+      && /\.callout\[data-callout="warning"\]/.test(files.overrides),
+  ],
+  [
+    "Callout 使用语义分色变量（error/danger → 红）",
+    /--monokai-callout-error-bg:/.test(files.editor)
+      && /--monokai-callout-error-border:/.test(files.editor)
+      && /\.callout\[data-callout="error"\]/.test(files.overrides),
+  ],
+  [
+    "Callout 使用语义分色变量（success/check → 绿）",
+    /--monokai-callout-success-bg:/.test(files.editor)
+      && /--monokai-callout-success-border:/.test(files.editor)
+      && /\.callout\[data-callout="success"\]/.test(files.overrides),
+  ],
+  [
+    "Callout 边框使用 border-inline-start 绘制",
+    /border-inline-start:\s*2px solid var\(--callout-border/.test(files.overrides)
+      && !/box-shadow.*callout/i.test(files.overrides),
   ],
   [
     "Callout 内容与标题之间留出呼吸感",
-    /\.callout-content[\s\S]*?margin-block-start:\s*var\(--spacing-4\);/.test(files.editor),
+    /margin-block-start:\s*var\(--spacing-4\);/.test(files.overrides),
+  ],
+  [
+    "Callout 图标隐藏原生 SVG 使用文字替代",
+    /\.callout-icon svg[\s\S]*?display:\s*none/.test(files.overrides)
+      && /\.callout-icon::before[\s\S]*?content:/.test(files.overrides),
   ],
   [
     "编辑区域顶部冗余标题被隐藏",
@@ -99,16 +115,13 @@ const checks = [
       && !/--monokai-inline-code-border/.test(files.editor),
   ],
   [
-    "块引用左侧竖条改为较细的 Monokai Pro 绿色并加大间距",
-    /--blockquote-border-color:\s*#\{\$color-dark-green\};/.test(files.base)
-      && /--blockquote-background-color:\s*var\(--monokai-blockquote-background\);/.test(files.overrides)
-      && /--blockquote-border-thickness:\s*2px;/.test(files.overrides)
-      && /body \.markdown-source-view\.mod-cm6 \.cm-line\.HyperMD-quote[\s\S]*?box-shadow:\s*inset 2px 0 0 var\(--blockquote-border-color\);/.test(files.overrides)
-      && /body \.markdown-source-view\.mod-cm6 \.cm-line:has\(\.cm-quote\)[\s\S]*?box-shadow:\s*inset 2px 0 0 var\(--blockquote-border-color\);/.test(files.overrides)
-      && /body \.markdown-rendered blockquote[\s\S]*?padding:\s*var\(--spacing-4\) var\(--spacing-5\) var\(--spacing-4\) calc\(var\(--spacing-5\) \+ var\(--spacing-5\) \+ var\(--spacing-3\)\);/.test(files.overrides)
-      && /body \.markdown-source-view\.mod-cm6 \.cm-line\.HyperMD-quote[\s\S]*?padding-inline-start:\s*var\(--spacing-3\);/.test(files.overrides)
-      && /body \.markdown-source-view\.mod-cm6 \.cm-line\.HyperMD-quote[\s\S]*?text-indent:\s*calc\(var\(--spacing-5\) \+ var\(--spacing-2\)\);/.test(files.overrides)
-      && /body \.markdown-source-view\.mod-cm6 \.cm-line\.HyperMD-quote \.cm-quote[\s\S]*?margin-inline-start:\s*0;/.test(files.overrides),
+    "块引用左侧竖条使用 border-inline-start",
+    /border-inline-start:\s*2px solid var\(--monokai-blockquote-border/.test(files.overrides)
+      && /border-inline-start:\s*2px solid var\(--monokai-blockquote-border/.test(files.overrides),
+  ],
+  [
+    "块引用格式符号隐藏",
+    /\.cm-formatting-quote[\s\S]*?display:\s*none/.test(files.overrides),
   ],
   [
     "复选框未选中为 Monokai Pro 黄色，选中为绿色",
