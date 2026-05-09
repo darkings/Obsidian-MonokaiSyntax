@@ -2,4 +2,5 @@ node_modules/
 .claude/settings.local.json
 .claude/statusline-command.sh
 docs/
+ERRORS.md
 CLAUDE.md
