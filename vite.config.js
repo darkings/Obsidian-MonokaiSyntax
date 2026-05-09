@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 const rootDir = import.meta.dirname;
 const outDir = resolve(rootDir, "dist");
 const themeCssPath = resolve(outDir, "theme.css");
+const rootThemeCssPath = resolve(rootDir, "theme.css");
 const licensePath = resolve(rootDir, "src/css/license.css");
 const styleSettingsDir = resolve(rootDir, "src/css/style-settings");
 
@@ -30,8 +31,10 @@ function obsidianThemeBundle() {
         .trim();
       const styleSettings = readStyleSettings();
       const sections = [license, themeCss, styleSettings].filter(Boolean);
+      const bundled = `${sections.join("\n\n")}\n`;
 
-      writeFileSync(themeCssPath, `${sections.join("\n\n")}\n`);
+      writeFileSync(themeCssPath, bundled);
+      writeFileSync(rootThemeCssPath, bundled);
 
       for (const fileName of readdirSync(outDir)) {
         if (fileName.endsWith(".js")) {

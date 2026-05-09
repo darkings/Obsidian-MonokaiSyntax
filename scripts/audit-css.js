@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const themeCssPath = resolve(import.meta.dirname, "../dist/theme.css");
+const themeCssPath = resolve(import.meta.dirname, "../theme.css");
 const themeCss = readFileSync(themeCssPath, "utf8");
 
 const urlMatches = [...themeCss.matchAll(/url\((["']?)(.*?)\1\)/gi)].map((match) => match[2]);
