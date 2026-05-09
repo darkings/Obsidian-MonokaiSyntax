@@ -9,12 +9,6 @@
   --monokai-heading-weight: 600;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
-  --blockquote-border-thickness: 2px;
-  --blockquote-background-color: transparent;
-  --callout-padding: 1.25rem;
-  --callout-content-padding: var(--spacing-4) 0 0 0;
-  --callout-border-width: 0;
-  --callout-radius: var(--radius-s);
   --callout-blend-mode: normal;
   --callout-icon-size: 1em;
   --p-spacing: #{$spacing-3};
@@ -53,7 +47,7 @@
   --monokai-callout-error-border: #e14775;
   --monokai-callout-success-bg: rgb(38 157 105 / 14%);
   --monokai-callout-success-border: #269d69;
-  --monokai-inline-code-color: #a6e22e;
+  --monokai-inline-code-color: #269d69;
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(61 61 61 / 18%);
   --monokai-task-done-color: rgb(61 61 61 / 66%);
