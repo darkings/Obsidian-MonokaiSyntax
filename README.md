@@ -1,6 +1,16 @@
 # Monokai Syntax
 
+[English](./README.en.md) | [GitHub](https://github.com/Darkings/Obsidian-MonokaiSyntax)
+
 Monokai Syntax 是一个面向 Obsidian 的社区主题，目标是在知识管理场景中复现 Monokai Pro 的深色与浅色视觉语言。
+
+![Monokai Syntax](./MonokaiSyntax.png)
+
+## 下一版本规划
+
+- 完善项目图标
+- 完善项目细节
+- 完善与 Style Settings 插件的联动
 
 ## 项目状态
 
@@ -29,22 +39,25 @@ npm run build
 构建并同步到测试 Vault：
 
 ```powershell
-npm run build:vault
+npm run build:vault                       # 默认 Vault
+npm run build:vault -- D:/你的/Obsidian/Vault  # 自定义 Vault
 ```
 
 ## 本地测试
 
-本项目当前使用以下 Obsidian Vault 作为测试环境：
+默认测试 Vault 路径：
 
 ```text
 C:\Users\Jie\iCloudDrive\iCloud~md~obsidian\SecondBrain
 ```
 
-运行 `npm run build:vault` 后，主题文件会同步到：
+如需使用自己的 Vault，在命令后追加路径即可：
 
-```text
-C:\Users\Jie\iCloudDrive\iCloud~md~obsidian\SecondBrain\.obsidian\themes\Monokai Syntax
+```powershell
+npm run build:vault -- D:/你的/Obsidian/Vault
 ```
+
+运行后，主题文件会同步到对应 Vault 的 `.obsidian\themes\Monokai Syntax` 目录下。
 
 之后可在 Obsidian 的外观设置中启用 `Monokai Syntax`。
 

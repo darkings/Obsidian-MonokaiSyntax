@@ -2,9 +2,9 @@ import { copyFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
 const rootDir = resolve(import.meta.dirname, "..");
-const vaultThemeDir = resolve(
-  "C:/Users/Jie/iCloudDrive/iCloud~md~obsidian/SecondBrain/.obsidian/themes/Monokai Syntax",
-);
+const defaultVaultRoot = "C:/Users/Jie/iCloudDrive/iCloud~md~obsidian/SecondBrain";
+const vaultRoot = process.argv[2] ?? defaultVaultRoot;
+const vaultThemeDir = resolve(vaultRoot, ".obsidian/themes/Monokai Syntax");
 
 mkdirSync(vaultThemeDir, { recursive: true });
 
