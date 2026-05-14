@@ -131,9 +131,8 @@ const checks = [
       && /input\[type="checkbox"\]:checked[\s\S]*?background-color:\s*var\(--monokai-checkbox-checked-color\);/.test(files.base),
   ],
   [
-    "AGENTS.md 与 CLAUDE.md 拥有专属文件名图标规则",
-    /\[data-path="AGENTS\.md"\]::before/.test(files.generatedIcons)
-      && /\[data-path="CLAUDE\.md"\]::before/.test(files.generatedIcons),
+    "AGENTS.md 拥有专属文件名图标规则",
+    /\[data-path="AGENTS\.md"\]::before/.test(files.generatedIcons),
   ],
 ];
 

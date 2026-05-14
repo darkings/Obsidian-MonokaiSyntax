@@ -1246,12 +1246,6 @@
   content: "\EA63";
 }
 
-.nav-file-title[data-path="CLAUDE.md"]::before,
-.nav-file-title[data-path$="/CLAUDE.md"]::before {
-  --monokai-file-icon-color: #ffd866;
-  content: "\EA54";
-}
-
 .nav-file-title[data-path="composer.json"]::before,
 .nav-file-title[data-path$="/composer.json"]::before {
   --monokai-file-icon-color: #ab9df2;
@@ -1839,4 +1833,3 @@
   --monokai-file-icon-color: #ab9df2;
   content: "\EA6A";
 }
-

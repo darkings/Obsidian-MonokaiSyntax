@@ -1,70 +1,70 @@
 # Monokai Syntax
 
-[English](./README.en.md) | [GitHub](https://github.com/Darkings/Obsidian-MonokaiSyntax)
+[中文](https://github.com/Darkings/Obsidian-MonokaiSyntax/blob/master/README.zh.md) | [Development](https://github.com/Darkings/Obsidian-MonokaiSyntax/blob/master/DEVELOPMENT.md) | [GitHub](https://github.com/Darkings/Obsidian-MonokaiSyntax)
 
-Monokai Syntax 是一个面向 Obsidian 的社区主题，目标是在知识管理场景中复现 Monokai Pro 的深色与浅色视觉语言。
+Monokai Syntax is an Obsidian community theme inspired by the Monokai Pro visual language, tuned for writing, code notes, navigation, graph view, and long-running knowledge bases.
 
 ![Monokai Syntax](./MonokaiSyntax.png)
 
-## 下一版本规划
+## Highlights
 
-- 完善项目图标
-- 完善项目细节
-- 完善与 Style Settings 插件的联动
+- Monokai-inspired dark and light palettes for Obsidian.
+- Markdown reading view and Live Preview styling.
+- CodeMirror 6 syntax colors mapped to the Monokai spectrum.
+- File explorer, ribbon, tabs, modals, graph view, and canvas polish.
+- Custom file icons with optional monochrome mode.
+- Style Settings support for palette filters, density, icons, typography, and accents.
+- No remote runtime assets in the final theme CSS.
 
-## 项目状态
+## Installation
 
-当前项目处于早期开发阶段，已经完成基础工程化脚手架、Vite 构建、Stylelint 检查和测试 Vault 同步流程。
+### Community Theme
 
-## 安装依赖
+Monokai Syntax is available from Obsidian's community theme store.
 
-```powershell
-npm install
-```
+Open Obsidian, go to `Settings` -> `Appearance` -> `Themes` -> `Manage`, search for `Monokai Syntax`, then install and enable it.
 
-## 常用命令
+### Manual Installation
 
-检查 SCSS：
-
-```powershell
-npm run lint:css
-```
-
-构建主题：
-
-```powershell
-npm run build
-```
-
-构建并同步到测试 Vault：
-
-```powershell
-npm run build:vault                       # 默认 Vault
-npm run build:vault -- D:/你的/Obsidian/Vault  # 自定义 Vault
-```
-
-## 本地测试
-
-默认测试 Vault 路径：
+Create this folder in your Obsidian vault:
 
 ```text
-C:\Users\Jie\iCloudDrive\iCloud~md~obsidian\SecondBrain
+Your Vault/.obsidian/themes/Monokai Syntax/
 ```
 
-如需使用自己的 Vault，在命令后追加路径即可：
+Copy these files into it:
 
-```powershell
-npm run build:vault -- D:/你的/Obsidian/Vault
+```text
+theme.css
+manifest.json
 ```
 
-运行后，主题文件会同步到对应 Vault 的 `.obsidian\themes\Monokai Syntax` 目录下。
+Then enable `Monokai Syntax` from Obsidian's Appearance settings.
 
-之后可在 Obsidian 的外观设置中启用 `Monokai Syntax`。
+## Style Settings
 
-## 远程资源约束
+For the full configuration experience, install the community plugin `Style Settings`.
 
-主题运行时 CSS 不得加载远程资源。禁止在最终主题 CSS 中使用远程 `@import`、远程字体 URL 或远程图片 URL。需要使用的字体、图标或图片资源必须本地化并确认许可证。
+Available controls include:
 
-## 许可证
+- Palette filter: Classic, Machine, Octagon, Ristretto, Spectrum.
+- Compact density.
+- Colorful or monochrome file icons.
+- Font and typography options.
+- Accent, link, and code color overrides.
 
-本项目使用 MIT 许可证。详情见 [LICENSE.md](./LICENSE.md)。
+## Roadmap
+
+- Expand file icon coverage.
+- Refine Markdown reading view and Live Preview details.
+- Improve Style Settings coverage.
+- Polish graph view, canvas, and plugin compatibility.
+- Track Obsidian UI changes and keep the published community theme up to date.
+
+## Development
+
+Build, lint, audit, and vault sync instructions live in [DEVELOPMENT.md](https://github.com/Darkings/Obsidian-MonokaiSyntax/blob/master/DEVELOPMENT.md).
+
+## License
+
+MIT. See [LICENSE.md](https://github.com/Darkings/Obsidian-MonokaiSyntax/blob/master/LICENSE.md).

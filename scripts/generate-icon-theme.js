@@ -61,7 +61,6 @@ const obsidianFileExtensions = {
 };
 const obsidianFileNames = {
   "AGENTS.md": "_settings",
-  "CLAUDE.md": "_source",
   "README.md": theme.languageIds?.markdown ?? "_markdown",
   "TODO.md": "_todo",
 };
