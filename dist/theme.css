@@ -507,7 +507,9 @@ a:hover,
   flex: 0 0 1rem;
   width: 1rem;
   margin-inline-end: 0.35rem;
+  --monokai-file-icon-color: #ffd866;
   color: var(--monokai-file-icon-color, var(--icon-color));
+  content: "\e658";
   font-family: "monokai-pro-icons";
   font-size: 1rem;
   font-style: normal;
@@ -517,11 +519,6 @@ a:hover,
   speak: never;
   text-align: center;
   text-rendering: auto;
-}
-
-.nav-file-title::before {
-  --monokai-file-icon-color: #ffd866;
-  content: "\e658";
 }
 
 .nav-file-title[data-path$=".7z"]::before {
@@ -1084,7 +1081,7 @@ body.is-mobile .workspace-ribbon {
     transform: translateX(0);
   }
 }
-body.theme-dark {
+.theme-dark .graph-view {
   --monokai-graph-background: #1e1f1c;
   --monokai-graph-panel: #2b2c26;
   --monokai-graph-line: rgb(120 220 232 / 42%);
@@ -1096,7 +1093,7 @@ body.theme-dark {
   --monokai-graph-ring: rgb(102 217 239 / 28%);
 }
 
-body.theme-light {
+.theme-light .graph-view {
   --monokai-graph-background: #f5f0e6;
   --monokai-graph-panel: #f2ead8;
   --monokai-graph-line: rgb(20 116 138 / 42%);
@@ -1369,8 +1366,7 @@ body {
 }
 
 /* stylelint-disable selector-class-pattern -- Obsidian 内部类名，不能改成 kebab-case。 */
-body.theme-dark,
-body.theme-light {
+body:is(.theme-dark, .theme-light) {
   --blockquote-background-color: transparent;
   --blockquote-border-thickness: 2px;
   --callout-padding: 1.25rem;
@@ -1407,13 +1403,6 @@ body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-quote {
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-formatting-quote,
 body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-formatting-quote {
   display: none;
-}
-
-/* ===== Callout - CodeMirror 行容器（仅外层 spacing，无背景无竖线） ===== */
-body .markdown-source-view.mod-cm6 .cm-callout {
-  background-color: transparent;
-  border-inline-start: 0;
-  border-radius: 0;
 }
 
 /* ===== Callout 组件（阅读 + 编辑统一：背景 + 竖线 + 内间距） ===== */

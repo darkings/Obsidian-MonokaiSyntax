@@ -2,8 +2,7 @@
 
 /* stylelint-disable selector-class-pattern -- Obsidian 内部类名，不能改成 kebab-case。 */
 
-body.theme-dark,
-body.theme-light {
+body:is(.theme-dark, .theme-light) {
   --blockquote-background-color: transparent;
   --blockquote-border-thickness: 2px;
   --callout-padding: 1.25rem;
@@ -41,14 +40,6 @@ body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-quote {
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-formatting-quote,
 body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-formatting-quote {
   display: none;
-}
-
-/* ===== Callout - CodeMirror 行容器（仅外层 spacing，无背景无竖线） ===== */
-
-body .markdown-source-view.mod-cm6 .cm-callout {
-  background-color: transparent;
-  border-inline-start: 0;
-  border-radius: 0;
 }
 
 /* ===== Callout 组件（阅读 + 编辑统一：背景 + 竖线 + 内间距） ===== */

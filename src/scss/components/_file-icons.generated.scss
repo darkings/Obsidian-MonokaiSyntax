@@ -17,7 +17,9 @@
   flex: 0 0 1rem;
   width: 1rem;
   margin-inline-end: 0.35rem;
+  --monokai-file-icon-color: #ffd866;
   color: var(--monokai-file-icon-color, var(--icon-color));
+  content: "\e658";
   font-family: "monokai-pro-icons";
   font-size: 1rem;
   font-style: normal;
@@ -27,11 +29,6 @@
   speak: never;
   text-align: center;
   text-rendering: auto;
-}
-
-.nav-file-title::before {
-  --monokai-file-icon-color: #ffd866;
-  content: "\e658";
 }
 
 .nav-file-title[data-path$=".7z"]::before {

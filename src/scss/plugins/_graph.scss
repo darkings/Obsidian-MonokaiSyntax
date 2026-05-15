@@ -34,7 +34,7 @@
   }
 }
 
-body.theme-dark {
+.theme-dark .graph-view {
   --monokai-graph-background: #1e1f1c;
   --monokai-graph-panel: #2b2c26;
   --monokai-graph-line: rgb(120 220 232 / 42%);
@@ -46,7 +46,7 @@ body.theme-dark {
   --monokai-graph-ring: rgb(102 217 239 / 28%);
 }
 
-body.theme-light {
+.theme-light .graph-view {
   --monokai-graph-background: #f5f0e6;
   --monokai-graph-panel: #f2ead8;
   --monokai-graph-line: rgb(20 116 138 / 42%);
