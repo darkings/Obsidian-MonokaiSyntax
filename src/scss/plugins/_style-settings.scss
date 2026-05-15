@@ -42,10 +42,42 @@ body.monokai-syntax-filter-spectrum {
 body.monokai-syntax-compact {
   @include compact-density;
 
+  .nav-files-container {
+    font-size: var(--monokai-nav-font-size);
+  }
+
   .nav-file-title,
   .nav-folder-title {
+    min-height: var(--nav-item-size);
     line-height: var(--nav-item-size);
-    padding-block: 0;
+    padding: 0 6px;
+  }
+
+  .nav-file-title-content,
+  .nav-folder-title-content {
+    font-size: var(--monokai-nav-font-size);
+    line-height: var(--nav-item-size);
+  }
+
+  .nav-file-title::before {
+    width: 13px;
+    flex: 0 0 13px;
+    margin-inline-end: 4px;
+    font-size: 13px;
+  }
+
+  .nav-folder-collapse-indicator {
+    width: 14px;
+    margin-inline-end: 1px;
+  }
+
+  .nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator::before,
+  .nav-folder-title[data-path*="/"] .collapse-icon::before,
+  .nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator::before,
+  .nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon::before,
+  .nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator::before,
+  .nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon::before {
+    font-size: 13px;
   }
 
   .side-dock-ribbon-action {

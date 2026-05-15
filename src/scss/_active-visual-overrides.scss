@@ -107,13 +107,73 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout-content) {
 body .markdown-preview-view.markdown-rendered .callout[data-callout="note"],
 body .markdown-rendered .callout[data-callout="note"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="note"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="note"]),
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="note"]) {
+  --callout-background: var(--monokai-callout-note-bg);
+  --callout-border: var(--monokai-callout-note-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="abstract"],
+body .markdown-rendered .callout[data-callout="abstract"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="abstract"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="abstract"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="summary"],
+body .markdown-rendered .callout[data-callout="summary"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="summary"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="summary"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="tldr"],
+body .markdown-rendered .callout[data-callout="tldr"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="tldr"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="tldr"]) {
+  --callout-background: var(--monokai-callout-abstract-bg);
+  --callout-border: var(--monokai-callout-abstract-border);
+}
+
 body .markdown-preview-view.markdown-rendered .callout[data-callout="info"],
 body .markdown-rendered .callout[data-callout="info"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="info"],
 body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="info"]) {
-  --callout-background: var(--monokai-callout-note-bg);
-  --callout-border: var(--monokai-callout-note-border);
+  --callout-background: var(--monokai-callout-info-bg);
+  --callout-border: var(--monokai-callout-info-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="todo"],
+body .markdown-rendered .callout[data-callout="todo"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="todo"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="todo"]) {
+  --callout-background: var(--monokai-callout-todo-bg);
+  --callout-border: var(--monokai-callout-todo-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="tip"],
+body .markdown-rendered .callout[data-callout="tip"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="tip"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="tip"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="hint"],
+body .markdown-rendered .callout[data-callout="hint"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="hint"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="hint"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="important"],
+body .markdown-rendered .callout[data-callout="important"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="important"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="important"]) {
+  --callout-background: var(--monokai-callout-tip-bg);
+  --callout-border: var(--monokai-callout-tip-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="question"],
+body .markdown-rendered .callout[data-callout="question"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="question"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="question"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="help"],
+body .markdown-rendered .callout[data-callout="help"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="help"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="help"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="faq"],
+body .markdown-rendered .callout[data-callout="faq"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="faq"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="faq"]) {
+  --callout-background: var(--monokai-callout-question-bg);
+  --callout-border: var(--monokai-callout-question-border);
 }
 
 body .markdown-preview-view.markdown-rendered .callout[data-callout="warning"],
@@ -123,7 +183,11 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="warning"]
 body .markdown-preview-view.markdown-rendered .callout[data-callout="caution"],
 body .markdown-rendered .callout[data-callout="caution"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="caution"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="caution"]) {
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="caution"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="attention"],
+body .markdown-rendered .callout[data-callout="attention"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="attention"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="attention"]) {
   --callout-background: var(--monokai-callout-warning-bg);
   --callout-border: var(--monokai-callout-warning-border);
 }
@@ -140,6 +204,30 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="danger"])
   --callout-border: var(--monokai-callout-error-border);
 }
 
+body .markdown-preview-view.markdown-rendered .callout[data-callout="failure"],
+body .markdown-rendered .callout[data-callout="failure"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="failure"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="failure"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="fail"],
+body .markdown-rendered .callout[data-callout="fail"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="fail"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="fail"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="missing"],
+body .markdown-rendered .callout[data-callout="missing"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="missing"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="missing"]) {
+  --callout-background: var(--monokai-callout-failure-bg);
+  --callout-border: var(--monokai-callout-failure-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="bug"],
+body .markdown-rendered .callout[data-callout="bug"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="bug"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="bug"]) {
+  --callout-background: var(--monokai-callout-bug-bg);
+  --callout-border: var(--monokai-callout-bug-border);
+}
+
 body .markdown-preview-view.markdown-rendered .callout[data-callout="success"],
 body .markdown-rendered .callout[data-callout="success"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="success"],
@@ -147,9 +235,33 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="success"]
 body .markdown-preview-view.markdown-rendered .callout[data-callout="check"],
 body .markdown-rendered .callout[data-callout="check"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="check"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="check"]) {
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="check"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="done"],
+body .markdown-rendered .callout[data-callout="done"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="done"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="done"]) {
   --callout-background: var(--monokai-callout-success-bg);
   --callout-border: var(--monokai-callout-success-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="example"],
+body .markdown-rendered .callout[data-callout="example"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="example"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="example"]) {
+  --callout-background: var(--monokai-callout-example-bg);
+  --callout-border: var(--monokai-callout-example-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="quote"],
+body .markdown-rendered .callout[data-callout="quote"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="quote"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="quote"]),
+body .markdown-preview-view.markdown-rendered .callout[data-callout="cite"],
+body .markdown-rendered .callout[data-callout="cite"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="cite"],
+body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="cite"]) {
+  --callout-background: var(--monokai-callout-quote-bg);
+  --callout-border: var(--monokai-callout-quote-border);
 }
 
 /* ===== Callout 图标 ===== */
@@ -164,6 +276,7 @@ body .markdown-source-view.mod-cm6 .cm-callout-icon {
   justify-content: center;
   overflow: visible;
   margin-right: 0.35em;
+  min-width: var(--callout-icon-size);
 }
 
 body .markdown-preview-view.markdown-rendered .callout-icon svg,
@@ -177,24 +290,45 @@ body .markdown-preview-view.markdown-rendered .callout-icon::before,
 body .markdown-rendered .callout-icon::before,
 body .markdown-source-view.mod-cm6 .callout-icon::before,
 body .markdown-source-view.mod-cm6 .cm-callout-icon::before {
-  display: inline;
-  font-family: var(--font-monospace-theme);
-  font-weight: 700;
-  font-size: 0.95em;
+  display: inline-block;
+  font-family: monokai-pro-icons, monospace;
+  font-size: var(--callout-icon-size);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
   color: var(--callout-border, var(--monokai-callout-note-border));
-  white-space: nowrap;
   -webkit-font-smoothing: antialiased;
+  speak: never;
+  text-rendering: auto;
 }
 
 body .markdown-preview-view.markdown-rendered .callout[data-callout="note"] .callout-icon::before,
 body .markdown-rendered .callout[data-callout="note"] .callout-icon::before,
 body .markdown-source-view.mod-cm6 .callout[data-callout="note"] .callout-icon::before,
-body .markdown-source-view.mod-cm6 .callout[data-callout="note"] .cm-callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="note"] .cm-callout-icon::before {
+  content: "\e66d";
+}
+
 body .markdown-preview-view.markdown-rendered .callout[data-callout="info"] .callout-icon::before,
 body .markdown-rendered .callout[data-callout="info"] .callout-icon::before,
 body .markdown-source-view.mod-cm6 .callout[data-callout="info"] .callout-icon::before,
 body .markdown-source-view.mod-cm6 .callout[data-callout="info"] .cm-callout-icon::before {
-  content: "#[i]";
+  content: "\e66f";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="abstract"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="abstract"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="abstract"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="abstract"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="summary"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="summary"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="summary"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="summary"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="tldr"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="tldr"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="tldr"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="tldr"] .cm-callout-icon::before {
+  content: "\e668";
 }
 
 body .markdown-preview-view.markdown-rendered .callout[data-callout="warning"] .callout-icon::before,
@@ -204,8 +338,12 @@ body .markdown-source-view.mod-cm6 .callout[data-callout="warning"] .cm-callout-
 body .markdown-preview-view.markdown-rendered .callout[data-callout="caution"] .callout-icon::before,
 body .markdown-rendered .callout[data-callout="caution"] .callout-icon::before,
 body .markdown-source-view.mod-cm6 .callout[data-callout="caution"] .callout-icon::before,
-body .markdown-source-view.mod-cm6 .callout[data-callout="caution"] .cm-callout-icon::before {
-  content: "<!>";
+body .markdown-source-view.mod-cm6 .callout[data-callout="caution"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="attention"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="attention"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="attention"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="attention"] .cm-callout-icon::before {
+  content: "\e671";
 }
 
 body .markdown-preview-view.markdown-rendered .callout[data-callout="error"] .callout-icon::before,
@@ -216,7 +354,29 @@ body .markdown-preview-view.markdown-rendered .callout[data-callout="danger"] .c
 body .markdown-rendered .callout[data-callout="danger"] .callout-icon::before,
 body .markdown-source-view.mod-cm6 .callout[data-callout="danger"] .callout-icon::before,
 body .markdown-source-view.mod-cm6 .callout[data-callout="danger"] .cm-callout-icon::before {
-  content: "[\00D7]";
+  content: "\e676";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="failure"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="failure"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="failure"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="failure"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="fail"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="fail"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="fail"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="fail"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="missing"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="missing"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="missing"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="missing"] .cm-callout-icon::before {
+  content: "\e66a";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="bug"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="bug"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="bug"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="bug"] .cm-callout-icon::before {
+  content: "\e675";
 }
 
 body .markdown-preview-view.markdown-rendered .callout[data-callout="success"] .callout-icon::before,
@@ -226,8 +386,67 @@ body .markdown-source-view.mod-cm6 .callout[data-callout="success"] .cm-callout-
 body .markdown-preview-view.markdown-rendered .callout[data-callout="check"] .callout-icon::before,
 body .markdown-rendered .callout[data-callout="check"] .callout-icon::before,
 body .markdown-source-view.mod-cm6 .callout[data-callout="check"] .callout-icon::before,
-body .markdown-source-view.mod-cm6 .callout[data-callout="check"] .cm-callout-icon::before {
-  content: "{\2713}";
+body .markdown-source-view.mod-cm6 .callout[data-callout="check"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="done"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="done"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="done"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="done"] .cm-callout-icon::before {
+  content: "\e66b";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="question"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="question"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="question"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="question"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="help"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="help"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="help"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="help"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="faq"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="faq"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="faq"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="faq"] .cm-callout-icon::before {
+  content: "\e66c";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="tip"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="tip"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="tip"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="tip"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="hint"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="hint"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="hint"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="hint"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="important"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="important"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="important"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="important"] .cm-callout-icon::before {
+  content: "\e66e";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="todo"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="todo"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="todo"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="todo"] .cm-callout-icon::before {
+  content: "\e670";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="quote"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="quote"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="quote"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="quote"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="cite"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="cite"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="cite"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="cite"] .cm-callout-icon::before {
+  content: "\e672";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="example"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="example"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="example"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="example"] .cm-callout-icon::before {
+  content: "\e674";
 }
 
 /* stylelint-enable selector-class-pattern */

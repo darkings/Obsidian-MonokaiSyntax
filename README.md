@@ -16,6 +16,14 @@ Monokai Syntax is an Obsidian community theme inspired by the Monokai Pro visual
 - Style Settings support for palette filters, density, icons, typography, and accents.
 - No remote runtime assets in the final theme CSS.
 
+## 1.0.1 Update
+
+- Expanded document icons for README, TODO, CHANGELOG, API, PROMPTS, CURSOR, CLAUDE, AGENTS, and `Bug_*.md` notes.
+- Reworked callout icons with glyphs from `icons/icons.woff`, with larger icons and Monokai-style semantic backgrounds and left borders.
+- Updated the file explorer so second-level and deeper folder collapse icons use `folder-dimmed2`, while root-level folders keep Obsidian's native collapse icon.
+- Added a Style Settings toggle to hide file tree icons.
+- Improved compact mode density for the file explorer.
+
 ## Installation
 
 ### Community Theme

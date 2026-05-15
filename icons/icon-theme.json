@@ -1,1 +1,884 @@
-{"fonts":[{"id":"monokai-pro-icons","src":[{"path":"./monokai-pro-icons.woff","format":"woff"}],"weight":"normal","style":"normal","size":"16px"}],"iconDefinitions":{"_adonisjs":{"fontCharacter":"\\EA01","fontColor":"#ab9df2"},"_angular":{"fontCharacter":"\\EA02","fontColor":"#ff6188"},"_ansible":{"fontCharacter":"\\EA03","fontColor":"#78dce8"},"_applescript":{"fontCharacter":"\\EA04","fontColor":"#a9dc76"},"_archive":{"fontCharacter":"\\EA05","fontColor":"#ffd866"},"_astro":{"fontCharacter":"\\EA06","fontColor":"#ab9df2"},"_binary":{"fontCharacter":"\\EA07","fontColor":"#ffd866"},"_blade":{"fontCharacter":"\\EA08","fontColor":"#ff6188"},"_bun":{"fontCharacter":"\\EA09","fontColor":"#ff6188"},"_c":{"fontCharacter":"\\EA0A","fontColor":"#ff6188"},"_clojure":{"fontCharacter":"\\EA0B","fontColor":"#78dce8"},"_coffeescript":{"fontCharacter":"\\EA0C","fontColor":"#78dce8"},"_composer":{"fontCharacter":"\\EA0D","fontColor":"#ab9df2"},"_cpp":{"fontCharacter":"\\EA0E","fontColor":"#78dce8"},"_crystal":{"fontCharacter":"\\EA0F","fontColor":"#ab9df2"},"_csharp":{"fontCharacter":"\\EA10","fontColor":"#ab9df2"},"_css":{"fontCharacter":"\\EA11","fontColor":"#fc9867"},"_csv":{"fontCharacter":"\\EA12","fontColor":"#ffd866"},"_dart":{"fontCharacter":"\\EA13","fontColor":"#78dce8"},"_default":{"fontCharacter":"\\EA14","fontColor":"#ffd866"},"_docker":{"fontCharacter":"\\EA15","fontColor":"#78dce8"},"_elixir":{"fontCharacter":"\\EA16","fontColor":"#ab9df2"},"_elm":{"fontCharacter":"\\EA17","fontColor":"#78dce8"},"_env":{"fontCharacter":"\\EA18","fontColor":"#ffd866"},"_erlang":{"fontCharacter":"\\EA19","fontColor":"#ff6188"},"_eslint":{"fontCharacter":"\\EA1A","fontColor":"#ab9df2"},"_folder":{"fontCharacter":"\\EA1B","fontColor":"#939293"},"_folder-open":{"fontCharacter":"\\EA1C","fontColor":"#939293"},"_folder-root":{"fontCharacter":"\\EA1D","fontColor":"#939293"},"_folder-root-open":{"fontCharacter":"\\EA1E","fontColor":"#939293"},"_folder-selected-open":{"fontCharacter":"\\EA1F","fontColor":"#fcfcfa"},"_folder-selected":{"fontCharacter":"\\EA20","fontColor":"#fcfcfa"},"_font":{"fontCharacter":"\\EA21","fontColor":"#ab9df2"},"_fortran":{"fontCharacter":"\\EA22","fontColor":"#ff6188"},"_fsharp":{"fontCharacter":"\\EA23","fontColor":"#78dce8"},"_git":{"fontCharacter":"\\EA24","fontColor":"#fc9867"},"_go":{"fontCharacter":"\\EA25","fontColor":"#78dce8"},"_graphql":{"fontCharacter":"\\EA26","fontColor":"#ff6188"},"_gruntfile":{"fontCharacter":"\\EA27","fontColor":"#ff6188"},"_gulpfile":{"fontCharacter":"\\EA28","fontColor":"#ff6188"},"_handlebars":{"fontCharacter":"\\EA29","fontColor":"#fc9867"},"_hare":{"fontCharacter":"\\EA2A","fontColor":"#ab9df2"},"_haskell":{"fontCharacter":"\\EA2B","fontColor":"#fc9867"},"_haxe":{"fontCharacter":"\\EA2C","fontColor":"#fc9867"},"_haxealt":{"fontCharacter":"\\EA2D","fontColor":"#ffd866"},"_image":{"fontCharacter":"\\EA2E","fontColor":"#ffd866"},"_java":{"fontCharacter":"\\EA2F","fontColor":"#78dce8"},"_js":{"fontCharacter":"\\EA30","fontColor":"#ffd866"},"_json":{"fontCharacter":"\\EA31","fontColor":"#ab9df2"},"_julia":{"fontCharacter":"\\EA32","fontColor":"#ab9df2"},"_kotlin":{"fontCharacter":"\\EA33","fontColor":"#ab9df2"},"_less":{"fontCharacter":"\\EA34","fontColor":"#ab9df2"},"_license":{"fontCharacter":"\\EA35","fontColor":"#a9dc76"},"_lisp":{"fontCharacter":"\\EA36","fontColor":"#ff6188"},"_lua":{"fontCharacter":"\\EA37","fontColor":"#78dce8"},"_markdown":{"fontCharacter":"\\EA38","fontColor":"#a9dc76"},"_markdownx":{"fontCharacter":"\\EA39","fontColor":"#a9dc76"},"_markup":{"fontCharacter":"\\EA3A","fontColor":"#fc9867"},"_matlab":{"fontCharacter":"\\EA3B","fontColor":"#fc9867"},"_nextjs":{"fontCharacter":"\\EA3C","fontColor":"#ab9df2"},"_nginx":{"fontCharacter":"\\EA3D","fontColor":"#a9dc76"},"_nodejs":{"fontCharacter":"\\EA3E","fontColor":"#a9dc76"},"_npm":{"fontCharacter":"\\EA3F","fontColor":"#ff6188"},"_ocaml":{"fontCharacter":"\\EA40","fontColor":"#fc9867"},"_opengl":{"fontCharacter":"\\EA41","fontColor":"#ff6188"},"_perl":{"fontCharacter":"\\EA42","fontColor":"#78dce8"},"_php":{"fontCharacter":"\\EA43","fontColor":"#78dce8"},"_postcss":{"fontCharacter":"\\EA44","fontColor":"#ff6188"},"_prolog":{"fontCharacter":"\\EA45","fontColor":"#ff6188"},"_pug":{"fontCharacter":"\\EA46","fontColor":"#fc9867"},"_python":{"fontCharacter":"\\EA47","fontColor":"#a9dc76"},"_r":{"fontCharacter":"\\EA48","fontColor":"#78dce8"},"_rails":{"fontCharacter":"\\EA49","fontColor":"#ff6188"},"_react":{"fontCharacter":"\\EA4A","fontColor":"#78dce8"},"_reason":{"fontCharacter":"\\EA4B","fontColor":"#fc9867"},"_restructuredtext":{"fontCharacter":"\\EA4C","fontColor":"#a9dc76"},"_rollup":{"fontCharacter":"\\EA4D","fontColor":"#ff6188"},"_ruby":{"fontCharacter":"\\EA4E","fontColor":"#ff6188"},"_rust":{"fontCharacter":"\\EA4F","fontColor":"#fc9867"},"_sass":{"fontCharacter":"\\EA50","fontColor":"#ff6188"},"_scala":{"fontCharacter":"\\EA51","fontColor":"#ff6188"},"_settings":{"fontCharacter":"\\EA52","fontColor":"#ab9df2"},"_shell":{"fontCharacter":"\\EA53","fontColor":"#a9dc76"},"_source":{"fontCharacter":"\\EA54","fontColor":"#ffd866"},"_sql":{"fontCharacter":"\\EA55","fontColor":"#ab9df2"},"_stylelint":{"fontCharacter":"\\EA56","fontColor":"#ab9df2"},"_stylus":{"fontCharacter":"\\EA57","fontColor":"#fc9867"},"_sublime":{"fontCharacter":"\\EA58","fontColor":"#ffd866"},"_svelte":{"fontCharacter":"\\EA59","fontColor":"#ff6188"},"_svg":{"fontCharacter":"\\EA5A","fontColor":"#fc9867"},"_swift":{"fontCharacter":"\\EA5B","fontColor":"#ff6188"},"_symbolic-link":{"fontCharacter":"\\EA5C","fontColor":"#939293"},"_tailwind":{"fontCharacter":"\\EA5D","fontColor":"#78dce8"},"_terraform":{"fontCharacter":"\\EA5E","fontColor":"#ab9df2"},"_test":{"fontCharacter":"\\EA5F","fontColor":"#78dce8"},"_tex":{"fontCharacter":"\\EA60","fontColor":"#fc9867"},"_text":{"fontCharacter":"\\EA61","fontColor":"#ffd866"},"_todo":{"fontCharacter":"\\EA62","fontColor":"#a9dc76"},"_toml":{"fontCharacter":"\\EA63","fontColor":"#ab9df2"},"_twig":{"fontCharacter":"\\EA64","fontColor":"#a9dc76"},"_typescript":{"fontCharacter":"\\EA65","fontColor":"#78dce8"},"_visualstudio":{"fontCharacter":"\\EA66","fontColor":"#78dce8"},"_vue":{"fontCharacter":"\\EA67","fontColor":"#a9dc76"},"_webpack":{"fontCharacter":"\\EA68","fontColor":"#78dce8"},"_yaml":{"fontCharacter":"\\EA69","fontColor":"#ffd866"},"_yarn":{"fontCharacter":"\\EA6A","fontColor":"#ab9df2"}},"file":"_default","folder":"_folder","folderExpanded":"_folder-open","rootFolder":"_folder-root","rootFolderExpanded":"_folder-root-open","hidesExplorerArrows":true,"folderNames":{},"fileExtensions":{"edge":"_adonisjs","edge.html":"_adonisjs","7z":"_archive","7zip":"_archive","gz":"_archive","pzip":"_archive","rar":"_archive","saz":"_archive","tar":"_archive","tgz":"_archive","wim":"_archive","zip":"_archive","ng.html":"_angular","component.html":"_angular","ansible":"_ansible","ansible.yml":"_ansible","ansible.yaml":"_ansible","playbook.yml":"_ansible","playbook.yaml":"_ansible","astro":"_astro","bun":"_bun","lockb":"_bun","bunfig.toml":"_bun","csv":"_csv","Containerfile":"_docker","Dockerfile":"_docker","ex":"_elixir","exs":"_elixir","eex":"_elixir","html.eex":"_elixir","html.leex":"_elixir","elm":"_elm","eot":"_font","otf":"_font","ttf":"_font","woff":"_font","woff2":"_font","f":"_fortran","F":"_fortran","f03":"_fortran","F03":"_fortran","F08":"_fortran","f08":"_fortran","f77":"_fortran","F77":"_fortran","f90":"_fortran","F90":"_fortran","F95":"_fortran","f95":"_fortran","for":"_fortran","FOR":"_fortran","FPP":"_fortran","fpp":"_fortran","namelist":"_fortran","graphql":"_graphql","graphqls":"_graphql","gql":"_graphql","hs":"_haskell","lhs":"_haskell","hx":"_haxe","hxsl":"_haxe","hscript":"_haxe","bmp":"_image","emf":"_image","gif":"_image","jp2":"_image","jpeg":"_image","jpg":"_image","png":"_image","pnm":"_image","ppm":"_image","tga":"_image","tif":"_image","tiff":"_image","webp":"_image","xbm":"_image","xpm":"_image","less":"_less","css.less":"_less","mdx":"_markdownx","vs":"_opengl","gs":"_opengl","vsh":"_opengl","gsh":"_opengl","vshader":"_opengl","fshader":"_opengl","gshader":"_opengl","vert":"_opengl","frag":"_opengl","geom":"_opengl","gl":"_opengl","glsl":"_opengl",".postcssrc":"_postcss","pcss":"_postcss","postcss":"_postcss","pug":"_pug","py.typed":"_python","tsx":"_react","rst":"_restructuredtext","rbs":"_ruby","sql":"_sql","styl":"_stylus","stylus":"_stylus","svlt":"_svelte","svelte":"_svelte","swift":"_swift","tfstate":"_terraform","tf":"_terraform","tfvars":"_terraform","hcl":"_terraform","spec.js":"_test","spec.cjs":"_test","spec.mjs":"_test","test.js":"_test","test.cjs":"_test","test.mjs":"_test","spec.jsx":"_test","test.jsx":"_test","spec.tsx":"_test","test.tsx":"_test","spec.ts":"_test","spec.cts":"_test","spec.mts":"_test","test.ts":"_test","test.cts":"_test","test.mts":"_test","toml":"_toml","tml":"_toml","fmt":"_settings","cfg":"_settings","ini":"_settings","inf":"_settings","lng":"_settings","pbk":"_settings","url":"_settings","conf":"_settings","config":"_settings","properties":"_settings","svg":"_svg","hidden-color-scheme":"_sublime","hidden-theme":"_sublime","sublime-build":"_sublime","sublime-color-scheme":"_sublime","sublime-commands":"_sublime","sublime-completions":"_sublime","sublime-keymap":"_sublime","sublime-macro":"_sublime","sublime-menu":"_sublime","sublime-mousemap":"_sublime","sublime-package":"_sublime","sublime-project":"_sublime","sublime-settings":"_sublime","sublime-theme":"_sublime","sublime-workspace":"_sublime","sublime-snippet":"_sublime","sublime-syntax":"_sublime","tailwind.css":"_tailwind","twig":"_twig","html.twig":"_twig","vue":"_vue"},"fileNames":{".adonisrc.json":"_adonisjs","license.apache":"_license","license.bsd":"_license","license.mit":"_license","license.gpl":"_license","license.gpl2":"_license","license.gpl3":"_license","copying":"_license","copying.txt":"_license","COPYING":"_license","COPYING.txt":"_license","copyright":"_license","copyright.txt":"_license","COPYRIGHT":"_license","COPYRIGHT.txt":"_license","license":"_license","license.txt":"_license","LICENSE":"_license","LICENSE.txt":"_license","copying.md":"_license","COPYING.md":"_license","copyright.md":"_license","COPYRIGHT.md":"_license","license.md":"_license","LICENSE.md":"_license","ansible.cfg":"_ansible","astro.config.js":"_astro","astro.config.cjs":"_astro","astro.config.mjs":"_astro",".bunfig.toml":"_bun","bun.lock":"_bun","composer.json":"_composer","composer.lock":"_composer","docker-compose.yaml":"_docker","docker-compose.yml":"_docker","docker-compose.override.yml":"_docker","docker-compose.staging.yml":"_docker","docker-compose.production.yml":"_docker",".dockerignore":"_docker","Dockerfile.staging":"_docker","Dockerfile.production":"_docker","Dockerfile":"_docker","dockerfile":"_docker",".env":"_env",".env.local":"_env",".env.example":"_env",".env.development":"_env",".env.production":"_env",".env.staging":"_env",".env.default":"_env",".env.defaults":"_env",".local.env":"_env",".example.env":"_env",".development.env":"_env",".production.env":"_env",".staging.env":"_env",".eslintrc":"_eslint",".eslintrc.json":"_eslint",".eslintrc.js":"_eslint",".eslintrc.cjs":"_eslint",".eslintrc.mjs":"_eslint","eslint.config.js":"_eslint","eslint.config.mjs":"_eslint","eslint.config.cjs":"_eslint",".eslintrc.yaml":"_eslint",".eslintrc.yml":"_eslint",".eslintignore":"_eslint",".eslintcache":"_eslint",".gitattributes":"_git",".gitconfig":"_git",".gitblame":"_git",".gitdescription":"_git",".gitkeep":"_git",".gitignore":"_git","gruntfile.js":"_gruntfile","gruntfile.cjs":"_gruntfile","gruntfile.mjs":"_gruntfile","gulpfile.js":"_gulpfile","gulpfile.cjs":"_gulpfile","gulpfile.mjs":"_gulpfile","gulpfile.babel.js":"_gulpfile","gulpfile.babel.cjs":"_gulpfile","gulpfile.babel.mjs":"_gulpfile","gulpfile.coffee":"_gulpfile","conf.erb":"_nginx","nginx.conf":"_nginx","mime.types":"_nginx","fastcgi_params":"_nginx","scgi_params":"_nginx","uwsgi_params":"_nginx",".node-version":"_nodejs",".nvmrc":"_nodejs","next.config.js":"_nextjs","next.config.cjs":"_nextjs","next.config.mjs":"_nextjs","next.config.ts":"_nextjs",".npmignore":"_npm",".npmrc":"_npm","package-lock.json":"_npm","package.json":"_npm","postcss.config.js":"_postcss","postcss.config.cjs":"_postcss","postcss.config.mjs":"_postcss",".python-version":"_python","rollup.config.js":"_rollup","rollup.config.cjs":"_rollup","rollup.config.mjs":"_rollup",".rvmrc":"_ruby",".ruby-version":"_ruby",".ruby-gemset":"_ruby",".rspec":"_ruby",".stylelintrc":"_stylelint",".stylelintrc.json":"_stylelint",".stylelintrc.js":"_stylelint",".stylelintrc.cjs":"_stylelint",".stylelintrc.mjs":"_stylelint","stylelint.config.js":"_stylelint","stylelint.config.cjs":"_stylelint","stylelint.config.mjs":"_stylelint",".stylelintrc.yaml":"_stylelint",".stylelintrc.yml":"_stylelint",".stylelintignore":"_stylelint","todo":"_todo","tasks":"_todo","todolist.txt":"_todo","TODO":"_todo","Cargo.lock":"_toml","Gopkg.lock":"_toml",".htmlhintrc":"_settings",".prettierrc":"_settings",".releaserc":"_settings",".htmlhintignore":"_settings",".prettierignore":"_settings","requirements.txt":"_settings",".editorconfig":"_settings","tailwind.config.js":"_tailwind","tailwind.config.cjs":"_tailwind","tailwind.config.mjs":"_tailwind","tailwind.config.ts":"_tailwind","tailwind.config.cts":"_tailwind","tailwind.config.mts":"_tailwind","webpack.config.js":"_webpack","webpack.config.cjs":"_webpack","webpack.config.mjs":"_webpack","webpack.config.babel.js":"_webpack","webpack.config.babel.cjs":"_webpack","webpack.config.babel.mjs":"_webpack","webpack.dev.js":"_webpack","webpack.dev.cjs":"_webpack","webpack.dev.mjs":"_webpack","webpack.mix.js":"_webpack","webpack.mix.cjs":"_webpack","webpack.mix.mjs":"_webpack",".yarnclean":"_yarn",".yarnrc":"_yarn",".yarn-integrity":"_yarn",".yarn-metadata.json":"_yarn",".yarnrc.yaml":"_yarn",".yarnrc.yml":"_yarn","yarn.lock":"_yarn","yarnw.cmd":"_yarn","yarnw":"_yarn"},"languageIds":{"abap":"_default","angular":"_angular","astro":"_astro","bat":"_default","bibtex":"_default","blade":"_blade","c":"_c","clojure":"_clojure","coffeescript":"_coffeescript","cpp":"_cpp","crystal":"_crystal","csharp":"_csharp","css":"_css","cuda-cpp":"_cpp","d":"_default","dart":"_dart","diff":"_default","dockercompose":"_docker","dockerfile":"_docker","dockerignore":"_docker","elixir":"_elixir","elm":"_elm","erlang":"_erlang","fortran":"_fortran","fortran90":"_fortran","fortran95":"_fortran","fsharp":"_fsharp","git-rebase":"_git","go":"_go","graphql":"_graphql","groovy":"_default","haml":"_default","handlebars":"_handlebars","hare":"_hare","haskell":"_haskell","haxe":"_haxe","html":"_markup","ini":"_default","jade":"_default","java":"_java","javascript":"_js","javascriptreact":"_react","json":"_json","jsonc":"_json","julia":"_julia","latex":"_tex","less":"_less","lua":"_lua","makefile":"_default","markdown":"_markdown","matlab":"_matlab","mdx":"_markdownx","ng-template":"_angular","objective-c":"_c","objective-cpp":"_cpp","ocaml":"_ocaml","pascal":"_default","perl":"_perl","perl6":"_perl","php":"_php","plaintext":"_text","powershell":"_shell","prolog":"_prolog","pug":"_pug","python":"_python","r":"_r","razor":"_default","reason":"_reason","rescript":"_reason","restructuredtext":"_restructuredtext","ruby":"_ruby","rust":"_rust","sass":"_sass","scss":"_sass","shaderlab":"_default","shellscript":"_shell","slim":"_default","sql":"_sql","stylus":"_stylus","svelte":"_svelte","swift":"_swift","tailwindcss":"_tailwind","terraform":"_terraform","tex":"_tex","todo":"_todo","toml":"_toml","typescript":"_typescript","typescriptreact":"_react","vb":"_default","vue":"_vue","vue-html":"_vue","xml":"_markup","xsl":"_default","yaml":"_yaml"}}
+{
+  "id": "5177896",
+  "name": "Monokai Syntax",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "Obsidian主题",
+  "glyphs": [
+    {
+      "icon_id": "40070890",
+      "name": "api",
+      "font_class": "api",
+      "unicode": "eab5",
+      "unicode_decimal": 60085
+    },
+    {
+      "icon_id": "6598313",
+      "name": "bug-fill",
+      "font_class": "bug",
+      "unicode": "e8e8",
+      "unicode_decimal": 59624
+    },
+    {
+      "icon_id": "15884864",
+      "name": "ToDo",
+      "font_class": "todo",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "36556943",
+      "name": "readme",
+      "font_class": "readme",
+      "unicode": "e695",
+      "unicode_decimal": 59029
+    },
+    {
+      "icon_id": "37153766",
+      "name": "changelog",
+      "font_class": "changelog",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "45267905",
+      "name": "AI_Agent",
+      "font_class": "agent",
+      "unicode": "eba8",
+      "unicode_decimal": 60328
+    },
+    {
+      "icon_id": "46585482",
+      "name": "Prompts",
+      "font_class": "prompts",
+      "unicode": "e940",
+      "unicode_decimal": 59712
+    },
+    {
+      "icon_id": "47568914",
+      "name": "cursor-ai-code-icon-flat",
+      "font_class": "cursor",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "47576208",
+      "name": "callout-bug",
+      "font_class": "callout-bug",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "47576207",
+      "name": "callout-danger",
+      "font_class": "callout-danger",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "47576007",
+      "name": "callout-abstract",
+      "font_class": "callout-abstract",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "47576009",
+      "name": "callout-failure",
+      "font_class": "callout-failure",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "47576010",
+      "name": "callout-success",
+      "font_class": "callout-success",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "47576011",
+      "name": "callout-question",
+      "font_class": "callout-question",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "47576012",
+      "name": "callout-note",
+      "font_class": "callout-note",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "47576013",
+      "name": "callout-tip",
+      "font_class": "callout-tip",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "47576014",
+      "name": "callout-info",
+      "font_class": "callout-info",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "47576015",
+      "name": "callout-todo",
+      "font_class": "callout-todo",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "47576016",
+      "name": "callout-warning",
+      "font_class": "callout-warning",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "47576017",
+      "name": "callout-quote",
+      "font_class": "callout-quote",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "47576019",
+      "name": "callout-example",
+      "font_class": "callout-example",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "47571940",
+      "name": "blade-accent1",
+      "font_class": "blade-accent1",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "47571943",
+      "name": "astro-accent6",
+      "font_class": "astro-accent6",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "47571938",
+      "name": "ansible-accent5",
+      "font_class": "ansible-accent5",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "47571936",
+      "name": "angular-accent1",
+      "font_class": "angular-accent1",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "47571937",
+      "name": "applescript-accent4",
+      "font_class": "applescript-accent4",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "47571939",
+      "name": "archive-accent3",
+      "font_class": "archive-accent3",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "47571935",
+      "name": "adonisjs-accent6",
+      "font_class": "adonisjs-accent6",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "47571956",
+      "name": "folder-dimmed2",
+      "font_class": "folder-dimmed2",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "47571962",
+      "name": "folder-root-dimmed2",
+      "font_class": "folder-root-dimmed2",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "47571958",
+      "name": "docker-accent5",
+      "font_class": "docker-accent5",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "47571964",
+      "name": "git-accent2",
+      "font_class": "git-accent2",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "47571942",
+      "name": "binary-accent3",
+      "font_class": "binary-accent3",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "47571959",
+      "name": "eslint-accent6",
+      "font_class": "eslint-accent6",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "47571949",
+      "name": "composer-accent6",
+      "font_class": "composer-accent6",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "47571957",
+      "name": "folder-open-dimmed2",
+      "font_class": "folder-open-dimmed2",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "47571960",
+      "name": "env-accent3",
+      "font_class": "env-accent3",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "47571948",
+      "name": "csv-accent3",
+      "font_class": "csv-accent3",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "47571953",
+      "name": "dart-accent5",
+      "font_class": "dart-accent5",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "47571950",
+      "name": "default-accent3",
+      "font_class": "default-accent3",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "47571944",
+      "name": "coffeescript-accent5",
+      "font_class": "coffeescript-accent5",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "47571947",
+      "name": "css-accent2",
+      "font_class": "css-accent2",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "47571954",
+      "name": "cpp-accent5",
+      "font_class": "cpp-accent5",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "47571941",
+      "name": "bun-accent1",
+      "font_class": "bun-accent1",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "47571945",
+      "name": "c-accent1",
+      "font_class": "c-accent1",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "47571946",
+      "name": "csharp-accent6",
+      "font_class": "csharp-accent6",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "47571951",
+      "name": "clojure-accent5",
+      "font_class": "clojure-accent5",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "47571952",
+      "name": "elixir-accent6",
+      "font_class": "elixir-accent6",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "47571984",
+      "name": "kotlin-accent6",
+      "font_class": "kotlin-accent6",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "47571955",
+      "name": "crystal-accent6",
+      "font_class": "crystal-accent6",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "47571978",
+      "name": "markdownx-accent4",
+      "font_class": "markdownx-accent4",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "47571961",
+      "name": "fsharp-accent5",
+      "font_class": "fsharp-accent5",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "47571982",
+      "name": "less-accent6",
+      "font_class": "less-accent6",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "47571975",
+      "name": "julia-accent6",
+      "font_class": "julia-accent6",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "47571972",
+      "name": "gulpfile-accent1",
+      "font_class": "gulpfile-accent1",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "47571979",
+      "name": "js-accent3",
+      "font_class": "js-accent3",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "47571971",
+      "name": "haxe-accent2",
+      "font_class": "haxe-accent2",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "47571966",
+      "name": "haskell-accent2",
+      "font_class": "haskell-accent2",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
+      "icon_id": "47571963",
+      "name": "erlang-accent1",
+      "font_class": "erlang-accent1",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "47571974",
+      "name": "haxealt-accent3",
+      "font_class": "haxealt-accent3",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "47571973",
+      "name": "hare-accent6",
+      "font_class": "hare-accent6",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "47571969",
+      "name": "handlebars-accent2",
+      "font_class": "handlebars-accent2",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "47571965",
+      "name": "folder-root-open-dimmed2",
+      "font_class": "folder-root-open-dimmed2",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "47571967",
+      "name": "fortran-accent1",
+      "font_class": "fortran-accent1",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "47571970",
+      "name": "go-accent5",
+      "font_class": "go-accent5",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "47571968",
+      "name": "graphql-accent1",
+      "font_class": "graphql-accent1",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "47572001",
+      "name": "opengl-accent1",
+      "font_class": "opengl-accent1",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "47571996",
+      "name": "font-accent6",
+      "font_class": "font-accent6",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "47572002",
+      "name": "python-accent4",
+      "font_class": "python-accent4",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "47571992",
+      "name": "r-accent5",
+      "font_class": "r-accent5",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "47571987",
+      "name": "lua-accent5",
+      "font_class": "lua-accent5",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "47571999",
+      "name": "rails-accent1",
+      "font_class": "rails-accent1",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "47571998",
+      "name": "npm-accent1",
+      "font_class": "npm-accent1",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "47571988",
+      "name": "nextjs-accent6",
+      "font_class": "nextjs-accent6",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "47571994",
+      "name": "prolog-accent1",
+      "font_class": "prolog-accent1",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "47571997",
+      "name": "php-accent5",
+      "font_class": "php-accent5",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "47572000",
+      "name": "pug-accent2",
+      "font_class": "pug-accent2",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "47571989",
+      "name": "gruntfile-accent1",
+      "font_class": "gruntfile-accent1",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "47571986",
+      "name": "nodejs-accent4",
+      "font_class": "nodejs-accent4",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "47571991",
+      "name": "nginx-accent4",
+      "font_class": "nginx-accent4",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "47571977",
+      "name": "elm-accent5",
+      "font_class": "elm-accent5",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "47571993",
+      "name": "java-accent5",
+      "font_class": "java-accent5",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "47571995",
+      "name": "ocaml-accent2",
+      "font_class": "ocaml-accent2",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "47571990",
+      "name": "perl-accent5",
+      "font_class": "perl-accent5",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "47571983",
+      "name": "markdown-accent4",
+      "font_class": "markdown-accent4",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "47571985",
+      "name": "image-accent3",
+      "font_class": "image-accent3",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "47571981",
+      "name": "lisp-accent1",
+      "font_class": "lisp-accent1",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "47571976",
+      "name": "license-accent4",
+      "font_class": "license-accent4",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "47572023",
+      "name": "test-accent5",
+      "font_class": "test-accent5",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "47572013",
+      "name": "sass-accent1",
+      "font_class": "sass-accent1",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "47572021",
+      "name": "swift-accent1",
+      "font_class": "swift-accent1",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "47572022",
+      "name": "toml-accent6",
+      "font_class": "toml-accent6",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "47572008",
+      "name": "react-accent5",
+      "font_class": "react-accent5",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "47572019",
+      "name": "shell-accent4",
+      "font_class": "shell-accent4",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "47572020",
+      "name": "text-accent3",
+      "font_class": "text-accent3",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "47572007",
+      "name": "ruby-accent1",
+      "font_class": "ruby-accent1",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "47572016",
+      "name": "sublime-accent3",
+      "font_class": "sublime-accent3",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "47572017",
+      "name": "rollup-accent1",
+      "font_class": "rollup-accent1",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "47572018",
+      "name": "todo-accent4",
+      "font_class": "todo-accent4",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "47572015",
+      "name": "sql-accent6",
+      "font_class": "sql-accent6",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "47572004",
+      "name": "postcss-accent1",
+      "font_class": "postcss-accent1",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "47572012",
+      "name": "source-accent3",
+      "font_class": "source-accent3",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "47572014",
+      "name": "rust-accent2",
+      "font_class": "rust-accent2",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "47572009",
+      "name": "scala-accent1",
+      "font_class": "scala-accent1",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "47572010",
+      "name": "reason-accent2",
+      "font_class": "reason-accent2",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "47572006",
+      "name": "restructuredtext-accent4",
+      "font_class": "restructuredtext-accent4",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "47572011",
+      "name": "stylus-accent2",
+      "font_class": "stylus-accent2",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "47572005",
+      "name": "matlab-accent2",
+      "font_class": "matlab-accent2",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "47572003",
+      "name": "json-accent6",
+      "font_class": "json-accent6",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "47572038",
+      "name": "stylelint-accent6",
+      "font_class": "stylelint-accent6",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "47571980",
+      "name": "markup-accent2",
+      "font_class": "markup-accent2",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "47572037",
+      "name": "yarn-accent6",
+      "font_class": "yarn-accent6",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "47572036",
+      "name": "webpack-accent5",
+      "font_class": "webpack-accent5",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "47572035",
+      "name": "terraform-accent6",
+      "font_class": "terraform-accent6",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "47572030",
+      "name": "svg-accent2",
+      "font_class": "svg-accent2",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "47572032",
+      "name": "tailwind-accent5",
+      "font_class": "tailwind-accent5",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "47572034",
+      "name": "visualstudio-accent5",
+      "font_class": "visualstudio-accent5",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "47572025",
+      "name": "svelte-accent1",
+      "font_class": "svelte-accent1",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "47572033",
+      "name": "symbolic-link-dimmed2",
+      "font_class": "symbolic-link-dimmed2",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "47572024",
+      "name": "settings-accent6",
+      "font_class": "settings-accent6",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "47572031",
+      "name": "yaml-accent3",
+      "font_class": "yaml-accent3",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "47572029",
+      "name": "tex-accent2",
+      "font_class": "tex-accent2",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "47572028",
+      "name": "typescript-accent5",
+      "font_class": "typescript-accent5",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "47572027",
+      "name": "twig-accent4",
+      "font_class": "twig-accent4",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "47572026",
+      "name": "vue-accent4",
+      "font_class": "vue-accent4",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    }
+  ]
+}

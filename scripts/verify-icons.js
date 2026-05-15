@@ -7,11 +7,15 @@ const wrapperPath = resolve(rootDir, "src/scss/components/_file-icons.scss");
 const componentIndexPath = resolve(rootDir, "src/scss/components/_index.scss");
 const packagePath = resolve(rootDir, "package.json");
 const auditPath = resolve(rootDir, "scripts/audit-css.js");
+const styleSettingsPath = resolve(rootDir, "src/css/style-settings/30-icons.css.md");
+const activeVisualPath = resolve(rootDir, "src/scss/_active-visual-overrides.scss");
 
 const files = {
   generated: existsSync(generatedPath) ? readFileSync(generatedPath, "utf8") : "",
   wrapper: existsSync(wrapperPath) ? readFileSync(wrapperPath, "utf8") : "",
   index: readFileSync(componentIndexPath, "utf8"),
+  styleSettings: readFileSync(styleSettingsPath, "utf8"),
+  activeVisual: readFileSync(activeVisualPath, "utf8"),
   packageJson: JSON.parse(readFileSync(packagePath, "utf8")),
   audit: readFileSync(auditPath, "utf8"),
 };
@@ -24,13 +28,28 @@ const checks = [
   ["构建前会生成图标", files.packageJson.scripts?.prebuild === "node scripts/generate-icon-theme.js"],
   ["存在验证脚本", files.packageJson.scripts?.["verify:icons"] === "node scripts/verify-icons.js"],
   ["内联 woff 字体", /data:font\/woff;base64,/.test(files.generated)],
-  ["图标 content 使用 CSS Unicode 转义", /content: "\\EA[0-9A-F]{2}";/.test(files.generated)],
-  ["图标 content 未被双重转义", !/content: "\\\\EA[0-9A-F]{2}";/.test(files.generated)],
+  ["图标 content 使用 CSS Unicode 转义", /content: "[\\][0-9a-f]{4}";/i.test(files.generated)],
+  ["图标 content 未被双重转义", !/content: "[\\][\\][0-9a-f]{4}";/i.test(files.generated)],
   ["默认文件图标规则", /\.nav-file-title::before/.test(files.generated)],
   ["Markdown 扩展名规则", /\[data-path\$="\.md"\]::before/.test(files.generated)],
   ["package.json 文件名规则", /\[data-path\$="\/package\.json"\]::before/.test(files.generated)],
-  ["TODO.md 文件名规则", /\[data-path\$="\/TODO\.md"\]::before/.test(files.generated)],
-  ["不生成额外文件夹图标", !/\.nav-folder-title::before/.test(files.generated)],
+  ["README.md/readme.md 文件名规则", /\[data-path\$="\/README\.md"\]::before/.test(files.generated) && /\[data-path\$="\/readme\.md"\]::before/.test(files.generated)],
+  ["TODO.md/todo.md 文件名规则", /\[data-path\$="\/TODO\.md"\]::before/.test(files.generated) && /\[data-path\$="\/todo\.md"\]::before/.test(files.generated)],
+  ["CHANGELOG.md/changelog.md 文件名规则", /\[data-path\$="\/CHANGELOG\.md"\]::before/.test(files.generated) && /\[data-path\$="\/changelog\.md"\]::before/.test(files.generated)],
+  ["API.md/api.md 文件名规则", /\[data-path\$="\/API\.md"\]::before/.test(files.generated) && /\[data-path\$="\/api\.md"\]::before/.test(files.generated)],
+  ["PROMPTS.md/prompts.md 文件名规则", /\[data-path\$="\/PROMPTS\.md"\]::before/.test(files.generated) && /\[data-path\$="\/prompts\.md"\]::before/.test(files.generated)],
+  ["CURSOR.md/cursor.md 文件名规则", /\[data-path\$="\/CURSOR\.md"\]::before/.test(files.generated) && /\[data-path\$="\/cursor\.md"\]::before/.test(files.generated)],
+  ["CLAUDE.md/claude.md 文件名规则", /\[data-path\$="\/CLAUDE\.md"\]::before/.test(files.generated) && /\[data-path\$="\/claude\.md"\]::before/.test(files.generated)],
+  ["AGENTS.md/agents.md 文件名规则", /\[data-path\$="\/AGENTS\.md"\]::before/.test(files.generated) && /\[data-path\$="\/agents\.md"\]::before/.test(files.generated)],
+  ["Bug_ 开头文档规则", /\[data-path\*="\/Bug_"\]\[data-path\$="\.md"\]::before/.test(files.generated)],
+  ["第二层文件夹使用 folder-dimmed2 折叠图标", /\.nav-folder-children\s+\.nav-folder-children\s+\.nav-folder-title\s+\.collapse-icon[\s\S]*content:\s*"\\e64d";/.test(files.wrapper)],
+  ["兼容 Obsidian 折叠图标类名", /\.nav-folder-collapse-indicator/.test(files.wrapper) && /\.collapse-icon/.test(files.wrapper)],
+  ["第一层文件夹保留 Obsidian 原生折叠图标", !/\.nav-folder\.mod-root\s*>\s*\.nav-folder-children\s*>\s*\.nav-folder\s*>\s*\.nav-folder-title\s+\.nav-folder-collapse-indicator[\s\S]*content:\s*"\\e64d";/.test(files.wrapper)],
+  ["Style Settings 可关闭文档树图标", /monokai-syntax-hide-file-tree-icons/.test(files.styleSettings) && /body\.monokai-syntax-hide-file-tree-icons/.test(files.wrapper)],
+  ["Callout 图标使用 icons.woff 字体", /font-family:\s*monokai-pro-icons/.test(files.activeVisual) && /callout\[data-callout="bug"\][\s\S]*content:\s*"\\e675";/.test(files.activeVisual)],
+  ["所有默认 Callout 类型都有背景与边框映射", ["note", "abstract", "info", "todo", "tip", "question", "warning", "failure", "bug", "success", "example", "quote"].every((name) => new RegExp(`--monokai-callout-${name}-bg`).test(files.activeVisual) || new RegExp(`--monokai-callout-${name}-bg`).test(readFileSync(resolve(rootDir, "src/scss/components/_editor.scss"), "utf8")))],
+  ["Callout 图标尺寸放大", /--callout-icon-size:\s*1\.25em/.test(readFileSync(resolve(rootDir, "src/scss/components/_editor.scss"), "utf8"))],
+  ["文件树扩展名颜色多样", /--monokai-file-icon-color:\s*#ff6188/.test(files.generated) && /--monokai-file-icon-color:\s*#fc9867/.test(files.generated) && /--monokai-file-icon-color:\s*#ffd866/.test(files.generated) && /--monokai-file-icon-color:\s*#a9dc76/.test(files.generated) && /--monokai-file-icon-color:\s*#78dce8/.test(files.generated) && /--monokai-file-icon-color:\s*#ab9df2/.test(files.generated)],
   ["保留 Obsidian 默认文件夹折叠指示器", /\.nav-folder-collapse-indicator/.test(readFileSync(resolve(rootDir, "src/scss/_base.scss"), "utf8"))],
   ["单色图标模式规则", /body\.monokai-syntax-monochrome-icons/.test(files.wrapper)],
   ["保留彩色图标模式", /--monokai-file-icon-color/.test(files.generated)],

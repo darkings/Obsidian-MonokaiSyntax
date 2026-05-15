@@ -16,6 +16,14 @@ Monokai Syntax 是一个受 Monokai Pro 视觉语言启发的 Obsidian 社区主
 - 支持 Style Settings 调整调色板滤镜、密度、图标、字体与强调色。
 - 最终主题 CSS 不加载远程运行时资源。
 
+## 1.0.1 更新
+
+- 扩展文档图标覆盖：README、TODO、CHANGELOG、API、PROMPTS、CURSOR、CLAUDE、AGENTS 与 `Bug_*.md`。
+- Callout 图标改用 `icons/icons.woff` 内置 glyph，并放大图标尺寸，补齐 Monokai 风格语义背景色与左边框。
+- 文件树第二层及以后文件夹折叠图标改用 `folder-dimmed2`，根目录第一层保留 Obsidian 原生折叠图标。
+- Style Settings 新增关闭文档树图标开关。
+- 优化文件树紧凑模式的字号、行高与图标间距。
+
 ## 安装
 
 ### 社区主题

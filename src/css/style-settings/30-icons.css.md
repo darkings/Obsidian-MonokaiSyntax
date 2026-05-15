@@ -9,4 +9,9 @@ settings:
     title: 单色图标
     type: class-toggle
     default: false
+  -
+    id: monokai-syntax-hide-file-tree-icons
+    title: 关闭文档树图标
+    type: class-toggle
+    default: false
 */
