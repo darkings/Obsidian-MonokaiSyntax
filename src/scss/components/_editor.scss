@@ -17,7 +17,7 @@
   text-rendering: optimizelegibility;
 }
 
-.theme-dark {
+body.theme-dark {
   --monokai-heading-weight: 600;
   --blockquote-border-color: #{$color-dark-blockquote-border};
   --monokai-blockquote-border: #{$color-dark-blockquote-border};
@@ -53,7 +53,7 @@
   --monokai-task-done-color: rgb(248 248 242 / 68%);
 }
 
-.theme-light {
+body.theme-light {
   --monokai-heading-weight: 700;
   --blockquote-border-color: #{$color-light-blockquote-border};
   --monokai-blockquote-border: #{$color-light-blockquote-border};
@@ -153,6 +153,7 @@
     background-color: var(--code-background);
     border: 1px solid var(--background-modifier-border);
     border-radius: var(--radius-m);
+    font-family: var(--font-monospace-theme);
     padding: #{$spacing-4};
 
     code {
@@ -211,10 +212,6 @@
     box-shadow: none;
     padding: 0.05em 0.25em;
   }
-}
-
-.markdown-rendered pre {
-  font-family: var(--font-monospace-theme);
 }
 
 .cm-s-obsidian {

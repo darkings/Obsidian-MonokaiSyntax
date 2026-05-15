@@ -3,9 +3,7 @@
 /* stylelint-disable selector-class-pattern -- Obsidian 内部类名，不能改成 kebab-case。 */
 
 body.theme-dark,
-body.theme-light,
-.theme-dark,
-.theme-light {
+body.theme-light {
   --blockquote-background-color: transparent;
   --blockquote-border-thickness: 2px;
   --callout-padding: 1.25rem;
@@ -26,16 +24,14 @@ body .markdown-rendered blockquote {
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote,
-body .markdown-source-view.mod-cm6 .HyperMD-quote,
-body .markdown-source-view.mod-cm6 .cm-line:has(.cm-quote) {
+body .markdown-source-view.mod-cm6 .HyperMD-quote {
   background-color: transparent;
   border-inline-start: 2px solid var(--monokai-blockquote-border);
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-quote,
-body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-quote,
-body .markdown-source-view.mod-cm6 .cm-line:has(.cm-quote) .cm-quote {
+body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-quote {
   color: var(--text-normal);
   border-inline-start: 0;
   margin-left: 0.6rem;
@@ -43,15 +39,13 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.cm-quote) .cm-quote {
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-formatting-quote,
-body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-formatting-quote,
-body .markdown-source-view.mod-cm6 .cm-line:has(.cm-quote) .cm-formatting-quote {
+body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-formatting-quote {
   display: none;
 }
 
 /* ===== Callout - CodeMirror 行容器（仅外层 spacing，无背景无竖线） ===== */
 
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout),
-body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout) {
+body .markdown-source-view.mod-cm6 .cm-callout {
   background-color: transparent;
   border-inline-start: 0;
   border-radius: 0;
@@ -80,9 +74,7 @@ body .markdown-source-view.mod-cm6 .cm-callout {
 body .markdown-preview-view.markdown-rendered .callout-title,
 body .markdown-rendered .callout-title,
 body .markdown-source-view.mod-cm6 .callout-title,
-body .markdown-source-view.mod-cm6 .cm-callout-title,
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout-title),
-body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout-title) {
+body .markdown-source-view.mod-cm6 .cm-callout-title {
   color: var(--callout-border, var(--monokai-callout-note-border));
   font-weight: 700;
   gap: var(--spacing-2);
@@ -92,9 +84,7 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout-title) {
 body .markdown-preview-view.markdown-rendered .callout-content,
 body .markdown-rendered .callout-content,
 body .markdown-source-view.mod-cm6 .callout-content,
-body .markdown-source-view.mod-cm6 .cm-callout-content,
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout-content),
-body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout-content) {
+body .markdown-source-view.mod-cm6 .cm-callout-content {
   background-color: transparent;
   border-radius: 0;
   margin-block-start: var(--spacing-4);
@@ -106,8 +96,7 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.cm-callout-content) {
 
 body .markdown-preview-view.markdown-rendered .callout[data-callout="note"],
 body .markdown-rendered .callout[data-callout="note"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="note"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="note"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="note"] {
   --callout-background: var(--monokai-callout-note-bg);
   --callout-border: var(--monokai-callout-note-border);
 }
@@ -115,31 +104,26 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="note"]) {
 body .markdown-preview-view.markdown-rendered .callout[data-callout="abstract"],
 body .markdown-rendered .callout[data-callout="abstract"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="abstract"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="abstract"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="summary"],
 body .markdown-rendered .callout[data-callout="summary"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="summary"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="summary"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="tldr"],
 body .markdown-rendered .callout[data-callout="tldr"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="tldr"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="tldr"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="tldr"] {
   --callout-background: var(--monokai-callout-abstract-bg);
   --callout-border: var(--monokai-callout-abstract-border);
 }
 
 body .markdown-preview-view.markdown-rendered .callout[data-callout="info"],
 body .markdown-rendered .callout[data-callout="info"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="info"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="info"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="info"] {
   --callout-background: var(--monokai-callout-info-bg);
   --callout-border: var(--monokai-callout-info-border);
 }
 
 body .markdown-preview-view.markdown-rendered .callout[data-callout="todo"],
 body .markdown-rendered .callout[data-callout="todo"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="todo"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="todo"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="todo"] {
   --callout-background: var(--monokai-callout-todo-bg);
   --callout-border: var(--monokai-callout-todo-border);
 }
@@ -147,15 +131,12 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="todo"]) {
 body .markdown-preview-view.markdown-rendered .callout[data-callout="tip"],
 body .markdown-rendered .callout[data-callout="tip"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="tip"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="tip"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="hint"],
 body .markdown-rendered .callout[data-callout="hint"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="hint"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="hint"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="important"],
 body .markdown-rendered .callout[data-callout="important"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="important"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="important"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="important"] {
   --callout-background: var(--monokai-callout-tip-bg);
   --callout-border: var(--monokai-callout-tip-border);
 }
@@ -163,15 +144,12 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="important
 body .markdown-preview-view.markdown-rendered .callout[data-callout="question"],
 body .markdown-rendered .callout[data-callout="question"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="question"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="question"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="help"],
 body .markdown-rendered .callout[data-callout="help"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="help"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="help"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="faq"],
 body .markdown-rendered .callout[data-callout="faq"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="faq"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="faq"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="faq"] {
   --callout-background: var(--monokai-callout-question-bg);
   --callout-border: var(--monokai-callout-question-border);
 }
@@ -179,15 +157,12 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="faq"]) {
 body .markdown-preview-view.markdown-rendered .callout[data-callout="warning"],
 body .markdown-rendered .callout[data-callout="warning"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="warning"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="warning"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="caution"],
 body .markdown-rendered .callout[data-callout="caution"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="caution"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="caution"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="attention"],
 body .markdown-rendered .callout[data-callout="attention"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="attention"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="attention"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="attention"] {
   --callout-background: var(--monokai-callout-warning-bg);
   --callout-border: var(--monokai-callout-warning-border);
 }
@@ -195,11 +170,9 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="attention
 body .markdown-preview-view.markdown-rendered .callout[data-callout="error"],
 body .markdown-rendered .callout[data-callout="error"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="error"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="error"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="danger"],
 body .markdown-rendered .callout[data-callout="danger"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="danger"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="danger"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="danger"] {
   --callout-background: var(--monokai-callout-error-bg);
   --callout-border: var(--monokai-callout-error-border);
 }
@@ -207,23 +180,19 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="danger"])
 body .markdown-preview-view.markdown-rendered .callout[data-callout="failure"],
 body .markdown-rendered .callout[data-callout="failure"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="failure"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="failure"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="fail"],
 body .markdown-rendered .callout[data-callout="fail"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="fail"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="fail"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="missing"],
 body .markdown-rendered .callout[data-callout="missing"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="missing"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="missing"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="missing"] {
   --callout-background: var(--monokai-callout-failure-bg);
   --callout-border: var(--monokai-callout-failure-border);
 }
 
 body .markdown-preview-view.markdown-rendered .callout[data-callout="bug"],
 body .markdown-rendered .callout[data-callout="bug"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="bug"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="bug"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="bug"] {
   --callout-background: var(--monokai-callout-bug-bg);
   --callout-border: var(--monokai-callout-bug-border);
 }
@@ -231,23 +200,19 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="bug"]) {
 body .markdown-preview-view.markdown-rendered .callout[data-callout="success"],
 body .markdown-rendered .callout[data-callout="success"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="success"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="success"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="check"],
 body .markdown-rendered .callout[data-callout="check"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="check"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="check"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="done"],
 body .markdown-rendered .callout[data-callout="done"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="done"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="done"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="done"] {
   --callout-background: var(--monokai-callout-success-bg);
   --callout-border: var(--monokai-callout-success-border);
 }
 
 body .markdown-preview-view.markdown-rendered .callout[data-callout="example"],
 body .markdown-rendered .callout[data-callout="example"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="example"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="example"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="example"] {
   --callout-background: var(--monokai-callout-example-bg);
   --callout-border: var(--monokai-callout-example-border);
 }
@@ -255,11 +220,9 @@ body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="example"]
 body .markdown-preview-view.markdown-rendered .callout[data-callout="quote"],
 body .markdown-rendered .callout[data-callout="quote"],
 body .markdown-source-view.mod-cm6 .callout[data-callout="quote"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="quote"]),
 body .markdown-preview-view.markdown-rendered .callout[data-callout="cite"],
 body .markdown-rendered .callout[data-callout="cite"],
-body .markdown-source-view.mod-cm6 .callout[data-callout="cite"],
-body .markdown-source-view.mod-cm6 .cm-line:has(.callout[data-callout="cite"]) {
+body .markdown-source-view.mod-cm6 .callout[data-callout="cite"] {
   --callout-background: var(--monokai-callout-quote-bg);
   --callout-border: var(--monokai-callout-quote-border);
 }

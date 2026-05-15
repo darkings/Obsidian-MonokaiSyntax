@@ -34,7 +34,7 @@
   }
 }
 
-.theme-dark {
+body.theme-dark {
   --monokai-graph-background: #1e1f1c;
   --monokai-graph-panel: #2b2c26;
   --monokai-graph-line: rgb(120 220 232 / 42%);
@@ -46,7 +46,7 @@
   --monokai-graph-ring: rgb(102 217 239 / 28%);
 }
 
-.theme-light {
+body.theme-light {
   --monokai-graph-background: #f5f0e6;
   --monokai-graph-panel: #f2ead8;
   --monokai-graph-line: rgb(20 116 138 / 42%);
@@ -141,6 +141,9 @@
 .workspace-leaf-content[data-type="graph"],
 .workspace-leaf-content[data-type="localgraph"] {
   background-color: var(--monokai-graph-background);
+  transition:
+    box-shadow 180ms ease,
+    background-color 180ms ease;
 }
 
 .workspace-leaf-content[data-type="graph"] .view-content,
@@ -148,13 +151,6 @@
   background: var(--monokai-graph-background);
   overflow: hidden;
   position: relative;
-}
-
-.workspace-leaf-content[data-type="graph"],
-.workspace-leaf-content[data-type="localgraph"] {
-  transition:
-    box-shadow 180ms ease,
-    background-color 180ms ease;
 }
 
 .workspace-leaf-content[data-type="graph"]:focus-within,

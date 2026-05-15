@@ -1,10 +1,5 @@
 @forward "file-icons.generated";
 
-.nav-file-title,
-.nav-folder-title {
-  align-items: center;
-}
-
 .nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator,
 .nav-folder-title[data-path*="/"] .collapse-icon,
 .nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator,

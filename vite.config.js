@@ -50,7 +50,9 @@ export default defineConfig({
   build: {
     assetsDir: ".",
     cssCodeSplit: false,
+    cssMinify: false,
     emptyOutDir: true,
+    minify: false,
     outDir: "dist",
     rollupOptions: {
       input: resolve(rootDir, "src/main.js"),
