@@ -55,16 +55,16 @@
   --list-marker-color: #{$color-dark-purple};
   --code-normal: #{$color-dark-text-normal};
   --code-background: #{$color-dark-background-secondary};
-  --code-comment: #{$color-dark-text-faint};
-  --code-function: #{$color-dark-green};
-  --code-important: #{$color-dark-magenta};
-  --code-keyword: #{$color-dark-magenta};
-  --code-operator: #{$color-dark-red-soft};
-  --code-property: #{$color-dark-cyan};
+  --code-comment: #72736f;
+  --code-function: #{$color-dark-green-soft};
+  --code-important: #{$color-dark-red-soft};
+  --code-keyword: #{$color-dark-red-soft};
+  --code-operator: #{$color-dark-orange-soft};
+  --code-property: #{$color-dark-cyan-soft};
   --code-punctuation: #{$color-dark-text-muted};
-  --code-string: #{$color-dark-yellow};
-  --code-tag: #{$color-dark-magenta};
-  --code-value: #{$color-dark-purple};
+  --code-string: #{$color-dark-yellow-soft};
+  --code-tag: #{$color-dark-red-soft};
+  --code-value: #{$color-dark-purple-soft};
   --ribbon-background: #{$color-dark-background-secondary};
   --nav-item-background-hover: #{$color-dark-hover};
   --nav-item-background-active: #{$color-dark-active};
@@ -248,10 +248,10 @@ input[type="checkbox"]:checked {
 }
 
 .tag {
-  color: var(--link-color);
-  background-color: var(--background-secondary);
-  border: 1px solid var(--background-modifier-border);
-  border-radius: 999px;
+  color: var(--monokai-tag-color, var(--link-color));
+  background-color: var(--monokai-tag-background, var(--background-secondary));
+  border: 1px solid var(--monokai-tag-border-color, var(--background-modifier-border));
+  border-radius: var(--monokai-tag-radius, var(--radius-s));
 }
 
 .tag:hover {

@@ -1,9 +1,9 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const qaDir = resolve(
-  "C:/Users/Jie/iCloudDrive/iCloud~md~obsidian/SecondBrain/project/Monokai Syntax/QA",
-);
+import { resolveQaPaths, resolveVaultRoot } from "./qa-paths.js";
+
+const { qaDir } = resolveQaPaths(resolveVaultRoot());
 
 mkdirSync(qaDir, { recursive: true });
 

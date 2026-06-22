@@ -19,14 +19,5 @@ jobs:
 
       - run: npm ci
 
-      - name: Stylelint
-        run: npm run lint:css
-
-      - name: Build
-        run: npm run build
-
-      - name: CSS Audit
-        run: npm run audit:css
-
-      - name: Contrast Check
-        run: npm run check:contrast
+      - name: Verify
+        run: npm run verify

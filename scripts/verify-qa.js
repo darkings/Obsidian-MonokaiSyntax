@@ -1,18 +1,8 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 
-const rootDir = resolve(import.meta.dirname, "..");
-const vaultDir = resolve("C:/Users/Jie/iCloudDrive/iCloud~md~obsidian/SecondBrain");
-const qaDir = resolve(vaultDir, "project/Monokai Syntax/QA");
-const themeDir = resolve(vaultDir, ".obsidian/themes/Monokai Syntax");
-const appearancePath = resolve(vaultDir, ".obsidian/appearance.json");
-const themeCssPath = resolve(themeDir, "theme.css");
-const checks = [];
-
-function addCheck(label, passed) {
-  checks.push([label, passed]);
-  console.log(`${label}: ${passed ? "通过" : "失败"}`);
-}
+import { resolveQaPaths, resolveVaultRoot } from "./qa-paths.js";
 
 const qaFiles = [
   "Monokai Syntax QA 总览.md",
@@ -22,20 +12,9 @@ const qaFiles = [
   "Monokai Syntax QA.canvas",
 ];
 
-for (const fileName of qaFiles) {
-  addCheck(`QA 文件存在：${fileName}`, existsSync(resolve(qaDir, fileName)));
-}
-
-addCheck("Vault 主题 CSS 存在", existsSync(themeCssPath));
-addCheck("Vault manifest 存在", existsSync(resolve(themeDir, "manifest.json")));
-
-const appearance = JSON.parse(readFileSync(appearancePath, "utf8"));
-addCheck("Obsidian 已选择 Monokai Syntax 主题", appearance.cssTheme === "Monokai Syntax");
-
-const themeCss = readFileSync(themeCssPath, "utf8");
 const requiredPatterns = [
-  ["深色模式变量", /\.theme-dark\{/],
-  ["浅色模式变量", /\.theme-light\{/],
+  ["深色模式变量", /\.theme-dark\s*\{/],
+  ["浅色模式变量", /\.theme-light\s*\{/],
   ["编辑器样式", /\.markdown-rendered/],
   ["关系图谱样式", /\.graph-view/],
   ["Canvas 样式", /\.canvas-wrapper/],
@@ -51,16 +30,73 @@ const requiredPatterns = [
   ["强调色变量", /monokai-accent-color/],
 ];
 
-for (const [label, pattern] of requiredPatterns) {
-  addCheck(label, pattern.test(themeCss));
+function readJsonResult(path, label) {
+  if (!existsSync(path)) {
+    return { ok: false, error: `${label} 不存在` };
+  }
+
+  try {
+    return { ok: true, value: JSON.parse(readFileSync(path, "utf8")) };
+  } catch {
+    return { ok: false, error: `${label} 不是有效 JSON` };
+  }
 }
 
-const canvas = JSON.parse(readFileSync(resolve(qaDir, "Monokai Syntax QA.canvas"), "utf8"));
-addCheck("Canvas 包含节点", Array.isArray(canvas.nodes) && canvas.nodes.length >= 3);
-addCheck("Canvas 包含边线", Array.isArray(canvas.edges) && canvas.edges.length >= 2);
+function addCheck(checks, label, passed) {
+  checks.push({ label, passed });
+}
 
-const failed = checks.filter(([, passed]) => !passed);
+export function verifyQaVault(vaultRoot) {
+  const paths = resolveQaPaths(vaultRoot);
+  const checks = [];
 
-if (failed.length > 0) {
-  process.exitCode = 1;
+  for (const fileName of qaFiles) {
+    addCheck(checks, `QA 文件存在：${fileName}`, existsSync(resolve(paths.qaDir, fileName)));
+  }
+
+  addCheck(checks, "Vault 主题 CSS 存在", existsSync(paths.themeCssPath));
+  addCheck(checks, "Vault manifest 存在", existsSync(paths.manifestPath));
+
+  const appearance = readJsonResult(paths.appearancePath, "appearance.json");
+  addCheck(checks, appearance.error ?? "appearance.json 可读取", appearance.ok);
+  addCheck(
+    checks,
+    "Obsidian 已选择 Monokai Syntax 主题",
+    appearance.ok && appearance.value.cssTheme === "Monokai Syntax",
+  );
+
+  const themeCss = existsSync(paths.themeCssPath) ? readFileSync(paths.themeCssPath, "utf8") : "";
+  for (const [label, pattern] of requiredPatterns) {
+    addCheck(checks, label, pattern.test(themeCss));
+  }
+
+  const canvas = readJsonResult(resolve(paths.qaDir, "Monokai Syntax QA.canvas"), "Monokai Syntax QA.canvas");
+  addCheck(checks, canvas.error ?? "Canvas JSON 可读取", canvas.ok);
+  addCheck(checks, "Canvas 包含节点", canvas.ok && Array.isArray(canvas.value.nodes) && canvas.value.nodes.length >= 3);
+  addCheck(checks, "Canvas 包含边线", canvas.ok && Array.isArray(canvas.value.edges) && canvas.value.edges.length >= 2);
+
+  const failures = checks.filter((check) => !check.passed).map((check) => check.label);
+
+  return {
+    passed: failures.length === 0,
+    failures,
+    checks,
+    paths,
+  };
+}
+
+function runCli() {
+  const result = verifyQaVault(resolveVaultRoot());
+
+  for (const check of result.checks) {
+    console.log(`${check.label}: ${check.passed ? "通过" : "失败"}`);
+  }
+
+  if (!result.passed) {
+    process.exitCode = 1;
+  }
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  runCli();
 }

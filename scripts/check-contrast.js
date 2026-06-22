@@ -1,4 +1,6 @@
-const pairs = [
+import { pathToFileURL } from "node:url";
+
+export const pairs = [
   ["深色正文", "#f8f8f2", "#272822", 4.5],
   ["深色链接", "#66d9ef", "#272822", 4.5],
   ["深色图标", "#c1c1bd", "#1e1f1c", 3],
@@ -9,7 +11,7 @@ const pairs = [
   ["浅色高亮文本", "#3d3d3d", "#f7e7b3", 4.5],
 ];
 
-function toRgb(hex) {
+export function toRgb(hex) {
   const value = hex.replace("#", "");
   return [
     Number.parseInt(value.slice(0, 2), 16),
@@ -18,19 +20,19 @@ function toRgb(hex) {
   ];
 }
 
-function channel(value) {
+export function channel(value) {
   const normalized = value / 255;
   return normalized <= 0.03928
     ? normalized / 12.92
     : ((normalized + 0.055) / 1.055) ** 2.4;
 }
 
-function luminance(hex) {
+export function luminance(hex) {
   const [red, green, blue] = toRgb(hex).map(channel);
   return 0.2126 * red + 0.7152 * green + 0.0722 * blue;
 }
 
-function contrast(foreground, background) {
+export function contrast(foreground, background) {
   const foregroundLuminance = luminance(foreground);
   const backgroundLuminance = luminance(background);
   const lighter = Math.max(foregroundLuminance, backgroundLuminance);
@@ -38,19 +40,39 @@ function contrast(foreground, background) {
   return (lighter + 0.05) / (darker + 0.05);
 }
 
-let hasFailure = false;
+export function checkContrastPairs(contrastPairs = pairs) {
+  return contrastPairs.map(([label, foreground, background, minimum]) => {
+    const ratio = contrast(foreground, background);
 
-for (const [label, foreground, background, minimum] of pairs) {
-  const ratio = contrast(foreground, background);
-  const passed = ratio >= minimum;
-  const formattedRatio = ratio.toFixed(2);
-  console.log(`${label}: ${formattedRatio}:1，要求 >= ${minimum}:1`);
+    return {
+      label,
+      foreground,
+      background,
+      minimum,
+      ratio,
+      passed: ratio >= minimum,
+    };
+  });
+}
 
-  if (!passed) {
-    hasFailure = true;
+function runCli() {
+  const results = checkContrastPairs();
+  let hasFailure = false;
+
+  for (const result of results) {
+    const formattedRatio = result.ratio.toFixed(2);
+    console.log(`${result.label}: ${formattedRatio}:1，要求 >= ${result.minimum}:1`);
+
+    if (!result.passed) {
+      hasFailure = true;
+    }
+  }
+
+  if (hasFailure) {
+    process.exitCode = 1;
   }
 }
 
-if (hasFailure) {
-  process.exitCode = 1;
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  runCli();
 }

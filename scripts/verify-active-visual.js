@@ -24,7 +24,11 @@ const packageJson = JSON.parse(files.packageJson);
 const checks = [
   [
     "Active 视觉验证脚本已接入 release:pack",
-    packageJson.scripts?.["release:pack"]?.includes("npm run verify:active-visual"),
+    packageJson.scripts?.verify?.includes("npm run verify:active-visual")
+      && (
+        packageJson.scripts?.["release:pack"]?.includes("npm run verify:active-visual")
+        || packageJson.scripts?.["release:pack"]?.includes("npm run verify")
+      ),
   ],
   [
     "Active 视觉覆盖层位于插件样式之后",

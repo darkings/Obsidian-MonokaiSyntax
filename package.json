@@ -1,6 +1,6 @@
-      {
+{
   "name": "monokai-syntax",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "面向 Obsidian 的 Monokai Syntax 主题。",
   "author": "lat3ncy",
   "license": "MIT",
@@ -12,19 +12,27 @@
     "dev": "vite build --watch",
     "generate:icons": "node scripts/generate-icon-theme.js",
     "build": "vite build",
+    "test": "node --test",
     "lint:css": "stylelint \"src/scss/**/*.scss\"",
     "check:contrast": "node scripts/check-contrast.js",
     "audit:css": "node scripts/audit-css.js",
+    "verify": "npm run verify:versions && npm run verify:pip-editor && npm run verify:icons && npm run verify:graph && npm run verify:active-visual && npm run verify:style-polish && npm test && npm run lint:css && npm run check:contrast && npm run build && npm run verify:generated && npm run audit:css",
+    "verify:versions": "node scripts/verify-versions.js",
+    "verify:generated": "node scripts/verify-generated.js",
     "verify:pip-editor": "node scripts/verify-pip-editor.js",
     "verify:icons": "node scripts/verify-icons.js",
     "verify:graph": "node scripts/verify-graph.js",
     "verify:active-visual": "node scripts/verify-active-visual.js",
+    "verify:style-polish": "node scripts/verify-style-polish.js",
     "qa:create": "node scripts/create-qa-content.js",
     "qa:verify": "node scripts/verify-qa.js",
     "build:dev": "vite build --mode development",
     "sync:vault": "node scripts/sync-vault-theme.js",
     "build:vault": "npm run build && node scripts/sync-vault-theme.js",
-    "release:pack": "npm run verify:pip-editor && npm run verify:icons && npm run verify:graph && npm run verify:active-visual && npm run lint:css && npm run check:contrast && npm run build && npm run audit:css"
+    "release:pack": "npm run verify"
+  },
+  "engines": {
+    "node": ">=22"
   },
   "devDependencies": {
     "sass": "^1.99.0",

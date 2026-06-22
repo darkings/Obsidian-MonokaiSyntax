@@ -1,5 +1,16 @@
 # 更新日志 / Changelog
 
+## 1.0.2（2026-06-22）
+
+- 系统优化阅读模式与 Live Preview 的视觉一致性，专项验证扩展到 30 项。
+- 修正文件树同层级文件夹与 Markdown 文件对齐问题。
+- 调整根层文件夹折叠图标尺寸与线宽，降低视觉重量。
+- 优化 H1-H6 标题下边距，按层级从大到小递减。
+- 更新深色模式代码 token 色彩，使其更贴近 Monokai Pro。
+- 补齐段落、表格源码、Callout、块引用、代码块、附件嵌入、标签、链接、脚注与扩展任务状态的阅读/编辑一致性规则。
+- 增加版本一致性、生成文件一致性、样式 polish、Vault QA 等发布前验证。
+- 更新发布版 README，补充安装、验证与 GitHub Release 流程。
+
 ## 1.0.1（2026-05-15）
 
 - 完善文档树文档图标：README、TODO、CHANGELOG、API、PROMPTS、CURSOR、CLAUDE、AGENTS 与 `Bug_*.md`

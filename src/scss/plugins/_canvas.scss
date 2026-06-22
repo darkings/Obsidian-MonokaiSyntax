@@ -25,7 +25,7 @@
 .canvas-node.is-focused,
 .canvas-node.is-selected {
   border-color: var(--interactive-accent);
-  box-shadow: 0 0 0 2px rgb(249 38 114 / 28%);
+  box-shadow: 0 0 0 2px var(--monokai-selection-ring);
 }
 
 .canvas-node-label {

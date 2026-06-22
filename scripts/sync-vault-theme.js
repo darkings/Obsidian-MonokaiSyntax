@@ -1,16 +1,10 @@
 import { copyFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
+import { resolveQaPaths, resolveVaultRoot } from "./qa-paths.js";
+
 const rootDir = resolve(import.meta.dirname, "..");
-const vaultRoot = process.argv[2] ?? process.env.OBSIDIAN_VAULT;
-
-if (!vaultRoot) {
-  console.error("请设置 OBSIDIAN_VAULT 环境变量或通过命令行参数指定 Vault 路径");
-  console.error("示例：npm run sync:vault -- D:/你的/Obsidian/Vault");
-  process.exit(1);
-}
-
-const vaultThemeDir = resolve(vaultRoot, ".obsidian/themes/Monokai Syntax");
+const { themeDir: vaultThemeDir } = resolveQaPaths(resolveVaultRoot());
 
 mkdirSync(vaultThemeDir, { recursive: true });
 

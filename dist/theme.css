@@ -60,16 +60,16 @@
   --list-marker-color: #ae81ff;
   --code-normal: #f8f8f2;
   --code-background: #1e1f1c;
-  --code-comment: #8f908a;
-  --code-function: #a6e22e;
-  --code-important: #f92672;
-  --code-keyword: #f92672;
-  --code-operator: #ff6188;
-  --code-property: #66d9ef;
+  --code-comment: #72736f;
+  --code-function: #a9dc76;
+  --code-important: #ff6188;
+  --code-keyword: #ff6188;
+  --code-operator: #fc9867;
+  --code-property: #78dce8;
   --code-punctuation: #c1c1bd;
-  --code-string: #e6db74;
-  --code-tag: #f92672;
-  --code-value: #ae81ff;
+  --code-string: #ffd866;
+  --code-tag: #ff6188;
+  --code-value: #ab9df2;
   --ribbon-background: #1e1f1c;
   --nav-item-background-hover: #3e3d32;
   --nav-item-background-active: #414339;
@@ -253,10 +253,10 @@ input[type=checkbox]:checked {
 }
 
 .tag {
-  color: var(--link-color);
-  background-color: var(--background-secondary);
-  border: 1px solid var(--background-modifier-border);
-  border-radius: 999px;
+  color: var(--monokai-tag-color, var(--link-color));
+  background-color: var(--monokai-tag-background, var(--background-secondary));
+  border: 1px solid var(--monokai-tag-border-color, var(--background-modifier-border));
+  border-radius: var(--monokai-tag-radius, var(--radius-s));
 }
 
 .tag:hover {
@@ -270,12 +270,48 @@ input[type=checkbox]:checked {
   --bold-weight: 900;
   --italic-color: var(--text-normal);
   --heading-spacing: 1rem;
+  --monokai-heading-gap-h1: 1.25rem;
+  --monokai-heading-gap-h2: 1.1rem;
+  --monokai-heading-gap-h3: 0.95rem;
+  --monokai-heading-gap-h4: 0.8rem;
+  --monokai-heading-gap-h5: 0.7rem;
+  --monokai-heading-gap-h6: 0.6rem;
   --monokai-heading-weight: 600;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
+  --monokai-inline-code-padding: 0.1em 0.3em;
+  --monokai-formatting-marker-color: var(--text-faint);
+  --monokai-strikethrough-color: var(--text-muted);
+  --monokai-highlight-radius: var(--radius-s);
+  --monokai-highlight-padding-inline: 0.12em;
+  --monokai-hr-color: var(--background-modifier-border);
+  --monokai-hr-thickness: 1px;
+  --monokai-hr-spacing: 1.25rem;
+  --monokai-footnote-color: var(--link-color);
+  --monokai-footnote-marker-color: var(--text-faint);
+  --monokai-footnote-font-size: 0.85em;
+  --monokai-media-radius: var(--radius-m);
+  --monokai-media-border-color: var(--background-modifier-border);
+  --monokai-media-background: var(--background-secondary);
+  --monokai-embed-padding: 0.75rem;
+  --monokai-tag-color: var(--link-color);
+  --monokai-tag-background: var(--background-secondary);
+  --monokai-tag-border-color: var(--background-modifier-border);
+  --monokai-tag-radius: var(--radius-s);
+  --monokai-link-decoration-color: var(--link-color);
+  --monokai-link-decoration-thickness: 1px;
+  --monokai-paragraph-line-height: var(--line-height-normal);
+  --monokai-paragraph-spacing: 0.75rem;
+  --monokai-table-source-background: var(--background-secondary);
+  --monokai-table-source-font-family: var(--font-monospace-theme);
+  --monokai-table-source-separator-color: var(--text-faint);
+  --monokai-codeblock-border-color: var(--background-modifier-border);
+  --monokai-codeblock-radius: var(--radius-m);
+  --monokai-codeblock-padding: 1rem;
+  --monokai-codeblock-padding-inline: 1rem;
   --callout-blend-mode: normal;
   --callout-icon-size: 1.25em;
-  --p-spacing: 0.75rem;
+  --p-spacing: var(--monokai-paragraph-spacing);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
 }
@@ -313,7 +349,13 @@ body.theme-dark {
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(248 248 242 / 18%);
+  --monokai-table-header-background: rgb(248 248 242 / 6%);
   --monokai-task-done-color: rgb(248 248 242 / 68%);
+  --monokai-task-forward-color: var(--text-accent);
+  --monokai-task-cancelled-color: var(--text-faint);
+  --monokai-task-question-color: var(--link-color);
+  --monokai-modal-shadow: 0 18px 50px rgb(0 0 0 / 35%);
+  --monokai-selection-ring: rgb(249 38 114 / 28%);
 }
 
 body.theme-light {
@@ -349,7 +391,13 @@ body.theme-light {
   --monokai-inline-code-color: #269d69;
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(61 61 61 / 18%);
+  --monokai-table-header-background: rgb(61 61 61 / 6%);
   --monokai-task-done-color: rgb(61 61 61 / 66%);
+  --monokai-task-forward-color: var(--text-accent);
+  --monokai-task-cancelled-color: var(--text-faint);
+  --monokai-task-question-color: var(--link-color);
+  --monokai-modal-shadow: 0 16px 36px rgb(61 61 61 / 16%);
+  --monokai-selection-ring: rgb(200 63 103 / 22%);
 }
 
 .markdown-source-view.mod-cm6 .inline-title {
@@ -358,10 +406,38 @@ body.theme-light {
 
 .markdown-rendered h1,
 .markdown-rendered h2,
-.markdown-rendered h3 {
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6 {
   font-weight: var(--monokai-heading-weight);
   letter-spacing: 0;
-  margin-block: calc(var(--heading-spacing) * 1.5) var(--spacing-4);
+  margin-block-start: calc(var(--heading-spacing) * 1.5);
+}
+.markdown-rendered h1 {
+  margin-block-end: var(--monokai-heading-gap-h1);
+}
+.markdown-rendered h2 {
+  margin-block-end: var(--monokai-heading-gap-h2);
+}
+.markdown-rendered h3 {
+  margin-block-end: var(--monokai-heading-gap-h3);
+}
+.markdown-rendered h4 {
+  color: var(--h4-color);
+  margin-block-end: var(--monokai-heading-gap-h4);
+}
+.markdown-rendered h5 {
+  color: var(--h5-color);
+  margin-block-end: var(--monokai-heading-gap-h5);
+}
+.markdown-rendered h6 {
+  color: var(--h6-color);
+  margin-block-end: var(--monokai-heading-gap-h6);
+}
+.markdown-rendered p {
+  line-height: var(--monokai-paragraph-line-height);
+  margin-block: 0 var(--monokai-paragraph-spacing);
 }
 .markdown-rendered strong {
   color: var(--bold-color);
@@ -370,11 +446,16 @@ body.theme-light {
 .markdown-rendered em {
   color: var(--italic-color);
 }
+.markdown-rendered del,
+.markdown-rendered s {
+  color: var(--monokai-strikethrough-color);
+  text-decoration-color: var(--monokai-strikethrough-color);
+}
 .markdown-rendered mark {
   color: var(--monokai-highlight-text);
   background-color: var(--text-highlight-bg);
-  border-radius: var(--radius-s);
-  padding-inline: 0.12em;
+  border-radius: var(--monokai-highlight-radius);
+  padding-inline: var(--monokai-highlight-padding-inline);
 }
 .markdown-rendered ul > li::marker,
 .markdown-rendered ol > li::marker {
@@ -386,6 +467,16 @@ body.theme-light {
 .markdown-rendered .task-list-item.is-checked > p {
   color: var(--monokai-task-done-color);
 }
+.markdown-rendered .task-list-item[data-task=">"] {
+  color: var(--monokai-task-forward-color);
+}
+.markdown-rendered .task-list-item[data-task="-"] {
+  color: var(--monokai-task-cancelled-color);
+  text-decoration-line: line-through;
+}
+.markdown-rendered .task-list-item[data-task="?"] {
+  color: var(--monokai-task-question-color);
+}
 .markdown-rendered table {
   border: 1px solid var(--monokai-table-border);
 }
@@ -393,20 +484,25 @@ body.theme-light {
 .markdown-rendered td {
   border: 1px solid var(--monokai-table-border);
 }
+.markdown-rendered th {
+  color: var(--text-normal);
+  background-color: var(--monokai-table-header-background);
+  font-weight: 700;
+}
 .markdown-rendered code {
   color: var(--monokai-inline-code-color);
   background-color: var(--monokai-inline-code-background);
   border: 0;
   border-radius: var(--radius-s);
   box-shadow: none;
-  padding: 0.1em 0.3em;
+  padding: var(--monokai-inline-code-padding);
 }
 .markdown-rendered pre {
   background-color: var(--code-background);
-  border: 1px solid var(--background-modifier-border);
-  border-radius: var(--radius-m);
+  border: 1px solid var(--monokai-codeblock-border-color);
+  border-radius: var(--monokai-codeblock-radius);
   font-family: var(--font-monospace-theme);
-  padding: 1rem;
+  padding: var(--monokai-codeblock-padding);
 }
 .markdown-rendered pre code {
   background-color: transparent;
@@ -414,7 +510,91 @@ body.theme-light {
   box-shadow: none;
   padding: 0;
 }
+.markdown-rendered hr {
+  border: 0;
+  border-top: var(--monokai-hr-thickness) solid var(--monokai-hr-color);
+  margin-block: var(--monokai-hr-spacing);
+}
+.markdown-rendered .footnote-ref,
+.markdown-rendered .footnote-link {
+  color: var(--monokai-footnote-color);
+  font-size: var(--monokai-footnote-font-size);
+}
+.markdown-rendered .footnote-backref {
+  color: var(--monokai-footnote-marker-color);
+}
+.markdown-rendered img,
+.markdown-rendered .image-embed {
+  max-width: 100%;
+  background-color: var(--monokai-media-background);
+  border: 1px solid var(--monokai-media-border-color);
+  border-radius: var(--monokai-media-radius);
+}
+.markdown-rendered .file-embed,
+.markdown-rendered .pdf-embed,
+.markdown-rendered .audio-embed,
+.markdown-rendered .video-embed,
+.markdown-rendered .internal-embed {
+  background-color: var(--monokai-media-background);
+  border: 1px solid var(--monokai-media-border-color);
+  border-radius: var(--monokai-media-radius);
+  padding: var(--monokai-embed-padding);
+}
 
+.markdown-source-view.mod-cm6 {
+  /* stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。 */
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  padding-block-end: var(--monokai-heading-gap-h1);
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  padding-block-end: var(--monokai-heading-gap-h2);
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  padding-block-end: var(--monokai-heading-gap-h3);
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-4 {
+  padding-block-end: var(--monokai-heading-gap-h4);
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-5 {
+  padding-block-end: var(--monokai-heading-gap-h5);
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-6 {
+  padding-block-end: var(--monokai-heading-gap-h6);
+}
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=x],
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=X] {
+  color: var(--monokai-task-done-color);
+}
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=">"] {
+  color: var(--monokai-task-forward-color);
+}
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="-"] {
+  color: var(--monokai-task-cancelled-color);
+  text-decoration-line: line-through;
+}
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="?"] {
+  color: var(--monokai-task-question-color);
+}
+.markdown-source-view.mod-cm6 .HyperMD-codeblock {
+  background-color: var(--code-background);
+  font-family: var(--font-monospace-theme);
+  padding-inline: var(--monokai-codeblock-padding-inline);
+}
+.markdown-source-view.mod-cm6 .HyperMD-hr {
+  color: var(--monokai-formatting-marker-color);
+  padding-block: calc(var(--monokai-hr-spacing) / 2);
+}
+.markdown-source-view.mod-cm6 .HyperMD-paragraph {
+  padding-block-end: calc(var(--monokai-paragraph-spacing) / 3);
+}
+.markdown-source-view.mod-cm6 .HyperMD-table-row {
+  font-family: var(--monokai-table-source-font-family);
+  background-color: var(--monokai-table-source-background);
+}
+.markdown-source-view.mod-cm6 {
+  /* stylelint-enable selector-class-pattern */
+}
 .markdown-source-view.mod-cm6 .cm-header-1 {
   color: var(--h1-color);
   font-weight: var(--monokai-heading-weight);
@@ -427,6 +607,18 @@ body.theme-light {
   color: var(--h3-color);
   font-weight: var(--monokai-heading-weight);
 }
+.markdown-source-view.mod-cm6 .cm-header-4 {
+  color: var(--h4-color);
+  font-weight: var(--monokai-heading-weight);
+}
+.markdown-source-view.mod-cm6 .cm-header-5 {
+  color: var(--h5-color);
+  font-weight: var(--monokai-heading-weight);
+}
+.markdown-source-view.mod-cm6 .cm-header-6 {
+  color: var(--h6-color);
+  font-weight: var(--monokai-heading-weight);
+}
 .markdown-source-view.mod-cm6 .cm-strong {
   color: var(--bold-color);
   font-weight: var(--bold-weight);
@@ -434,16 +626,83 @@ body.theme-light {
 .markdown-source-view.mod-cm6 .cm-em {
   color: var(--italic-color);
 }
+.markdown-source-view.mod-cm6 .cm-strikethrough {
+  color: var(--monokai-strikethrough-color);
+  text-decoration-color: var(--monokai-strikethrough-color);
+}
 .markdown-source-view.mod-cm6 .cm-link,
 .markdown-source-view.mod-cm6 .cm-url {
   color: var(--link-color);
 }
 .markdown-source-view.mod-cm6 .cm-formatting-link {
-  color: var(--text-faint);
+  color: var(--monokai-formatting-marker-color);
+}
+.markdown-source-view.mod-cm6 .cm-hmd-table-sep,
+.markdown-source-view.mod-cm6 .cm-hmd-table-align,
+.markdown-source-view.mod-cm6 .cm-formatting-table {
+  color: var(--monokai-table-source-separator-color);
+}
+.markdown-source-view.mod-cm6 .cm-formatting-code-block,
+.markdown-source-view.mod-cm6 .cm-hmd-codeblock-begin,
+.markdown-source-view.mod-cm6 .cm-hmd-codeblock-end {
+  color: var(--monokai-formatting-marker-color);
+}
+.markdown-source-view.mod-cm6 .cm-table {
+  color: var(--text-normal);
+}
+.markdown-source-view.mod-cm6 .cm-formatting-list {
+  color: var(--list-marker-color);
+}
+.markdown-source-view.mod-cm6 .cm-formatting-strong,
+.markdown-source-view.mod-cm6 .cm-formatting-em,
+.markdown-source-view.mod-cm6 .cm-formatting-strikethrough,
+.markdown-source-view.mod-cm6 .cm-formatting-code,
+.markdown-source-view.mod-cm6 .cm-formatting-highlight {
+  color: var(--monokai-formatting-marker-color);
 }
 .markdown-source-view.mod-cm6 .cm-highlight {
   color: var(--monokai-highlight-text);
   background-color: var(--text-highlight-bg);
+  border-radius: var(--monokai-highlight-radius);
+  padding-inline: var(--monokai-highlight-padding-inline);
+}
+.markdown-source-view.mod-cm6 .cm-hr {
+  color: var(--monokai-hr-color);
+}
+.markdown-source-view.mod-cm6 .cm-footref {
+  color: var(--monokai-footnote-color);
+  font-size: var(--monokai-footnote-font-size);
+}
+.markdown-source-view.mod-cm6 .cm-formatting-footref {
+  color: var(--monokai-footnote-marker-color);
+}
+.markdown-source-view.mod-cm6 .image-embed,
+.markdown-source-view.mod-cm6 .cm-embed-block {
+  max-width: 100%;
+  background-color: var(--monokai-media-background);
+  border: 1px solid var(--monokai-media-border-color);
+  border-radius: var(--monokai-media-radius);
+}
+.markdown-source-view.mod-cm6 .file-embed,
+.markdown-source-view.mod-cm6 .pdf-embed,
+.markdown-source-view.mod-cm6 .audio-embed,
+.markdown-source-view.mod-cm6 .video-embed,
+.markdown-source-view.mod-cm6 .internal-embed,
+.markdown-source-view.mod-cm6 .cm-embed-block {
+  background-color: var(--monokai-media-background);
+  border: 1px solid var(--monokai-media-border-color);
+  border-radius: var(--monokai-media-radius);
+  padding: var(--monokai-embed-padding);
+}
+.markdown-source-view.mod-cm6 .cm-hashtag {
+  color: var(--monokai-tag-color);
+  background-color: var(--monokai-tag-background);
+  border: 1px solid var(--monokai-tag-border-color);
+  border-radius: var(--monokai-tag-radius);
+  padding-inline: 0.25em;
+}
+.markdown-source-view.mod-cm6 .cm-line {
+  line-height: var(--monokai-paragraph-line-height);
 }
 .markdown-source-view.mod-cm6 .cm-inline-code {
   color: var(--monokai-inline-code-color);
@@ -451,7 +710,7 @@ body.theme-light {
   border: 0;
   border-radius: var(--radius-s);
   box-shadow: none;
-  padding: 0.05em 0.25em;
+  padding: var(--monokai-inline-code-padding);
 }
 
 .cm-s-obsidian span.cm-comment {
@@ -480,14 +739,26 @@ body.theme-light {
 
 a,
 .markdown-rendered a,
-.cm-hmd-internal-link {
+.cm-hmd-internal-link,
+.cm-link,
+.cm-url {
   color: var(--link-color);
+  text-decoration-color: var(--monokai-link-decoration-color);
+  text-decoration-thickness: var(--monokai-link-decoration-thickness);
 }
 
 a:hover,
 .markdown-rendered a:hover,
 .cm-hmd-internal-link:hover {
   color: var(--link-color-hover);
+}
+
+a:focus-visible,
+.markdown-rendered a:focus-visible,
+.cm-hmd-internal-link:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-s);
 }
 
 /* stylelint-disable */
@@ -503,19 +774,24 @@ a:hover,
   font-weight: 400;
 }
 .nav-file-title::before {
-  display: inline-block;
-  flex: 0 0 1rem;
-  width: 1rem;
-  margin-inline-end: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--monokai-file-tree-slot-size);
+  min-width: var(--monokai-file-tree-slot-size);
+  height: var(--monokai-file-tree-glyph-size);
+  margin-inline-end: calc(-1 * var(--monokai-file-tree-slot-size));
+  transform: translateX(calc(-1 * (var(--monokai-file-tree-slot-size) + var(--monokai-file-tree-icon-gap))));
   --monokai-file-icon-color: #ffd866;
   color: var(--monokai-file-icon-color, var(--icon-color));
   content: "\e658";
   font-family: "monokai-pro-icons";
-  font-size: 1rem;
+  font-size: var(--monokai-file-tree-glyph-size);
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
   line-height: 1;
+  pointer-events: none;
   speak: never;
   text-align: center;
   text-rendering: auto;
@@ -884,14 +1160,40 @@ a:hover,
   content: "\e8e8";
 }
 
-.nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator,
-.nav-folder-title[data-path*="/"] .collapse-icon,
-.nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator,
-.nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon,
-.nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator,
-.nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon {
-  width: 1rem;
+.nav-file-title,
+.nav-folder-title {
+  --monokai-file-tree-slot-size: 1rem;
+  --monokai-file-tree-icon-gap: 0.35rem;
+  --monokai-file-tree-glyph-size: 0.8125rem;
+  --monokai-file-tree-toggle-size: 9px;
+  --monokai-file-tree-toggle-stroke-width: 1.75;
+  overflow: visible;
+  position: relative;
 }
+
+.nav-folder-title .nav-folder-collapse-indicator,
+.nav-folder-title .collapse-icon {
+  flex: 0 0 var(--monokai-file-tree-slot-size);
+  width: var(--monokai-file-tree-slot-size);
+  min-width: var(--monokai-file-tree-slot-size);
+  margin-inline-end: var(--monokai-file-tree-icon-gap);
+}
+
+.nav-folder-title .nav-folder-collapse-indicator svg,
+.nav-folder-title .collapse-icon svg {
+  width: var(--monokai-file-tree-toggle-size);
+  height: var(--monokai-file-tree-toggle-size);
+  font-size: var(--monokai-file-tree-toggle-size);
+  stroke-width: var(--monokai-file-tree-toggle-stroke-width);
+}
+
+.nav-folder-title .nav-folder-collapse-indicator,
+.nav-folder-title .collapse-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator::before,
 .nav-folder-title[data-path*="/"] .collapse-icon::before,
 .nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator::before,
@@ -902,7 +1204,7 @@ a:hover,
   display: inline-block;
   color: var(--icon-color);
   font-family: monokai-pro-icons, monospace;
-  font-size: 1rem;
+  font-size: var(--monokai-file-tree-glyph-size);
   font-style: normal;
   font-weight: 400;
   line-height: 1;
@@ -985,6 +1287,7 @@ body.is-mobile .workspace-ribbon {
   color: var(--text-muted);
   background-color: transparent;
   border-radius: var(--radius-s) var(--radius-s) 0 0;
+  transition: color 140ms ease, background-color 140ms ease, box-shadow 140ms ease;
 }
 
 .workspace-tab-header:hover {
@@ -1011,7 +1314,7 @@ body.is-mobile .workspace-ribbon {
   background-color: var(--background-secondary);
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-m);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--monokai-modal-shadow);
 }
 
 .modal-title,
@@ -1027,6 +1330,8 @@ body.is-mobile .workspace-ribbon {
   background-color: var(--background-primary);
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-s);
+  padding: 0.45rem 0.6rem;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
 }
 
 .prompt-input:focus,
@@ -1237,7 +1542,7 @@ body.is-mobile .workspace-ribbon {
 .canvas-node.is-focused,
 .canvas-node.is-selected {
   border-color: var(--interactive-accent);
-  box-shadow: 0 0 0 2px rgba(249, 38, 114, 0.28);
+  box-shadow: 0 0 0 2px var(--monokai-selection-ring);
 }
 
 .canvas-node-label {
@@ -1306,12 +1611,18 @@ body.monokai-syntax-compact {
   --nav-item-size: 22px;
   --ribbon-item-size: 32px;
   --input-height: 28px;
+  --callout-padding: 0.9rem;
+  --callout-content-padding: var(--spacing-3) 0 0 0;
 }
 body.monokai-syntax-compact .nav-files-container {
   font-size: var(--monokai-nav-font-size);
 }
 body.monokai-syntax-compact .nav-file-title,
 body.monokai-syntax-compact .nav-folder-title {
+  --monokai-file-tree-slot-size: 13px;
+  --monokai-file-tree-icon-gap: 4px;
+  --monokai-file-tree-glyph-size: 12px;
+  --monokai-file-tree-toggle-size: 8px;
   min-height: var(--nav-item-size);
   line-height: var(--nav-item-size);
   padding: 0 6px;
@@ -1321,30 +1632,16 @@ body.monokai-syntax-compact .nav-folder-title-content {
   font-size: var(--monokai-nav-font-size);
   line-height: var(--nav-item-size);
 }
-body.monokai-syntax-compact .nav-file-title::before {
-  width: 13px;
-  flex: 0 0 13px;
-  margin-inline-end: 4px;
-  font-size: 13px;
-}
-body.monokai-syntax-compact .nav-folder-collapse-indicator {
-  width: 14px;
-  margin-inline-end: 1px;
-}
-body.monokai-syntax-compact .nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator::before,
-body.monokai-syntax-compact .nav-folder-title[data-path*="/"] .collapse-icon::before,
-body.monokai-syntax-compact .nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator::before,
-body.monokai-syntax-compact .nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon::before,
-body.monokai-syntax-compact .nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator::before,
-body.monokai-syntax-compact .nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon::before {
-  font-size: 13px;
-}
 body.monokai-syntax-compact .side-dock-ribbon-action {
   height: var(--ribbon-item-size);
   padding: 4px;
 }
 body.monokai-syntax-compact .markdown-rendered pre {
   padding: 0.75rem;
+}
+body.monokai-syntax-compact .markdown-rendered th,
+body.monokai-syntax-compact .markdown-rendered td {
+  padding: 0.35rem 0.5rem;
 }
 
 body.monokai-syntax-monochrome-icons {
@@ -1360,6 +1657,7 @@ body {
   --link-color: var(--monokai-link-color, var(--monokai-default-link));
   --link-external-color: var(--monokai-link-color, var(--monokai-default-link));
   --blockquote-border-color: var(--monokai-success-color, var(--monokai-default-success));
+  --monokai-blockquote-border: var(--monokai-success-color, var(--monokai-default-success));
   --checkbox-color-checked: var(--monokai-success-color, var(--monokai-default-success));
   --text-highlight-bg: var(--monokai-warning-color, var(--monokai-default-warning));
   --code-background: var(--monokai-code-background, var(--monokai-default-code-background));
@@ -1373,6 +1671,10 @@ body:is(.theme-dark, .theme-light) {
   --callout-content-padding: var(--spacing-4) 0 0 0;
   --callout-border-width: 0;
   --callout-radius: var(--radius-s);
+  --monokai-blockquote-content-gap: 1.25rem;
+  --monokai-blockquote-nested-gap: 0.75rem;
+  --monokai-callout-title-gap: var(--spacing-2);
+  --monokai-callout-source-marker-color: var(--text-faint);
 }
 
 /* ===== 块引用（阅读 + 编辑统一） ===== */
@@ -1382,7 +1684,11 @@ body .markdown-rendered blockquote {
   border-inline-start: 2px solid var(--monokai-blockquote-border);
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
   color: var(--text-normal);
-  padding: 0.75rem 0.75rem 0.75rem 1.25rem;
+  padding: 0.75rem 0.75rem 0.75rem var(--monokai-blockquote-content-gap);
+}
+
+body .markdown-rendered blockquote blockquote {
+  margin-block: var(--monokai-blockquote-nested-gap);
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote,
@@ -1392,12 +1698,23 @@ body .markdown-source-view.mod-cm6 .HyperMD-quote {
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
 }
 
+body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote + .cm-line.HyperMD-quote,
+body .markdown-source-view.mod-cm6 .HyperMD-quote + .HyperMD-quote {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-quote,
 body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-quote {
   color: var(--text-normal);
   border-inline-start: 0;
-  margin-left: 0.6rem;
+  margin-left: var(--monokai-blockquote-content-gap);
   padding-inline-start: 0;
+}
+
+body .markdown-source-view.mod-cm6 .cm-quote-2,
+body .markdown-source-view.mod-cm6 .cm-quote-3 {
+  color: var(--text-normal);
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-formatting-quote,
@@ -1430,7 +1747,7 @@ body .markdown-source-view.mod-cm6 .callout-title,
 body .markdown-source-view.mod-cm6 .cm-callout-title {
   color: var(--callout-border, var(--monokai-callout-note-border));
   font-weight: 700;
-  gap: var(--spacing-2);
+  gap: var(--monokai-callout-title-gap);
   padding-inline-start: 0;
 }
 
@@ -1443,6 +1760,15 @@ body .markdown-source-view.mod-cm6 .cm-callout-content {
   margin-block-start: var(--spacing-4);
   padding: var(--callout-content-padding);
   padding-inline-start: 0;
+}
+
+body .markdown-source-view.mod-cm6 .cm-callout-content {
+  color: var(--text-normal);
+}
+
+body .markdown-source-view.mod-cm6 .cm-formatting-callout,
+body .markdown-source-view.mod-cm6 .cm-callout .cm-formatting {
+  color: var(--monokai-callout-source-marker-color);
 }
 
 /* ===== Callout 语义色分组映射 ===== */

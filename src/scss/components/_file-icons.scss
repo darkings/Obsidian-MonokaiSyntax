@@ -1,19 +1,52 @@
 @forward "file-icons.generated";
 
+.nav-file-title,
+.nav-folder-title {
+  --monokai-file-tree-slot-size: 1rem;
+  --monokai-file-tree-icon-gap: 0.35rem;
+  --monokai-file-tree-glyph-size: 0.8125rem;
+  --monokai-file-tree-toggle-size: 9px;
+  --monokai-file-tree-toggle-stroke-width: 1.75;
+
+  overflow: visible;
+  position: relative;
+}
+
+.nav-folder-title .nav-folder-collapse-indicator,
+.nav-folder-title .collapse-icon {
+  flex: 0 0 var(--monokai-file-tree-slot-size);
+  width: var(--monokai-file-tree-slot-size);
+  min-width: var(--monokai-file-tree-slot-size);
+  margin-inline-end: var(--monokai-file-tree-icon-gap);
+}
+
+.nav-folder-title .nav-folder-collapse-indicator svg,
+.nav-folder-title .collapse-icon svg {
+  width: var(--monokai-file-tree-toggle-size);
+  height: var(--monokai-file-tree-toggle-size);
+  font-size: var(--monokai-file-tree-toggle-size);
+  stroke-width: var(--monokai-file-tree-toggle-stroke-width);
+}
+
+.nav-folder-title .nav-folder-collapse-indicator,
+.nav-folder-title .collapse-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator,
 .nav-folder-title[data-path*="/"] .collapse-icon,
 .nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator,
 .nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon,
 .nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator,
 .nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon {
-  width: 1rem;
-
   &::before {
     content: "\e64d";
     display: inline-block;
     color: var(--icon-color);
     font-family: monokai-pro-icons, monospace;
-    font-size: 1rem;
+    font-size: var(--monokai-file-tree-glyph-size);
     font-style: normal;
     font-weight: 400;
     line-height: 1;

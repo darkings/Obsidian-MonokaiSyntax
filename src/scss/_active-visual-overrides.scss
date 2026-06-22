@@ -9,6 +9,10 @@ body:is(.theme-dark, .theme-light) {
   --callout-content-padding: var(--spacing-4) 0 0 0;
   --callout-border-width: 0;
   --callout-radius: var(--radius-s);
+  --monokai-blockquote-content-gap: 1.25rem;
+  --monokai-blockquote-nested-gap: #{$spacing-3};
+  --monokai-callout-title-gap: var(--spacing-2);
+  --monokai-callout-source-marker-color: var(--text-faint);
 }
 
 /* ===== 块引用（阅读 + 编辑统一） ===== */
@@ -19,7 +23,11 @@ body .markdown-rendered blockquote {
   border-inline-start: 2px solid var(--monokai-blockquote-border);
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
   color: var(--text-normal);
-  padding: #{$spacing-3} #{$spacing-3} #{$spacing-3} 1.25rem;
+  padding: #{$spacing-3} #{$spacing-3} #{$spacing-3} var(--monokai-blockquote-content-gap);
+}
+
+body .markdown-rendered blockquote blockquote {
+  margin-block: var(--monokai-blockquote-nested-gap);
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote,
@@ -29,12 +37,23 @@ body .markdown-source-view.mod-cm6 .HyperMD-quote {
   border-radius: 0 var(--radius-s) var(--radius-s) 0;
 }
 
+body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote + .cm-line.HyperMD-quote,
+body .markdown-source-view.mod-cm6 .HyperMD-quote + .HyperMD-quote {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-quote,
 body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-quote {
   color: var(--text-normal);
   border-inline-start: 0;
-  margin-left: 0.6rem;
+  margin-left: var(--monokai-blockquote-content-gap);
   padding-inline-start: 0;
+}
+
+body .markdown-source-view.mod-cm6 .cm-quote-2,
+body .markdown-source-view.mod-cm6 .cm-quote-3 {
+  color: var(--text-normal);
 }
 
 body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-formatting-quote,
@@ -68,7 +87,7 @@ body .markdown-source-view.mod-cm6 .callout-title,
 body .markdown-source-view.mod-cm6 .cm-callout-title {
   color: var(--callout-border, var(--monokai-callout-note-border));
   font-weight: 700;
-  gap: var(--spacing-2);
+  gap: var(--monokai-callout-title-gap);
   padding-inline-start: 0;
 }
 
@@ -81,6 +100,15 @@ body .markdown-source-view.mod-cm6 .cm-callout-content {
   margin-block-start: var(--spacing-4);
   padding: var(--callout-content-padding);
   padding-inline-start: 0;
+}
+
+body .markdown-source-view.mod-cm6 .cm-callout-content {
+  color: var(--text-normal);
+}
+
+body .markdown-source-view.mod-cm6 .cm-formatting-callout,
+body .markdown-source-view.mod-cm6 .cm-callout .cm-formatting {
+  color: var(--monokai-callout-source-marker-color);
 }
 
 /* ===== Callout 语义色分组映射 ===== */

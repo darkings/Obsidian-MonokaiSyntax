@@ -6,12 +6,48 @@
   --bold-weight: 900;
   --italic-color: var(--text-normal);
   --heading-spacing: #{$spacing-4};
+  --monokai-heading-gap-h1: 1.25rem;
+  --monokai-heading-gap-h2: 1.1rem;
+  --monokai-heading-gap-h3: 0.95rem;
+  --monokai-heading-gap-h4: 0.8rem;
+  --monokai-heading-gap-h5: 0.7rem;
+  --monokai-heading-gap-h6: 0.6rem;
   --monokai-heading-weight: 600;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
+  --monokai-inline-code-padding: 0.1em 0.3em;
+  --monokai-formatting-marker-color: var(--text-faint);
+  --monokai-strikethrough-color: var(--text-muted);
+  --monokai-highlight-radius: var(--radius-s);
+  --monokai-highlight-padding-inline: 0.12em;
+  --monokai-hr-color: var(--background-modifier-border);
+  --monokai-hr-thickness: 1px;
+  --monokai-hr-spacing: #{$spacing-5};
+  --monokai-footnote-color: var(--link-color);
+  --monokai-footnote-marker-color: var(--text-faint);
+  --monokai-footnote-font-size: 0.85em;
+  --monokai-media-radius: var(--radius-m);
+  --monokai-media-border-color: var(--background-modifier-border);
+  --monokai-media-background: var(--background-secondary);
+  --monokai-embed-padding: #{$spacing-3};
+  --monokai-tag-color: var(--link-color);
+  --monokai-tag-background: var(--background-secondary);
+  --monokai-tag-border-color: var(--background-modifier-border);
+  --monokai-tag-radius: var(--radius-s);
+  --monokai-link-decoration-color: var(--link-color);
+  --monokai-link-decoration-thickness: 1px;
+  --monokai-paragraph-line-height: var(--line-height-normal);
+  --monokai-paragraph-spacing: #{$spacing-3};
+  --monokai-table-source-background: var(--background-secondary);
+  --monokai-table-source-font-family: var(--font-monospace-theme);
+  --monokai-table-source-separator-color: var(--text-faint);
+  --monokai-codeblock-border-color: var(--background-modifier-border);
+  --monokai-codeblock-radius: var(--radius-m);
+  --monokai-codeblock-padding: #{$spacing-4};
+  --monokai-codeblock-padding-inline: #{$spacing-4};
   --callout-blend-mode: normal;
   --callout-icon-size: 1.25em;
-  --p-spacing: #{$spacing-3};
+  --p-spacing: var(--monokai-paragraph-spacing);
 
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
@@ -50,7 +86,13 @@ body.theme-dark {
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(248 248 242 / 18%);
+  --monokai-table-header-background: rgb(248 248 242 / 6%);
   --monokai-task-done-color: rgb(248 248 242 / 68%);
+  --monokai-task-forward-color: var(--text-accent);
+  --monokai-task-cancelled-color: var(--text-faint);
+  --monokai-task-question-color: var(--link-color);
+  --monokai-modal-shadow: 0 18px 50px rgb(0 0 0 / 35%);
+  --monokai-selection-ring: rgb(249 38 114 / 28%);
 }
 
 body.theme-light {
@@ -86,7 +128,13 @@ body.theme-light {
   --monokai-inline-code-color: #269d69;
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(61 61 61 / 18%);
+  --monokai-table-header-background: rgb(61 61 61 / 6%);
   --monokai-task-done-color: rgb(61 61 61 / 66%);
+  --monokai-task-forward-color: var(--text-accent);
+  --monokai-task-cancelled-color: var(--text-faint);
+  --monokai-task-question-color: var(--link-color);
+  --monokai-modal-shadow: 0 16px 36px rgb(61 61 61 / 16%);
+  --monokai-selection-ring: rgb(200 63 103 / 22%);
 }
 
 .markdown-source-view.mod-cm6 .inline-title {
@@ -96,10 +144,45 @@ body.theme-light {
 .markdown-rendered {
   h1,
   h2,
-  h3 {
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: var(--monokai-heading-weight);
     letter-spacing: 0;
-    margin-block: calc(var(--heading-spacing) * 1.5) var(--spacing-4);
+    margin-block-start: calc(var(--heading-spacing) * 1.5);
+  }
+
+  h1 {
+    margin-block-end: var(--monokai-heading-gap-h1);
+  }
+
+  h2 {
+    margin-block-end: var(--monokai-heading-gap-h2);
+  }
+
+  h3 {
+    margin-block-end: var(--monokai-heading-gap-h3);
+  }
+
+  h4 {
+    color: var(--h4-color);
+    margin-block-end: var(--monokai-heading-gap-h4);
+  }
+
+  h5 {
+    color: var(--h5-color);
+    margin-block-end: var(--monokai-heading-gap-h5);
+  }
+
+  h6 {
+    color: var(--h6-color);
+    margin-block-end: var(--monokai-heading-gap-h6);
+  }
+
+  p {
+    line-height: var(--monokai-paragraph-line-height);
+    margin-block: 0 var(--monokai-paragraph-spacing);
   }
 
   strong {
@@ -111,11 +194,17 @@ body.theme-light {
     color: var(--italic-color);
   }
 
+  del,
+  s {
+    color: var(--monokai-strikethrough-color);
+    text-decoration-color: var(--monokai-strikethrough-color);
+  }
+
   mark {
     color: var(--monokai-highlight-text);
     background-color: var(--text-highlight-bg);
-    border-radius: var(--radius-s);
-    padding-inline: 0.12em;
+    border-radius: var(--monokai-highlight-radius);
+    padding-inline: var(--monokai-highlight-padding-inline);
   }
 
   ul > li::marker,
@@ -131,6 +220,19 @@ body.theme-light {
     color: var(--monokai-task-done-color);
   }
 
+  .task-list-item[data-task=">"] {
+    color: var(--monokai-task-forward-color);
+  }
+
+  .task-list-item[data-task="-"] {
+    color: var(--monokai-task-cancelled-color);
+    text-decoration-line: line-through;
+  }
+
+  .task-list-item[data-task="?"] {
+    color: var(--monokai-task-question-color);
+  }
+
   table {
     border: 1px solid var(--monokai-table-border);
   }
@@ -140,21 +242,27 @@ body.theme-light {
     border: 1px solid var(--monokai-table-border);
   }
 
+  th {
+    color: var(--text-normal);
+    background-color: var(--monokai-table-header-background);
+    font-weight: 700;
+  }
+
   code {
     color: var(--monokai-inline-code-color);
     background-color: var(--monokai-inline-code-background);
     border: 0;
     border-radius: var(--radius-s);
     box-shadow: none;
-    padding: 0.1em 0.3em;
+    padding: var(--monokai-inline-code-padding);
   }
 
   pre {
     background-color: var(--code-background);
-    border: 1px solid var(--background-modifier-border);
-    border-radius: var(--radius-m);
+    border: 1px solid var(--monokai-codeblock-border-color);
+    border-radius: var(--monokai-codeblock-radius);
     font-family: var(--font-monospace-theme);
-    padding: #{$spacing-4};
+    padding: var(--monokai-codeblock-padding);
 
     code {
       background-color: transparent;
@@ -163,9 +271,109 @@ body.theme-light {
       padding: 0;
     }
   }
+
+  hr {
+    border: 0;
+    border-top: var(--monokai-hr-thickness) solid var(--monokai-hr-color);
+    margin-block: var(--monokai-hr-spacing);
+  }
+
+  .footnote-ref,
+  .footnote-link {
+    color: var(--monokai-footnote-color);
+    font-size: var(--monokai-footnote-font-size);
+  }
+
+  .footnote-backref {
+    color: var(--monokai-footnote-marker-color);
+  }
+
+  img,
+  .image-embed {
+    max-width: 100%;
+    background-color: var(--monokai-media-background);
+    border: 1px solid var(--monokai-media-border-color);
+    border-radius: var(--monokai-media-radius);
+  }
+
+  .file-embed,
+  .pdf-embed,
+  .audio-embed,
+  .video-embed,
+  .internal-embed {
+    background-color: var(--monokai-media-background);
+    border: 1px solid var(--monokai-media-border-color);
+    border-radius: var(--monokai-media-radius);
+    padding: var(--monokai-embed-padding);
+  }
 }
 
 .markdown-source-view.mod-cm6 {
+  /* stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。 */
+  .HyperMD-header-1 {
+    padding-block-end: var(--monokai-heading-gap-h1);
+  }
+
+  .HyperMD-header-2 {
+    padding-block-end: var(--monokai-heading-gap-h2);
+  }
+
+  .HyperMD-header-3 {
+    padding-block-end: var(--monokai-heading-gap-h3);
+  }
+
+  .HyperMD-header-4 {
+    padding-block-end: var(--monokai-heading-gap-h4);
+  }
+
+  .HyperMD-header-5 {
+    padding-block-end: var(--monokai-heading-gap-h5);
+  }
+
+  .HyperMD-header-6 {
+    padding-block-end: var(--monokai-heading-gap-h6);
+  }
+
+  .HyperMD-task-line[data-task="x"],
+  .HyperMD-task-line[data-task="X"] {
+    color: var(--monokai-task-done-color);
+  }
+
+  .HyperMD-task-line[data-task=">"] {
+    color: var(--monokai-task-forward-color);
+  }
+
+  .HyperMD-task-line[data-task="-"] {
+    color: var(--monokai-task-cancelled-color);
+    text-decoration-line: line-through;
+  }
+
+  .HyperMD-task-line[data-task="?"] {
+    color: var(--monokai-task-question-color);
+  }
+
+  .HyperMD-codeblock {
+    background-color: var(--code-background);
+    font-family: var(--font-monospace-theme);
+    padding-inline: var(--monokai-codeblock-padding-inline);
+  }
+
+  .HyperMD-hr {
+    color: var(--monokai-formatting-marker-color);
+    padding-block: calc(var(--monokai-hr-spacing) / 2);
+  }
+
+  .HyperMD-paragraph {
+    padding-block-end: calc(var(--monokai-paragraph-spacing) / 3);
+  }
+
+  .HyperMD-table-row {
+    font-family: var(--monokai-table-source-font-family);
+    background-color: var(--monokai-table-source-background);
+  }
+
+  /* stylelint-enable selector-class-pattern */
+
   .cm-header-1 {
     color: var(--h1-color);
     font-weight: var(--monokai-heading-weight);
@@ -181,6 +389,21 @@ body.theme-light {
     font-weight: var(--monokai-heading-weight);
   }
 
+  .cm-header-4 {
+    color: var(--h4-color);
+    font-weight: var(--monokai-heading-weight);
+  }
+
+  .cm-header-5 {
+    color: var(--h5-color);
+    font-weight: var(--monokai-heading-weight);
+  }
+
+  .cm-header-6 {
+    color: var(--h6-color);
+    font-weight: var(--monokai-heading-weight);
+  }
+
   .cm-strong {
     color: var(--bold-color);
     font-weight: var(--bold-weight);
@@ -190,18 +413,98 @@ body.theme-light {
     color: var(--italic-color);
   }
 
+  .cm-strikethrough {
+    color: var(--monokai-strikethrough-color);
+    text-decoration-color: var(--monokai-strikethrough-color);
+  }
+
   .cm-link,
   .cm-url {
     color: var(--link-color);
   }
 
   .cm-formatting-link {
-    color: var(--text-faint);
+    color: var(--monokai-formatting-marker-color);
+  }
+
+  .cm-hmd-table-sep,
+  .cm-hmd-table-align,
+  .cm-formatting-table {
+    color: var(--monokai-table-source-separator-color);
+  }
+
+  .cm-formatting-code-block,
+  .cm-hmd-codeblock-begin,
+  .cm-hmd-codeblock-end {
+    color: var(--monokai-formatting-marker-color);
+  }
+
+  .cm-table {
+    color: var(--text-normal);
+  }
+
+  .cm-formatting-list {
+    color: var(--list-marker-color);
+  }
+
+  .cm-formatting-strong,
+  .cm-formatting-em,
+  .cm-formatting-strikethrough,
+  .cm-formatting-code,
+  .cm-formatting-highlight {
+    color: var(--monokai-formatting-marker-color);
   }
 
   .cm-highlight {
     color: var(--monokai-highlight-text);
     background-color: var(--text-highlight-bg);
+    border-radius: var(--monokai-highlight-radius);
+    padding-inline: var(--monokai-highlight-padding-inline);
+  }
+
+  .cm-hr {
+    color: var(--monokai-hr-color);
+  }
+
+  .cm-footref {
+    color: var(--monokai-footnote-color);
+    font-size: var(--monokai-footnote-font-size);
+  }
+
+  .cm-formatting-footref {
+    color: var(--monokai-footnote-marker-color);
+  }
+
+  .image-embed,
+  .cm-embed-block {
+    max-width: 100%;
+    background-color: var(--monokai-media-background);
+    border: 1px solid var(--monokai-media-border-color);
+    border-radius: var(--monokai-media-radius);
+  }
+
+  .file-embed,
+  .pdf-embed,
+  .audio-embed,
+  .video-embed,
+  .internal-embed,
+  .cm-embed-block {
+    background-color: var(--monokai-media-background);
+    border: 1px solid var(--monokai-media-border-color);
+    border-radius: var(--monokai-media-radius);
+    padding: var(--monokai-embed-padding);
+  }
+
+  .cm-hashtag {
+    color: var(--monokai-tag-color);
+    background-color: var(--monokai-tag-background);
+    border: 1px solid var(--monokai-tag-border-color);
+    border-radius: var(--monokai-tag-radius);
+    padding-inline: 0.25em;
+  }
+
+  .cm-line {
+    line-height: var(--monokai-paragraph-line-height);
   }
 
   .cm-inline-code {
@@ -210,7 +513,7 @@ body.theme-light {
     border: 0;
     border-radius: var(--radius-s);
     box-shadow: none;
-    padding: 0.05em 0.25em;
+    padding: var(--monokai-inline-code-padding);
   }
 }
 
@@ -248,12 +551,24 @@ body.theme-light {
 
 a,
 .markdown-rendered a,
-.cm-hmd-internal-link {
+.cm-hmd-internal-link,
+.cm-link,
+.cm-url {
   color: var(--link-color);
+  text-decoration-color: var(--monokai-link-decoration-color);
+  text-decoration-thickness: var(--monokai-link-decoration-thickness);
 }
 
 a:hover,
 .markdown-rendered a:hover,
 .cm-hmd-internal-link:hover {
   color: var(--link-color-hover);
+}
+
+a:focus-visible,
+.markdown-rendered a:focus-visible,
+.cm-hmd-internal-link:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-s);
 }

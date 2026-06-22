@@ -42,12 +42,20 @@ body.monokai-syntax-filter-spectrum {
 body.monokai-syntax-compact {
   @include compact-density;
 
+  --callout-padding: 0.9rem;
+  --callout-content-padding: var(--spacing-3) 0 0 0;
+
   .nav-files-container {
     font-size: var(--monokai-nav-font-size);
   }
 
   .nav-file-title,
   .nav-folder-title {
+    --monokai-file-tree-slot-size: 13px;
+    --monokai-file-tree-icon-gap: 4px;
+    --monokai-file-tree-glyph-size: 12px;
+    --monokai-file-tree-toggle-size: 8px;
+
     min-height: var(--nav-item-size);
     line-height: var(--nav-item-size);
     padding: 0 6px;
@@ -59,27 +67,6 @@ body.monokai-syntax-compact {
     line-height: var(--nav-item-size);
   }
 
-  .nav-file-title::before {
-    width: 13px;
-    flex: 0 0 13px;
-    margin-inline-end: 4px;
-    font-size: 13px;
-  }
-
-  .nav-folder-collapse-indicator {
-    width: 14px;
-    margin-inline-end: 1px;
-  }
-
-  .nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator::before,
-  .nav-folder-title[data-path*="/"] .collapse-icon::before,
-  .nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator::before,
-  .nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon::before,
-  .nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator::before,
-  .nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon::before {
-    font-size: 13px;
-  }
-
   .side-dock-ribbon-action {
     height: var(--ribbon-item-size);
     padding: 4px;
@@ -87,6 +74,11 @@ body.monokai-syntax-compact {
 
   .markdown-rendered pre {
     padding: 0.75rem;
+  }
+
+  .markdown-rendered th,
+  .markdown-rendered td {
+    padding: 0.35rem 0.5rem;
   }
 }
 
@@ -103,6 +95,7 @@ body {
   --link-color: var(--monokai-link-color, var(--monokai-default-link));
   --link-external-color: var(--monokai-link-color, var(--monokai-default-link));
   --blockquote-border-color: var(--monokai-success-color, var(--monokai-default-success));
+  --monokai-blockquote-border: var(--monokai-success-color, var(--monokai-default-success));
   --checkbox-color-checked: var(--monokai-success-color, var(--monokai-default-success));
   --text-highlight-bg: var(--monokai-warning-color, var(--monokai-default-warning));
   --code-background: var(--monokai-code-background, var(--monokai-default-code-background));

@@ -7,7 +7,7 @@
   background-color: var(--background-secondary);
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-m);
-  box-shadow: 0 18px 50px rgb(0 0 0 / 35%);
+  box-shadow: var(--monokai-modal-shadow);
 }
 
 .modal-title,
@@ -23,6 +23,10 @@
   background-color: var(--background-primary);
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-s);
+  padding: 0.45rem 0.6rem;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease;
 }
 
 .prompt-input:focus,
