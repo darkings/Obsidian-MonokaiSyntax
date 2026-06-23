@@ -1,6 +1,6 @@
 {
   "name": "monokai-syntax",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "面向 Obsidian 的 Monokai Syntax 主题。",
   "author": "lat3ncy",
   "license": "MIT",
@@ -16,8 +16,9 @@
     "lint:css": "stylelint \"src/scss/**/*.scss\"",
     "check:contrast": "node scripts/check-contrast.js",
     "audit:css": "node scripts/audit-css.js",
-    "verify": "npm run verify:versions && npm run verify:pip-editor && npm run verify:icons && npm run verify:graph && npm run verify:active-visual && npm run verify:style-polish && npm test && npm run lint:css && npm run check:contrast && npm run build && npm run verify:generated && npm run audit:css",
+    "verify": "npm run verify:versions && npm run verify:palette && npm run verify:pip-editor && npm run verify:icons && npm run verify:graph && npm run verify:active-visual && npm run verify:style-polish && npm test && npm run lint:css && npm run check:contrast && npm run build && npm run verify:generated && npm run audit:css",
     "verify:versions": "node scripts/verify-versions.js",
+    "verify:palette": "node scripts/verify-palette-filters.js",
     "verify:generated": "node scripts/verify-generated.js",
     "verify:pip-editor": "node scripts/verify-pip-editor.js",
     "verify:icons": "node scripts/verify-icons.js",

@@ -43,7 +43,30 @@ const checks = [
   ["CLAUDE.md/claude.md 文件名规则", /\[data-path\$="\/CLAUDE\.md"\]::before/.test(files.generated) && /\[data-path\$="\/claude\.md"\]::before/.test(files.generated)],
   ["AGENTS.md/agents.md 文件名规则", /\[data-path\$="\/AGENTS\.md"\]::before/.test(files.generated) && /\[data-path\$="\/agents\.md"\]::before/.test(files.generated)],
   ["Bug_ 开头文档规则", /\[data-path\*="\/Bug_"\]\[data-path\$="\.md"\]::before/.test(files.generated)],
-  ["第二层文件夹使用 folder-dimmed2 折叠图标", /\.nav-folder-children\s+\.nav-folder-children\s+\.nav-folder-title\s+\.collapse-icon[\s\S]*content:\s*"\\e64d";/.test(files.wrapper)],
+  ["第二层文件夹使用 folder-dimmed2 折叠图标作为默认回退", /\.nav-folder-children\s+\.nav-folder-children\s+\.nav-folder-title\s+\.collapse-icon[\s\S]*content:\s*var\(--monokai-folder-icon-content,\s*"\\e64d"\);/.test(files.wrapper)],
+  [
+    "学习目录图标规则由生成器输出为文件夹语义变量",
+    [
+      "concepts",
+      "labs",
+      "examples",
+      "exercises",
+      "leetcode",
+      "notes",
+      "assets",
+      "src",
+      "tests",
+    ].every((name) => new RegExp(`\\.nav-folder-title\\[data-path="${name}"\\],[\\s\\S]*?\\.nav-folder-title\\[data-path\\$="/${name}"\\][\\s\\S]*?--monokai-folder-icon-content:[\\s\\S]*?--monokai-folder-icon-color:`).test(files.generated))
+      && /\.nav-folder-title\[data-path\^="day"\],[\s\S]*?\.nav-folder-title\[data-path\*="\/day"\][\s\S]*?--monokai-folder-icon-content:[\s\S]*?--monokai-folder-icon-color:/.test(files.generated)
+      && /\.nav-folder-title\[data-path\^="Day"\],[\s\S]*?\.nav-folder-title\[data-path\*="\/Day"\][\s\S]*?--monokai-folder-icon-content:[\s\S]*?--monokai-folder-icon-color:/.test(files.generated),
+  ],
+  [
+    "学习目录图标复用折叠槽变量且不新增文件夹标题伪元素",
+    /content:\s*var\(--monokai-folder-icon-content,\s*"\\e64d"\);/.test(files.wrapper)
+      && /color:\s*var\(--monokai-folder-icon-color,\s*var\(--icon-color\)\);/.test(files.wrapper)
+      && !/\.nav-folder-title-content::before/.test(files.wrapper)
+      && !/\.nav-folder-title::before/.test(files.wrapper),
+  ],
   ["兼容 Obsidian 折叠图标类名", /\.nav-folder-collapse-indicator/.test(files.wrapper) && /\.collapse-icon/.test(files.wrapper)],
   ["第一层文件夹保留 Obsidian 原生折叠图标", !/\.nav-folder\.mod-root\s*>\s*\.nav-folder-children\s*>\s*\.nav-folder\s*>\s*\.nav-folder-title\s+\.nav-folder-collapse-indicator[\s\S]*content:\s*"\\e64d";/.test(files.wrapper)],
   ["Style Settings 可关闭文档树图标", /monokai-syntax-hide-file-tree-icons/.test(files.styleSettings) && /body\.monokai-syntax-hide-file-tree-icons/.test(files.wrapper)],

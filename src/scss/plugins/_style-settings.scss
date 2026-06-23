@@ -1,42 +1,309 @@
 @use "../mixins" as *;
+@use "../variables" as *;
+
+@mixin monokai-filter(
+  $name,
+  $background-primary,
+  $background-secondary,
+  $text-normal,
+  $text-muted,
+  $text-faint,
+  $border,
+  $hover,
+  $active,
+  $red,
+  $orange,
+  $yellow,
+  $green,
+  $cyan,
+  $purple,
+  $comment,
+  $warning-bg
+) {
+  --monokai-filter-name: "#{$name}";
+  --background-primary: #{$background-primary};
+  --background-secondary: #{$background-secondary};
+  --background-secondary-alt: #{$background-secondary};
+  --background-modifier-hover: #{$hover};
+  --background-modifier-active-hover: #{$active};
+  --background-modifier-border: #{$border};
+  --text-normal: #{$text-normal};
+  --text-muted: #{$text-muted};
+  --text-faint: #{$text-faint};
+  --text-accent: #{$red};
+  --text-accent-hover: #{$red};
+  --interactive-accent: #{$red};
+  --interactive-accent-hover: #{$red};
+  --link-color: #{$cyan};
+  --link-color-hover: #{$cyan};
+  --link-external-color: #{$cyan};
+  --link-external-color-hover: #{$cyan};
+  --h1-color: #{$red};
+  --h2-color: #{$orange};
+  --h3-color: #{$yellow};
+  --h4-color: #{$green};
+  --h5-color: #{$cyan};
+  --h6-color: #{$purple};
+  --icon-color: #{$text-muted};
+  --icon-color-hover: #{$text-normal};
+  --icon-color-active: #{$cyan};
+  --metadata-label-text-color: #{$orange};
+  --metadata-label-text-color-hover: #{$orange};
+  --monokai-default-accent: #{$red};
+  --monokai-default-link: #{$cyan};
+  --monokai-default-success: #{$green};
+  --monokai-default-warning: #{$warning-bg};
+  --monokai-default-code-background: #{$background-secondary};
+  --monokai-spectrum-red: #{$red};
+  --monokai-spectrum-orange: #{$orange};
+  --monokai-spectrum-yellow: #{$yellow};
+  --monokai-spectrum-green: #{$green};
+  --monokai-spectrum-cyan: #{$cyan};
+  --monokai-spectrum-purple: #{$purple};
+  --code-normal: #{$text-normal};
+  --code-background: #{$background-secondary};
+  --code-comment: #{$comment};
+  --code-function: #{$green};
+  --code-important: #{$red};
+  --code-keyword: #{$red};
+  --code-operator: #{$orange};
+  --code-property: #{$cyan};
+  --code-punctuation: #{$text-muted};
+  --code-string: #{$yellow};
+  --code-tag: #{$red};
+  --code-value: #{$purple};
+  --code-type: #{$purple};
+  --code-class: #{$green};
+  --code-builtin: #{$cyan};
+  --code-constant: #{$purple};
+  --code-namespace: #{$text-muted};
+  --code-decorator: #{$orange};
+  --code-regex: #{$yellow};
+  --code-meta: #{$text-faint};
+  --code-error: #{$red};
+  --monokai-callout-note-bg: rgb(from #{$cyan} r g b / 12%);
+  --monokai-callout-note-border: #{$cyan};
+  --monokai-callout-info-bg: rgb(from #{$cyan} r g b / 12%);
+  --monokai-callout-info-border: #{$cyan};
+  --monokai-callout-abstract-bg: rgb(from #{$purple} r g b / 12%);
+  --monokai-callout-abstract-border: #{$purple};
+  --monokai-callout-question-bg: rgb(from #{$purple} r g b / 12%);
+  --monokai-callout-question-border: #{$purple};
+  --monokai-callout-todo-bg: rgb(from #{$yellow} r g b / 12%);
+  --monokai-callout-todo-border: #{$yellow};
+  --monokai-callout-tip-bg: rgb(from #{$green} r g b / 12%);
+  --monokai-callout-tip-border: #{$green};
+  --monokai-callout-warning-bg: rgb(from #{$orange} r g b / 12%);
+  --monokai-callout-warning-border: #{$orange};
+  --monokai-callout-error-bg: rgb(from #{$red} r g b / 12%);
+  --monokai-callout-error-border: #{$red};
+  --monokai-callout-failure-bg: rgb(from #{$red} r g b / 12%);
+  --monokai-callout-failure-border: #{$red};
+  --monokai-callout-bug-bg: rgb(from #{$red} r g b / 12%);
+  --monokai-callout-bug-border: #{$red};
+  --monokai-callout-success-bg: rgb(from #{$green} r g b / 12%);
+  --monokai-callout-success-border: #{$green};
+  --monokai-callout-example-bg: rgb(from #{$orange} r g b / 12%);
+  --monokai-callout-example-border: #{$orange};
+  --monokai-callout-quote-bg: rgb(from #{$text-normal} r g b / 8%);
+  --monokai-callout-quote-border: #{$text-faint};
+  --monokai-graph-background: #{$background-secondary};
+  --monokai-graph-panel: #{$active};
+  --monokai-graph-line: rgb(from #{$cyan} r g b / 42%);
+  --monokai-graph-node: #{$text-muted};
+  --monokai-graph-focused: #{$red};
+  --monokai-graph-node-tag: #{$purple};
+  --monokai-graph-node-attachment: #{$green};
+  --monokai-graph-node-unresolved: #{$text-faint};
+  --monokai-graph-ring: rgb(from #{$cyan} r g b / 28%);
+  --canvas-color-1: #{$red};
+  --canvas-color-2: #{$orange};
+  --canvas-color-3: #{$yellow};
+  --canvas-color-4: #{$green};
+  --canvas-color-5: #{$cyan};
+  --canvas-color-6: #{$purple};
+  --ribbon-background: #{$background-secondary};
+  --nav-item-background-hover: #{$hover};
+  --nav-item-background-active: #{$active};
+  --nav-item-color: #{$text-muted};
+  --nav-item-color-hover: #{$text-normal};
+  --nav-item-color-active: #{$text-normal};
+}
+
+body.monokai-syntax-filter-pro {
+  @include monokai-filter(
+    "pro",
+    $color-pro-background-primary,
+    $color-pro-background-secondary,
+    $color-pro-text-normal,
+    $color-pro-text-muted,
+    $color-pro-text-faint,
+    $color-pro-border,
+    $color-pro-hover,
+    $color-pro-active,
+    $color-pro-magenta,
+    $color-pro-orange,
+    $color-pro-yellow,
+    $color-pro-green,
+    $color-pro-cyan,
+    $color-pro-purple,
+    #727072,
+    rgb(255 216 102 / 24%)
+  );
+}
 
 body.monokai-syntax-filter-classic {
-  --monokai-filter-name: "classic";
+  @include monokai-filter(
+    "classic",
+    $color-dark-background-primary,
+    $color-dark-background-secondary,
+    $color-dark-text-normal,
+    $color-dark-text-muted,
+    $color-dark-text-faint,
+    $color-dark-border,
+    $color-dark-hover,
+    $color-dark-active,
+    $color-dark-magenta,
+    $color-dark-orange-soft,
+    $color-dark-yellow-soft,
+    $color-dark-green-soft,
+    $color-dark-cyan-soft,
+    $color-dark-purple-soft,
+    #72736f,
+    rgb(230 219 116 / 28%)
+  );
 }
 
 body.monokai-syntax-filter-machine {
-  --background-primary: #222421;
-  --background-secondary: #191b19;
-  --text-accent: #ff4f8b;
-  --interactive-accent: #ff4f8b;
-  --monokai-filter-name: "machine";
+  @include monokai-filter(
+    "machine",
+    #222421,
+    #191b19,
+    #f2ffef,
+    #c2c9bd,
+    #8b9387,
+    #394037,
+    #323930,
+    #3b4438,
+    #ff4f8b,
+    #ff9f43,
+    #ffe66d,
+    #a5ff6b,
+    #6bf5ff,
+    #b68cff,
+    #747d70,
+    rgb(255 230 109 / 22%)
+  );
 }
 
 body.monokai-syntax-filter-octagon {
-  --background-primary: #28252f;
-  --background-secondary: #1f1d26;
-  --text-accent: #ff6188;
-  --interactive-accent: #ff6188;
-  --link-color: #78dce8;
-  --monokai-filter-name: "octagon";
+  @include monokai-filter(
+    "octagon",
+    #28252f,
+    #1f1d26,
+    #fff9fb,
+    #cbc3d4,
+    #978da3,
+    #443d50,
+    #3a3444,
+    #463f52,
+    #ff6188,
+    #fc9867,
+    #ffd866,
+    #a9dc76,
+    #78dce8,
+    #ab9df2,
+    #77707f,
+    rgb(255 216 102 / 22%)
+  );
 }
 
 body.monokai-syntax-filter-ristretto {
-  --background-primary: #2b241f;
-  --background-secondary: #211b18;
-  --text-accent: #ff6188;
-  --interactive-accent: #ff6188;
-  --link-color: #fc9867;
-  --monokai-filter-name: "ristretto";
+  @include monokai-filter(
+    "ristretto",
+    #2b241f,
+    #211b18,
+    #fff8ef,
+    #cfc1b2,
+    #998b7d,
+    #463b32,
+    #3c322b,
+    #483c33,
+    #ff6188,
+    #fc9867,
+    #ffd866,
+    #a9dc76,
+    #78dce8,
+    #ab9df2,
+    #7b7066,
+    rgb(255 216 102 / 22%)
+  );
 }
 
 body.monokai-syntax-filter-spectrum {
-  --background-primary: #262933;
-  --background-secondary: #1c1f28;
-  --text-accent: #ab9df2;
-  --interactive-accent: #ab9df2;
-  --link-color: #78dce8;
-  --monokai-filter-name: "spectrum";
+  @include monokai-filter(
+    "spectrum",
+    #262933,
+    #1c1f28,
+    #f7f8ff,
+    #c3c8d8,
+    #8d94a8,
+    #3e4454,
+    #353b49,
+    #42495a,
+    #ff6188,
+    #fc9867,
+    #ffd866,
+    #a9dc76,
+    #78dce8,
+    #ab9df2,
+    #71788c,
+    rgb(255 216 102 / 22%)
+  );
+}
+
+body.monokai-syntax-filter-light {
+  @include monokai-filter(
+    "light",
+    $color-light-background-primary,
+    $color-light-background-secondary,
+    $color-light-text-normal,
+    $color-light-text-muted,
+    $color-light-text-faint,
+    $color-light-border,
+    $color-light-hover,
+    $color-light-active,
+    $color-light-magenta,
+    $color-light-orange,
+    $color-light-yellow,
+    $color-light-green,
+    $color-light-cyan,
+    $color-light-purple,
+    $color-light-text-faint,
+    rgb(232 179 10 / 24%)
+  );
+}
+
+body.monokai-syntax-filter-sun {
+  @include monokai-filter(
+    "sun",
+    $color-sun-background-primary,
+    $color-sun-background-secondary,
+    $color-sun-text-normal,
+    $color-sun-text-muted,
+    $color-sun-text-faint,
+    $color-sun-border,
+    $color-sun-hover,
+    $color-sun-active,
+    $color-sun-magenta,
+    $color-sun-orange,
+    $color-sun-yellow,
+    $color-sun-green,
+    $color-sun-cyan,
+    $color-sun-purple,
+    $color-sun-text-faint,
+    rgb(199 151 0 / 24%)
+  );
 }
 
 body.monokai-syntax-compact {
@@ -88,8 +355,50 @@ body.monokai-syntax-monochrome-icons {
   --icon-color-active: var(--text-normal);
 }
 
+body.monokai-syntax-heading-accents {
+  .markdown-rendered h1,
+  .markdown-rendered h2,
+  .markdown-rendered h3 {
+    position: relative;
+    padding-inline-start: calc(var(--monokai-heading-accent-width) + var(--spacing-2));
+  }
+
+  .markdown-rendered h1::before,
+  .markdown-rendered h2::before,
+  .markdown-rendered h3::before {
+    content: "";
+    position: absolute;
+    inset-block: 0.18em;
+    inset-inline-start: 0;
+    width: var(--monokai-heading-accent-width);
+    background-color: currentcolor;
+    border-radius: var(--radius-s);
+  }
+
+  /* stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。 */
+  .markdown-source-view.mod-cm6 .HyperMD-header-1,
+  .markdown-source-view.mod-cm6 .HyperMD-header-2,
+  .markdown-source-view.mod-cm6 .HyperMD-header-3 {
+    border-inline-start: var(--monokai-heading-accent-width) solid currentcolor;
+    padding-inline-start: calc(var(--monokai-heading-accent-width) + var(--spacing-2));
+  }
+  /* stylelint-enable selector-class-pattern */
+}
+
 body {
   --file-line-width: var(--monokai-readable-line-width, 48rem);
+  --font-text-size: var(--monokai-body-font-size, 16px);
+  --code-size: var(--monokai-code-font-size, 0.9em);
+  --line-height-normal: var(--monokai-body-line-height, 1.6);
+  --monokai-codeblock-line-height: var(--monokai-code-line-height, 1.55);
+  --monokai-heading-size-scale: var(--monokai-heading-scale, 1);
+  --h1-size: calc(1.802em * var(--monokai-heading-size-scale));
+  --h2-size: calc(1.602em * var(--monokai-heading-size-scale));
+  --h3-size: calc(1.424em * var(--monokai-heading-size-scale));
+  --h4-size: calc(1.266em * var(--monokai-heading-size-scale));
+  --h5-size: calc(1.125em * var(--monokai-heading-size-scale));
+  --h6-size: calc(0.889em * var(--monokai-heading-size-scale));
+  --monokai-paragraph-spacing: var(--monokai-paragraph-spacing-value, 0.75rem);
   --text-accent: var(--monokai-accent-color, var(--monokai-default-accent));
   --interactive-accent: var(--monokai-accent-color, var(--monokai-default-accent));
   --link-color: var(--monokai-link-color, var(--monokai-default-link));

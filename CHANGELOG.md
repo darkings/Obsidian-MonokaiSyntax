@@ -1,5 +1,26 @@
 # 更新日志 / Changelog
 
+## 1.1.0（2026-06-23）
+
+### 新增
+
+- 默认启用 Monokai Pro 滤镜，并新增 Light、Sun 浅色滤镜。
+- 增加代码学习 Callout：concept、syntax、api、debug、pitfall、exercise、answer、source、output、terminal。
+- 增加学习目录图标规则、8 种任务状态、API 参数表语义、Mermaid/Math/Dataview 容器样式。
+- 扩展 Style Settings 排版控制：行宽、正文字号、代码字号、代码行高、标题缩放、段落间距和标题色条开关。
+
+### 优化
+
+- 扩展 CodeMirror token、代码块 surface、active line、selection、cursor、gutter 与 bracket match。
+- 让 Graph、Canvas、Callout 和代码 token 跟随 8 个滤镜的语义色。
+- 优化标题导航感、列表嵌套节奏、表格可读性和阅读/编辑模式一致性。
+
+### 验证
+
+- 增加 8 滤镜调色板检查与多场景对比度审计。
+- 扩展视觉 QA 基线，生成代码学习、Callout、Mermaid/Math/Dataview、Graph 与 Canvas 样例。
+- 完整发布验证覆盖版本一致性、图标、Graph、Active 视觉、样式 polish、对比度、构建、CSS 审计和 Vault QA。
+
 ## 1.0.2（2026-06-22）
 
 - 系统优化阅读模式与 Live Preview 的视觉一致性，专项验证扩展到 30 项。

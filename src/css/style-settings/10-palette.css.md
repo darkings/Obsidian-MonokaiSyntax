@@ -9,8 +9,11 @@ settings:
     title: 调色板滤镜
     type: class-select
     allowEmpty: false
-    default: monokai-syntax-filter-classic
+    default: monokai-syntax-filter-pro
     options:
+      -
+        label: Pro
+        value: monokai-syntax-filter-pro
       -
         label: Classic
         value: monokai-syntax-filter-classic
@@ -26,4 +29,10 @@ settings:
       -
         label: Spectrum
         value: monokai-syntax-filter-spectrum
+      -
+        label: Light
+        value: monokai-syntax-filter-light
+      -
+        label: Sun
+        value: monokai-syntax-filter-sun
 */

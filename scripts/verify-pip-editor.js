@@ -33,7 +33,7 @@ const checks = [
   ["Callout 面板使用语义背景变量", /\.callout[\s\S]*?background-color:\s*var\(--callout-background, transparent\);/],
   ["表格边框使用增强变量", /(?:\.markdown-rendered[\s\S]*?table|\.markdown-rendered[\s\S]*?th,[\s\S]*?\.markdown-rendered[\s\S]*?td)[\s\S]*?border:\s*1px solid var\(--monokai-table-border\);/],
   ["已完成任务保持可见", /\.markdown-rendered[\s\S]*?\.task-list-item\.is-checked[\s\S]*?color:\s*var\(--monokai-task-done-color\);/],
-  ["未使用 !important", /^((?!important).)*$/s],
+  ["未使用 !important", !/!important/i.test(`${editorScss}\n${activeVisualScss}`)],
 ];
 
 let hasFailure = false;

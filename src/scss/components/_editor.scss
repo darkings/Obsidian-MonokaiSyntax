@@ -12,6 +12,9 @@
   --monokai-heading-gap-h4: 0.8rem;
   --monokai-heading-gap-h5: 0.7rem;
   --monokai-heading-gap-h6: 0.6rem;
+  --monokai-heading-accent-width: 3px;
+  --monokai-heading-group-spacing: var(--monokai-heading-group-spacing-value, 1.4rem);
+  --monokai-heading-anchor-color: var(--text-faint);
   --monokai-heading-weight: 600;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
@@ -30,6 +33,10 @@
   --monokai-media-border-color: var(--background-modifier-border);
   --monokai-media-background: var(--background-secondary);
   --monokai-embed-padding: #{$spacing-3};
+  --monokai-plugin-surface-background: var(--background-secondary);
+  --monokai-plugin-surface-border: var(--background-modifier-border);
+  --monokai-plugin-surface-radius: var(--radius-m);
+  --monokai-plugin-surface-padding: #{$spacing-4};
   --monokai-tag-color: var(--link-color);
   --monokai-tag-background: var(--background-secondary);
   --monokai-tag-border-color: var(--background-modifier-border);
@@ -37,14 +44,38 @@
   --monokai-link-decoration-color: var(--link-color);
   --monokai-link-decoration-thickness: 1px;
   --monokai-paragraph-line-height: var(--line-height-normal);
-  --monokai-paragraph-spacing: #{$spacing-3};
+  --monokai-paragraph-spacing: var(--monokai-paragraph-spacing-value, #{$spacing-3});
+  --monokai-list-indent: 1.5em;
+  --monokai-list-item-spacing: 0.35rem;
+  --monokai-nested-list-spacing: 0.25rem;
   --monokai-table-source-background: var(--background-secondary);
   --monokai-table-source-font-family: var(--font-monospace-theme);
   --monokai-table-source-separator-color: var(--text-faint);
+  --monokai-table-cell-padding: 0.55rem 0.7rem;
+  --monokai-table-row-hover-background: var(--background-modifier-hover);
+  --monokai-table-row-alt-background: transparent;
+  --monokai-table-api-name-color: var(--link-color);
+  --monokai-table-api-type-color: var(--code-type);
+  --monokai-table-api-default-color: var(--code-value);
+  --monokai-table-api-required-color: var(--text-accent);
   --monokai-codeblock-border-color: var(--background-modifier-border);
   --monokai-codeblock-radius: var(--radius-m);
+  --monokai-codeblock-header-height: 1.75rem;
   --monokai-codeblock-padding: #{$spacing-4};
   --monokai-codeblock-padding-inline: #{$spacing-4};
+  --monokai-codeblock-shadow: 0 10px 24px rgb(0 0 0 / 16%);
+  --monokai-codeblock-language-color: var(--text-faint);
+  --monokai-codeblock-line-height: var(--monokai-code-line-height, 1.55);
+  --monokai-editor-active-line-background: rgb(248 248 242 / 5%);
+  --monokai-editor-selection-background: rgb(102 217 239 / 22%);
+  --monokai-editor-cursor-color: var(--interactive-accent);
+  --monokai-editor-gutter-background: var(--background-secondary);
+  --monokai-editor-gutter-color: var(--text-faint);
+  --monokai-editor-bracket-match-background: rgb(166 226 46 / 18%);
+  --monokai-task-open-color: var(--text-normal);
+  --monokai-task-important-color: var(--monokai-spectrum-orange, var(--text-accent));
+  --monokai-task-in-progress-color: var(--monokai-spectrum-cyan, var(--link-color));
+  --monokai-task-starred-color: var(--monokai-spectrum-yellow, var(--text-accent));
   --callout-blend-mode: normal;
   --callout-icon-size: 1.25em;
   --p-spacing: var(--monokai-paragraph-spacing);
@@ -87,12 +118,17 @@ body.theme-dark {
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(248 248 242 / 18%);
   --monokai-table-header-background: rgb(248 248 242 / 6%);
+  --monokai-table-row-alt-background: rgb(248 248 242 / 3%);
   --monokai-task-done-color: rgb(248 248 242 / 68%);
   --monokai-task-forward-color: var(--text-accent);
   --monokai-task-cancelled-color: var(--text-faint);
   --monokai-task-question-color: var(--link-color);
   --monokai-modal-shadow: 0 18px 50px rgb(0 0 0 / 35%);
   --monokai-selection-ring: rgb(249 38 114 / 28%);
+  --monokai-codeblock-shadow: 0 10px 28px rgb(0 0 0 / 22%);
+  --monokai-editor-active-line-background: rgb(248 248 242 / 5%);
+  --monokai-editor-selection-background: rgb(102 217 239 / 22%);
+  --monokai-editor-bracket-match-background: rgb(166 226 46 / 18%);
 }
 
 body.theme-light {
@@ -129,12 +165,17 @@ body.theme-light {
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(61 61 61 / 18%);
   --monokai-table-header-background: rgb(61 61 61 / 6%);
+  --monokai-table-row-alt-background: rgb(61 61 61 / 3%);
   --monokai-task-done-color: rgb(61 61 61 / 66%);
   --monokai-task-forward-color: var(--text-accent);
   --monokai-task-cancelled-color: var(--text-faint);
   --monokai-task-question-color: var(--link-color);
   --monokai-modal-shadow: 0 16px 36px rgb(61 61 61 / 16%);
   --monokai-selection-ring: rgb(200 63 103 / 22%);
+  --monokai-codeblock-shadow: 0 8px 20px rgb(61 61 61 / 10%);
+  --monokai-editor-active-line-background: rgb(61 61 61 / 5%);
+  --monokai-editor-selection-background: rgb(20 116 138 / 18%);
+  --monokai-editor-bracket-match-background: rgb(38 157 105 / 16%);
 }
 
 .markdown-source-view.mod-cm6 .inline-title {
@@ -154,29 +195,35 @@ body.theme-light {
   }
 
   h1 {
+    font-size: var(--h1-size);
     margin-block-end: var(--monokai-heading-gap-h1);
   }
 
   h2 {
-    margin-block-end: var(--monokai-heading-gap-h2);
+    font-size: var(--h2-size);
+    margin-block: var(--monokai-heading-group-spacing) var(--monokai-heading-gap-h2);
   }
 
   h3 {
-    margin-block-end: var(--monokai-heading-gap-h3);
+    font-size: var(--h3-size);
+    margin-block: calc(var(--monokai-heading-group-spacing) * 0.82) var(--monokai-heading-gap-h3);
   }
 
   h4 {
     color: var(--h4-color);
+    font-size: var(--h4-size);
     margin-block-end: var(--monokai-heading-gap-h4);
   }
 
   h5 {
     color: var(--h5-color);
+    font-size: var(--h5-size);
     margin-block-end: var(--monokai-heading-gap-h5);
   }
 
   h6 {
     color: var(--h6-color);
+    font-size: var(--h6-size);
     margin-block-end: var(--monokai-heading-gap-h6);
   }
 
@@ -212,10 +259,38 @@ body.theme-light {
     color: var(--list-marker-color);
   }
 
+  ul,
+  ol {
+    margin-block: 0 var(--monokai-paragraph-spacing);
+    padding-inline-start: var(--monokai-list-indent);
+  }
+
+  li {
+    margin-block: var(--monokai-list-item-spacing);
+  }
+
+  li > p {
+    margin-block: 0;
+  }
+
+  li > ul,
+  li > ol {
+    margin-block: var(--monokai-nested-list-spacing) 0;
+  }
+
+  .task-list-item[data-task=" "],
+  .task-list-item[data-task=""] {
+    color: var(--monokai-task-open-color);
+  }
+
+  .task-list-item[data-task="x"],
+  .task-list-item[data-task="X"],
   .task-list-item.is-checked {
     color: var(--monokai-task-done-color);
   }
 
+  .task-list-item[data-task="x"] > p,
+  .task-list-item[data-task="X"] > p,
   .task-list-item.is-checked > p {
     color: var(--monokai-task-done-color);
   }
@@ -233,19 +308,66 @@ body.theme-light {
     color: var(--monokai-task-question-color);
   }
 
+  .task-list-item[data-task="!"] {
+    color: var(--monokai-task-important-color);
+    font-weight: 700;
+  }
+
+  .task-list-item[data-task="/"] {
+    color: var(--monokai-task-in-progress-color);
+  }
+
+  .task-list-item[data-task="*"] {
+    color: var(--monokai-task-starred-color);
+    font-weight: 700;
+  }
+
   table {
+    width: 100%;
     border: 1px solid var(--monokai-table-border);
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-block: var(--monokai-paragraph-spacing);
+    overflow: hidden;
   }
 
   th,
   td {
     border: 1px solid var(--monokai-table-border);
+    padding: var(--monokai-table-cell-padding);
+    vertical-align: top;
   }
 
   th {
     color: var(--text-normal);
     background-color: var(--monokai-table-header-background);
     font-weight: 700;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: var(--monokai-table-row-alt-background);
+  }
+
+  tbody tr:hover {
+    background-color: var(--monokai-table-row-hover-background);
+  }
+
+  td:first-child {
+    color: var(--monokai-table-api-name-color);
+    font-weight: 600;
+  }
+
+  td:nth-child(2) code {
+    color: var(--monokai-table-api-type-color);
+  }
+
+  td:nth-child(3) code {
+    color: var(--monokai-table-api-default-color);
+  }
+
+  td:nth-child(4) strong,
+  td:nth-child(4) code {
+    color: var(--monokai-table-api-required-color);
   }
 
   code {
@@ -261,8 +383,13 @@ body.theme-light {
     background-color: var(--code-background);
     border: 1px solid var(--monokai-codeblock-border-color);
     border-radius: var(--monokai-codeblock-radius);
+    box-shadow: var(--monokai-codeblock-shadow);
     font-family: var(--font-monospace-theme);
+    line-height: var(--monokai-codeblock-line-height);
+    overflow-x: auto;
     padding: var(--monokai-codeblock-padding);
+    scrollbar-color: var(--text-faint) transparent;
+    tab-size: 2;
 
     code {
       background-color: transparent;
@@ -306,6 +433,61 @@ body.theme-light {
     border-radius: var(--monokai-media-radius);
     padding: var(--monokai-embed-padding);
   }
+
+  .mermaid {
+    color: var(--text-normal);
+    background-color: var(--monokai-plugin-surface-background);
+    border: 1px solid var(--monokai-plugin-surface-border);
+    border-radius: var(--monokai-plugin-surface-radius);
+    overflow-x: auto;
+    padding: var(--monokai-plugin-surface-padding);
+  }
+
+  .math,
+  .math-block {
+    overflow-x: auto;
+    color: var(--text-normal);
+    background-color: var(--monokai-plugin-surface-background);
+    border: 1px solid var(--monokai-plugin-surface-border);
+    border-radius: var(--monokai-plugin-surface-radius);
+    padding: var(--monokai-plugin-surface-padding);
+  }
+
+  .math-inline {
+    color: var(--monokai-inline-code-color);
+    background-color: var(--monokai-inline-code-background);
+    border-radius: var(--radius-s);
+    padding-inline: var(--monokai-highlight-padding-inline);
+  }
+
+  .block-language-dataview,
+  .dataview {
+    color: var(--text-normal);
+    background-color: var(--monokai-plugin-surface-background);
+    border: 1px solid var(--monokai-plugin-surface-border);
+    border-radius: var(--monokai-plugin-surface-radius);
+    padding: var(--monokai-plugin-surface-padding);
+  }
+
+  .dataview table {
+    width: 100%;
+    margin-block: 0;
+  }
+
+  .dataview ul,
+  .dataview ol {
+    padding-inline-start: var(--monokai-list-indent);
+  }
+
+  .dataview.task-list-item,
+  .dataview .task-list-item {
+    color: var(--monokai-task-open-color);
+  }
+
+  .heading-collapse-indicator,
+  .heading-anchor {
+    color: var(--monokai-heading-anchor-color);
+  }
 }
 
 .markdown-source-view.mod-cm6 {
@@ -315,11 +497,11 @@ body.theme-light {
   }
 
   .HyperMD-header-2 {
-    padding-block-end: var(--monokai-heading-gap-h2);
+    padding-block: calc(var(--monokai-heading-group-spacing) / 3) var(--monokai-heading-gap-h2);
   }
 
   .HyperMD-header-3 {
-    padding-block-end: var(--monokai-heading-gap-h3);
+    padding-block: calc(var(--monokai-heading-group-spacing) / 4) var(--monokai-heading-gap-h3);
   }
 
   .HyperMD-header-4 {
@@ -332,6 +514,11 @@ body.theme-light {
 
   .HyperMD-header-6 {
     padding-block-end: var(--monokai-heading-gap-h6);
+  }
+
+  .HyperMD-task-line[data-task=" "],
+  .HyperMD-task-line[data-task=""] {
+    color: var(--monokai-task-open-color);
   }
 
   .HyperMD-task-line[data-task="x"],
@@ -352,9 +539,24 @@ body.theme-light {
     color: var(--monokai-task-question-color);
   }
 
+  .HyperMD-task-line[data-task="!"] {
+    color: var(--monokai-task-important-color);
+    font-weight: 700;
+  }
+
+  .HyperMD-task-line[data-task="/"] {
+    color: var(--monokai-task-in-progress-color);
+  }
+
+  .HyperMD-task-line[data-task="*"] {
+    color: var(--monokai-task-starred-color);
+    font-weight: 700;
+  }
+
   .HyperMD-codeblock {
     background-color: var(--code-background);
     font-family: var(--font-monospace-theme);
+    line-height: var(--monokai-codeblock-line-height);
     padding-inline: var(--monokai-codeblock-padding-inline);
   }
 
@@ -376,31 +578,37 @@ body.theme-light {
 
   .cm-header-1 {
     color: var(--h1-color);
+    font-size: var(--h1-size);
     font-weight: var(--monokai-heading-weight);
   }
 
   .cm-header-2 {
     color: var(--h2-color);
+    font-size: var(--h2-size);
     font-weight: var(--monokai-heading-weight);
   }
 
   .cm-header-3 {
     color: var(--h3-color);
+    font-size: var(--h3-size);
     font-weight: var(--monokai-heading-weight);
   }
 
   .cm-header-4 {
     color: var(--h4-color);
+    font-size: var(--h4-size);
     font-weight: var(--monokai-heading-weight);
   }
 
   .cm-header-5 {
     color: var(--h5-color);
+    font-size: var(--h5-size);
     font-weight: var(--monokai-heading-weight);
   }
 
   .cm-header-6 {
     color: var(--h6-color);
+    font-size: var(--h6-size);
     font-weight: var(--monokai-heading-weight);
   }
 
@@ -515,6 +723,36 @@ body.theme-light {
     box-shadow: none;
     padding: var(--monokai-inline-code-padding);
   }
+
+  /* stylelint-disable selector-class-pattern -- CodeMirror 内部类名。 */
+  .cm-active {
+    background-color: var(--monokai-editor-active-line-background);
+  }
+
+  .cm-selectionBackground {
+    background-color: var(--monokai-editor-selection-background);
+  }
+
+  .cm-cursor {
+    border-left-color: var(--monokai-editor-cursor-color);
+  }
+
+  .cm-gutters {
+    color: var(--monokai-editor-gutter-color);
+    background-color: var(--monokai-editor-gutter-background);
+    border-right: 1px solid var(--background-modifier-border);
+  }
+
+  .cm-lineNumbers .cm-gutterElement {
+    color: var(--monokai-editor-gutter-color);
+  }
+
+  .cm-matchingBracket {
+    color: var(--text-normal);
+    background-color: var(--monokai-editor-bracket-match-background);
+    border-radius: var(--radius-s);
+  }
+  /* stylelint-enable selector-class-pattern */
 }
 
 .cm-s-obsidian {
@@ -546,6 +784,54 @@ body.theme-light {
 
   span.cm-operator {
     color: var(--code-operator);
+  }
+
+  span.cm-type,
+  span.cm-class {
+    color: var(--code-type);
+  }
+
+  span.cm-builtin {
+    color: var(--code-builtin);
+  }
+
+  span.cm-variable,
+  span.cm-variable-3 {
+    color: var(--code-normal);
+  }
+
+  span.cm-constant {
+    color: var(--code-constant);
+  }
+
+  span.cm-attribute {
+    color: var(--code-property);
+  }
+
+  span.cm-tag {
+    color: var(--code-tag);
+  }
+
+  span.cm-qualifier,
+  span.cm-namespace {
+    color: var(--code-namespace);
+  }
+
+  span.cm-meta {
+    color: var(--code-meta);
+  }
+
+  span.cm-decorator {
+    color: var(--code-decorator);
+  }
+
+  span.cm-string-2 {
+    color: var(--code-regex);
+  }
+
+  span.cm-error {
+    color: var(--code-error);
+    text-decoration-color: var(--code-error);
   }
 }
 

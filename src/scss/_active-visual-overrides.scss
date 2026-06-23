@@ -246,6 +246,68 @@ body .markdown-source-view.mod-cm6 .callout[data-callout="cite"] {
   --callout-border: var(--monokai-callout-quote-border);
 }
 
+body .markdown-preview-view.markdown-rendered .callout[data-callout="concept"],
+body .markdown-rendered .callout[data-callout="concept"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="concept"] {
+  --callout-background: var(--monokai-callout-abstract-bg);
+  --callout-border: var(--monokai-callout-abstract-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="syntax"],
+body .markdown-rendered .callout[data-callout="syntax"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="syntax"] {
+  --callout-background: var(--monokai-callout-info-bg);
+  --callout-border: var(--monokai-callout-info-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="api"],
+body .markdown-rendered .callout[data-callout="api"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="api"],
+body .markdown-preview-view.markdown-rendered .callout[data-callout="answer"],
+body .markdown-rendered .callout[data-callout="answer"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="answer"],
+body .markdown-preview-view.markdown-rendered .callout[data-callout="terminal"],
+body .markdown-rendered .callout[data-callout="terminal"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="terminal"] {
+  --callout-background: var(--monokai-callout-success-bg);
+  --callout-border: var(--monokai-callout-success-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="debug"],
+body .markdown-rendered .callout[data-callout="debug"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="debug"] {
+  --callout-background: var(--monokai-callout-example-bg);
+  --callout-border: var(--monokai-callout-example-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="pitfall"],
+body .markdown-rendered .callout[data-callout="pitfall"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="pitfall"] {
+  --callout-background: var(--monokai-callout-error-bg);
+  --callout-border: var(--monokai-callout-error-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="exercise"],
+body .markdown-rendered .callout[data-callout="exercise"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="exercise"] {
+  --callout-background: var(--monokai-callout-todo-bg);
+  --callout-border: var(--monokai-callout-todo-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="source"],
+body .markdown-rendered .callout[data-callout="source"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="source"] {
+  --callout-background: var(--monokai-callout-note-bg);
+  --callout-border: var(--monokai-callout-note-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="output"],
+body .markdown-rendered .callout[data-callout="output"],
+body .markdown-source-view.mod-cm6 .callout[data-callout="output"] {
+  --callout-background: var(--monokai-callout-quote-bg);
+  --callout-border: var(--monokai-callout-quote-border);
+}
+
 /* ===== Callout 图标 ===== */
 
 body .markdown-preview-view.markdown-rendered .callout-icon,
@@ -429,6 +491,70 @@ body .markdown-rendered .callout[data-callout="example"] .callout-icon::before,
 body .markdown-source-view.mod-cm6 .callout[data-callout="example"] .callout-icon::before,
 body .markdown-source-view.mod-cm6 .callout[data-callout="example"] .cm-callout-icon::before {
   content: "\e674";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="concept"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="concept"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="concept"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="concept"] .cm-callout-icon::before {
+  content: "\e668";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="syntax"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="syntax"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="syntax"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="syntax"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="source"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="source"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="source"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="source"] .cm-callout-icon::before {
+  content: "\e66f";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="api"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="api"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="api"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="api"] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout="terminal"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="terminal"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="terminal"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="terminal"] .cm-callout-icon::before {
+  content: "\e66e";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="debug"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="debug"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="debug"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="debug"] .cm-callout-icon::before {
+  content: "\e675";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="pitfall"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="pitfall"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="pitfall"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="pitfall"] .cm-callout-icon::before {
+  content: "\e671";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="exercise"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="exercise"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="exercise"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="exercise"] .cm-callout-icon::before {
+  content: "\e670";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="answer"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="answer"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="answer"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="answer"] .cm-callout-icon::before {
+  content: "\e66b";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout="output"] .callout-icon::before,
+body .markdown-rendered .callout[data-callout="output"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="output"] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout="output"] .cm-callout-icon::before {
+  content: "\e672";
 }
 
 /* stylelint-enable selector-class-pattern */

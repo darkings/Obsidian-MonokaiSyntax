@@ -1,12 +1,12 @@
 .canvas-wrapper {
   --canvas-background: var(--background-primary);
   --canvas-card-label-color: var(--text-muted);
-  --canvas-color-1: var(--text-accent);
-  --canvas-color-2: var(--h2-color);
-  --canvas-color-3: var(--h3-color);
-  --canvas-color-4: var(--h4-color);
-  --canvas-color-5: var(--link-color);
-  --canvas-color-6: var(--h6-color);
+  --canvas-color-1: var(--monokai-spectrum-red, var(--text-accent));
+  --canvas-color-2: var(--monokai-spectrum-orange, var(--h2-color));
+  --canvas-color-3: var(--monokai-spectrum-yellow, var(--h3-color));
+  --canvas-color-4: var(--monokai-spectrum-green, var(--h4-color));
+  --canvas-color-5: var(--monokai-spectrum-cyan, var(--link-color));
+  --canvas-color-6: var(--monokai-spectrum-purple, var(--h6-color));
 
   background-color: var(--canvas-background);
 }

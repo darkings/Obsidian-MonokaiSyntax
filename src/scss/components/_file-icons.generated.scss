@@ -393,6 +393,94 @@
   content: "\e679";
 }
 
+.nav-folder-title[data-path="assets"],
+.nav-folder-title[data-path$="/assets"],
+.nav-folder[data-path="assets"] > .nav-folder-title,
+.nav-folder[data-path$="/assets"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e638";
+  --monokai-folder-icon-color: #ffd866;
+}
+
+.nav-folder-title[data-path="concepts"],
+.nav-folder-title[data-path$="/concepts"],
+.nav-folder[data-path="concepts"] > .nav-folder-title,
+.nav-folder[data-path$="/concepts"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e668";
+  --monokai-folder-icon-color: #ab9df2;
+}
+
+.nav-folder-title[data-path="examples"],
+.nav-folder-title[data-path$="/examples"],
+.nav-folder[data-path="examples"] > .nav-folder-title,
+.nav-folder[data-path$="/examples"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e674";
+  --monokai-folder-icon-color: #fc9867;
+}
+
+.nav-folder-title[data-path="exercises"],
+.nav-folder-title[data-path$="/exercises"],
+.nav-folder[data-path="exercises"] > .nav-folder-title,
+.nav-folder[data-path$="/exercises"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e679";
+  --monokai-folder-icon-color: #ffd866;
+}
+
+.nav-folder-title[data-path="labs"],
+.nav-folder-title[data-path$="/labs"],
+.nav-folder[data-path="labs"] > .nav-folder-title,
+.nav-folder[data-path$="/labs"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e610";
+  --monokai-folder-icon-color: #78dce8;
+}
+
+.nav-folder-title[data-path="leetcode"],
+.nav-folder-title[data-path$="/leetcode"],
+.nav-folder[data-path="leetcode"] > .nav-folder-title,
+.nav-folder[data-path$="/leetcode"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\eab5";
+  --monokai-folder-icon-color: #78dce8;
+}
+
+.nav-folder-title[data-path="notes"],
+.nav-folder-title[data-path$="/notes"],
+.nav-folder[data-path="notes"] > .nav-folder-title,
+.nav-folder[data-path$="/notes"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e695";
+  --monokai-folder-icon-color: #a9dc76;
+}
+
+.nav-folder-title[data-path="src"],
+.nav-folder-title[data-path$="/src"],
+.nav-folder[data-path="src"] > .nav-folder-title,
+.nav-folder[data-path$="/src"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e61d";
+  --monokai-folder-icon-color: #ffd866;
+}
+
+.nav-folder-title[data-path="tests"],
+.nav-folder-title[data-path$="/tests"],
+.nav-folder[data-path="tests"] > .nav-folder-title,
+.nav-folder[data-path$="/tests"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e610";
+  --monokai-folder-icon-color: #78dce8;
+}
+
+.nav-folder-title[data-path^="day"],
+.nav-folder-title[data-path*="/day"],
+.nav-folder[data-path^="day"] > .nav-folder-title,
+.nav-folder[data-path*="/day"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e637";
+  --monokai-folder-icon-color: #a9dc76;
+}
+
+.nav-folder-title[data-path^="Day"],
+.nav-folder-title[data-path*="/Day"],
+.nav-folder[data-path^="Day"] > .nav-folder-title,
+.nav-folder[data-path*="/Day"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e637";
+  --monokai-folder-icon-color: #a9dc76;
+}
+
 .nav-file-title[data-path^="Bug_"][data-path$=".md"]::before,
 .nav-file-title[data-path*="/Bug_"][data-path$=".md"]::before {
   --monokai-file-icon-color: #ff6188;

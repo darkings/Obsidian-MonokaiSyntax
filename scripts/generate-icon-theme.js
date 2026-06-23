@@ -45,6 +45,11 @@ function colorForIcon(fontClass) {
     agent: "#ab9df2",
     api: "#78dce8",
     bug: "#ff6188",
+    "callout-abstract": "#ab9df2",
+    "callout-example": "#fc9867",
+    "callout-info": "#78dce8",
+    "callout-note": "#78dce8",
+    "callout-todo": "#ffd866",
     changelog: "#fc9867",
     cursor: "#66d9ef",
     prompts: "#e6db74",
@@ -64,8 +69,32 @@ function normalizeFileNameSelector(fileName) {
   ];
 }
 
+function normalizeDirectoryNameSelector(directoryName) {
+  const escaped = cssAttribute(directoryName);
+  return [
+    `.nav-folder-title[data-path="${escaped}"]`,
+    `.nav-folder-title[data-path$="/${escaped}"]`,
+    `.nav-folder[data-path="${escaped}"] > .nav-folder-title`,
+    `.nav-folder[data-path$="/${escaped}"] > .nav-folder-title`,
+  ];
+}
+
+function normalizeDirectoryPrefixSelector(directoryPrefix) {
+  const escaped = cssAttribute(directoryPrefix);
+  return [
+    `.nav-folder-title[data-path^="${escaped}"]`,
+    `.nav-folder-title[data-path*="/${escaped}"]`,
+    `.nav-folder[data-path^="${escaped}"] > .nav-folder-title`,
+    `.nav-folder[data-path*="/${escaped}"] > .nav-folder-title`,
+  ];
+}
+
 function iconRule(selectors, definition) {
   return `${selectors.join(",\n")} {\n  --monokai-file-icon-color: ${definition.fontColor};\n  content: "${cssContent(definition.fontCharacter)}";\n}\n`;
+}
+
+function directoryIconRule(selectors, definition) {
+  return `${selectors.join(",\n")} {\n  --monokai-folder-icon-content: "${cssContent(definition.fontCharacter)}";\n  --monokai-folder-icon-color: ${definition.fontColor};\n}\n`;
 }
 
 function sortedEntries(record) {
@@ -154,6 +183,21 @@ const obsidianFileNames = {
   "TODO.md": "todo",
   "todo.md": "todo",
 };
+const obsidianDirectoryNames = {
+  assets: "image-accent3",
+  concepts: "callout-abstract",
+  examples: "callout-example",
+  exercises: "todo",
+  labs: "test-accent5",
+  leetcode: "api",
+  notes: "readme",
+  src: "source-accent3",
+  tests: "test-accent5",
+};
+const obsidianDirectoryPrefixes = {
+  Day: "markdown-accent4",
+  day: "markdown-accent4",
+};
 
 const lines = [
   "/* stylelint-disable */",
@@ -205,6 +249,16 @@ for (const [extension, iconId] of sortedEntries(obsidianFileExtensions)) {
 for (const [fileName, iconId] of sortedEntries(obsidianFileNames)) {
   const definition = iconByClass(theme, iconId);
   lines.push(iconRule(normalizeFileNameSelector(fileName), definition));
+}
+
+for (const [directoryName, iconId] of sortedEntries(obsidianDirectoryNames)) {
+  const definition = iconByClass(theme, iconId);
+  lines.push(directoryIconRule(normalizeDirectoryNameSelector(directoryName), definition));
+}
+
+for (const [directoryPrefix, iconId] of sortedEntries(obsidianDirectoryPrefixes)) {
+  const definition = iconByClass(theme, iconId);
+  lines.push(directoryIconRule(normalizeDirectoryPrefixSelector(directoryPrefix), definition));
 }
 
 lines.push(iconRule([

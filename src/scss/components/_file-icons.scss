@@ -42,9 +42,9 @@
 .nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator,
 .nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon {
   &::before {
-    content: "\e64d";
+    content: var(--monokai-folder-icon-content, "\e64d");
     display: inline-block;
-    color: var(--icon-color);
+    color: var(--monokai-folder-icon-color, var(--icon-color));
     font-family: monokai-pro-icons, monospace;
     font-size: var(--monokai-file-tree-glyph-size);
     font-style: normal;
@@ -81,6 +81,18 @@ body.monokai-syntax-hide-file-tree-icons {
 }
 
 body.monokai-syntax-monochrome-icons {
+  .nav-folder-title {
+    --monokai-folder-icon-color: var(--icon-color);
+  }
+
+  .nav-folder-title:hover {
+    --monokai-folder-icon-color: var(--icon-color-hover);
+  }
+
+  .nav-folder-title.is-active {
+    --monokai-folder-icon-color: var(--icon-color-active);
+  }
+
   .nav-file-title::before {
     --monokai-file-icon-color: var(--icon-color);
   }

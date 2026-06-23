@@ -1,4 +1,13 @@
 .graph-view {
+  --monokai-graph-background: var(--background-secondary);
+  --monokai-graph-panel: var(--background-modifier-active-hover);
+  --monokai-graph-line: rgb(from var(--monokai-spectrum-cyan, var(--link-color)) r g b / 42%);
+  --monokai-graph-node: var(--text-muted);
+  --monokai-graph-focused: var(--monokai-spectrum-red, var(--interactive-accent));
+  --monokai-graph-node-tag: var(--monokai-spectrum-purple, var(--h6-color));
+  --monokai-graph-node-attachment: var(--monokai-spectrum-green, var(--h4-color));
+  --monokai-graph-node-unresolved: var(--text-faint);
+  --monokai-graph-ring: rgb(from var(--monokai-spectrum-cyan, var(--link-color)) r g b / 28%);
   --graph-line: var(--monokai-graph-line);
   --graph-node: var(--monokai-graph-node);
   --graph-node-focused: var(--monokai-graph-focused);
@@ -32,30 +41,6 @@
   100% {
     transform: translateX(0);
   }
-}
-
-.theme-dark .graph-view {
-  --monokai-graph-background: #1e1f1c;
-  --monokai-graph-panel: #2b2c26;
-  --monokai-graph-line: rgb(120 220 232 / 42%);
-  --monokai-graph-node: #c1c1bd;
-  --monokai-graph-focused: #ff6188;
-  --monokai-graph-node-tag: #ab9df2;
-  --monokai-graph-node-attachment: #a9dc76;
-  --monokai-graph-node-unresolved: #72736f;
-  --monokai-graph-ring: rgb(102 217 239 / 28%);
-}
-
-.theme-light .graph-view {
-  --monokai-graph-background: #f5f0e6;
-  --monokai-graph-panel: #f2ead8;
-  --monokai-graph-line: rgb(20 116 138 / 42%);
-  --monokai-graph-node: #4f5a55;
-  --monokai-graph-focused: #c83f67;
-  --monokai-graph-node-tag: #7058be;
-  --monokai-graph-node-attachment: #269d69;
-  --monokai-graph-node-unresolved: #a39a8d;
-  --monokai-graph-ring: rgb(20 116 138 / 18%);
 }
 
 .graph-controls {

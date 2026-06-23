@@ -6,31 +6,33 @@ Monokai Syntax 是一个面向 Obsidian 的 Monokai Pro 风格主题，重点优
 
 ## 版本
 
-当前版本：`1.0.2`
+当前版本：`1.1.0`
 
 最低 Obsidian 版本：`1.0.0`
 
 ## 主要特性
 
-- Monokai Pro 风格深色与浅色调色板。
+- Monokai Pro 默认滤镜，并支持 Classic、Machine、Octagon、Ristretto、Spectrum、Light、Sun。
 - CodeMirror 6 语法高亮映射到 Monokai 六色光谱。
 - 阅读模式与 Live Preview 使用共享语义变量收敛视觉差异。
 - 文件树图标覆盖常见文档、配置、代码与项目文件。
 - 文件树同层级文件夹与 Markdown 文件对齐，根层折叠图标使用轻量尺寸。
-- Callout、块引用、任务列表、表格、代码块、链接、标签、脚注、图片与附件嵌入统一样式层级。
+- Callout、块引用、任务列表、API 参数表、代码块、链接、标签、脚注、图片与附件嵌入统一样式层级。
+- 代码学习语义 Callout 覆盖 concept、syntax、api、debug、pitfall、exercise、answer、source、output、terminal。
+- Mermaid、Math、Dataview 复用主题 surface，避免插件内容跳出阅读层级。
 - 关系图谱、Canvas、Ribbon、标签页、弹窗和搜索界面适配主题色。
 - 支持 Style Settings：调色板滤镜、紧凑模式、图标模式、字体、强调色、链接色与代码色。
 - 构建产物不加载远程运行时资源，图标字体以内联 woff 形式打包。
 
-## 1.0.2 更新重点
+## 1.1.0 更新重点
 
-- 系统收敛阅读模式与 Live Preview 的视觉差异，专项验证覆盖 30 项样式一致性检查。
-- 优化 H1-H6 标题下边距，按标题层级递减。
-- 修正文件树同层级文件夹与 Markdown 文件的对齐问题。
-- 调整根层文件夹折叠图标尺寸与线宽，避免视觉过重。
-- 更新代码 token 颜色，使深色模式更贴近 Monokai Pro。
-- 增强代码块、表格源码、块引用、Callout、标签、链接、脚注、附件嵌入和扩展任务状态的阅读/编辑一致性。
-- 增加发布前验证：版本一致性、生成文件一致性、样式 polish、Vault QA 和 CSS 审计。
+- 默认滤镜切换为 Monokai Pro，并补齐 Light、Sun 两个浅色滤镜。
+- 扩展 CodeMirror token、代码块 surface、active line、selection、cursor、gutter 和 bracket match。
+- 增加代码学习 Callout、8 种任务状态、学习目录图标和 API 参数表语义。
+- 优化标题导航感、列表层级、Mermaid、Math、Dataview、Graph 与 Canvas 的主题一致性。
+- Style Settings 增加排版滑杆和标题色条开关，支持行宽、字号、代码行高、标题缩放与段落间距。
+- 对 8 个滤镜运行多场景对比度审计，覆盖链接、代码注释、行号、选区文字、代码块边框和 Callout 标题。
+- 建立视觉 QA 基线，自动生成长文、代码学习、Callout、Mermaid/Math/Dataview、Graph 和 Canvas 检查样例。
 
 ## 安装
 
@@ -72,7 +74,7 @@ manifest.json
 
 当前支持：
 
-- 调色板滤镜：Classic、Machine、Octagon、Ristretto、Spectrum。
+- 调色板滤镜：Pro、Classic、Machine、Octagon、Ristretto、Spectrum、Light、Sun。
 - 紧凑模式。
 - 彩色或单色文件树图标。
 - 文件树图标开关。
@@ -105,6 +107,16 @@ npm run verify
 npm run build:vault
 ```
 
+视觉验收流程：
+
+```powershell
+npm run qa:create
+npm run build:vault
+npm run qa:verify
+```
+
+该流程会在默认 vault 中生成综合 QA 笔记，覆盖长文阅读、代码学习、学习 Callout、Mermaid、Math、Dataview、Graph 和 Canvas，然后验证 vault 已同步并启用 `Monokai Syntax` 主题。
+
 发布前检查：
 
 ```powershell
@@ -125,8 +137,8 @@ manifest.json
 4. 创建并推送版本标签，例如：
 
 ```powershell
-git tag v1.0.2
-git push origin v1.0.2
+git tag v1.1.0
+git push origin v1.1.0
 ```
 
 5. GitHub Actions 会在标签推送后运行发布检查并创建 Release，附件包含 `theme.css` 与 `manifest.json`。

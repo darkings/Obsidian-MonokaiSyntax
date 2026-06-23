@@ -70,6 +70,15 @@
   --code-string: #ffd866;
   --code-tag: #ff6188;
   --code-value: #ab9df2;
+  --code-type: #ab9df2;
+  --code-class: #a9dc76;
+  --code-builtin: #78dce8;
+  --code-constant: #ab9df2;
+  --code-namespace: #c1c1bd;
+  --code-decorator: #fc9867;
+  --code-regex: #ffd866;
+  --code-meta: #8f908a;
+  --code-error: #f92672;
   --ribbon-background: #1e1f1c;
   --nav-item-background-hover: #3e3d32;
   --nav-item-background-active: #414339;
@@ -137,6 +146,15 @@
   --code-string: #cc7a0a;
   --code-tag: #e14775;
   --code-value: #7058be;
+  --code-type: #7058be;
+  --code-class: #269d69;
+  --code-builtin: #14748a;
+  --code-constant: #7058be;
+  --code-namespace: #666666;
+  --code-decorator: #e16032;
+  --code-regex: #cc7a0a;
+  --code-meta: #7a7369;
+  --code-error: #e14775;
   --ribbon-background: #f5f0e6;
   --nav-item-background-hover: #eee6d8;
   --nav-item-background-active: #e5dccd;
@@ -276,6 +294,9 @@ input[type=checkbox]:checked {
   --monokai-heading-gap-h4: 0.8rem;
   --monokai-heading-gap-h5: 0.7rem;
   --monokai-heading-gap-h6: 0.6rem;
+  --monokai-heading-accent-width: 3px;
+  --monokai-heading-group-spacing: var(--monokai-heading-group-spacing-value, 1.4rem);
+  --monokai-heading-anchor-color: var(--text-faint);
   --monokai-heading-weight: 600;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
@@ -294,6 +315,10 @@ input[type=checkbox]:checked {
   --monokai-media-border-color: var(--background-modifier-border);
   --monokai-media-background: var(--background-secondary);
   --monokai-embed-padding: 0.75rem;
+  --monokai-plugin-surface-background: var(--background-secondary);
+  --monokai-plugin-surface-border: var(--background-modifier-border);
+  --monokai-plugin-surface-radius: var(--radius-m);
+  --monokai-plugin-surface-padding: 1rem;
   --monokai-tag-color: var(--link-color);
   --monokai-tag-background: var(--background-secondary);
   --monokai-tag-border-color: var(--background-modifier-border);
@@ -301,14 +326,38 @@ input[type=checkbox]:checked {
   --monokai-link-decoration-color: var(--link-color);
   --monokai-link-decoration-thickness: 1px;
   --monokai-paragraph-line-height: var(--line-height-normal);
-  --monokai-paragraph-spacing: 0.75rem;
+  --monokai-paragraph-spacing: var(--monokai-paragraph-spacing-value, 0.75rem);
+  --monokai-list-indent: 1.5em;
+  --monokai-list-item-spacing: 0.35rem;
+  --monokai-nested-list-spacing: 0.25rem;
   --monokai-table-source-background: var(--background-secondary);
   --monokai-table-source-font-family: var(--font-monospace-theme);
   --monokai-table-source-separator-color: var(--text-faint);
+  --monokai-table-cell-padding: 0.55rem 0.7rem;
+  --monokai-table-row-hover-background: var(--background-modifier-hover);
+  --monokai-table-row-alt-background: transparent;
+  --monokai-table-api-name-color: var(--link-color);
+  --monokai-table-api-type-color: var(--code-type);
+  --monokai-table-api-default-color: var(--code-value);
+  --monokai-table-api-required-color: var(--text-accent);
   --monokai-codeblock-border-color: var(--background-modifier-border);
   --monokai-codeblock-radius: var(--radius-m);
+  --monokai-codeblock-header-height: 1.75rem;
   --monokai-codeblock-padding: 1rem;
   --monokai-codeblock-padding-inline: 1rem;
+  --monokai-codeblock-shadow: 0 10px 24px rgb(0 0 0 / 16%);
+  --monokai-codeblock-language-color: var(--text-faint);
+  --monokai-codeblock-line-height: var(--monokai-code-line-height, 1.55);
+  --monokai-editor-active-line-background: rgb(248 248 242 / 5%);
+  --monokai-editor-selection-background: rgb(102 217 239 / 22%);
+  --monokai-editor-cursor-color: var(--interactive-accent);
+  --monokai-editor-gutter-background: var(--background-secondary);
+  --monokai-editor-gutter-color: var(--text-faint);
+  --monokai-editor-bracket-match-background: rgb(166 226 46 / 18%);
+  --monokai-task-open-color: var(--text-normal);
+  --monokai-task-important-color: var(--monokai-spectrum-orange, var(--text-accent));
+  --monokai-task-in-progress-color: var(--monokai-spectrum-cyan, var(--link-color));
+  --monokai-task-starred-color: var(--monokai-spectrum-yellow, var(--text-accent));
   --callout-blend-mode: normal;
   --callout-icon-size: 1.25em;
   --p-spacing: var(--monokai-paragraph-spacing);
@@ -350,12 +399,17 @@ body.theme-dark {
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(248 248 242 / 18%);
   --monokai-table-header-background: rgb(248 248 242 / 6%);
+  --monokai-table-row-alt-background: rgb(248 248 242 / 3%);
   --monokai-task-done-color: rgb(248 248 242 / 68%);
   --monokai-task-forward-color: var(--text-accent);
   --monokai-task-cancelled-color: var(--text-faint);
   --monokai-task-question-color: var(--link-color);
   --monokai-modal-shadow: 0 18px 50px rgb(0 0 0 / 35%);
   --monokai-selection-ring: rgb(249 38 114 / 28%);
+  --monokai-codeblock-shadow: 0 10px 28px rgb(0 0 0 / 22%);
+  --monokai-editor-active-line-background: rgb(248 248 242 / 5%);
+  --monokai-editor-selection-background: rgb(102 217 239 / 22%);
+  --monokai-editor-bracket-match-background: rgb(166 226 46 / 18%);
 }
 
 body.theme-light {
@@ -392,12 +446,17 @@ body.theme-light {
   --monokai-inline-code-background: var(--code-background);
   --monokai-table-border: rgb(61 61 61 / 18%);
   --monokai-table-header-background: rgb(61 61 61 / 6%);
+  --monokai-table-row-alt-background: rgb(61 61 61 / 3%);
   --monokai-task-done-color: rgb(61 61 61 / 66%);
   --monokai-task-forward-color: var(--text-accent);
   --monokai-task-cancelled-color: var(--text-faint);
   --monokai-task-question-color: var(--link-color);
   --monokai-modal-shadow: 0 16px 36px rgb(61 61 61 / 16%);
   --monokai-selection-ring: rgb(200 63 103 / 22%);
+  --monokai-codeblock-shadow: 0 8px 20px rgb(61 61 61 / 10%);
+  --monokai-editor-active-line-background: rgb(61 61 61 / 5%);
+  --monokai-editor-selection-background: rgb(20 116 138 / 18%);
+  --monokai-editor-bracket-match-background: rgb(38 157 105 / 16%);
 }
 
 .markdown-source-view.mod-cm6 .inline-title {
@@ -415,24 +474,30 @@ body.theme-light {
   margin-block-start: calc(var(--heading-spacing) * 1.5);
 }
 .markdown-rendered h1 {
+  font-size: var(--h1-size);
   margin-block-end: var(--monokai-heading-gap-h1);
 }
 .markdown-rendered h2 {
-  margin-block-end: var(--monokai-heading-gap-h2);
+  font-size: var(--h2-size);
+  margin-block: var(--monokai-heading-group-spacing) var(--monokai-heading-gap-h2);
 }
 .markdown-rendered h3 {
-  margin-block-end: var(--monokai-heading-gap-h3);
+  font-size: var(--h3-size);
+  margin-block: calc(var(--monokai-heading-group-spacing) * 0.82) var(--monokai-heading-gap-h3);
 }
 .markdown-rendered h4 {
   color: var(--h4-color);
+  font-size: var(--h4-size);
   margin-block-end: var(--monokai-heading-gap-h4);
 }
 .markdown-rendered h5 {
   color: var(--h5-color);
+  font-size: var(--h5-size);
   margin-block-end: var(--monokai-heading-gap-h5);
 }
 .markdown-rendered h6 {
   color: var(--h6-color);
+  font-size: var(--h6-size);
   margin-block-end: var(--monokai-heading-gap-h6);
 }
 .markdown-rendered p {
@@ -461,9 +526,32 @@ body.theme-light {
 .markdown-rendered ol > li::marker {
   color: var(--list-marker-color);
 }
+.markdown-rendered ul,
+.markdown-rendered ol {
+  margin-block: 0 var(--monokai-paragraph-spacing);
+  padding-inline-start: var(--monokai-list-indent);
+}
+.markdown-rendered li {
+  margin-block: var(--monokai-list-item-spacing);
+}
+.markdown-rendered li > p {
+  margin-block: 0;
+}
+.markdown-rendered li > ul,
+.markdown-rendered li > ol {
+  margin-block: var(--monokai-nested-list-spacing) 0;
+}
+.markdown-rendered .task-list-item[data-task=" "],
+.markdown-rendered .task-list-item[data-task=""] {
+  color: var(--monokai-task-open-color);
+}
+.markdown-rendered .task-list-item[data-task=x],
+.markdown-rendered .task-list-item[data-task=X],
 .markdown-rendered .task-list-item.is-checked {
   color: var(--monokai-task-done-color);
 }
+.markdown-rendered .task-list-item[data-task=x] > p,
+.markdown-rendered .task-list-item[data-task=X] > p,
 .markdown-rendered .task-list-item.is-checked > p {
   color: var(--monokai-task-done-color);
 }
@@ -477,17 +565,55 @@ body.theme-light {
 .markdown-rendered .task-list-item[data-task="?"] {
   color: var(--monokai-task-question-color);
 }
+.markdown-rendered .task-list-item[data-task="!"] {
+  color: var(--monokai-task-important-color);
+  font-weight: 700;
+}
+.markdown-rendered .task-list-item[data-task="/"] {
+  color: var(--monokai-task-in-progress-color);
+}
+.markdown-rendered .task-list-item[data-task="*"] {
+  color: var(--monokai-task-starred-color);
+  font-weight: 700;
+}
 .markdown-rendered table {
+  width: 100%;
   border: 1px solid var(--monokai-table-border);
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-block: var(--monokai-paragraph-spacing);
+  overflow: hidden;
 }
 .markdown-rendered th,
 .markdown-rendered td {
   border: 1px solid var(--monokai-table-border);
+  padding: var(--monokai-table-cell-padding);
+  vertical-align: top;
 }
 .markdown-rendered th {
   color: var(--text-normal);
   background-color: var(--monokai-table-header-background);
   font-weight: 700;
+}
+.markdown-rendered tbody tr:nth-child(even) {
+  background-color: var(--monokai-table-row-alt-background);
+}
+.markdown-rendered tbody tr:hover {
+  background-color: var(--monokai-table-row-hover-background);
+}
+.markdown-rendered td:first-child {
+  color: var(--monokai-table-api-name-color);
+  font-weight: 600;
+}
+.markdown-rendered td:nth-child(2) code {
+  color: var(--monokai-table-api-type-color);
+}
+.markdown-rendered td:nth-child(3) code {
+  color: var(--monokai-table-api-default-color);
+}
+.markdown-rendered td:nth-child(4) strong,
+.markdown-rendered td:nth-child(4) code {
+  color: var(--monokai-table-api-required-color);
 }
 .markdown-rendered code {
   color: var(--monokai-inline-code-color);
@@ -501,8 +627,13 @@ body.theme-light {
   background-color: var(--code-background);
   border: 1px solid var(--monokai-codeblock-border-color);
   border-radius: var(--monokai-codeblock-radius);
+  box-shadow: var(--monokai-codeblock-shadow);
   font-family: var(--font-monospace-theme);
+  line-height: var(--monokai-codeblock-line-height);
+  overflow-x: auto;
   padding: var(--monokai-codeblock-padding);
+  scrollbar-color: var(--text-faint) transparent;
+  tab-size: 2;
 }
 .markdown-rendered pre code {
   background-color: transparent;
@@ -540,6 +671,53 @@ body.theme-light {
   border-radius: var(--monokai-media-radius);
   padding: var(--monokai-embed-padding);
 }
+.markdown-rendered .mermaid {
+  color: var(--text-normal);
+  background-color: var(--monokai-plugin-surface-background);
+  border: 1px solid var(--monokai-plugin-surface-border);
+  border-radius: var(--monokai-plugin-surface-radius);
+  overflow-x: auto;
+  padding: var(--monokai-plugin-surface-padding);
+}
+.markdown-rendered .math,
+.markdown-rendered .math-block {
+  overflow-x: auto;
+  color: var(--text-normal);
+  background-color: var(--monokai-plugin-surface-background);
+  border: 1px solid var(--monokai-plugin-surface-border);
+  border-radius: var(--monokai-plugin-surface-radius);
+  padding: var(--monokai-plugin-surface-padding);
+}
+.markdown-rendered .math-inline {
+  color: var(--monokai-inline-code-color);
+  background-color: var(--monokai-inline-code-background);
+  border-radius: var(--radius-s);
+  padding-inline: var(--monokai-highlight-padding-inline);
+}
+.markdown-rendered .block-language-dataview,
+.markdown-rendered .dataview {
+  color: var(--text-normal);
+  background-color: var(--monokai-plugin-surface-background);
+  border: 1px solid var(--monokai-plugin-surface-border);
+  border-radius: var(--monokai-plugin-surface-radius);
+  padding: var(--monokai-plugin-surface-padding);
+}
+.markdown-rendered .dataview table {
+  width: 100%;
+  margin-block: 0;
+}
+.markdown-rendered .dataview ul,
+.markdown-rendered .dataview ol {
+  padding-inline-start: var(--monokai-list-indent);
+}
+.markdown-rendered .dataview.task-list-item,
+.markdown-rendered .dataview .task-list-item {
+  color: var(--monokai-task-open-color);
+}
+.markdown-rendered .heading-collapse-indicator,
+.markdown-rendered .heading-anchor {
+  color: var(--monokai-heading-anchor-color);
+}
 
 .markdown-source-view.mod-cm6 {
   /* stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。 */
@@ -548,10 +726,10 @@ body.theme-light {
   padding-block-end: var(--monokai-heading-gap-h1);
 }
 .markdown-source-view.mod-cm6 .HyperMD-header-2 {
-  padding-block-end: var(--monokai-heading-gap-h2);
+  padding-block: calc(var(--monokai-heading-group-spacing) / 3) var(--monokai-heading-gap-h2);
 }
 .markdown-source-view.mod-cm6 .HyperMD-header-3 {
-  padding-block-end: var(--monokai-heading-gap-h3);
+  padding-block: calc(var(--monokai-heading-group-spacing) / 4) var(--monokai-heading-gap-h3);
 }
 .markdown-source-view.mod-cm6 .HyperMD-header-4 {
   padding-block-end: var(--monokai-heading-gap-h4);
@@ -561,6 +739,10 @@ body.theme-light {
 }
 .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   padding-block-end: var(--monokai-heading-gap-h6);
+}
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=" "],
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=""] {
+  color: var(--monokai-task-open-color);
 }
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=x],
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=X] {
@@ -576,9 +758,21 @@ body.theme-light {
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="?"] {
   color: var(--monokai-task-question-color);
 }
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="!"] {
+  color: var(--monokai-task-important-color);
+  font-weight: 700;
+}
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="/"] {
+  color: var(--monokai-task-in-progress-color);
+}
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="*"] {
+  color: var(--monokai-task-starred-color);
+  font-weight: 700;
+}
 .markdown-source-view.mod-cm6 .HyperMD-codeblock {
   background-color: var(--code-background);
   font-family: var(--font-monospace-theme);
+  line-height: var(--monokai-codeblock-line-height);
   padding-inline: var(--monokai-codeblock-padding-inline);
 }
 .markdown-source-view.mod-cm6 .HyperMD-hr {
@@ -597,26 +791,32 @@ body.theme-light {
 }
 .markdown-source-view.mod-cm6 .cm-header-1 {
   color: var(--h1-color);
+  font-size: var(--h1-size);
   font-weight: var(--monokai-heading-weight);
 }
 .markdown-source-view.mod-cm6 .cm-header-2 {
   color: var(--h2-color);
+  font-size: var(--h2-size);
   font-weight: var(--monokai-heading-weight);
 }
 .markdown-source-view.mod-cm6 .cm-header-3 {
   color: var(--h3-color);
+  font-size: var(--h3-size);
   font-weight: var(--monokai-heading-weight);
 }
 .markdown-source-view.mod-cm6 .cm-header-4 {
   color: var(--h4-color);
+  font-size: var(--h4-size);
   font-weight: var(--monokai-heading-weight);
 }
 .markdown-source-view.mod-cm6 .cm-header-5 {
   color: var(--h5-color);
+  font-size: var(--h5-size);
   font-weight: var(--monokai-heading-weight);
 }
 .markdown-source-view.mod-cm6 .cm-header-6 {
   color: var(--h6-color);
+  font-size: var(--h6-size);
   font-weight: var(--monokai-heading-weight);
 }
 .markdown-source-view.mod-cm6 .cm-strong {
@@ -712,6 +912,34 @@ body.theme-light {
   box-shadow: none;
   padding: var(--monokai-inline-code-padding);
 }
+.markdown-source-view.mod-cm6 {
+  /* stylelint-disable selector-class-pattern -- CodeMirror 内部类名。 */
+}
+.markdown-source-view.mod-cm6 .cm-active {
+  background-color: var(--monokai-editor-active-line-background);
+}
+.markdown-source-view.mod-cm6 .cm-selectionBackground {
+  background-color: var(--monokai-editor-selection-background);
+}
+.markdown-source-view.mod-cm6 .cm-cursor {
+  border-left-color: var(--monokai-editor-cursor-color);
+}
+.markdown-source-view.mod-cm6 .cm-gutters {
+  color: var(--monokai-editor-gutter-color);
+  background-color: var(--monokai-editor-gutter-background);
+  border-right: 1px solid var(--background-modifier-border);
+}
+.markdown-source-view.mod-cm6 .cm-lineNumbers .cm-gutterElement {
+  color: var(--monokai-editor-gutter-color);
+}
+.markdown-source-view.mod-cm6 .cm-matchingBracket {
+  color: var(--text-normal);
+  background-color: var(--monokai-editor-bracket-match-background);
+  border-radius: var(--radius-s);
+}
+.markdown-source-view.mod-cm6 {
+  /* stylelint-enable selector-class-pattern */
+}
 
 .cm-s-obsidian span.cm-comment {
   color: var(--code-comment);
@@ -735,6 +963,43 @@ body.theme-light {
 }
 .cm-s-obsidian span.cm-operator {
   color: var(--code-operator);
+}
+.cm-s-obsidian span.cm-type,
+.cm-s-obsidian span.cm-class {
+  color: var(--code-type);
+}
+.cm-s-obsidian span.cm-builtin {
+  color: var(--code-builtin);
+}
+.cm-s-obsidian span.cm-variable,
+.cm-s-obsidian span.cm-variable-3 {
+  color: var(--code-normal);
+}
+.cm-s-obsidian span.cm-constant {
+  color: var(--code-constant);
+}
+.cm-s-obsidian span.cm-attribute {
+  color: var(--code-property);
+}
+.cm-s-obsidian span.cm-tag {
+  color: var(--code-tag);
+}
+.cm-s-obsidian span.cm-qualifier,
+.cm-s-obsidian span.cm-namespace {
+  color: var(--code-namespace);
+}
+.cm-s-obsidian span.cm-meta {
+  color: var(--code-meta);
+}
+.cm-s-obsidian span.cm-decorator {
+  color: var(--code-decorator);
+}
+.cm-s-obsidian span.cm-string-2 {
+  color: var(--code-regex);
+}
+.cm-s-obsidian span.cm-error {
+  color: var(--code-error);
+  text-decoration-color: var(--code-error);
 }
 
 a,
@@ -1154,6 +1419,94 @@ a:focus-visible,
   content: "\e679";
 }
 
+.nav-folder-title[data-path=assets],
+.nav-folder-title[data-path$="/assets"],
+.nav-folder[data-path=assets] > .nav-folder-title,
+.nav-folder[data-path$="/assets"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e638";
+  --monokai-folder-icon-color: #ffd866;
+}
+
+.nav-folder-title[data-path=concepts],
+.nav-folder-title[data-path$="/concepts"],
+.nav-folder[data-path=concepts] > .nav-folder-title,
+.nav-folder[data-path$="/concepts"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e668";
+  --monokai-folder-icon-color: #ab9df2;
+}
+
+.nav-folder-title[data-path=examples],
+.nav-folder-title[data-path$="/examples"],
+.nav-folder[data-path=examples] > .nav-folder-title,
+.nav-folder[data-path$="/examples"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e674";
+  --monokai-folder-icon-color: #fc9867;
+}
+
+.nav-folder-title[data-path=exercises],
+.nav-folder-title[data-path$="/exercises"],
+.nav-folder[data-path=exercises] > .nav-folder-title,
+.nav-folder[data-path$="/exercises"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e679";
+  --monokai-folder-icon-color: #ffd866;
+}
+
+.nav-folder-title[data-path=labs],
+.nav-folder-title[data-path$="/labs"],
+.nav-folder[data-path=labs] > .nav-folder-title,
+.nav-folder[data-path$="/labs"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e610";
+  --monokai-folder-icon-color: #78dce8;
+}
+
+.nav-folder-title[data-path=leetcode],
+.nav-folder-title[data-path$="/leetcode"],
+.nav-folder[data-path=leetcode] > .nav-folder-title,
+.nav-folder[data-path$="/leetcode"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\eab5";
+  --monokai-folder-icon-color: #78dce8;
+}
+
+.nav-folder-title[data-path=notes],
+.nav-folder-title[data-path$="/notes"],
+.nav-folder[data-path=notes] > .nav-folder-title,
+.nav-folder[data-path$="/notes"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e695";
+  --monokai-folder-icon-color: #a9dc76;
+}
+
+.nav-folder-title[data-path=src],
+.nav-folder-title[data-path$="/src"],
+.nav-folder[data-path=src] > .nav-folder-title,
+.nav-folder[data-path$="/src"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e61d";
+  --monokai-folder-icon-color: #ffd866;
+}
+
+.nav-folder-title[data-path=tests],
+.nav-folder-title[data-path$="/tests"],
+.nav-folder[data-path=tests] > .nav-folder-title,
+.nav-folder[data-path$="/tests"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e610";
+  --monokai-folder-icon-color: #78dce8;
+}
+
+.nav-folder-title[data-path^=day],
+.nav-folder-title[data-path*="/day"],
+.nav-folder[data-path^=day] > .nav-folder-title,
+.nav-folder[data-path*="/day"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e637";
+  --monokai-folder-icon-color: #a9dc76;
+}
+
+.nav-folder-title[data-path^=Day],
+.nav-folder-title[data-path*="/Day"],
+.nav-folder[data-path^=Day] > .nav-folder-title,
+.nav-folder[data-path*="/Day"] > .nav-folder-title {
+  --monokai-folder-icon-content: "\e637";
+  --monokai-folder-icon-color: #a9dc76;
+}
+
 .nav-file-title[data-path^=Bug_][data-path$=".md"]::before,
 .nav-file-title[data-path*="/Bug_"][data-path$=".md"]::before {
   --monokai-file-icon-color: #ff6188;
@@ -1200,9 +1553,9 @@ a:focus-visible,
 .nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon::before,
 .nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator::before,
 .nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon::before {
-  content: "\e64d";
+  content: var(--monokai-folder-icon-content, "\e64d");
   display: inline-block;
-  color: var(--icon-color);
+  color: var(--monokai-folder-icon-color, var(--icon-color));
   font-family: monokai-pro-icons, monospace;
   font-size: var(--monokai-file-tree-glyph-size);
   font-style: normal;
@@ -1238,6 +1591,15 @@ body.monokai-syntax-hide-file-tree-icons .nav-folder-children .nav-folder-childr
   display: initial;
 }
 
+body.monokai-syntax-monochrome-icons .nav-folder-title {
+  --monokai-folder-icon-color: var(--icon-color);
+}
+body.monokai-syntax-monochrome-icons .nav-folder-title:hover {
+  --monokai-folder-icon-color: var(--icon-color-hover);
+}
+body.monokai-syntax-monochrome-icons .nav-folder-title.is-active {
+  --monokai-folder-icon-color: var(--icon-color-active);
+}
 body.monokai-syntax-monochrome-icons .nav-file-title::before {
   --monokai-file-icon-color: var(--icon-color);
 }
@@ -1358,6 +1720,15 @@ body.is-mobile .workspace-ribbon {
 }
 
 .graph-view {
+  --monokai-graph-background: var(--background-secondary);
+  --monokai-graph-panel: var(--background-modifier-active-hover);
+  --monokai-graph-line: rgb(from var(--monokai-spectrum-cyan, var(--link-color)) r g b / 42%);
+  --monokai-graph-node: var(--text-muted);
+  --monokai-graph-focused: var(--monokai-spectrum-red, var(--interactive-accent));
+  --monokai-graph-node-tag: var(--monokai-spectrum-purple, var(--h6-color));
+  --monokai-graph-node-attachment: var(--monokai-spectrum-green, var(--h4-color));
+  --monokai-graph-node-unresolved: var(--text-faint);
+  --monokai-graph-ring: rgb(from var(--monokai-spectrum-cyan, var(--link-color)) r g b / 28%);
   --graph-line: var(--monokai-graph-line);
   --graph-node: var(--monokai-graph-node);
   --graph-node-focused: var(--monokai-graph-focused);
@@ -1386,30 +1757,6 @@ body.is-mobile .workspace-ribbon {
     transform: translateX(0);
   }
 }
-.theme-dark .graph-view {
-  --monokai-graph-background: #1e1f1c;
-  --monokai-graph-panel: #2b2c26;
-  --monokai-graph-line: rgb(120 220 232 / 42%);
-  --monokai-graph-node: #c1c1bd;
-  --monokai-graph-focused: #ff6188;
-  --monokai-graph-node-tag: #ab9df2;
-  --monokai-graph-node-attachment: #a9dc76;
-  --monokai-graph-node-unresolved: #72736f;
-  --monokai-graph-ring: rgb(102 217 239 / 28%);
-}
-
-.theme-light .graph-view {
-  --monokai-graph-background: #f5f0e6;
-  --monokai-graph-panel: #f2ead8;
-  --monokai-graph-line: rgb(20 116 138 / 42%);
-  --monokai-graph-node: #4f5a55;
-  --monokai-graph-focused: #c83f67;
-  --monokai-graph-node-tag: #7058be;
-  --monokai-graph-node-attachment: #269d69;
-  --monokai-graph-node-unresolved: #a39a8d;
-  --monokai-graph-ring: rgb(20 116 138 / 18%);
-}
-
 .graph-controls {
   color: var(--text-muted);
   background-color: var(--monokai-graph-panel);
@@ -1519,12 +1866,12 @@ body.is-mobile .workspace-ribbon {
 .canvas-wrapper {
   --canvas-background: var(--background-primary);
   --canvas-card-label-color: var(--text-muted);
-  --canvas-color-1: var(--text-accent);
-  --canvas-color-2: var(--h2-color);
-  --canvas-color-3: var(--h3-color);
-  --canvas-color-4: var(--h4-color);
-  --canvas-color-5: var(--link-color);
-  --canvas-color-6: var(--h6-color);
+  --canvas-color-1: var(--monokai-spectrum-red, var(--text-accent));
+  --canvas-color-2: var(--monokai-spectrum-orange, var(--h2-color));
+  --canvas-color-3: var(--monokai-spectrum-yellow, var(--h3-color));
+  --canvas-color-4: var(--monokai-spectrum-green, var(--h4-color));
+  --canvas-color-5: var(--monokai-spectrum-cyan, var(--link-color));
+  --canvas-color-6: var(--monokai-spectrum-purple, var(--h6-color));
   background-color: var(--canvas-background);
 }
 
@@ -1567,43 +1914,892 @@ body.is-mobile .workspace-ribbon {
   --color-purple: var(--canvas-color-6);
 }
 
+body.monokai-syntax-filter-pro {
+  --monokai-filter-name: "pro";
+  --background-primary: #2d2a2e;
+  --background-secondary: #221f22;
+  --background-secondary-alt: #221f22;
+  --background-modifier-hover: #403e41;
+  --background-modifier-active-hover: #4a464d;
+  --background-modifier-border: #403e41;
+  --text-normal: #fcfcfa;
+  --text-muted: #c1c0c0;
+  --text-faint: #939293;
+  --text-accent: #ff6188;
+  --text-accent-hover: #ff6188;
+  --interactive-accent: #ff6188;
+  --interactive-accent-hover: #ff6188;
+  --link-color: #78dce8;
+  --link-color-hover: #78dce8;
+  --link-external-color: #78dce8;
+  --link-external-color-hover: #78dce8;
+  --h1-color: #ff6188;
+  --h2-color: #fc9867;
+  --h3-color: #ffd866;
+  --h4-color: #a9dc76;
+  --h5-color: #78dce8;
+  --h6-color: #ab9df2;
+  --icon-color: #c1c0c0;
+  --icon-color-hover: #fcfcfa;
+  --icon-color-active: #78dce8;
+  --metadata-label-text-color: #fc9867;
+  --metadata-label-text-color-hover: #fc9867;
+  --monokai-default-accent: #ff6188;
+  --monokai-default-link: #78dce8;
+  --monokai-default-success: #a9dc76;
+  --monokai-default-warning: rgba(255, 216, 102, 0.24);
+  --monokai-default-code-background: #221f22;
+  --monokai-spectrum-red: #ff6188;
+  --monokai-spectrum-orange: #fc9867;
+  --monokai-spectrum-yellow: #ffd866;
+  --monokai-spectrum-green: #a9dc76;
+  --monokai-spectrum-cyan: #78dce8;
+  --monokai-spectrum-purple: #ab9df2;
+  --code-normal: #fcfcfa;
+  --code-background: #221f22;
+  --code-comment: #727072;
+  --code-function: #a9dc76;
+  --code-important: #ff6188;
+  --code-keyword: #ff6188;
+  --code-operator: #fc9867;
+  --code-property: #78dce8;
+  --code-punctuation: #c1c0c0;
+  --code-string: #ffd866;
+  --code-tag: #ff6188;
+  --code-value: #ab9df2;
+  --code-type: #ab9df2;
+  --code-class: #a9dc76;
+  --code-builtin: #78dce8;
+  --code-constant: #ab9df2;
+  --code-namespace: #c1c0c0;
+  --code-decorator: #fc9867;
+  --code-regex: #ffd866;
+  --code-meta: #939293;
+  --code-error: #ff6188;
+  --monokai-callout-note-bg: rgb(from #78dce8 r g b / 12%);
+  --monokai-callout-note-border: #78dce8;
+  --monokai-callout-info-bg: rgb(from #78dce8 r g b / 12%);
+  --monokai-callout-info-border: #78dce8;
+  --monokai-callout-abstract-bg: rgb(from #ab9df2 r g b / 12%);
+  --monokai-callout-abstract-border: #ab9df2;
+  --monokai-callout-question-bg: rgb(from #ab9df2 r g b / 12%);
+  --monokai-callout-question-border: #ab9df2;
+  --monokai-callout-todo-bg: rgb(from #ffd866 r g b / 12%);
+  --monokai-callout-todo-border: #ffd866;
+  --monokai-callout-tip-bg: rgb(from #a9dc76 r g b / 12%);
+  --monokai-callout-tip-border: #a9dc76;
+  --monokai-callout-warning-bg: rgb(from #fc9867 r g b / 12%);
+  --monokai-callout-warning-border: #fc9867;
+  --monokai-callout-error-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-error-border: #ff6188;
+  --monokai-callout-failure-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-failure-border: #ff6188;
+  --monokai-callout-bug-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-bug-border: #ff6188;
+  --monokai-callout-success-bg: rgb(from #a9dc76 r g b / 12%);
+  --monokai-callout-success-border: #a9dc76;
+  --monokai-callout-example-bg: rgb(from #fc9867 r g b / 12%);
+  --monokai-callout-example-border: #fc9867;
+  --monokai-callout-quote-bg: rgb(from #fcfcfa r g b / 8%);
+  --monokai-callout-quote-border: #939293;
+  --monokai-graph-background: #221f22;
+  --monokai-graph-panel: #4a464d;
+  --monokai-graph-line: rgb(from #78dce8 r g b / 42%);
+  --monokai-graph-node: #c1c0c0;
+  --monokai-graph-focused: #ff6188;
+  --monokai-graph-node-tag: #ab9df2;
+  --monokai-graph-node-attachment: #a9dc76;
+  --monokai-graph-node-unresolved: #939293;
+  --monokai-graph-ring: rgb(from #78dce8 r g b / 28%);
+  --canvas-color-1: #ff6188;
+  --canvas-color-2: #fc9867;
+  --canvas-color-3: #ffd866;
+  --canvas-color-4: #a9dc76;
+  --canvas-color-5: #78dce8;
+  --canvas-color-6: #ab9df2;
+  --ribbon-background: #221f22;
+  --nav-item-background-hover: #403e41;
+  --nav-item-background-active: #4a464d;
+  --nav-item-color: #c1c0c0;
+  --nav-item-color-hover: #fcfcfa;
+  --nav-item-color-active: #fcfcfa;
+}
+
 body.monokai-syntax-filter-classic {
   --monokai-filter-name: "classic";
+  --background-primary: #272822;
+  --background-secondary: #1e1f1c;
+  --background-secondary-alt: #1e1f1c;
+  --background-modifier-hover: #3e3d32;
+  --background-modifier-active-hover: #414339;
+  --background-modifier-border: #3e3d32;
+  --text-normal: #f8f8f2;
+  --text-muted: #c1c1bd;
+  --text-faint: #8f908a;
+  --text-accent: #f92672;
+  --text-accent-hover: #f92672;
+  --interactive-accent: #f92672;
+  --interactive-accent-hover: #f92672;
+  --link-color: #78dce8;
+  --link-color-hover: #78dce8;
+  --link-external-color: #78dce8;
+  --link-external-color-hover: #78dce8;
+  --h1-color: #f92672;
+  --h2-color: #fc9867;
+  --h3-color: #ffd866;
+  --h4-color: #a9dc76;
+  --h5-color: #78dce8;
+  --h6-color: #ab9df2;
+  --icon-color: #c1c1bd;
+  --icon-color-hover: #f8f8f2;
+  --icon-color-active: #78dce8;
+  --metadata-label-text-color: #fc9867;
+  --metadata-label-text-color-hover: #fc9867;
+  --monokai-default-accent: #f92672;
+  --monokai-default-link: #78dce8;
+  --monokai-default-success: #a9dc76;
+  --monokai-default-warning: rgba(230, 219, 116, 0.28);
+  --monokai-default-code-background: #1e1f1c;
+  --monokai-spectrum-red: #f92672;
+  --monokai-spectrum-orange: #fc9867;
+  --monokai-spectrum-yellow: #ffd866;
+  --monokai-spectrum-green: #a9dc76;
+  --monokai-spectrum-cyan: #78dce8;
+  --monokai-spectrum-purple: #ab9df2;
+  --code-normal: #f8f8f2;
+  --code-background: #1e1f1c;
+  --code-comment: #72736f;
+  --code-function: #a9dc76;
+  --code-important: #f92672;
+  --code-keyword: #f92672;
+  --code-operator: #fc9867;
+  --code-property: #78dce8;
+  --code-punctuation: #c1c1bd;
+  --code-string: #ffd866;
+  --code-tag: #f92672;
+  --code-value: #ab9df2;
+  --code-type: #ab9df2;
+  --code-class: #a9dc76;
+  --code-builtin: #78dce8;
+  --code-constant: #ab9df2;
+  --code-namespace: #c1c1bd;
+  --code-decorator: #fc9867;
+  --code-regex: #ffd866;
+  --code-meta: #8f908a;
+  --code-error: #f92672;
+  --monokai-callout-note-bg: rgb(from #78dce8 r g b / 12%);
+  --monokai-callout-note-border: #78dce8;
+  --monokai-callout-info-bg: rgb(from #78dce8 r g b / 12%);
+  --monokai-callout-info-border: #78dce8;
+  --monokai-callout-abstract-bg: rgb(from #ab9df2 r g b / 12%);
+  --monokai-callout-abstract-border: #ab9df2;
+  --monokai-callout-question-bg: rgb(from #ab9df2 r g b / 12%);
+  --monokai-callout-question-border: #ab9df2;
+  --monokai-callout-todo-bg: rgb(from #ffd866 r g b / 12%);
+  --monokai-callout-todo-border: #ffd866;
+  --monokai-callout-tip-bg: rgb(from #a9dc76 r g b / 12%);
+  --monokai-callout-tip-border: #a9dc76;
+  --monokai-callout-warning-bg: rgb(from #fc9867 r g b / 12%);
+  --monokai-callout-warning-border: #fc9867;
+  --monokai-callout-error-bg: rgb(from #f92672 r g b / 12%);
+  --monokai-callout-error-border: #f92672;
+  --monokai-callout-failure-bg: rgb(from #f92672 r g b / 12%);
+  --monokai-callout-failure-border: #f92672;
+  --monokai-callout-bug-bg: rgb(from #f92672 r g b / 12%);
+  --monokai-callout-bug-border: #f92672;
+  --monokai-callout-success-bg: rgb(from #a9dc76 r g b / 12%);
+  --monokai-callout-success-border: #a9dc76;
+  --monokai-callout-example-bg: rgb(from #fc9867 r g b / 12%);
+  --monokai-callout-example-border: #fc9867;
+  --monokai-callout-quote-bg: rgb(from #f8f8f2 r g b / 8%);
+  --monokai-callout-quote-border: #8f908a;
+  --monokai-graph-background: #1e1f1c;
+  --monokai-graph-panel: #414339;
+  --monokai-graph-line: rgb(from #78dce8 r g b / 42%);
+  --monokai-graph-node: #c1c1bd;
+  --monokai-graph-focused: #f92672;
+  --monokai-graph-node-tag: #ab9df2;
+  --monokai-graph-node-attachment: #a9dc76;
+  --monokai-graph-node-unresolved: #8f908a;
+  --monokai-graph-ring: rgb(from #78dce8 r g b / 28%);
+  --canvas-color-1: #f92672;
+  --canvas-color-2: #fc9867;
+  --canvas-color-3: #ffd866;
+  --canvas-color-4: #a9dc76;
+  --canvas-color-5: #78dce8;
+  --canvas-color-6: #ab9df2;
+  --ribbon-background: #1e1f1c;
+  --nav-item-background-hover: #3e3d32;
+  --nav-item-background-active: #414339;
+  --nav-item-color: #c1c1bd;
+  --nav-item-color-hover: #f8f8f2;
+  --nav-item-color-active: #f8f8f2;
 }
 
 body.monokai-syntax-filter-machine {
+  --monokai-filter-name: "machine";
   --background-primary: #222421;
   --background-secondary: #191b19;
+  --background-secondary-alt: #191b19;
+  --background-modifier-hover: #323930;
+  --background-modifier-active-hover: #3b4438;
+  --background-modifier-border: #394037;
+  --text-normal: #f2ffef;
+  --text-muted: #c2c9bd;
+  --text-faint: #8b9387;
   --text-accent: #ff4f8b;
+  --text-accent-hover: #ff4f8b;
   --interactive-accent: #ff4f8b;
-  --monokai-filter-name: "machine";
+  --interactive-accent-hover: #ff4f8b;
+  --link-color: #6bf5ff;
+  --link-color-hover: #6bf5ff;
+  --link-external-color: #6bf5ff;
+  --link-external-color-hover: #6bf5ff;
+  --h1-color: #ff4f8b;
+  --h2-color: #ff9f43;
+  --h3-color: #ffe66d;
+  --h4-color: #a5ff6b;
+  --h5-color: #6bf5ff;
+  --h6-color: #b68cff;
+  --icon-color: #c2c9bd;
+  --icon-color-hover: #f2ffef;
+  --icon-color-active: #6bf5ff;
+  --metadata-label-text-color: #ff9f43;
+  --metadata-label-text-color-hover: #ff9f43;
+  --monokai-default-accent: #ff4f8b;
+  --monokai-default-link: #6bf5ff;
+  --monokai-default-success: #a5ff6b;
+  --monokai-default-warning: rgba(255, 230, 109, 0.22);
+  --monokai-default-code-background: #191b19;
+  --monokai-spectrum-red: #ff4f8b;
+  --monokai-spectrum-orange: #ff9f43;
+  --monokai-spectrum-yellow: #ffe66d;
+  --monokai-spectrum-green: #a5ff6b;
+  --monokai-spectrum-cyan: #6bf5ff;
+  --monokai-spectrum-purple: #b68cff;
+  --code-normal: #f2ffef;
+  --code-background: #191b19;
+  --code-comment: #747d70;
+  --code-function: #a5ff6b;
+  --code-important: #ff4f8b;
+  --code-keyword: #ff4f8b;
+  --code-operator: #ff9f43;
+  --code-property: #6bf5ff;
+  --code-punctuation: #c2c9bd;
+  --code-string: #ffe66d;
+  --code-tag: #ff4f8b;
+  --code-value: #b68cff;
+  --code-type: #b68cff;
+  --code-class: #a5ff6b;
+  --code-builtin: #6bf5ff;
+  --code-constant: #b68cff;
+  --code-namespace: #c2c9bd;
+  --code-decorator: #ff9f43;
+  --code-regex: #ffe66d;
+  --code-meta: #8b9387;
+  --code-error: #ff4f8b;
+  --monokai-callout-note-bg: rgb(from #6bf5ff r g b / 12%);
+  --monokai-callout-note-border: #6bf5ff;
+  --monokai-callout-info-bg: rgb(from #6bf5ff r g b / 12%);
+  --monokai-callout-info-border: #6bf5ff;
+  --monokai-callout-abstract-bg: rgb(from #b68cff r g b / 12%);
+  --monokai-callout-abstract-border: #b68cff;
+  --monokai-callout-question-bg: rgb(from #b68cff r g b / 12%);
+  --monokai-callout-question-border: #b68cff;
+  --monokai-callout-todo-bg: rgb(from #ffe66d r g b / 12%);
+  --monokai-callout-todo-border: #ffe66d;
+  --monokai-callout-tip-bg: rgb(from #a5ff6b r g b / 12%);
+  --monokai-callout-tip-border: #a5ff6b;
+  --monokai-callout-warning-bg: rgb(from #ff9f43 r g b / 12%);
+  --monokai-callout-warning-border: #ff9f43;
+  --monokai-callout-error-bg: rgb(from #ff4f8b r g b / 12%);
+  --monokai-callout-error-border: #ff4f8b;
+  --monokai-callout-failure-bg: rgb(from #ff4f8b r g b / 12%);
+  --monokai-callout-failure-border: #ff4f8b;
+  --monokai-callout-bug-bg: rgb(from #ff4f8b r g b / 12%);
+  --monokai-callout-bug-border: #ff4f8b;
+  --monokai-callout-success-bg: rgb(from #a5ff6b r g b / 12%);
+  --monokai-callout-success-border: #a5ff6b;
+  --monokai-callout-example-bg: rgb(from #ff9f43 r g b / 12%);
+  --monokai-callout-example-border: #ff9f43;
+  --monokai-callout-quote-bg: rgb(from #f2ffef r g b / 8%);
+  --monokai-callout-quote-border: #8b9387;
+  --monokai-graph-background: #191b19;
+  --monokai-graph-panel: #3b4438;
+  --monokai-graph-line: rgb(from #6bf5ff r g b / 42%);
+  --monokai-graph-node: #c2c9bd;
+  --monokai-graph-focused: #ff4f8b;
+  --monokai-graph-node-tag: #b68cff;
+  --monokai-graph-node-attachment: #a5ff6b;
+  --monokai-graph-node-unresolved: #8b9387;
+  --monokai-graph-ring: rgb(from #6bf5ff r g b / 28%);
+  --canvas-color-1: #ff4f8b;
+  --canvas-color-2: #ff9f43;
+  --canvas-color-3: #ffe66d;
+  --canvas-color-4: #a5ff6b;
+  --canvas-color-5: #6bf5ff;
+  --canvas-color-6: #b68cff;
+  --ribbon-background: #191b19;
+  --nav-item-background-hover: #323930;
+  --nav-item-background-active: #3b4438;
+  --nav-item-color: #c2c9bd;
+  --nav-item-color-hover: #f2ffef;
+  --nav-item-color-active: #f2ffef;
 }
 
 body.monokai-syntax-filter-octagon {
+  --monokai-filter-name: "octagon";
   --background-primary: #28252f;
   --background-secondary: #1f1d26;
+  --background-secondary-alt: #1f1d26;
+  --background-modifier-hover: #3a3444;
+  --background-modifier-active-hover: #463f52;
+  --background-modifier-border: #443d50;
+  --text-normal: #fff9fb;
+  --text-muted: #cbc3d4;
+  --text-faint: #978da3;
   --text-accent: #ff6188;
+  --text-accent-hover: #ff6188;
   --interactive-accent: #ff6188;
+  --interactive-accent-hover: #ff6188;
   --link-color: #78dce8;
-  --monokai-filter-name: "octagon";
+  --link-color-hover: #78dce8;
+  --link-external-color: #78dce8;
+  --link-external-color-hover: #78dce8;
+  --h1-color: #ff6188;
+  --h2-color: #fc9867;
+  --h3-color: #ffd866;
+  --h4-color: #a9dc76;
+  --h5-color: #78dce8;
+  --h6-color: #ab9df2;
+  --icon-color: #cbc3d4;
+  --icon-color-hover: #fff9fb;
+  --icon-color-active: #78dce8;
+  --metadata-label-text-color: #fc9867;
+  --metadata-label-text-color-hover: #fc9867;
+  --monokai-default-accent: #ff6188;
+  --monokai-default-link: #78dce8;
+  --monokai-default-success: #a9dc76;
+  --monokai-default-warning: rgba(255, 216, 102, 0.22);
+  --monokai-default-code-background: #1f1d26;
+  --monokai-spectrum-red: #ff6188;
+  --monokai-spectrum-orange: #fc9867;
+  --monokai-spectrum-yellow: #ffd866;
+  --monokai-spectrum-green: #a9dc76;
+  --monokai-spectrum-cyan: #78dce8;
+  --monokai-spectrum-purple: #ab9df2;
+  --code-normal: #fff9fb;
+  --code-background: #1f1d26;
+  --code-comment: #77707f;
+  --code-function: #a9dc76;
+  --code-important: #ff6188;
+  --code-keyword: #ff6188;
+  --code-operator: #fc9867;
+  --code-property: #78dce8;
+  --code-punctuation: #cbc3d4;
+  --code-string: #ffd866;
+  --code-tag: #ff6188;
+  --code-value: #ab9df2;
+  --code-type: #ab9df2;
+  --code-class: #a9dc76;
+  --code-builtin: #78dce8;
+  --code-constant: #ab9df2;
+  --code-namespace: #cbc3d4;
+  --code-decorator: #fc9867;
+  --code-regex: #ffd866;
+  --code-meta: #978da3;
+  --code-error: #ff6188;
+  --monokai-callout-note-bg: rgb(from #78dce8 r g b / 12%);
+  --monokai-callout-note-border: #78dce8;
+  --monokai-callout-info-bg: rgb(from #78dce8 r g b / 12%);
+  --monokai-callout-info-border: #78dce8;
+  --monokai-callout-abstract-bg: rgb(from #ab9df2 r g b / 12%);
+  --monokai-callout-abstract-border: #ab9df2;
+  --monokai-callout-question-bg: rgb(from #ab9df2 r g b / 12%);
+  --monokai-callout-question-border: #ab9df2;
+  --monokai-callout-todo-bg: rgb(from #ffd866 r g b / 12%);
+  --monokai-callout-todo-border: #ffd866;
+  --monokai-callout-tip-bg: rgb(from #a9dc76 r g b / 12%);
+  --monokai-callout-tip-border: #a9dc76;
+  --monokai-callout-warning-bg: rgb(from #fc9867 r g b / 12%);
+  --monokai-callout-warning-border: #fc9867;
+  --monokai-callout-error-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-error-border: #ff6188;
+  --monokai-callout-failure-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-failure-border: #ff6188;
+  --monokai-callout-bug-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-bug-border: #ff6188;
+  --monokai-callout-success-bg: rgb(from #a9dc76 r g b / 12%);
+  --monokai-callout-success-border: #a9dc76;
+  --monokai-callout-example-bg: rgb(from #fc9867 r g b / 12%);
+  --monokai-callout-example-border: #fc9867;
+  --monokai-callout-quote-bg: rgb(from #fff9fb r g b / 8%);
+  --monokai-callout-quote-border: #978da3;
+  --monokai-graph-background: #1f1d26;
+  --monokai-graph-panel: #463f52;
+  --monokai-graph-line: rgb(from #78dce8 r g b / 42%);
+  --monokai-graph-node: #cbc3d4;
+  --monokai-graph-focused: #ff6188;
+  --monokai-graph-node-tag: #ab9df2;
+  --monokai-graph-node-attachment: #a9dc76;
+  --monokai-graph-node-unresolved: #978da3;
+  --monokai-graph-ring: rgb(from #78dce8 r g b / 28%);
+  --canvas-color-1: #ff6188;
+  --canvas-color-2: #fc9867;
+  --canvas-color-3: #ffd866;
+  --canvas-color-4: #a9dc76;
+  --canvas-color-5: #78dce8;
+  --canvas-color-6: #ab9df2;
+  --ribbon-background: #1f1d26;
+  --nav-item-background-hover: #3a3444;
+  --nav-item-background-active: #463f52;
+  --nav-item-color: #cbc3d4;
+  --nav-item-color-hover: #fff9fb;
+  --nav-item-color-active: #fff9fb;
 }
 
 body.monokai-syntax-filter-ristretto {
+  --monokai-filter-name: "ristretto";
   --background-primary: #2b241f;
   --background-secondary: #211b18;
+  --background-secondary-alt: #211b18;
+  --background-modifier-hover: #3c322b;
+  --background-modifier-active-hover: #483c33;
+  --background-modifier-border: #463b32;
+  --text-normal: #fff8ef;
+  --text-muted: #cfc1b2;
+  --text-faint: #998b7d;
   --text-accent: #ff6188;
+  --text-accent-hover: #ff6188;
   --interactive-accent: #ff6188;
-  --link-color: #fc9867;
-  --monokai-filter-name: "ristretto";
+  --interactive-accent-hover: #ff6188;
+  --link-color: #78dce8;
+  --link-color-hover: #78dce8;
+  --link-external-color: #78dce8;
+  --link-external-color-hover: #78dce8;
+  --h1-color: #ff6188;
+  --h2-color: #fc9867;
+  --h3-color: #ffd866;
+  --h4-color: #a9dc76;
+  --h5-color: #78dce8;
+  --h6-color: #ab9df2;
+  --icon-color: #cfc1b2;
+  --icon-color-hover: #fff8ef;
+  --icon-color-active: #78dce8;
+  --metadata-label-text-color: #fc9867;
+  --metadata-label-text-color-hover: #fc9867;
+  --monokai-default-accent: #ff6188;
+  --monokai-default-link: #78dce8;
+  --monokai-default-success: #a9dc76;
+  --monokai-default-warning: rgba(255, 216, 102, 0.22);
+  --monokai-default-code-background: #211b18;
+  --monokai-spectrum-red: #ff6188;
+  --monokai-spectrum-orange: #fc9867;
+  --monokai-spectrum-yellow: #ffd866;
+  --monokai-spectrum-green: #a9dc76;
+  --monokai-spectrum-cyan: #78dce8;
+  --monokai-spectrum-purple: #ab9df2;
+  --code-normal: #fff8ef;
+  --code-background: #211b18;
+  --code-comment: #7b7066;
+  --code-function: #a9dc76;
+  --code-important: #ff6188;
+  --code-keyword: #ff6188;
+  --code-operator: #fc9867;
+  --code-property: #78dce8;
+  --code-punctuation: #cfc1b2;
+  --code-string: #ffd866;
+  --code-tag: #ff6188;
+  --code-value: #ab9df2;
+  --code-type: #ab9df2;
+  --code-class: #a9dc76;
+  --code-builtin: #78dce8;
+  --code-constant: #ab9df2;
+  --code-namespace: #cfc1b2;
+  --code-decorator: #fc9867;
+  --code-regex: #ffd866;
+  --code-meta: #998b7d;
+  --code-error: #ff6188;
+  --monokai-callout-note-bg: rgb(from #78dce8 r g b / 12%);
+  --monokai-callout-note-border: #78dce8;
+  --monokai-callout-info-bg: rgb(from #78dce8 r g b / 12%);
+  --monokai-callout-info-border: #78dce8;
+  --monokai-callout-abstract-bg: rgb(from #ab9df2 r g b / 12%);
+  --monokai-callout-abstract-border: #ab9df2;
+  --monokai-callout-question-bg: rgb(from #ab9df2 r g b / 12%);
+  --monokai-callout-question-border: #ab9df2;
+  --monokai-callout-todo-bg: rgb(from #ffd866 r g b / 12%);
+  --monokai-callout-todo-border: #ffd866;
+  --monokai-callout-tip-bg: rgb(from #a9dc76 r g b / 12%);
+  --monokai-callout-tip-border: #a9dc76;
+  --monokai-callout-warning-bg: rgb(from #fc9867 r g b / 12%);
+  --monokai-callout-warning-border: #fc9867;
+  --monokai-callout-error-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-error-border: #ff6188;
+  --monokai-callout-failure-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-failure-border: #ff6188;
+  --monokai-callout-bug-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-bug-border: #ff6188;
+  --monokai-callout-success-bg: rgb(from #a9dc76 r g b / 12%);
+  --monokai-callout-success-border: #a9dc76;
+  --monokai-callout-example-bg: rgb(from #fc9867 r g b / 12%);
+  --monokai-callout-example-border: #fc9867;
+  --monokai-callout-quote-bg: rgb(from #fff8ef r g b / 8%);
+  --monokai-callout-quote-border: #998b7d;
+  --monokai-graph-background: #211b18;
+  --monokai-graph-panel: #483c33;
+  --monokai-graph-line: rgb(from #78dce8 r g b / 42%);
+  --monokai-graph-node: #cfc1b2;
+  --monokai-graph-focused: #ff6188;
+  --monokai-graph-node-tag: #ab9df2;
+  --monokai-graph-node-attachment: #a9dc76;
+  --monokai-graph-node-unresolved: #998b7d;
+  --monokai-graph-ring: rgb(from #78dce8 r g b / 28%);
+  --canvas-color-1: #ff6188;
+  --canvas-color-2: #fc9867;
+  --canvas-color-3: #ffd866;
+  --canvas-color-4: #a9dc76;
+  --canvas-color-5: #78dce8;
+  --canvas-color-6: #ab9df2;
+  --ribbon-background: #211b18;
+  --nav-item-background-hover: #3c322b;
+  --nav-item-background-active: #483c33;
+  --nav-item-color: #cfc1b2;
+  --nav-item-color-hover: #fff8ef;
+  --nav-item-color-active: #fff8ef;
 }
 
 body.monokai-syntax-filter-spectrum {
+  --monokai-filter-name: "spectrum";
   --background-primary: #262933;
   --background-secondary: #1c1f28;
-  --text-accent: #ab9df2;
-  --interactive-accent: #ab9df2;
+  --background-secondary-alt: #1c1f28;
+  --background-modifier-hover: #353b49;
+  --background-modifier-active-hover: #42495a;
+  --background-modifier-border: #3e4454;
+  --text-normal: #f7f8ff;
+  --text-muted: #c3c8d8;
+  --text-faint: #8d94a8;
+  --text-accent: #ff6188;
+  --text-accent-hover: #ff6188;
+  --interactive-accent: #ff6188;
+  --interactive-accent-hover: #ff6188;
   --link-color: #78dce8;
-  --monokai-filter-name: "spectrum";
+  --link-color-hover: #78dce8;
+  --link-external-color: #78dce8;
+  --link-external-color-hover: #78dce8;
+  --h1-color: #ff6188;
+  --h2-color: #fc9867;
+  --h3-color: #ffd866;
+  --h4-color: #a9dc76;
+  --h5-color: #78dce8;
+  --h6-color: #ab9df2;
+  --icon-color: #c3c8d8;
+  --icon-color-hover: #f7f8ff;
+  --icon-color-active: #78dce8;
+  --metadata-label-text-color: #fc9867;
+  --metadata-label-text-color-hover: #fc9867;
+  --monokai-default-accent: #ff6188;
+  --monokai-default-link: #78dce8;
+  --monokai-default-success: #a9dc76;
+  --monokai-default-warning: rgba(255, 216, 102, 0.22);
+  --monokai-default-code-background: #1c1f28;
+  --monokai-spectrum-red: #ff6188;
+  --monokai-spectrum-orange: #fc9867;
+  --monokai-spectrum-yellow: #ffd866;
+  --monokai-spectrum-green: #a9dc76;
+  --monokai-spectrum-cyan: #78dce8;
+  --monokai-spectrum-purple: #ab9df2;
+  --code-normal: #f7f8ff;
+  --code-background: #1c1f28;
+  --code-comment: #71788c;
+  --code-function: #a9dc76;
+  --code-important: #ff6188;
+  --code-keyword: #ff6188;
+  --code-operator: #fc9867;
+  --code-property: #78dce8;
+  --code-punctuation: #c3c8d8;
+  --code-string: #ffd866;
+  --code-tag: #ff6188;
+  --code-value: #ab9df2;
+  --code-type: #ab9df2;
+  --code-class: #a9dc76;
+  --code-builtin: #78dce8;
+  --code-constant: #ab9df2;
+  --code-namespace: #c3c8d8;
+  --code-decorator: #fc9867;
+  --code-regex: #ffd866;
+  --code-meta: #8d94a8;
+  --code-error: #ff6188;
+  --monokai-callout-note-bg: rgb(from #78dce8 r g b / 12%);
+  --monokai-callout-note-border: #78dce8;
+  --monokai-callout-info-bg: rgb(from #78dce8 r g b / 12%);
+  --monokai-callout-info-border: #78dce8;
+  --monokai-callout-abstract-bg: rgb(from #ab9df2 r g b / 12%);
+  --monokai-callout-abstract-border: #ab9df2;
+  --monokai-callout-question-bg: rgb(from #ab9df2 r g b / 12%);
+  --monokai-callout-question-border: #ab9df2;
+  --monokai-callout-todo-bg: rgb(from #ffd866 r g b / 12%);
+  --monokai-callout-todo-border: #ffd866;
+  --monokai-callout-tip-bg: rgb(from #a9dc76 r g b / 12%);
+  --monokai-callout-tip-border: #a9dc76;
+  --monokai-callout-warning-bg: rgb(from #fc9867 r g b / 12%);
+  --monokai-callout-warning-border: #fc9867;
+  --monokai-callout-error-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-error-border: #ff6188;
+  --monokai-callout-failure-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-failure-border: #ff6188;
+  --monokai-callout-bug-bg: rgb(from #ff6188 r g b / 12%);
+  --monokai-callout-bug-border: #ff6188;
+  --monokai-callout-success-bg: rgb(from #a9dc76 r g b / 12%);
+  --monokai-callout-success-border: #a9dc76;
+  --monokai-callout-example-bg: rgb(from #fc9867 r g b / 12%);
+  --monokai-callout-example-border: #fc9867;
+  --monokai-callout-quote-bg: rgb(from #f7f8ff r g b / 8%);
+  --monokai-callout-quote-border: #8d94a8;
+  --monokai-graph-background: #1c1f28;
+  --monokai-graph-panel: #42495a;
+  --monokai-graph-line: rgb(from #78dce8 r g b / 42%);
+  --monokai-graph-node: #c3c8d8;
+  --monokai-graph-focused: #ff6188;
+  --monokai-graph-node-tag: #ab9df2;
+  --monokai-graph-node-attachment: #a9dc76;
+  --monokai-graph-node-unresolved: #8d94a8;
+  --monokai-graph-ring: rgb(from #78dce8 r g b / 28%);
+  --canvas-color-1: #ff6188;
+  --canvas-color-2: #fc9867;
+  --canvas-color-3: #ffd866;
+  --canvas-color-4: #a9dc76;
+  --canvas-color-5: #78dce8;
+  --canvas-color-6: #ab9df2;
+  --ribbon-background: #1c1f28;
+  --nav-item-background-hover: #353b49;
+  --nav-item-background-active: #42495a;
+  --nav-item-color: #c3c8d8;
+  --nav-item-color-hover: #f7f8ff;
+  --nav-item-color-active: #f7f8ff;
+}
+
+body.monokai-syntax-filter-light {
+  --monokai-filter-name: "light";
+  --background-primary: #fdf9f3;
+  --background-secondary: #f5f0e6;
+  --background-secondary-alt: #f5f0e6;
+  --background-modifier-hover: #eee6d8;
+  --background-modifier-active-hover: #e5dccd;
+  --background-modifier-border: #d8d0c2;
+  --text-normal: #3d3d3d;
+  --text-muted: #666666;
+  --text-faint: #7a7369;
+  --text-accent: #e14775;
+  --text-accent-hover: #e14775;
+  --interactive-accent: #e14775;
+  --interactive-accent-hover: #e14775;
+  --link-color: #14748a;
+  --link-color-hover: #14748a;
+  --link-external-color: #14748a;
+  --link-external-color-hover: #14748a;
+  --h1-color: #e14775;
+  --h2-color: #e16032;
+  --h3-color: #cc7a0a;
+  --h4-color: #269d69;
+  --h5-color: #14748a;
+  --h6-color: #7058be;
+  --icon-color: #666666;
+  --icon-color-hover: #3d3d3d;
+  --icon-color-active: #14748a;
+  --metadata-label-text-color: #e16032;
+  --metadata-label-text-color-hover: #e16032;
+  --monokai-default-accent: #e14775;
+  --monokai-default-link: #14748a;
+  --monokai-default-success: #269d69;
+  --monokai-default-warning: rgba(232, 179, 10, 0.24);
+  --monokai-default-code-background: #f5f0e6;
+  --monokai-spectrum-red: #e14775;
+  --monokai-spectrum-orange: #e16032;
+  --monokai-spectrum-yellow: #cc7a0a;
+  --monokai-spectrum-green: #269d69;
+  --monokai-spectrum-cyan: #14748a;
+  --monokai-spectrum-purple: #7058be;
+  --code-normal: #3d3d3d;
+  --code-background: #f5f0e6;
+  --code-comment: #7a7369;
+  --code-function: #269d69;
+  --code-important: #e14775;
+  --code-keyword: #e14775;
+  --code-operator: #e16032;
+  --code-property: #14748a;
+  --code-punctuation: #666666;
+  --code-string: #cc7a0a;
+  --code-tag: #e14775;
+  --code-value: #7058be;
+  --code-type: #7058be;
+  --code-class: #269d69;
+  --code-builtin: #14748a;
+  --code-constant: #7058be;
+  --code-namespace: #666666;
+  --code-decorator: #e16032;
+  --code-regex: #cc7a0a;
+  --code-meta: #7a7369;
+  --code-error: #e14775;
+  --monokai-callout-note-bg: rgb(from #14748a r g b / 12%);
+  --monokai-callout-note-border: #14748a;
+  --monokai-callout-info-bg: rgb(from #14748a r g b / 12%);
+  --monokai-callout-info-border: #14748a;
+  --monokai-callout-abstract-bg: rgb(from #7058be r g b / 12%);
+  --monokai-callout-abstract-border: #7058be;
+  --monokai-callout-question-bg: rgb(from #7058be r g b / 12%);
+  --monokai-callout-question-border: #7058be;
+  --monokai-callout-todo-bg: rgb(from #cc7a0a r g b / 12%);
+  --monokai-callout-todo-border: #cc7a0a;
+  --monokai-callout-tip-bg: rgb(from #269d69 r g b / 12%);
+  --monokai-callout-tip-border: #269d69;
+  --monokai-callout-warning-bg: rgb(from #e16032 r g b / 12%);
+  --monokai-callout-warning-border: #e16032;
+  --monokai-callout-error-bg: rgb(from #e14775 r g b / 12%);
+  --monokai-callout-error-border: #e14775;
+  --monokai-callout-failure-bg: rgb(from #e14775 r g b / 12%);
+  --monokai-callout-failure-border: #e14775;
+  --monokai-callout-bug-bg: rgb(from #e14775 r g b / 12%);
+  --monokai-callout-bug-border: #e14775;
+  --monokai-callout-success-bg: rgb(from #269d69 r g b / 12%);
+  --monokai-callout-success-border: #269d69;
+  --monokai-callout-example-bg: rgb(from #e16032 r g b / 12%);
+  --monokai-callout-example-border: #e16032;
+  --monokai-callout-quote-bg: rgb(from #3d3d3d r g b / 8%);
+  --monokai-callout-quote-border: #7a7369;
+  --monokai-graph-background: #f5f0e6;
+  --monokai-graph-panel: #e5dccd;
+  --monokai-graph-line: rgb(from #14748a r g b / 42%);
+  --monokai-graph-node: #666666;
+  --monokai-graph-focused: #e14775;
+  --monokai-graph-node-tag: #7058be;
+  --monokai-graph-node-attachment: #269d69;
+  --monokai-graph-node-unresolved: #7a7369;
+  --monokai-graph-ring: rgb(from #14748a r g b / 28%);
+  --canvas-color-1: #e14775;
+  --canvas-color-2: #e16032;
+  --canvas-color-3: #cc7a0a;
+  --canvas-color-4: #269d69;
+  --canvas-color-5: #14748a;
+  --canvas-color-6: #7058be;
+  --ribbon-background: #f5f0e6;
+  --nav-item-background-hover: #eee6d8;
+  --nav-item-background-active: #e5dccd;
+  --nav-item-color: #666666;
+  --nav-item-color-hover: #3d3d3d;
+  --nav-item-color-active: #3d3d3d;
+}
+
+body.monokai-syntax-filter-sun {
+  --monokai-filter-name: "sun";
+  --background-primary: #fbf3db;
+  --background-secondary: #f4e8c4;
+  --background-secondary-alt: #f4e8c4;
+  --background-modifier-hover: #ecdfbc;
+  --background-modifier-active-hover: #e2d3ad;
+  --background-modifier-border: #d7c89e;
+  --text-normal: #3a3426;
+  --text-muted: #675f4a;
+  --text-faint: #847a60;
+  --text-accent: #c83f67;
+  --text-accent-hover: #c83f67;
+  --interactive-accent: #c83f67;
+  --interactive-accent-hover: #c83f67;
+  --link-color: #1f7184;
+  --link-color-hover: #1f7184;
+  --link-external-color: #1f7184;
+  --link-external-color-hover: #1f7184;
+  --h1-color: #c83f67;
+  --h2-color: #c85f2b;
+  --h3-color: #8a6a00;
+  --h4-color: #2f7d57;
+  --h5-color: #1f7184;
+  --h6-color: #6251a8;
+  --icon-color: #675f4a;
+  --icon-color-hover: #3a3426;
+  --icon-color-active: #1f7184;
+  --metadata-label-text-color: #c85f2b;
+  --metadata-label-text-color-hover: #c85f2b;
+  --monokai-default-accent: #c83f67;
+  --monokai-default-link: #1f7184;
+  --monokai-default-success: #2f7d57;
+  --monokai-default-warning: rgba(199, 151, 0, 0.24);
+  --monokai-default-code-background: #f4e8c4;
+  --monokai-spectrum-red: #c83f67;
+  --monokai-spectrum-orange: #c85f2b;
+  --monokai-spectrum-yellow: #8a6a00;
+  --monokai-spectrum-green: #2f7d57;
+  --monokai-spectrum-cyan: #1f7184;
+  --monokai-spectrum-purple: #6251a8;
+  --code-normal: #3a3426;
+  --code-background: #f4e8c4;
+  --code-comment: #847a60;
+  --code-function: #2f7d57;
+  --code-important: #c83f67;
+  --code-keyword: #c83f67;
+  --code-operator: #c85f2b;
+  --code-property: #1f7184;
+  --code-punctuation: #675f4a;
+  --code-string: #8a6a00;
+  --code-tag: #c83f67;
+  --code-value: #6251a8;
+  --code-type: #6251a8;
+  --code-class: #2f7d57;
+  --code-builtin: #1f7184;
+  --code-constant: #6251a8;
+  --code-namespace: #675f4a;
+  --code-decorator: #c85f2b;
+  --code-regex: #8a6a00;
+  --code-meta: #847a60;
+  --code-error: #c83f67;
+  --monokai-callout-note-bg: rgb(from #1f7184 r g b / 12%);
+  --monokai-callout-note-border: #1f7184;
+  --monokai-callout-info-bg: rgb(from #1f7184 r g b / 12%);
+  --monokai-callout-info-border: #1f7184;
+  --monokai-callout-abstract-bg: rgb(from #6251a8 r g b / 12%);
+  --monokai-callout-abstract-border: #6251a8;
+  --monokai-callout-question-bg: rgb(from #6251a8 r g b / 12%);
+  --monokai-callout-question-border: #6251a8;
+  --monokai-callout-todo-bg: rgb(from #8a6a00 r g b / 12%);
+  --monokai-callout-todo-border: #8a6a00;
+  --monokai-callout-tip-bg: rgb(from #2f7d57 r g b / 12%);
+  --monokai-callout-tip-border: #2f7d57;
+  --monokai-callout-warning-bg: rgb(from #c85f2b r g b / 12%);
+  --monokai-callout-warning-border: #c85f2b;
+  --monokai-callout-error-bg: rgb(from #c83f67 r g b / 12%);
+  --monokai-callout-error-border: #c83f67;
+  --monokai-callout-failure-bg: rgb(from #c83f67 r g b / 12%);
+  --monokai-callout-failure-border: #c83f67;
+  --monokai-callout-bug-bg: rgb(from #c83f67 r g b / 12%);
+  --monokai-callout-bug-border: #c83f67;
+  --monokai-callout-success-bg: rgb(from #2f7d57 r g b / 12%);
+  --monokai-callout-success-border: #2f7d57;
+  --monokai-callout-example-bg: rgb(from #c85f2b r g b / 12%);
+  --monokai-callout-example-border: #c85f2b;
+  --monokai-callout-quote-bg: rgb(from #3a3426 r g b / 8%);
+  --monokai-callout-quote-border: #847a60;
+  --monokai-graph-background: #f4e8c4;
+  --monokai-graph-panel: #e2d3ad;
+  --monokai-graph-line: rgb(from #1f7184 r g b / 42%);
+  --monokai-graph-node: #675f4a;
+  --monokai-graph-focused: #c83f67;
+  --monokai-graph-node-tag: #6251a8;
+  --monokai-graph-node-attachment: #2f7d57;
+  --monokai-graph-node-unresolved: #847a60;
+  --monokai-graph-ring: rgb(from #1f7184 r g b / 28%);
+  --canvas-color-1: #c83f67;
+  --canvas-color-2: #c85f2b;
+  --canvas-color-3: #8a6a00;
+  --canvas-color-4: #2f7d57;
+  --canvas-color-5: #1f7184;
+  --canvas-color-6: #6251a8;
+  --ribbon-background: #f4e8c4;
+  --nav-item-background-hover: #ecdfbc;
+  --nav-item-background-active: #e2d3ad;
+  --nav-item-color: #675f4a;
+  --nav-item-color-hover: #3a3426;
+  --nav-item-color-active: #3a3426;
 }
 
 body.monokai-syntax-compact {
@@ -1650,8 +2846,50 @@ body.monokai-syntax-monochrome-icons {
   --icon-color-active: var(--text-normal);
 }
 
+body.monokai-syntax-heading-accents .markdown-rendered h1,
+body.monokai-syntax-heading-accents .markdown-rendered h2,
+body.monokai-syntax-heading-accents .markdown-rendered h3 {
+  position: relative;
+  padding-inline-start: calc(var(--monokai-heading-accent-width) + var(--spacing-2));
+}
+body.monokai-syntax-heading-accents .markdown-rendered h1::before,
+body.monokai-syntax-heading-accents .markdown-rendered h2::before,
+body.monokai-syntax-heading-accents .markdown-rendered h3::before {
+  content: "";
+  position: absolute;
+  inset-block: 0.18em;
+  inset-inline-start: 0;
+  width: var(--monokai-heading-accent-width);
+  background-color: currentcolor;
+  border-radius: var(--radius-s);
+}
+body.monokai-syntax-heading-accents {
+  /* stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。 */
+}
+body.monokai-syntax-heading-accents .markdown-source-view.mod-cm6 .HyperMD-header-1,
+body.monokai-syntax-heading-accents .markdown-source-view.mod-cm6 .HyperMD-header-2,
+body.monokai-syntax-heading-accents .markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  border-inline-start: var(--monokai-heading-accent-width) solid currentcolor;
+  padding-inline-start: calc(var(--monokai-heading-accent-width) + var(--spacing-2));
+}
+body.monokai-syntax-heading-accents {
+  /* stylelint-enable selector-class-pattern */
+}
+
 body {
   --file-line-width: var(--monokai-readable-line-width, 48rem);
+  --font-text-size: var(--monokai-body-font-size, 16px);
+  --code-size: var(--monokai-code-font-size, 0.9em);
+  --line-height-normal: var(--monokai-body-line-height, 1.6);
+  --monokai-codeblock-line-height: var(--monokai-code-line-height, 1.55);
+  --monokai-heading-size-scale: var(--monokai-heading-scale, 1);
+  --h1-size: calc(1.802em * var(--monokai-heading-size-scale));
+  --h2-size: calc(1.602em * var(--monokai-heading-size-scale));
+  --h3-size: calc(1.424em * var(--monokai-heading-size-scale));
+  --h4-size: calc(1.266em * var(--monokai-heading-size-scale));
+  --h5-size: calc(1.125em * var(--monokai-heading-size-scale));
+  --h6-size: calc(0.889em * var(--monokai-heading-size-scale));
+  --monokai-paragraph-spacing: var(--monokai-paragraph-spacing-value, 0.75rem);
   --text-accent: var(--monokai-accent-color, var(--monokai-default-accent));
   --interactive-accent: var(--monokai-accent-color, var(--monokai-default-accent));
   --link-color: var(--monokai-link-color, var(--monokai-default-link));
@@ -1905,6 +3143,68 @@ body .markdown-source-view.mod-cm6 .callout[data-callout=cite] {
   --callout-border: var(--monokai-callout-quote-border);
 }
 
+body .markdown-preview-view.markdown-rendered .callout[data-callout=concept],
+body .markdown-rendered .callout[data-callout=concept],
+body .markdown-source-view.mod-cm6 .callout[data-callout=concept] {
+  --callout-background: var(--monokai-callout-abstract-bg);
+  --callout-border: var(--monokai-callout-abstract-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=syntax],
+body .markdown-rendered .callout[data-callout=syntax],
+body .markdown-source-view.mod-cm6 .callout[data-callout=syntax] {
+  --callout-background: var(--monokai-callout-info-bg);
+  --callout-border: var(--monokai-callout-info-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=api],
+body .markdown-rendered .callout[data-callout=api],
+body .markdown-source-view.mod-cm6 .callout[data-callout=api],
+body .markdown-preview-view.markdown-rendered .callout[data-callout=answer],
+body .markdown-rendered .callout[data-callout=answer],
+body .markdown-source-view.mod-cm6 .callout[data-callout=answer],
+body .markdown-preview-view.markdown-rendered .callout[data-callout=terminal],
+body .markdown-rendered .callout[data-callout=terminal],
+body .markdown-source-view.mod-cm6 .callout[data-callout=terminal] {
+  --callout-background: var(--monokai-callout-success-bg);
+  --callout-border: var(--monokai-callout-success-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=debug],
+body .markdown-rendered .callout[data-callout=debug],
+body .markdown-source-view.mod-cm6 .callout[data-callout=debug] {
+  --callout-background: var(--monokai-callout-example-bg);
+  --callout-border: var(--monokai-callout-example-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=pitfall],
+body .markdown-rendered .callout[data-callout=pitfall],
+body .markdown-source-view.mod-cm6 .callout[data-callout=pitfall] {
+  --callout-background: var(--monokai-callout-error-bg);
+  --callout-border: var(--monokai-callout-error-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=exercise],
+body .markdown-rendered .callout[data-callout=exercise],
+body .markdown-source-view.mod-cm6 .callout[data-callout=exercise] {
+  --callout-background: var(--monokai-callout-todo-bg);
+  --callout-border: var(--monokai-callout-todo-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=source],
+body .markdown-rendered .callout[data-callout=source],
+body .markdown-source-view.mod-cm6 .callout[data-callout=source] {
+  --callout-background: var(--monokai-callout-note-bg);
+  --callout-border: var(--monokai-callout-note-border);
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=output],
+body .markdown-rendered .callout[data-callout=output],
+body .markdown-source-view.mod-cm6 .callout[data-callout=output] {
+  --callout-background: var(--monokai-callout-quote-bg);
+  --callout-border: var(--monokai-callout-quote-border);
+}
+
 /* ===== Callout 图标 ===== */
 body .markdown-preview-view.markdown-rendered .callout-icon,
 body .markdown-rendered .callout-icon,
@@ -2089,6 +3389,70 @@ body .markdown-source-view.mod-cm6 .callout[data-callout=example] .cm-callout-ic
   content: "\e674";
 }
 
+body .markdown-preview-view.markdown-rendered .callout[data-callout=concept] .callout-icon::before,
+body .markdown-rendered .callout[data-callout=concept] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=concept] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=concept] .cm-callout-icon::before {
+  content: "\e668";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=syntax] .callout-icon::before,
+body .markdown-rendered .callout[data-callout=syntax] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=syntax] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=syntax] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout=source] .callout-icon::before,
+body .markdown-rendered .callout[data-callout=source] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=source] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=source] .cm-callout-icon::before {
+  content: "\e66f";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=api] .callout-icon::before,
+body .markdown-rendered .callout[data-callout=api] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=api] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=api] .cm-callout-icon::before,
+body .markdown-preview-view.markdown-rendered .callout[data-callout=terminal] .callout-icon::before,
+body .markdown-rendered .callout[data-callout=terminal] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=terminal] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=terminal] .cm-callout-icon::before {
+  content: "\e66e";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=debug] .callout-icon::before,
+body .markdown-rendered .callout[data-callout=debug] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=debug] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=debug] .cm-callout-icon::before {
+  content: "\e675";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=pitfall] .callout-icon::before,
+body .markdown-rendered .callout[data-callout=pitfall] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=pitfall] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=pitfall] .cm-callout-icon::before {
+  content: "\e671";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=exercise] .callout-icon::before,
+body .markdown-rendered .callout[data-callout=exercise] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=exercise] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=exercise] .cm-callout-icon::before {
+  content: "\e670";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=answer] .callout-icon::before,
+body .markdown-rendered .callout[data-callout=answer] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=answer] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=answer] .cm-callout-icon::before {
+  content: "\e66b";
+}
+
+body .markdown-preview-view.markdown-rendered .callout[data-callout=output] .callout-icon::before,
+body .markdown-rendered .callout[data-callout=output] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=output] .callout-icon::before,
+body .markdown-source-view.mod-cm6 .callout[data-callout=output] .cm-callout-icon::before {
+  content: "\e672";
+}
+
 /* stylelint-enable selector-class-pattern */
 
 /*
@@ -2116,8 +3480,11 @@ settings:
     title: 调色板滤镜
     type: class-select
     allowEmpty: false
-    default: monokai-syntax-filter-classic
+    default: monokai-syntax-filter-pro
     options:
+      -
+        label: Pro
+        value: monokai-syntax-filter-pro
       -
         label: Classic
         value: monokai-syntax-filter-classic
@@ -2133,6 +3500,12 @@ settings:
       -
         label: Spectrum
         value: monokai-syntax-filter-spectrum
+      -
+        label: Light
+        value: monokai-syntax-filter-light
+      -
+        label: Sun
+        value: monokai-syntax-filter-sun
 */
 
 /*
@@ -2180,6 +3553,63 @@ settings:
     min: 40
     max: 75
     step: 1
+    format: rem
+  -
+    id: monokai-body-font-size
+    title: 正文字号
+    type: variable-number-slider
+    default: 16
+    min: 13
+    max: 20
+    step: 1
+    format: px
+  -
+    id: monokai-code-font-size
+    title: 代码字号
+    type: variable-number-slider
+    default: 0.9
+    min: 0.75
+    max: 1.2
+    step: 0.05
+    format: em
+  -
+    id: monokai-code-line-height
+    title: 代码行高
+    type: variable-number-slider
+    default: 1.55
+    min: 1.25
+    max: 1.9
+    step: 0.05
+  -
+    id: monokai-heading-scale
+    title: 标题缩放
+    type: variable-number-slider
+    default: 1
+    min: 0.9
+    max: 1.15
+    step: 0.05
+  -
+    id: monokai-heading-group-spacing-value
+    title: 标题分组间距
+    type: variable-number-slider
+    default: 1.4
+    min: 1
+    max: 2.2
+    step: 0.05
+    format: rem
+  -
+    id: monokai-syntax-heading-accents
+    title: 标题左侧色条
+    type: class-toggle
+    default: false
+  -
+    id: monokai-paragraph-spacing-value
+    title: 段落间距
+    type: variable-number-slider
+    default: 0.75
+    min: 0.4
+    max: 1.2
+    step: 0.05
     format: rem
 */
 
