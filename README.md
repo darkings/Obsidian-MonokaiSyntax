@@ -1,164 +1,160 @@
 # Monokai Syntax
 
-Monokai Syntax 是一个面向 Obsidian 的 Monokai Pro 风格主题，重点优化写作、代码笔记、文件树导航、阅读模式、Live Preview、关系图谱和 Canvas 的长期使用体验。
+[Chinese README](./README.zh.md)
+
+Monokai Syntax is a Monokai Pro inspired theme for Obsidian. It is designed for code learning notes, long-form technical writing, and daily knowledge work where reading mode, Live Preview, file navigation, code blocks, callouts, Graph view, and Canvas should feel like one coherent workspace.
 
 ![Monokai Syntax](./MonokaiSyntax.png)
 
-## 版本
+## Version
 
-当前版本：`1.1.0`
+Current version: `1.1.0`
 
-最低 Obsidian 版本：`1.0.0`
+Minimum Obsidian version: `1.0.0`
 
-## 主要特性
+## Highlights
 
-- Monokai Pro 默认滤镜，并支持 Classic、Machine、Octagon、Ristretto、Spectrum、Light、Sun。
-- CodeMirror 6 语法高亮映射到 Monokai 六色光谱。
-- 阅读模式与 Live Preview 使用共享语义变量收敛视觉差异。
-- 文件树图标覆盖常见文档、配置、代码与项目文件。
-- 文件树同层级文件夹与 Markdown 文件对齐，根层折叠图标使用轻量尺寸。
-- Callout、块引用、任务列表、API 参数表、代码块、链接、标签、脚注、图片与附件嵌入统一样式层级。
-- 代码学习语义 Callout 覆盖 concept、syntax、api、debug、pitfall、exercise、answer、source、output、terminal。
-- Mermaid、Math、Dataview 复用主题 surface，避免插件内容跳出阅读层级。
-- 关系图谱、Canvas、Ribbon、标签页、弹窗和搜索界面适配主题色。
-- 支持 Style Settings：调色板滤镜、紧凑模式、图标模式、字体、强调色、链接色与代码色。
-- 构建产物不加载远程运行时资源，图标字体以内联 woff 形式打包。
+- Monokai Pro inspired dark palette and a tuned Light palette.
+- Style Settings palette selector with `Follow system`, `Pro`, and `Light`.
+- CodeMirror 6 syntax colors mapped to a Monokai-style spectrum.
+- Reading mode and Live Preview share the same semantic spacing, typography, code, callout, blockquote, tag, task, table, and link variables.
+- File tree icons for common Markdown, project, configuration, code, and Obsidian-specific files.
+- First-level folders keep Obsidian's native folder chevrons; nested folders use the Monokai custom folder marker without duplicate icons.
+- Code learning callouts for `concept`, `syntax`, `api`, `debug`, `pitfall`, `exercise`, `answer`, `source`, `output`, and `terminal`.
+- Task states, API parameter tables, inline code, code blocks, Mermaid, Math, Dataview, embeds, images, tags, links, and footnotes are styled for technical notes.
+- Graph view, Canvas, Ribbon, tabs, modals, search, settings, and plugin surfaces follow the same theme tokens.
+- No runtime remote assets. The icon font is bundled as an inline WOFF resource.
 
-## 1.1.0 更新重点
+## What's New In 1.1.0
 
-- 默认滤镜切换为 Monokai Pro，并补齐 Light、Sun 两个浅色滤镜。
-- 扩展 CodeMirror token、代码块 surface、active line、selection、cursor、gutter 和 bracket match。
-- 增加代码学习 Callout、8 种任务状态、学习目录图标和 API 参数表语义。
-- 优化标题导航感、列表层级、Mermaid、Math、Dataview、Graph 与 Canvas 的主题一致性。
-- Style Settings 增加排版滑杆和标题色条开关，支持行宽、字号、代码行高、标题缩放与段落间距。
-- 对 8 个滤镜运行多场景对比度审计，覆盖链接、代码注释、行号、选区文字、代码块边框和 Callout 标题。
-- 建立视觉 QA 基线，自动生成长文、代码学习、Callout、Mermaid/Math/Dataview、Graph 和 Canvas 检查样例。
+- Kept the palette system focused on Pro, Light, and system-following behavior.
+- Improved code blocks, inline code, active line, selection, cursor, gutter, and bracket match states.
+- Expanded CodeMirror token coverage for classes, types, built-ins, properties, metadata, and errors.
+- Added code-learning callout styles and semantic task states for study notes.
+- Reworked file tree icon alignment and folder icon rules.
+- Improved reading mode and Live Preview consistency for headings, lists, blockquotes, callouts, code, tables, tags, and links.
+- Added Style Settings controls for typography, density, file icons, heading accents, accent color, link color, and code color.
+- Added release checks for version consistency, palette coverage, icons, Graph variables, visual polish, contrast, generated assets, and CSS quality.
+- Added a CSS audit guard that rejects remote resources, `!important`, ID selectors, and Stylelint control comments in the published CSS.
 
-## 安装
+## Installation
 
-### 手动安装
+### Manual Installation
 
-在你的 Obsidian vault 中创建目录：
-
-```text
-你的 Vault/.obsidian/themes/Monokai Syntax/
-```
-
-复制以下文件到该目录：
+Create this folder in your Obsidian vault:
 
 ```text
-theme.css
-manifest.json
+Your Vault/.obsidian/themes/Monokai Syntax/
 ```
 
-然后在 Obsidian 中进入 `设置` -> `外观` -> `主题`，选择并启用 `Monokai Syntax`。
-
-### 从 GitHub Release 安装
-
-发布 GitHub Release 后，下载对应版本中的：
+Copy these files into that folder:
 
 ```text
 theme.css
 manifest.json
 ```
 
-放入你的 vault 主题目录即可。
+Then open Obsidian and choose `Settings` -> `Appearance` -> `Themes` -> `Monokai Syntax`.
 
-### 提交 Obsidian 社区主题
+### GitHub Release
 
-社区主题上架需要向 `obsidianmd/obsidian-releases` 提交主题信息 PR，并等待审核通过。审核通过后，用户才能在 Obsidian 的社区主题商店中搜索安装。
+After a release is published, download these assets from the release page:
+
+```text
+theme.css
+manifest.json
+```
+
+Place them in your vault theme folder.
+
+### Obsidian Community Theme Listing
+
+To list this theme in Obsidian's community theme browser, submit the required theme metadata to `obsidianmd/obsidian-releases` and wait for review.
 
 ## Style Settings
 
-建议安装 Obsidian 社区插件 `Style Settings`，以获得完整配置体验。
+The theme works without extra plugins, but the Obsidian community plugin `Style Settings` unlocks the full configuration surface.
 
-当前支持：
+Supported controls include:
 
-- 调色板滤镜：Pro、Classic、Machine、Octagon、Ristretto、Spectrum、Light、Sun。
-- 紧凑模式。
-- 彩色或单色文件树图标。
-- 文件树图标开关。
-- 字体与排版选项。
-- 强调色、链接色与代码色覆盖。
+- Palette filter: `Follow system`, `Pro`, `Light`.
+- Density mode.
+- Colored or monochrome file icons.
+- File icon visibility.
+- Sync button visibility in the status bar.
+- Typography and layout controls.
+- Heading accents.
+- Accent, link, and code color overrides.
 
-## 本地开发
+## Local Development
 
-安装依赖：
+Install dependencies:
 
 ```powershell
 npm install
 ```
 
-构建主题：
+Build the theme:
 
 ```powershell
 npm run build
 ```
 
-完整验证：
+Run the full verification suite:
 
 ```powershell
 npm run verify
 ```
 
-构建并同步到默认 vault：
+Build and sync to the default Obsidian vault:
 
 ```powershell
 npm run build:vault
 ```
 
-视觉验收流程：
-
-```powershell
-npm run qa:create
-npm run build:vault
-npm run qa:verify
-```
-
-该流程会在默认 vault 中生成综合 QA 笔记，覆盖长文阅读、代码学习、学习 Callout、Mermaid、Math、Dataview、Graph 和 Canvas，然后验证 vault 已同步并启用 `Monokai Syntax` 主题。
-
-发布前检查：
+Run release checks:
 
 ```powershell
 npm run release:pack
 ```
 
-## 发布流程
+## Release Workflow
 
-1. 确认 `package.json`、`manifest.json`、`versions.json` 版本一致。
-2. 运行 `npm run release:pack`。
-3. 确认根目录存在发布产物：
+1. Keep `package.json`, `manifest.json`, and `versions.json` versions aligned.
+2. Run `npm run release:pack`.
+3. Confirm the root release assets exist:
 
 ```text
 theme.css
 manifest.json
 ```
 
-4. 创建并推送版本标签，例如：
+4. Create and push a version tag, for example:
 
 ```powershell
 git tag v1.1.0
 git push origin v1.1.0
 ```
 
-5. GitHub Actions 会在标签推送后运行发布检查并创建 Release，附件包含 `theme.css` 与 `manifest.json`。
+5. GitHub Actions runs the release verification and publishes a release with `theme.css` and `manifest.json`.
 
-## 验证覆盖
+## Verification Coverage
 
-当前发布前验证包含：
+The release verification suite covers:
 
-- 版本一致性检查。
-- 图标字体生成与覆盖验证。
-- 阅读模式与 Live Preview 样式一致性验证。
-- Active 视觉覆盖验证。
-- 关系图谱变量验证。
-- Node 测试。
-- Stylelint。
-- WCAG 对比度检查。
-- 构建产物一致性检查。
-- CSS 审计：禁止远程资源、`!important` 与 ID 选择器。
-- Vault 侧 QA 验证。
+- Version consistency.
+- Palette filter configuration.
+- Inline code, editor, and reading mode consistency.
+- File icon generation and icon rules.
+- Graph view variables.
+- Active visual overrides.
+- Style polish checks.
+- Node tests.
+- Stylelint.
+- WCAG contrast checks.
+- Build output consistency.
+- CSS audit for remote resources, `!important`, ID selectors, and Stylelint control comments.
 
-## 许可证
+## License
 
-MIT。详见 [LICENSE.md](./LICENSE.md)。
+MIT. See [LICENSE.md](./LICENSE.md).
