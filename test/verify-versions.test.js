@@ -8,6 +8,7 @@ test("版本检查要求 package、manifest、versions 保持一致", () => {
     packageJson: { version: "1.2.3" },
     manifestJson: { version: "1.2.3", minAppVersion: "1.0.0" },
     versionsJson: { "1.2.3": "1.0.0" },
+    requireReleaseTag: false,
   });
 
   assert.equal(result.passed, true);
@@ -19,6 +20,7 @@ test("版本检查报告不一致的中文错误", () => {
     packageJson: { version: "1.2.3" },
     manifestJson: { version: "1.2.4", minAppVersion: "1.0.0" },
     versionsJson: { "1.2.3": "1.0.0" },
+    requireReleaseTag: false,
   });
 
   assert.equal(result.passed, false);
