@@ -1,5 +1,12 @@
 # 更新日志 / Changelog
 
+## 1.1.1（2026-06-27）
+
+- 修复 Obsidian pending 审核报错：发布产物 `theme.css` 不再包含 Stylelint 控制注释。
+- 增加 CSS 审计规则，禁止发布 CSS 中出现 `stylelint-disable` / `stylelint-enable`。
+- 更新 README 结构：`README.md` 使用英文，`README.zh.md` 保存中文说明。
+- 同步文档中的调色板说明，只保留当前实际支持的跟随系统、Pro、Light。
+
 ## 1.1.0（2026-06-23）
 
 ### 新增

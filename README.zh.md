@@ -8,7 +8,7 @@ Monokai Syntax 是一个面向 Obsidian 的 Monokai Pro 风格主题，主要用
 
 ## 版本
 
-当前版本：`1.1.0`
+当前版本：`1.1.1`
 
 最低 Obsidian 版本：`1.0.0`
 
@@ -25,17 +25,12 @@ Monokai Syntax 是一个面向 Obsidian 的 Monokai Pro 风格主题，主要用
 - 关系图谱、Canvas、Ribbon、标签页、弹窗、搜索、设置和插件界面复用统一主题变量。
 - 不加载远程运行时资源，图标字体以内联 WOFF 形式打包。
 
-## 1.1.0 更新重点
+## 1.1.1 更新重点
 
-- 调色板系统聚焦为 Pro、Light 和跟随系统。
-- 优化代码块、行内代码、当前行、选区、光标、gutter 和括号匹配状态。
-- 扩展 CodeMirror token，覆盖类、类型、内建对象、属性、元信息和错误状态。
-- 增加代码学习 Callout 和学习笔记常用任务状态。
-- 重构文件树图标对齐与文件夹图标规则。
-- 收敛阅读模式与 Live Preview 在标题、列表、块引用、Callout、代码、表格、标签和链接上的视觉差异。
-- Style Settings 增加排版、密度、文件图标、标题色条、强调色、链接色和代码色控制。
-- 增加版本、调色板、图标、图谱变量、视觉细节、对比度、生成产物和 CSS 质量检查。
-- CSS 审计会拒绝发布产物中的远程资源、`!important`、ID 选择器和 Stylelint 控制注释。
+- 修复 Obsidian pending 审核中因 `theme.css` 包含 Stylelint 控制注释导致的报错。
+- 增加 CSS 审计保护，发布产物中出现 Stylelint 控制注释会直接失败。
+- 拆分文档：英文主文档为 `README.md`，中文文档为 `README.zh.md`。
+- 文档中的调色板说明同步为当前实际支持的 `跟随系统`、`Pro`、`Light`。
 
 ## 安装
 
@@ -132,8 +127,8 @@ manifest.json
 4. 创建并推送版本标签，例如：
 
 ```powershell
-git tag v1.1.0
-git push origin v1.1.0
+git tag v1.1.1
+git push origin v1.1.1
 ```
 
 5. GitHub Actions 会在标签推送后运行发布检查并创建 Release，附件包含 `theme.css` 与 `manifest.json`。

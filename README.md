@@ -8,7 +8,7 @@ Monokai Syntax is a Monokai Pro inspired theme for Obsidian. It is designed for 
 
 ## Version
 
-Current version: `1.1.0`
+Current version: `1.1.1`
 
 Minimum Obsidian version: `1.0.0`
 
@@ -25,17 +25,12 @@ Minimum Obsidian version: `1.0.0`
 - Graph view, Canvas, Ribbon, tabs, modals, search, settings, and plugin surfaces follow the same theme tokens.
 - No runtime remote assets. The icon font is bundled as an inline WOFF resource.
 
-## What's New In 1.1.0
+## What's New In 1.1.1
 
-- Kept the palette system focused on Pro, Light, and system-following behavior.
-- Improved code blocks, inline code, active line, selection, cursor, gutter, and bracket match states.
-- Expanded CodeMirror token coverage for classes, types, built-ins, properties, metadata, and errors.
-- Added code-learning callout styles and semantic task states for study notes.
-- Reworked file tree icon alignment and folder icon rules.
-- Improved reading mode and Live Preview consistency for headings, lists, blockquotes, callouts, code, tables, tags, and links.
-- Added Style Settings controls for typography, density, file icons, heading accents, accent color, link color, and code color.
-- Added release checks for version consistency, palette coverage, icons, Graph variables, visual polish, contrast, generated assets, and CSS quality.
-- Added a CSS audit guard that rejects remote resources, `!important`, ID selectors, and Stylelint control comments in the published CSS.
+- Fixed Obsidian pending review errors caused by Stylelint control comments being emitted into `theme.css`.
+- Added a CSS audit guard that rejects Stylelint control comments in published CSS.
+- Split the documentation into an English `README.md` and a Chinese `README.zh.md`.
+- Kept the documented palette system aligned with the current `Follow system`, `Pro`, and `Light` options.
 
 ## Installation
 
@@ -132,8 +127,8 @@ manifest.json
 4. Create and push a version tag, for example:
 
 ```powershell
-git tag v1.1.0
-git push origin v1.1.0
+git tag v1.1.1
+git push origin v1.1.1
 ```
 
 5. GitHub Actions runs the release verification and publishes a release with `theme.css` and `manifest.json`.
