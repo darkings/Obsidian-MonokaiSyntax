@@ -5,6 +5,19 @@ name: Monokai Syntax 强调色
 id: monokai-syntax-accents
 settings:
   -
+    id: monokai-syntax-accent-preset
+    title: 强调色预设
+    type: class-select
+    allowEmpty: false
+    default: monokai-syntax-accent-default
+    options:
+      -
+        label: 默认 Pro / Light
+        value: monokai-syntax-accent-default
+      -
+        label: Amber / VS Code
+        value: monokai-syntax-accent-amber-vscode
+  -
     id: monokai-accent-color
     title: 强调色
     type: variable-color

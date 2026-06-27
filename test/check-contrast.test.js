@@ -11,12 +11,12 @@ test("对比度计算符合 WCAG 公式", () => {
   assert.equal(contrast("#000000", "#ffffff").toFixed(2), "21.00");
 });
 
-test("对比度样本覆盖全部 Monokai Pro 滤镜", () => {
+test("对比度样本只覆盖 Pro 与 Light 两套配色", () => {
   const filterNames = new Set(pairs.map((pair) => pair.filter));
 
   assert.deepEqual(
     [...filterNames].sort(),
-    ["classic", "light", "machine", "octagon", "pro", "ristretto", "spectrum", "sun"].sort(),
+    ["light", "pro"].sort(),
   );
 });
 
@@ -26,10 +26,10 @@ test("全部滤镜对比度样本满足阈值", () => {
   assert.deepEqual(failures, []);
 });
 
-test("全部滤镜覆盖代码学习专项对比度样本", () => {
+test("Pro 与 Light 覆盖代码学习专项对比度样本", () => {
   const requiredLabels = ["代码注释", "行号", "选区文字", "代码块边框", "链接", "Callout 标题"];
 
-  for (const filter of ["classic", "light", "machine", "octagon", "pro", "ristretto", "spectrum", "sun"]) {
+  for (const filter of ["light", "pro"]) {
     const labels = new Set(pairs.filter((pair) => pair.filter === filter).map((pair) => pair.label));
     assert.deepEqual(
       requiredLabels.filter((label) => !labels.has(label)),

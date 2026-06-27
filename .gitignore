@@ -2,3 +2,4 @@ node_modules/
 docs/
 ERRORS.md
 tmp/
+.codex-obsidian-shot*.png

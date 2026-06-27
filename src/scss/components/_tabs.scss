@@ -5,6 +5,48 @@
   border-color: var(--background-modifier-border);
 }
 
+.workspace-tabs.mod-left,
+.workspace-leaf.mod-left,
+.workspace-leaf-content.mod-left,
+.workspace-tab-header-container.mod-left,
+.workspace-tab-header-container-inner.mod-left,
+.workspace-tab-header-spacer.mod-left,
+.workspace-tab-container.mod-left,
+.workspace-tab-header.mod-left {
+  background-color: var(--background-secondary);
+}
+
+.workspace-split.mod-left-split .workspace-tab-header-container,
+.workspace-split.mod-left-split .workspace-tab-header-container-inner,
+.workspace-split.mod-left-split .workspace-tab-header-spacer,
+.workspace-split.mod-left-split .workspace-tab-container,
+.mod-left-split,
+.mod-left-split .workspace-tabs,
+.mod-left-split .workspace-leaf,
+.mod-left-split .workspace-leaf-content,
+.mod-left-split .workspace-tab-header-container,
+.mod-left-split .workspace-tab-header-container-inner,
+.mod-left-split .workspace-tab-header-spacer,
+.mod-left-split .workspace-tab-container,
+.workspace-sidedock.mod-left,
+.workspace-sidedock.mod-left .workspace-tabs,
+.workspace-sidedock.mod-left .workspace-leaf,
+.workspace-sidedock.mod-left .workspace-leaf-content,
+.workspace-sidedock.mod-left .workspace-tab-header-container,
+.workspace-sidedock.mod-left .workspace-tab-header-container-inner,
+.workspace-sidedock.mod-left .workspace-tab-header-spacer,
+.workspace-sidedock.mod-left .workspace-tab-container,
+.mod-left,
+.mod-left .workspace-tabs,
+.mod-left .workspace-leaf,
+.mod-left .workspace-leaf-content,
+.mod-left .workspace-tab-header-container,
+.mod-left .workspace-tab-header-container-inner,
+.mod-left .workspace-tab-header-spacer,
+.mod-left .workspace-tab-container {
+  background-color: var(--background-secondary);
+}
+
 .workspace-tab-header {
   color: var(--text-muted);
   background-color: transparent;
@@ -23,7 +65,11 @@
 .workspace-tab-header.is-active {
   color: var(--text-normal);
   background-color: var(--background-primary);
-  box-shadow: inset 0 -2px 0 var(--interactive-accent);
+  box-shadow: inset 0 -2px 0 var(--monokai-tab-active-border-color);
+}
+
+.workspace-split.mod-left-split .workspace-tab-header.is-active {
+  background-color: var(--background-secondary);
 }
 
 .workspace-tab-header-inner-title {

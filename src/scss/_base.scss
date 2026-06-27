@@ -7,82 +7,86 @@
   --radius-s: #{$radius-small};
   --radius-m: #{$radius-medium};
   --monokai-highlight-text: var(--text-normal);
+  --monokai-scrollbar-active-background: var(--background-modifier-active-hover);
+  --monokai-selection-foreground: var(--text-normal);
+  --monokai-tab-active-border-color: var(--interactive-accent);
 }
 
 .theme-dark {
-  --background-primary: #{$color-dark-background-primary};
-  --background-secondary: #{$color-dark-background-secondary};
-  --background-secondary-alt: #{$color-dark-background-secondary};
-  --background-modifier-hover: #{$color-dark-hover};
-  --background-modifier-active-hover: #{$color-dark-active};
-  --text-normal: #{$color-dark-text-normal};
-  --text-muted: #{$color-dark-text-muted};
-  --text-faint: #{$color-dark-text-faint};
-  --background-modifier-border: #{$color-dark-border};
-  --text-accent: #{$color-dark-magenta};
-  --monokai-default-accent: #{$color-dark-magenta};
-  --monokai-default-link: #{$color-dark-cyan};
-  --monokai-default-success: #{$color-dark-green};
-  --monokai-default-warning: rgb(230 219 116 / 28%);
-  --monokai-default-code-background: #{$color-dark-background-secondary};
-  --text-accent-hover: #{$color-dark-red-soft};
-  --interactive-accent: #{$color-dark-magenta};
-  --interactive-accent-hover: #{$color-dark-red-soft};
-  --h1-color: #{$color-dark-magenta};
-  --h2-color: #{$color-dark-orange};
-  --h3-color: #{$color-dark-yellow};
-  --h4-color: #{$color-dark-green};
-  --h5-color: #{$color-dark-cyan};
-  --h6-color: #{$color-dark-purple};
-  --text-a: #{$color-dark-cyan};
-  --text-a-hover: #{$color-dark-cyan-soft};
-  --link-color: #{$color-dark-cyan};
-  --link-color-hover: #{$color-dark-cyan-soft};
-  --link-external-color: #{$color-dark-cyan};
-  --link-external-color-hover: #{$color-dark-cyan-soft};
-  --icon-color: #{$color-dark-text-muted};
-  --icon-color-hover: #{$color-dark-text-normal};
-  --icon-color-active: #{$color-dark-cyan};
-  --metadata-label-text-color: #{$color-dark-orange};
-  --text-highlight-bg: rgb(230 219 116 / 28%);
-  --blockquote-border-color: #{$color-dark-green};
-  --monokai-checkbox-unchecked-color: #{$color-dark-yellow};
-  --monokai-checkbox-checked-color: #{$color-dark-green};
-  --checkbox-color: #{$color-dark-yellow};
-  --checkbox-color-hover: #{$color-dark-yellow-soft};
-  --checkbox-marker-color: #{$color-dark-background-primary};
-  --checkbox-color-checked: #{$color-dark-green};
-  --list-marker-color: #{$color-dark-purple};
-  --code-normal: #{$color-dark-text-normal};
-  --code-background: #{$color-dark-background-secondary};
-  --code-comment: #72736f;
-  --code-function: #{$color-dark-green-soft};
-  --code-important: #{$color-dark-red-soft};
-  --code-keyword: #{$color-dark-red-soft};
-  --code-operator: #{$color-dark-orange-soft};
-  --code-property: #{$color-dark-cyan-soft};
-  --code-punctuation: #{$color-dark-text-muted};
-  --code-string: #{$color-dark-yellow-soft};
-  --code-tag: #{$color-dark-red-soft};
-  --code-value: #{$color-dark-purple-soft};
-  --code-type: #{$color-dark-purple-soft};
-  --code-class: #{$color-dark-green-soft};
-  --code-builtin: #{$color-dark-cyan-soft};
-  --code-constant: #{$color-dark-purple-soft};
-  --code-namespace: #{$color-dark-text-muted};
-  --code-decorator: #{$color-dark-orange-soft};
-  --code-regex: #{$color-dark-yellow-soft};
-  --code-meta: #{$color-dark-text-faint};
-  --code-error: #{$color-dark-magenta};
-  --ribbon-background: #{$color-dark-background-secondary};
-  --nav-item-background-hover: #{$color-dark-hover};
-  --nav-item-background-active: #{$color-dark-active};
-  --nav-item-color: #{$color-dark-text-muted};
-  --nav-item-color-hover: #{$color-dark-text-normal};
-  --nav-item-color-active: #{$color-dark-text-normal};
+  --background-primary: #{$color-pro-background-primary};
+  --background-secondary: #{$color-pro-background-secondary};
+  --background-secondary-alt: #{$color-pro-background-secondary};
+  --background-modifier-hover: #{$color-pro-hover};
+  --background-modifier-active-hover: #{$color-pro-active};
+  --text-normal: #{$color-pro-text-normal};
+  --text-muted: #{$color-pro-text-muted};
+  --text-faint: #{$color-pro-text-faint};
+  --background-modifier-border: #{$color-pro-border};
+  --text-accent: #{$color-pro-magenta};
+  --monokai-default-accent: #{$color-pro-magenta};
+  --monokai-default-link: #{$color-pro-cyan};
+  --monokai-default-success: #{$color-pro-green};
+  --monokai-default-warning: rgb(255 216 102 / 24%);
+  --monokai-default-code-background: #{$color-pro-background-secondary};
+  --text-accent-hover: #{$color-pro-magenta};
+  --interactive-accent: #{$color-pro-magenta};
+  --interactive-accent-hover: #{$color-pro-magenta};
+  --h1-color: #{$color-pro-magenta};
+  --h2-color: #{$color-pro-orange};
+  --h3-color: #{$color-pro-yellow};
+  --h4-color: #{$color-pro-green};
+  --h5-color: #{$color-pro-cyan};
+  --h6-color: #{$color-pro-purple};
+  --text-a: #{$color-pro-cyan};
+  --text-a-hover: #{$color-pro-cyan};
+  --link-color: #{$color-pro-cyan};
+  --link-color-hover: #{$color-pro-cyan};
+  --link-external-color: #{$color-pro-cyan};
+  --link-external-color-hover: #{$color-pro-cyan};
+  --icon-color: #{$color-pro-text-muted};
+  --icon-color-hover: #{$color-pro-text-normal};
+  --icon-color-active: #{$color-pro-cyan};
+  --metadata-label-text-color: #{$color-pro-orange};
+  --text-highlight-bg: rgb(255 216 102 / 24%);
+  --blockquote-border-color: #{$color-pro-green};
+  --monokai-checkbox-unchecked-color: #{$color-pro-yellow};
+  --monokai-checkbox-checked-color: #{$color-pro-green};
+  --checkbox-color: #{$color-pro-yellow};
+  --checkbox-color-hover: #{$color-pro-yellow};
+  --checkbox-marker-color: #{$color-pro-background-primary};
+  --checkbox-color-checked: #{$color-pro-green};
+  --list-marker-color: #{$color-pro-purple};
+  --code-normal: #{$color-pro-text-normal};
+  --code-background: #{$color-pro-background-secondary};
+  --code-comment: #727072;
+  --code-function: #{$color-pro-green};
+  --code-important: #{$color-pro-magenta};
+  --code-keyword: #{$color-pro-magenta};
+  --code-operator: #{$color-pro-orange};
+  --code-property: #{$color-pro-cyan};
+  --code-punctuation: #{$color-pro-text-muted};
+  --code-string: #{$color-pro-yellow};
+  --code-tag: #{$color-pro-magenta};
+  --code-value: #{$color-pro-purple};
+  --code-type: #{$color-pro-purple};
+  --code-class: #{$color-pro-green};
+  --code-builtin: #{$color-pro-cyan};
+  --code-constant: #{$color-pro-purple};
+  --code-namespace: #{$color-pro-text-muted};
+  --code-decorator: #{$color-pro-orange};
+  --code-regex: #{$color-pro-yellow};
+  --code-meta: #{$color-pro-text-faint};
+  --code-error: #{$color-pro-magenta};
+  --ribbon-background: #{$color-pro-background-secondary};
+  --ribbon-background-collapsed: #{$color-pro-background-secondary};
+  --nav-item-background-hover: #{$color-pro-hover};
+  --nav-item-background-active: #{$color-pro-active};
+  --nav-item-color: #{$color-pro-text-muted};
+  --nav-item-color-hover: #{$color-pro-text-normal};
+  --nav-item-color-active: #{$color-pro-text-normal};
   --metadata-input-background: transparent;
   --metadata-input-background-active: transparent;
-  --metadata-label-text-color-hover: #{$color-dark-orange-soft};
+  --metadata-label-text-color-hover: #{$color-pro-orange};
 }
 
 .theme-light {
@@ -151,6 +155,7 @@
   --code-meta: #{$color-light-text-faint};
   --code-error: #{$color-light-magenta};
   --ribbon-background: #{$color-light-background-secondary};
+  --ribbon-background-collapsed: #{$color-light-background-secondary};
   --nav-item-background-hover: #{$color-light-hover};
   --nav-item-background-active: #{$color-light-active};
   --nav-item-color: #{$color-light-text-muted};
@@ -169,6 +174,15 @@
   background-color: var(--background-primary);
 }
 
+.workspace-split.mod-left-split,
+.workspace-split.mod-left-split .workspace-tabs,
+.workspace-split.mod-left-split .workspace-leaf,
+.workspace-split.mod-left-split .workspace-leaf-content,
+.workspace-split.mod-left-split .view-content,
+.workspace-split.mod-left-split .nav-files-container {
+  background-color: var(--background-secondary);
+}
+
 .nav-file-title,
 .nav-folder-title {
   align-items: center;
@@ -183,13 +197,24 @@
 }
 
 .nav-file-title.is-active {
-  color: var(--nav-item-color-active);
+  color: var(--monokai-selection-foreground, var(--nav-item-color-active));
   background-color: var(--nav-item-background-active);
 }
 
 .nav-folder-collapse-indicator,
 .tree-item-icon {
   color: var(--icon-color);
+}
+
+body.monokai-syntax-hide-sync-status-button {
+  .status-bar .status-bar-item.plugin-sync,
+  .status-bar .status-bar-item.mod-sync,
+  .status-bar .status-bar-item[aria-label*="Sync" i],
+  .status-bar .status-bar-item[aria-label*="同步"],
+  .status-bar .status-bar-item[title*="Sync" i],
+  .status-bar .status-bar-item[title*="同步"] {
+    display: none;
+  }
 }
 
 input[type="checkbox"]:not(:checked) {
@@ -261,7 +286,7 @@ input[type="checkbox"]:checked {
 .tree-item-self.is-clickable.is-active,
 .tag-pane-tag.is-active,
 .bookmark.is-active {
-  color: var(--text-normal);
+  color: var(--monokai-selection-foreground, var(--text-normal));
   background-color: var(--nav-item-background-active);
 }
 
@@ -275,4 +300,8 @@ input[type="checkbox"]:checked {
 .tag:hover {
   color: var(--link-color-hover);
   background-color: var(--background-modifier-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--monokai-scrollbar-active-background);
 }

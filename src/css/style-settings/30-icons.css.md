@@ -14,4 +14,9 @@ settings:
     title: 关闭文档树图标
     type: class-toggle
     default: false
+  -
+    id: monokai-syntax-hide-sync-status-button
+    title: 隐藏右下角同步按钮
+    type: class-toggle
+    default: false
 */

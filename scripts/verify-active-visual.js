@@ -108,8 +108,12 @@ const checks = [
       || /\.workspace-leaf-content\[data-type="terminal"\][\s\S]*?padding:\s*var\(--spacing-3\);/.test(files.base),
   ],
   [
-    "行内代码文字统一使用 Monokai Pro 绿色",
-    /--monokai-inline-code-color:\s*#a6e22e;/.test(files.editor)
+    "行内代码深色保持 Monokai Pro 绿色，浅色使用增强青绿",
+    /body\.theme-dark[\s\S]*?--monokai-inline-code-color:\s*#\{\$color-pro-green\};/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-inline-code-color:\s*#0b5262;/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-inline-code-font-weight:\s*600;/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?code[\s\S]*?font-family:\s*var\(--monokai-code-font-family\);/.test(files.editor)
+      && /\.cm-inline-code[\s\S]*?font-family:\s*var\(--monokai-code-font-family\);/.test(files.editor)
       && /\.cm-inline-code[\s\S]*?color:\s*var\(--monokai-inline-code-color\);/.test(files.editor),
   ],
   [
@@ -129,8 +133,8 @@ const checks = [
   ],
   [
     "复选框未选中为 Monokai Pro 黄色，选中为绿色",
-    /--monokai-checkbox-unchecked-color:\s*#\{\$color-dark-yellow\};/.test(files.base)
-      && /--monokai-checkbox-checked-color:\s*#\{\$color-dark-green\};/.test(files.base)
+    /--monokai-checkbox-unchecked-color:\s*#\{\$color-pro-yellow\};/.test(files.base)
+      && /--monokai-checkbox-checked-color:\s*#\{\$color-pro-green\};/.test(files.base)
       && /input\[type="checkbox"\]:not\(:checked\)[\s\S]*?border-color:\s*var\(--monokai-checkbox-unchecked-color\);/.test(files.base)
       && /input\[type="checkbox"\]:checked[\s\S]*?background-color:\s*var\(--monokai-checkbox-checked-color\);/.test(files.base),
   ],

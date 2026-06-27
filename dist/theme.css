@@ -12,61 +12,64 @@
   --radius-s: 4px;
   --radius-m: 6px;
   --monokai-highlight-text: var(--text-normal);
+  --monokai-scrollbar-active-background: var(--background-modifier-active-hover);
+  --monokai-selection-foreground: var(--text-normal);
+  --monokai-tab-active-border-color: var(--interactive-accent);
 }
 
 .theme-dark {
-  --background-primary: #272822;
-  --background-secondary: #1e1f1c;
-  --background-secondary-alt: #1e1f1c;
-  --background-modifier-hover: #3e3d32;
-  --background-modifier-active-hover: #414339;
-  --text-normal: #f8f8f2;
-  --text-muted: #c1c1bd;
-  --text-faint: #8f908a;
-  --background-modifier-border: #3e3d32;
-  --text-accent: #f92672;
-  --monokai-default-accent: #f92672;
-  --monokai-default-link: #66d9ef;
-  --monokai-default-success: #a6e22e;
-  --monokai-default-warning: rgb(230 219 116 / 28%);
-  --monokai-default-code-background: #1e1f1c;
+  --background-primary: #2d2a2e;
+  --background-secondary: #221f22;
+  --background-secondary-alt: #221f22;
+  --background-modifier-hover: #403e41;
+  --background-modifier-active-hover: #4a464d;
+  --text-normal: #fcfcfa;
+  --text-muted: #c1c0c0;
+  --text-faint: #939293;
+  --background-modifier-border: #403e41;
+  --text-accent: #ff6188;
+  --monokai-default-accent: #ff6188;
+  --monokai-default-link: #78dce8;
+  --monokai-default-success: #a9dc76;
+  --monokai-default-warning: rgb(255 216 102 / 24%);
+  --monokai-default-code-background: #221f22;
   --text-accent-hover: #ff6188;
-  --interactive-accent: #f92672;
+  --interactive-accent: #ff6188;
   --interactive-accent-hover: #ff6188;
-  --h1-color: #f92672;
-  --h2-color: #fd971f;
-  --h3-color: #e6db74;
-  --h4-color: #a6e22e;
-  --h5-color: #66d9ef;
-  --h6-color: #ae81ff;
-  --text-a: #66d9ef;
+  --h1-color: #ff6188;
+  --h2-color: #fc9867;
+  --h3-color: #ffd866;
+  --h4-color: #a9dc76;
+  --h5-color: #78dce8;
+  --h6-color: #ab9df2;
+  --text-a: #78dce8;
   --text-a-hover: #78dce8;
-  --link-color: #66d9ef;
+  --link-color: #78dce8;
   --link-color-hover: #78dce8;
-  --link-external-color: #66d9ef;
+  --link-external-color: #78dce8;
   --link-external-color-hover: #78dce8;
-  --icon-color: #c1c1bd;
-  --icon-color-hover: #f8f8f2;
-  --icon-color-active: #66d9ef;
-  --metadata-label-text-color: #fd971f;
-  --text-highlight-bg: rgb(230 219 116 / 28%);
-  --blockquote-border-color: #a6e22e;
-  --monokai-checkbox-unchecked-color: #e6db74;
-  --monokai-checkbox-checked-color: #a6e22e;
-  --checkbox-color: #e6db74;
+  --icon-color: #c1c0c0;
+  --icon-color-hover: #fcfcfa;
+  --icon-color-active: #78dce8;
+  --metadata-label-text-color: #fc9867;
+  --text-highlight-bg: rgb(255 216 102 / 24%);
+  --blockquote-border-color: #a9dc76;
+  --monokai-checkbox-unchecked-color: #ffd866;
+  --monokai-checkbox-checked-color: #a9dc76;
+  --checkbox-color: #ffd866;
   --checkbox-color-hover: #ffd866;
-  --checkbox-marker-color: #272822;
-  --checkbox-color-checked: #a6e22e;
-  --list-marker-color: #ae81ff;
-  --code-normal: #f8f8f2;
-  --code-background: #1e1f1c;
-  --code-comment: #72736f;
+  --checkbox-marker-color: #2d2a2e;
+  --checkbox-color-checked: #a9dc76;
+  --list-marker-color: #ab9df2;
+  --code-normal: #fcfcfa;
+  --code-background: #221f22;
+  --code-comment: #727072;
   --code-function: #a9dc76;
   --code-important: #ff6188;
   --code-keyword: #ff6188;
   --code-operator: #fc9867;
   --code-property: #78dce8;
-  --code-punctuation: #c1c1bd;
+  --code-punctuation: #c1c0c0;
   --code-string: #ffd866;
   --code-tag: #ff6188;
   --code-value: #ab9df2;
@@ -74,17 +77,18 @@
   --code-class: #a9dc76;
   --code-builtin: #78dce8;
   --code-constant: #ab9df2;
-  --code-namespace: #c1c1bd;
+  --code-namespace: #c1c0c0;
   --code-decorator: #fc9867;
   --code-regex: #ffd866;
-  --code-meta: #8f908a;
-  --code-error: #f92672;
-  --ribbon-background: #1e1f1c;
-  --nav-item-background-hover: #3e3d32;
-  --nav-item-background-active: #414339;
-  --nav-item-color: #c1c1bd;
-  --nav-item-color-hover: #f8f8f2;
-  --nav-item-color-active: #f8f8f2;
+  --code-meta: #939293;
+  --code-error: #ff6188;
+  --ribbon-background: #221f22;
+  --ribbon-background-collapsed: #221f22;
+  --nav-item-background-hover: #403e41;
+  --nav-item-background-active: #4a464d;
+  --nav-item-color: #c1c0c0;
+  --nav-item-color-hover: #fcfcfa;
+  --nav-item-color-active: #fcfcfa;
   --metadata-input-background: transparent;
   --metadata-input-background-active: transparent;
   --metadata-label-text-color-hover: #fc9867;
@@ -156,6 +160,7 @@
   --code-meta: #7a7369;
   --code-error: #e14775;
   --ribbon-background: #f5f0e6;
+  --ribbon-background-collapsed: #f5f0e6;
   --nav-item-background-hover: #eee6d8;
   --nav-item-background-active: #e5dccd;
   --nav-item-color: #666666;
@@ -174,6 +179,15 @@
   background-color: var(--background-primary);
 }
 
+.workspace-split.mod-left-split,
+.workspace-split.mod-left-split .workspace-tabs,
+.workspace-split.mod-left-split .workspace-leaf,
+.workspace-split.mod-left-split .workspace-leaf-content,
+.workspace-split.mod-left-split .view-content,
+.workspace-split.mod-left-split .nav-files-container {
+  background-color: var(--background-secondary);
+}
+
 .nav-file-title,
 .nav-folder-title {
   align-items: center;
@@ -188,13 +202,22 @@
 }
 
 .nav-file-title.is-active {
-  color: var(--nav-item-color-active);
+  color: var(--monokai-selection-foreground, var(--nav-item-color-active));
   background-color: var(--nav-item-background-active);
 }
 
 .nav-folder-collapse-indicator,
 .tree-item-icon {
   color: var(--icon-color);
+}
+
+body.monokai-syntax-hide-sync-status-button .status-bar .status-bar-item.plugin-sync,
+body.monokai-syntax-hide-sync-status-button .status-bar .status-bar-item.mod-sync,
+body.monokai-syntax-hide-sync-status-button .status-bar .status-bar-item[aria-label*=Sync i],
+body.monokai-syntax-hide-sync-status-button .status-bar .status-bar-item[aria-label*=同步],
+body.monokai-syntax-hide-sync-status-button .status-bar .status-bar-item[title*=Sync i],
+body.monokai-syntax-hide-sync-status-button .status-bar .status-bar-item[title*=同步] {
+  display: none;
 }
 
 input[type=checkbox]:not(:checked) {
@@ -266,7 +289,7 @@ input[type=checkbox]:checked {
 .tree-item-self.is-clickable.is-active,
 .tag-pane-tag.is-active,
 .bookmark.is-active {
-  color: var(--text-normal);
+  color: var(--monokai-selection-foreground, var(--text-normal));
   background-color: var(--nav-item-background-active);
 }
 
@@ -280,6 +303,10 @@ input[type=checkbox]:checked {
 .tag:hover {
   color: var(--link-color-hover);
   background-color: var(--background-modifier-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--monokai-scrollbar-active-background);
 }
 
 .markdown-source-view,
@@ -300,6 +327,7 @@ input[type=checkbox]:checked {
   --monokai-heading-weight: 600;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
+  --monokai-inline-code-font-weight: 500;
   --monokai-inline-code-padding: 0.1em 0.3em;
   --monokai-formatting-marker-color: var(--text-faint);
   --monokai-strikethrough-color: var(--text-muted);
@@ -331,7 +359,8 @@ input[type=checkbox]:checked {
   --monokai-list-item-spacing: 0.35rem;
   --monokai-nested-list-spacing: 0.25rem;
   --monokai-table-source-background: var(--background-secondary);
-  --monokai-table-source-font-family: var(--font-monospace-theme);
+  --monokai-code-font-family: var(--font-monospace);
+  --monokai-table-source-font-family: var(--monokai-code-font-family);
   --monokai-table-source-separator-color: var(--text-faint);
   --monokai-table-cell-padding: 0.55rem 0.7rem;
   --monokai-table-row-hover-background: var(--background-modifier-hover);
@@ -340,16 +369,22 @@ input[type=checkbox]:checked {
   --monokai-table-api-type-color: var(--code-type);
   --monokai-table-api-default-color: var(--code-value);
   --monokai-table-api-required-color: var(--text-accent);
+  --monokai-codeblock-background: var(--code-background);
   --monokai-codeblock-border-color: var(--background-modifier-border);
   --monokai-codeblock-radius: var(--radius-m);
   --monokai-codeblock-header-height: 1.75rem;
+  --monokai-codeblock-margin-block: 1rem;
   --monokai-codeblock-padding: 1rem;
+  --monokai-codeblock-padding-block: var(--monokai-codeblock-padding);
   --monokai-codeblock-padding-inline: 1rem;
-  --monokai-codeblock-shadow: 0 10px 24px rgb(0 0 0 / 16%);
+  --monokai-codeblock-shadow: none;
   --monokai-codeblock-language-color: var(--text-faint);
   --monokai-codeblock-line-height: var(--monokai-code-line-height, 1.55);
+  --monokai-codeblock-active-line-background: var(--background-modifier-hover);
+  --monokai-codeblock-active-line-border: var(--interactive-accent);
+  --monokai-codeblock-selection-background: rgb(120 220 232 / 32%);
   --monokai-editor-active-line-background: rgb(248 248 242 / 5%);
-  --monokai-editor-selection-background: rgb(102 217 239 / 22%);
+  --monokai-editor-selection-background: rgb(102 217 239 / 30%);
   --monokai-editor-cursor-color: var(--interactive-accent);
   --monokai-editor-gutter-background: var(--background-secondary);
   --monokai-editor-gutter-color: var(--text-faint);
@@ -367,36 +402,41 @@ input[type=checkbox]:checked {
 
 body.theme-dark {
   --monokai-heading-weight: 600;
-  --blockquote-border-color: #e6db74;
-  --monokai-blockquote-border: #e6db74;
-  --monokai-callout-note-bg: rgb(102 217 239 / 12%);
-  --monokai-callout-note-border: #66d9ef;
-  --monokai-callout-abstract-bg: rgb(174 129 255 / 12%);
-  --monokai-callout-abstract-border: #ae81ff;
-  --monokai-callout-info-bg: rgb(102 217 239 / 12%);
-  --monokai-callout-info-border: #66d9ef;
-  --monokai-callout-todo-bg: rgb(230 219 116 / 12%);
-  --monokai-callout-todo-border: #e6db74;
-  --monokai-callout-tip-bg: rgb(166 226 46 / 12%);
-  --monokai-callout-tip-border: #a6e22e;
-  --monokai-callout-question-bg: rgb(174 129 255 / 12%);
-  --monokai-callout-question-border: #ae81ff;
-  --monokai-callout-warning-bg: rgb(253 151 31 / 12%);
-  --monokai-callout-warning-border: #fd971f;
-  --monokai-callout-error-bg: rgb(249 38 114 / 12%);
-  --monokai-callout-error-border: #f92672;
-  --monokai-callout-failure-bg: rgb(249 38 114 / 12%);
-  --monokai-callout-failure-border: #f92672;
-  --monokai-callout-bug-bg: rgb(249 38 114 / 12%);
-  --monokai-callout-bug-border: #f92672;
-  --monokai-callout-success-bg: rgb(166 226 46 / 12%);
-  --monokai-callout-success-border: #a6e22e;
-  --monokai-callout-example-bg: rgb(253 151 31 / 12%);
-  --monokai-callout-example-border: #fd971f;
-  --monokai-callout-quote-bg: rgb(248 248 242 / 8%);
-  --monokai-callout-quote-border: #8f908a;
-  --monokai-inline-code-color: #a6e22e;
+  --blockquote-border-color: #ffd866;
+  --monokai-blockquote-border: #ffd866;
+  --monokai-callout-note-bg: rgb(120 220 232 / 12%);
+  --monokai-callout-note-border: #78dce8;
+  --monokai-callout-abstract-bg: rgb(171 157 242 / 12%);
+  --monokai-callout-abstract-border: #ab9df2;
+  --monokai-callout-info-bg: rgb(120 220 232 / 12%);
+  --monokai-callout-info-border: #78dce8;
+  --monokai-callout-todo-bg: rgb(255 216 102 / 12%);
+  --monokai-callout-todo-border: #ffd866;
+  --monokai-callout-tip-bg: rgb(169 220 118 / 12%);
+  --monokai-callout-tip-border: #a9dc76;
+  --monokai-callout-question-bg: rgb(171 157 242 / 12%);
+  --monokai-callout-question-border: #ab9df2;
+  --monokai-callout-warning-bg: rgb(252 152 103 / 12%);
+  --monokai-callout-warning-border: #fc9867;
+  --monokai-callout-error-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-error-border: #ff6188;
+  --monokai-callout-failure-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-failure-border: #ff6188;
+  --monokai-callout-bug-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-bug-border: #ff6188;
+  --monokai-callout-success-bg: rgb(169 220 118 / 12%);
+  --monokai-callout-success-border: #a9dc76;
+  --monokai-callout-example-bg: rgb(252 152 103 / 12%);
+  --monokai-callout-example-border: #fc9867;
+  --monokai-callout-quote-bg: rgb(252 252 250 / 8%);
+  --monokai-callout-quote-border: #939293;
+  --monokai-inline-code-color: #a9dc76;
   --monokai-inline-code-background: var(--code-background);
+  --monokai-codeblock-background: #221f22;
+  --monokai-codeblock-border-color: rgb(252 252 250 / 14%);
+  --monokai-codeblock-active-line-background: #403e41;
+  --monokai-codeblock-active-line-border: #78dce8;
+  --monokai-codeblock-selection-background: #344349;
   --monokai-table-border: rgb(248 248 242 / 18%);
   --monokai-table-header-background: rgb(248 248 242 / 6%);
   --monokai-table-row-alt-background: rgb(248 248 242 / 3%);
@@ -406,9 +446,9 @@ body.theme-dark {
   --monokai-task-question-color: var(--link-color);
   --monokai-modal-shadow: 0 18px 50px rgb(0 0 0 / 35%);
   --monokai-selection-ring: rgb(249 38 114 / 28%);
-  --monokai-codeblock-shadow: 0 10px 28px rgb(0 0 0 / 22%);
+  --monokai-codeblock-shadow: none;
   --monokai-editor-active-line-background: rgb(248 248 242 / 5%);
-  --monokai-editor-selection-background: rgb(102 217 239 / 22%);
+  --monokai-editor-selection-background: rgb(102 217 239 / 30%);
   --monokai-editor-bracket-match-background: rgb(166 226 46 / 18%);
 }
 
@@ -442,8 +482,14 @@ body.theme-light {
   --monokai-callout-example-border: #e16032;
   --monokai-callout-quote-bg: rgb(61 61 61 / 8%);
   --monokai-callout-quote-border: #6f6f6f;
-  --monokai-inline-code-color: #269d69;
-  --monokai-inline-code-background: var(--code-background);
+  --monokai-inline-code-color: #0b5262;
+  --monokai-inline-code-background: rgb(20 116 138 / 16%);
+  --monokai-inline-code-font-weight: 600;
+  --monokai-codeblock-background: #eee6d8;
+  --monokai-codeblock-border-color: #c6b9a6;
+  --monokai-codeblock-active-line-background: #e3d4bf;
+  --monokai-codeblock-active-line-border: #14748a;
+  --monokai-codeblock-selection-background: #c9e8ee;
   --monokai-table-border: rgb(61 61 61 / 18%);
   --monokai-table-header-background: rgb(61 61 61 / 6%);
   --monokai-table-row-alt-background: rgb(61 61 61 / 3%);
@@ -453,9 +499,9 @@ body.theme-light {
   --monokai-task-question-color: var(--link-color);
   --monokai-modal-shadow: 0 16px 36px rgb(61 61 61 / 16%);
   --monokai-selection-ring: rgb(200 63 103 / 22%);
-  --monokai-codeblock-shadow: 0 8px 20px rgb(61 61 61 / 10%);
+  --monokai-codeblock-shadow: none;
   --monokai-editor-active-line-background: rgb(61 61 61 / 5%);
-  --monokai-editor-selection-background: rgb(20 116 138 / 18%);
+  --monokai-editor-selection-background: rgb(20 116 138 / 26%);
   --monokai-editor-bracket-match-background: rgb(38 157 105 / 16%);
 }
 
@@ -621,17 +667,20 @@ body.theme-light {
   border: 0;
   border-radius: var(--radius-s);
   box-shadow: none;
+  font-family: var(--monokai-code-font-family);
+  font-weight: var(--monokai-inline-code-font-weight);
   padding: var(--monokai-inline-code-padding);
 }
 .markdown-rendered pre {
-  background-color: var(--code-background);
+  background-color: var(--monokai-codeblock-background);
   border: 1px solid var(--monokai-codeblock-border-color);
   border-radius: var(--monokai-codeblock-radius);
   box-shadow: var(--monokai-codeblock-shadow);
-  font-family: var(--font-monospace-theme);
+  font-family: var(--monokai-code-font-family);
   line-height: var(--monokai-codeblock-line-height);
+  margin-block: var(--monokai-codeblock-margin-block);
   overflow-x: auto;
-  padding: var(--monokai-codeblock-padding);
+  padding: var(--monokai-codeblock-padding-block) var(--monokai-codeblock-padding-inline);
   scrollbar-color: var(--text-faint) transparent;
   tab-size: 2;
 }
@@ -640,6 +689,10 @@ body.theme-light {
   border: 0;
   box-shadow: none;
   padding: 0;
+}
+.markdown-rendered pre ::selection {
+  color: var(--code-normal);
+  background-color: var(--monokai-codeblock-selection-background);
 }
 .markdown-rendered hr {
   border: 0;
@@ -770,10 +823,16 @@ body.theme-light {
   font-weight: 700;
 }
 .markdown-source-view.mod-cm6 .HyperMD-codeblock {
-  background-color: var(--code-background);
-  font-family: var(--font-monospace-theme);
+  background-color: var(--monokai-codeblock-background);
+  font-family: var(--monokai-code-font-family);
   line-height: var(--monokai-codeblock-line-height);
   padding-inline: var(--monokai-codeblock-padding-inline);
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:has(.cm-hmd-codeblock-begin) {
+  padding-block-start: var(--monokai-codeblock-padding-block);
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:has(.cm-hmd-codeblock-end) {
+  padding-block-end: var(--monokai-codeblock-padding-block);
 }
 .markdown-source-view.mod-cm6 .HyperMD-hr {
   color: var(--monokai-formatting-marker-color);
@@ -910,6 +969,8 @@ body.theme-light {
   border: 0;
   border-radius: var(--radius-s);
   box-shadow: none;
+  font-family: var(--monokai-code-font-family);
+  font-weight: var(--monokai-inline-code-font-weight);
   padding: var(--monokai-inline-code-padding);
 }
 .markdown-source-view.mod-cm6 {
@@ -917,6 +978,17 @@ body.theme-light {
 }
 .markdown-source-view.mod-cm6 .cm-active {
   background-color: var(--monokai-editor-active-line-background);
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock.cm-active {
+  background-color: var(--monokai-codeblock-active-line-background);
+  box-shadow: inset 2px 0 0 var(--monokai-codeblock-active-line-border);
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock::selection {
+  color: var(--code-normal);
+  background-color: var(--monokai-codeblock-selection-background);
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock .cm-selectionBackground {
+  background-color: var(--monokai-codeblock-selection-background);
 }
 .markdown-source-view.mod-cm6 .cm-selectionBackground {
   background-color: var(--monokai-editor-selection-background);
@@ -1427,14 +1499,6 @@ a:focus-visible,
   --monokai-folder-icon-color: #ffd866;
 }
 
-.nav-folder-title[data-path=concepts],
-.nav-folder-title[data-path$="/concepts"],
-.nav-folder[data-path=concepts] > .nav-folder-title,
-.nav-folder[data-path$="/concepts"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e668";
-  --monokai-folder-icon-color: #ab9df2;
-}
-
 .nav-folder-title[data-path=examples],
 .nav-folder-title[data-path$="/examples"],
 .nav-folder[data-path=examples] > .nav-folder-title,
@@ -1513,6 +1577,15 @@ a:focus-visible,
   content: "\e8e8";
 }
 
+.nav-files-container {
+  padding-inline: 0.45rem 0.55rem;
+}
+
+.nav-folder-children {
+  border-inline-start-color: transparent;
+  border-left-color: transparent;
+}
+
 .nav-file-title,
 .nav-folder-title {
   --monokai-file-tree-slot-size: 1rem;
@@ -1547,14 +1620,31 @@ a:focus-visible,
   justify-content: center;
 }
 
-.nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator::before,
-.nav-folder-title[data-path*="/"] .collapse-icon::before,
-.nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator::before,
-.nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon::before,
-.nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator::before,
-.nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon::before {
+.nav-folder-title .nav-folder-title-content {
+  overflow: visible;
+  position: relative;
+}
+
+.nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator,
+.nav-folder-title[data-path*="/"] .collapse-icon,
+.nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator,
+.nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon {
+  display: none;
+}
+
+.nav-folder-title[data-path*="/"] .nav-folder-title-content::before,
+.nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-title-content::before {
   content: var(--monokai-folder-icon-content, "\e64d");
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset-inline-start: calc(-1 * (var(--monokai-file-tree-slot-size) + var(--monokai-file-tree-icon-gap)));
+  inset-block-start: 50%;
+  width: var(--monokai-file-tree-slot-size);
+  min-width: var(--monokai-file-tree-slot-size);
+  height: var(--monokai-file-tree-glyph-size);
+  transform: translateY(-50%);
   color: var(--monokai-folder-icon-color, var(--icon-color));
   font-family: monokai-pro-icons, monospace;
   font-size: var(--monokai-file-tree-glyph-size);
@@ -1564,31 +1654,11 @@ a:focus-visible,
   text-align: center;
   text-rendering: auto;
 }
-.nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator svg,
-.nav-folder-title[data-path*="/"] .collapse-icon svg,
-.nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator svg,
-.nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon svg,
-.nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator svg,
-.nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon svg {
-  display: none;
-}
 
 body.monokai-syntax-hide-file-tree-icons .nav-file-title::before,
-body.monokai-syntax-hide-file-tree-icons .nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator::before,
-body.monokai-syntax-hide-file-tree-icons .nav-folder-title[data-path*="/"] .collapse-icon::before,
-body.monokai-syntax-hide-file-tree-icons .nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator::before,
-body.monokai-syntax-hide-file-tree-icons .nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon::before,
-body.monokai-syntax-hide-file-tree-icons .nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator::before,
-body.monokai-syntax-hide-file-tree-icons .nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon::before {
+body.monokai-syntax-hide-file-tree-icons .nav-folder-title[data-path*="/"] .nav-folder-title-content::before,
+body.monokai-syntax-hide-file-tree-icons .nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-title-content::before {
   display: none;
-}
-body.monokai-syntax-hide-file-tree-icons .nav-folder-title[data-path*="/"] .nav-folder-collapse-indicator svg,
-body.monokai-syntax-hide-file-tree-icons .nav-folder-title[data-path*="/"] .collapse-icon svg,
-body.monokai-syntax-hide-file-tree-icons .nav-folder[data-path*="/"] > .nav-folder-title .nav-folder-collapse-indicator svg,
-body.monokai-syntax-hide-file-tree-icons .nav-folder[data-path*="/"] > .nav-folder-title .collapse-icon svg,
-body.monokai-syntax-hide-file-tree-icons .nav-folder-children .nav-folder-children .nav-folder-title .nav-folder-collapse-indicator svg,
-body.monokai-syntax-hide-file-tree-icons .nav-folder-children .nav-folder-children .nav-folder-title .collapse-icon svg {
-  display: initial;
 }
 
 body.monokai-syntax-monochrome-icons .nav-folder-title {
@@ -1610,8 +1680,21 @@ body.monokai-syntax-monochrome-icons .nav-file-title.is-active::before {
   --monokai-file-icon-color: var(--icon-color-active);
 }
 
+.workspace-ribbon,
+.workspace-ribbon.mod-left,
+.workspace-ribbon.mod-left.is-collapsed,
+.workspace-ribbon.mod-left .workspace-ribbon-collapse-btn,
+.workspace-ribbon.mod-left .side-dock-actions,
+.workspace-ribbon.mod-left .side-dock-settings,
+.side-dock-ribbon.mod-left {
+  background-color: var(--background-secondary);
+}
+
+.workspace-ribbon.mod-left.is-collapsed {
+  background-color: var(--ribbon-background-collapsed);
+}
+
 .workspace-ribbon {
-  background-color: var(--ribbon-background);
   border-inline-end: 1px solid var(--background-modifier-border);
 }
 
@@ -1645,6 +1728,48 @@ body.is-mobile .workspace-ribbon {
   border-color: var(--background-modifier-border);
 }
 
+.workspace-tabs.mod-left,
+.workspace-leaf.mod-left,
+.workspace-leaf-content.mod-left,
+.workspace-tab-header-container.mod-left,
+.workspace-tab-header-container-inner.mod-left,
+.workspace-tab-header-spacer.mod-left,
+.workspace-tab-container.mod-left,
+.workspace-tab-header.mod-left {
+  background-color: var(--background-secondary);
+}
+
+.workspace-split.mod-left-split .workspace-tab-header-container,
+.workspace-split.mod-left-split .workspace-tab-header-container-inner,
+.workspace-split.mod-left-split .workspace-tab-header-spacer,
+.workspace-split.mod-left-split .workspace-tab-container,
+.mod-left-split,
+.mod-left-split .workspace-tabs,
+.mod-left-split .workspace-leaf,
+.mod-left-split .workspace-leaf-content,
+.mod-left-split .workspace-tab-header-container,
+.mod-left-split .workspace-tab-header-container-inner,
+.mod-left-split .workspace-tab-header-spacer,
+.mod-left-split .workspace-tab-container,
+.workspace-sidedock.mod-left,
+.workspace-sidedock.mod-left .workspace-tabs,
+.workspace-sidedock.mod-left .workspace-leaf,
+.workspace-sidedock.mod-left .workspace-leaf-content,
+.workspace-sidedock.mod-left .workspace-tab-header-container,
+.workspace-sidedock.mod-left .workspace-tab-header-container-inner,
+.workspace-sidedock.mod-left .workspace-tab-header-spacer,
+.workspace-sidedock.mod-left .workspace-tab-container,
+.mod-left,
+.mod-left .workspace-tabs,
+.mod-left .workspace-leaf,
+.mod-left .workspace-leaf-content,
+.mod-left .workspace-tab-header-container,
+.mod-left .workspace-tab-header-container-inner,
+.mod-left .workspace-tab-header-spacer,
+.mod-left .workspace-tab-container {
+  background-color: var(--background-secondary);
+}
+
 .workspace-tab-header {
   color: var(--text-muted);
   background-color: transparent;
@@ -1660,13 +1785,41 @@ body.is-mobile .workspace-ribbon {
 .workspace-tab-header.is-active {
   color: var(--text-normal);
   background-color: var(--background-primary);
-  box-shadow: inset 0 -2px 0 var(--interactive-accent);
+  box-shadow: inset 0 -2px 0 var(--monokai-tab-active-border-color);
+}
+
+.workspace-split.mod-left-split .workspace-tab-header.is-active {
+  background-color: var(--background-secondary);
 }
 
 .workspace-tab-header-inner-title {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+body.theme-dark {
+  --monokai-settings-heading-color: var(--text-normal);
+  --monokai-settings-item-background: rgb(248 248 242 / 4%);
+  --monokai-settings-item-border: rgb(248 248 242 / 12%);
+  --monokai-settings-item-text: var(--text-normal);
+  --monokai-settings-item-description: var(--text-muted);
+  --monokai-settings-selected-background: rgb(102 217 239 / 12%);
+  --monokai-settings-control-background: rgb(39 32 28 / 96%);
+  --monokai-settings-control-border: rgb(248 248 242 / 18%);
+  --monokai-settings-control-text: var(--text-normal);
+}
+
+body.theme-light {
+  --monokai-settings-heading-color: var(--text-normal);
+  --monokai-settings-item-background: rgb(255 253 248 / 72%);
+  --monokai-settings-item-border: rgb(61 61 61 / 12%);
+  --monokai-settings-item-text: var(--text-normal);
+  --monokai-settings-item-description: var(--text-muted);
+  --monokai-settings-selected-background: rgb(20 116 138 / 9%);
+  --monokai-settings-control-background: rgb(255 253 248 / 94%);
+  --monokai-settings-control-border: rgb(61 61 61 / 20%);
+  --monokai-settings-control-text: var(--text-normal);
 }
 
 .modal,
@@ -1711,12 +1864,112 @@ body.is-mobile .workspace-ribbon {
 
 .suggestion-item.is-selected,
 .suggestion-item.mod-complex.is-selected {
-  color: var(--text-normal);
+  color: var(--monokai-selection-foreground, var(--text-normal));
   background-color: var(--nav-item-background-active);
 }
 
 .suggestion-highlight {
   color: var(--text-accent);
+}
+
+.modal.mod-settings .vertical-tab-header {
+  color: var(--text-muted);
+  background-color: var(--background-secondary);
+  border-color: var(--background-modifier-border);
+}
+.modal.mod-settings .vertical-tab-content-container {
+  color: var(--text-normal);
+  background-color: var(--background-primary);
+}
+.modal.mod-settings .vertical-tab-header-group-title,
+.modal.mod-settings .setting-item-heading,
+.modal.mod-settings .setting-item-name {
+  color: var(--monokai-settings-heading-color);
+}
+.modal.mod-settings .vertical-tab-nav-item {
+  color: var(--nav-item-color);
+  border-radius: var(--radius-s);
+}
+.modal.mod-settings .vertical-tab-nav-item:hover {
+  color: var(--nav-item-color-hover);
+  background-color: var(--nav-item-background-hover);
+}
+.modal.mod-settings .vertical-tab-nav-item.is-active {
+  color: var(--monokai-selection-foreground, var(--nav-item-color-active));
+  background-color: var(--nav-item-background-active);
+}
+.modal.mod-settings .setting-item {
+  color: var(--monokai-settings-item-text);
+  background-color: var(--monokai-settings-item-background);
+  border-color: var(--monokai-settings-item-border);
+}
+.modal.mod-settings .setting-item-description,
+.modal.mod-settings .setting-item-info {
+  color: var(--monokai-settings-item-description);
+}
+.modal.mod-settings .community-plugin,
+.modal.mod-settings .installed-plugins-container,
+.modal.mod-settings .modal-button-container,
+.modal.mod-settings .vertical-tab-content-container > div {
+  color: var(--monokai-settings-item-text);
+  background-color: var(--monokai-settings-item-background);
+  border-color: var(--monokai-settings-item-border);
+}
+.modal.mod-settings button,
+.modal.mod-settings select,
+.modal.mod-settings .dropdown,
+.modal.mod-settings input[type=text],
+.modal.mod-settings input[type=search] {
+  color: var(--monokai-settings-control-text);
+  background-color: var(--monokai-settings-control-background);
+  border-color: var(--monokai-settings-control-border);
+}
+.modal.mod-settings .setting-item-name .search-input-container,
+.modal.mod-settings .style-settings-container .search-input-container {
+  max-width: 23rem;
+}
+.modal.mod-settings .setting-item-name .search-input-container::before,
+.modal.mod-settings .style-settings-container .search-input-container::before {
+  inset-inline-start: 0.75rem;
+  color: var(--text-faint);
+}
+.modal.mod-settings .setting-item-name .search-input-container input,
+.modal.mod-settings .style-settings-container .search-input-container input[type=search] {
+  min-height: 2.25rem;
+  padding-inline: 2.15rem 0.85rem;
+}
+
+.style-settings-container {
+  color: var(--text-normal);
+}
+.style-settings-container .setting-item {
+  color: var(--text-normal);
+  background-color: var(--monokai-settings-item-background);
+  border: 1px solid var(--monokai-settings-item-border);
+  border-radius: var(--radius-m);
+  transition: background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+.style-settings-container .setting-item.is-selected,
+.style-settings-container .setting-item:hover {
+  background-color: var(--monokai-settings-selected-background);
+  border-color: var(--interactive-accent);
+}
+.style-settings-container .setting-item-name,
+.style-settings-container .setting-item-description {
+  color: var(--text-normal);
+}
+.style-settings-container select,
+.style-settings-container .dropdown {
+  color: var(--monokai-settings-control-text);
+  background-color: var(--monokai-settings-control-background);
+  border: 1px solid var(--monokai-settings-control-border);
+  border-radius: var(--radius-s);
+  box-shadow: none;
+}
+.style-settings-container select:focus,
+.style-settings-container .dropdown:focus {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
 }
 
 .graph-view {
@@ -1914,7 +2167,7 @@ body.is-mobile .workspace-ribbon {
   --color-purple: var(--canvas-color-6);
 }
 
-body.monokai-syntax-filter-pro {
+body.theme-dark.monokai-syntax-filter-pro {
   --monokai-filter-name: "pro";
   --background-primary: #2d2a2e;
   --background-secondary: #221f22;
@@ -2018,6 +2271,7 @@ body.monokai-syntax-filter-pro {
   --canvas-color-5: #78dce8;
   --canvas-color-6: #ab9df2;
   --ribbon-background: #221f22;
+  --ribbon-background-collapsed: #221f22;
   --nav-item-background-hover: #403e41;
   --nav-item-background-active: #4a464d;
   --nav-item-color: #c1c0c0;
@@ -2025,562 +2279,7 @@ body.monokai-syntax-filter-pro {
   --nav-item-color-active: #fcfcfa;
 }
 
-body.monokai-syntax-filter-classic {
-  --monokai-filter-name: "classic";
-  --background-primary: #272822;
-  --background-secondary: #1e1f1c;
-  --background-secondary-alt: #1e1f1c;
-  --background-modifier-hover: #3e3d32;
-  --background-modifier-active-hover: #414339;
-  --background-modifier-border: #3e3d32;
-  --text-normal: #f8f8f2;
-  --text-muted: #c1c1bd;
-  --text-faint: #8f908a;
-  --text-accent: #f92672;
-  --text-accent-hover: #f92672;
-  --interactive-accent: #f92672;
-  --interactive-accent-hover: #f92672;
-  --link-color: #78dce8;
-  --link-color-hover: #78dce8;
-  --link-external-color: #78dce8;
-  --link-external-color-hover: #78dce8;
-  --h1-color: #f92672;
-  --h2-color: #fc9867;
-  --h3-color: #ffd866;
-  --h4-color: #a9dc76;
-  --h5-color: #78dce8;
-  --h6-color: #ab9df2;
-  --icon-color: #c1c1bd;
-  --icon-color-hover: #f8f8f2;
-  --icon-color-active: #78dce8;
-  --metadata-label-text-color: #fc9867;
-  --metadata-label-text-color-hover: #fc9867;
-  --monokai-default-accent: #f92672;
-  --monokai-default-link: #78dce8;
-  --monokai-default-success: #a9dc76;
-  --monokai-default-warning: rgba(230, 219, 116, 0.28);
-  --monokai-default-code-background: #1e1f1c;
-  --monokai-spectrum-red: #f92672;
-  --monokai-spectrum-orange: #fc9867;
-  --monokai-spectrum-yellow: #ffd866;
-  --monokai-spectrum-green: #a9dc76;
-  --monokai-spectrum-cyan: #78dce8;
-  --monokai-spectrum-purple: #ab9df2;
-  --code-normal: #f8f8f2;
-  --code-background: #1e1f1c;
-  --code-comment: #72736f;
-  --code-function: #a9dc76;
-  --code-important: #f92672;
-  --code-keyword: #f92672;
-  --code-operator: #fc9867;
-  --code-property: #78dce8;
-  --code-punctuation: #c1c1bd;
-  --code-string: #ffd866;
-  --code-tag: #f92672;
-  --code-value: #ab9df2;
-  --code-type: #ab9df2;
-  --code-class: #a9dc76;
-  --code-builtin: #78dce8;
-  --code-constant: #ab9df2;
-  --code-namespace: #c1c1bd;
-  --code-decorator: #fc9867;
-  --code-regex: #ffd866;
-  --code-meta: #8f908a;
-  --code-error: #f92672;
-  --monokai-callout-note-bg: rgb(from #78dce8 r g b / 12%);
-  --monokai-callout-note-border: #78dce8;
-  --monokai-callout-info-bg: rgb(from #78dce8 r g b / 12%);
-  --monokai-callout-info-border: #78dce8;
-  --monokai-callout-abstract-bg: rgb(from #ab9df2 r g b / 12%);
-  --monokai-callout-abstract-border: #ab9df2;
-  --monokai-callout-question-bg: rgb(from #ab9df2 r g b / 12%);
-  --monokai-callout-question-border: #ab9df2;
-  --monokai-callout-todo-bg: rgb(from #ffd866 r g b / 12%);
-  --monokai-callout-todo-border: #ffd866;
-  --monokai-callout-tip-bg: rgb(from #a9dc76 r g b / 12%);
-  --monokai-callout-tip-border: #a9dc76;
-  --monokai-callout-warning-bg: rgb(from #fc9867 r g b / 12%);
-  --monokai-callout-warning-border: #fc9867;
-  --monokai-callout-error-bg: rgb(from #f92672 r g b / 12%);
-  --monokai-callout-error-border: #f92672;
-  --monokai-callout-failure-bg: rgb(from #f92672 r g b / 12%);
-  --monokai-callout-failure-border: #f92672;
-  --monokai-callout-bug-bg: rgb(from #f92672 r g b / 12%);
-  --monokai-callout-bug-border: #f92672;
-  --monokai-callout-success-bg: rgb(from #a9dc76 r g b / 12%);
-  --monokai-callout-success-border: #a9dc76;
-  --monokai-callout-example-bg: rgb(from #fc9867 r g b / 12%);
-  --monokai-callout-example-border: #fc9867;
-  --monokai-callout-quote-bg: rgb(from #f8f8f2 r g b / 8%);
-  --monokai-callout-quote-border: #8f908a;
-  --monokai-graph-background: #1e1f1c;
-  --monokai-graph-panel: #414339;
-  --monokai-graph-line: rgb(from #78dce8 r g b / 42%);
-  --monokai-graph-node: #c1c1bd;
-  --monokai-graph-focused: #f92672;
-  --monokai-graph-node-tag: #ab9df2;
-  --monokai-graph-node-attachment: #a9dc76;
-  --monokai-graph-node-unresolved: #8f908a;
-  --monokai-graph-ring: rgb(from #78dce8 r g b / 28%);
-  --canvas-color-1: #f92672;
-  --canvas-color-2: #fc9867;
-  --canvas-color-3: #ffd866;
-  --canvas-color-4: #a9dc76;
-  --canvas-color-5: #78dce8;
-  --canvas-color-6: #ab9df2;
-  --ribbon-background: #1e1f1c;
-  --nav-item-background-hover: #3e3d32;
-  --nav-item-background-active: #414339;
-  --nav-item-color: #c1c1bd;
-  --nav-item-color-hover: #f8f8f2;
-  --nav-item-color-active: #f8f8f2;
-}
-
-body.monokai-syntax-filter-machine {
-  --monokai-filter-name: "machine";
-  --background-primary: #222421;
-  --background-secondary: #191b19;
-  --background-secondary-alt: #191b19;
-  --background-modifier-hover: #323930;
-  --background-modifier-active-hover: #3b4438;
-  --background-modifier-border: #394037;
-  --text-normal: #f2ffef;
-  --text-muted: #c2c9bd;
-  --text-faint: #8b9387;
-  --text-accent: #ff4f8b;
-  --text-accent-hover: #ff4f8b;
-  --interactive-accent: #ff4f8b;
-  --interactive-accent-hover: #ff4f8b;
-  --link-color: #6bf5ff;
-  --link-color-hover: #6bf5ff;
-  --link-external-color: #6bf5ff;
-  --link-external-color-hover: #6bf5ff;
-  --h1-color: #ff4f8b;
-  --h2-color: #ff9f43;
-  --h3-color: #ffe66d;
-  --h4-color: #a5ff6b;
-  --h5-color: #6bf5ff;
-  --h6-color: #b68cff;
-  --icon-color: #c2c9bd;
-  --icon-color-hover: #f2ffef;
-  --icon-color-active: #6bf5ff;
-  --metadata-label-text-color: #ff9f43;
-  --metadata-label-text-color-hover: #ff9f43;
-  --monokai-default-accent: #ff4f8b;
-  --monokai-default-link: #6bf5ff;
-  --monokai-default-success: #a5ff6b;
-  --monokai-default-warning: rgba(255, 230, 109, 0.22);
-  --monokai-default-code-background: #191b19;
-  --monokai-spectrum-red: #ff4f8b;
-  --monokai-spectrum-orange: #ff9f43;
-  --monokai-spectrum-yellow: #ffe66d;
-  --monokai-spectrum-green: #a5ff6b;
-  --monokai-spectrum-cyan: #6bf5ff;
-  --monokai-spectrum-purple: #b68cff;
-  --code-normal: #f2ffef;
-  --code-background: #191b19;
-  --code-comment: #747d70;
-  --code-function: #a5ff6b;
-  --code-important: #ff4f8b;
-  --code-keyword: #ff4f8b;
-  --code-operator: #ff9f43;
-  --code-property: #6bf5ff;
-  --code-punctuation: #c2c9bd;
-  --code-string: #ffe66d;
-  --code-tag: #ff4f8b;
-  --code-value: #b68cff;
-  --code-type: #b68cff;
-  --code-class: #a5ff6b;
-  --code-builtin: #6bf5ff;
-  --code-constant: #b68cff;
-  --code-namespace: #c2c9bd;
-  --code-decorator: #ff9f43;
-  --code-regex: #ffe66d;
-  --code-meta: #8b9387;
-  --code-error: #ff4f8b;
-  --monokai-callout-note-bg: rgb(from #6bf5ff r g b / 12%);
-  --monokai-callout-note-border: #6bf5ff;
-  --monokai-callout-info-bg: rgb(from #6bf5ff r g b / 12%);
-  --monokai-callout-info-border: #6bf5ff;
-  --monokai-callout-abstract-bg: rgb(from #b68cff r g b / 12%);
-  --monokai-callout-abstract-border: #b68cff;
-  --monokai-callout-question-bg: rgb(from #b68cff r g b / 12%);
-  --monokai-callout-question-border: #b68cff;
-  --monokai-callout-todo-bg: rgb(from #ffe66d r g b / 12%);
-  --monokai-callout-todo-border: #ffe66d;
-  --monokai-callout-tip-bg: rgb(from #a5ff6b r g b / 12%);
-  --monokai-callout-tip-border: #a5ff6b;
-  --monokai-callout-warning-bg: rgb(from #ff9f43 r g b / 12%);
-  --monokai-callout-warning-border: #ff9f43;
-  --monokai-callout-error-bg: rgb(from #ff4f8b r g b / 12%);
-  --monokai-callout-error-border: #ff4f8b;
-  --monokai-callout-failure-bg: rgb(from #ff4f8b r g b / 12%);
-  --monokai-callout-failure-border: #ff4f8b;
-  --monokai-callout-bug-bg: rgb(from #ff4f8b r g b / 12%);
-  --monokai-callout-bug-border: #ff4f8b;
-  --monokai-callout-success-bg: rgb(from #a5ff6b r g b / 12%);
-  --monokai-callout-success-border: #a5ff6b;
-  --monokai-callout-example-bg: rgb(from #ff9f43 r g b / 12%);
-  --monokai-callout-example-border: #ff9f43;
-  --monokai-callout-quote-bg: rgb(from #f2ffef r g b / 8%);
-  --monokai-callout-quote-border: #8b9387;
-  --monokai-graph-background: #191b19;
-  --monokai-graph-panel: #3b4438;
-  --monokai-graph-line: rgb(from #6bf5ff r g b / 42%);
-  --monokai-graph-node: #c2c9bd;
-  --monokai-graph-focused: #ff4f8b;
-  --monokai-graph-node-tag: #b68cff;
-  --monokai-graph-node-attachment: #a5ff6b;
-  --monokai-graph-node-unresolved: #8b9387;
-  --monokai-graph-ring: rgb(from #6bf5ff r g b / 28%);
-  --canvas-color-1: #ff4f8b;
-  --canvas-color-2: #ff9f43;
-  --canvas-color-3: #ffe66d;
-  --canvas-color-4: #a5ff6b;
-  --canvas-color-5: #6bf5ff;
-  --canvas-color-6: #b68cff;
-  --ribbon-background: #191b19;
-  --nav-item-background-hover: #323930;
-  --nav-item-background-active: #3b4438;
-  --nav-item-color: #c2c9bd;
-  --nav-item-color-hover: #f2ffef;
-  --nav-item-color-active: #f2ffef;
-}
-
-body.monokai-syntax-filter-octagon {
-  --monokai-filter-name: "octagon";
-  --background-primary: #28252f;
-  --background-secondary: #1f1d26;
-  --background-secondary-alt: #1f1d26;
-  --background-modifier-hover: #3a3444;
-  --background-modifier-active-hover: #463f52;
-  --background-modifier-border: #443d50;
-  --text-normal: #fff9fb;
-  --text-muted: #cbc3d4;
-  --text-faint: #978da3;
-  --text-accent: #ff6188;
-  --text-accent-hover: #ff6188;
-  --interactive-accent: #ff6188;
-  --interactive-accent-hover: #ff6188;
-  --link-color: #78dce8;
-  --link-color-hover: #78dce8;
-  --link-external-color: #78dce8;
-  --link-external-color-hover: #78dce8;
-  --h1-color: #ff6188;
-  --h2-color: #fc9867;
-  --h3-color: #ffd866;
-  --h4-color: #a9dc76;
-  --h5-color: #78dce8;
-  --h6-color: #ab9df2;
-  --icon-color: #cbc3d4;
-  --icon-color-hover: #fff9fb;
-  --icon-color-active: #78dce8;
-  --metadata-label-text-color: #fc9867;
-  --metadata-label-text-color-hover: #fc9867;
-  --monokai-default-accent: #ff6188;
-  --monokai-default-link: #78dce8;
-  --monokai-default-success: #a9dc76;
-  --monokai-default-warning: rgba(255, 216, 102, 0.22);
-  --monokai-default-code-background: #1f1d26;
-  --monokai-spectrum-red: #ff6188;
-  --monokai-spectrum-orange: #fc9867;
-  --monokai-spectrum-yellow: #ffd866;
-  --monokai-spectrum-green: #a9dc76;
-  --monokai-spectrum-cyan: #78dce8;
-  --monokai-spectrum-purple: #ab9df2;
-  --code-normal: #fff9fb;
-  --code-background: #1f1d26;
-  --code-comment: #77707f;
-  --code-function: #a9dc76;
-  --code-important: #ff6188;
-  --code-keyword: #ff6188;
-  --code-operator: #fc9867;
-  --code-property: #78dce8;
-  --code-punctuation: #cbc3d4;
-  --code-string: #ffd866;
-  --code-tag: #ff6188;
-  --code-value: #ab9df2;
-  --code-type: #ab9df2;
-  --code-class: #a9dc76;
-  --code-builtin: #78dce8;
-  --code-constant: #ab9df2;
-  --code-namespace: #cbc3d4;
-  --code-decorator: #fc9867;
-  --code-regex: #ffd866;
-  --code-meta: #978da3;
-  --code-error: #ff6188;
-  --monokai-callout-note-bg: rgb(from #78dce8 r g b / 12%);
-  --monokai-callout-note-border: #78dce8;
-  --monokai-callout-info-bg: rgb(from #78dce8 r g b / 12%);
-  --monokai-callout-info-border: #78dce8;
-  --monokai-callout-abstract-bg: rgb(from #ab9df2 r g b / 12%);
-  --monokai-callout-abstract-border: #ab9df2;
-  --monokai-callout-question-bg: rgb(from #ab9df2 r g b / 12%);
-  --monokai-callout-question-border: #ab9df2;
-  --monokai-callout-todo-bg: rgb(from #ffd866 r g b / 12%);
-  --monokai-callout-todo-border: #ffd866;
-  --monokai-callout-tip-bg: rgb(from #a9dc76 r g b / 12%);
-  --monokai-callout-tip-border: #a9dc76;
-  --monokai-callout-warning-bg: rgb(from #fc9867 r g b / 12%);
-  --monokai-callout-warning-border: #fc9867;
-  --monokai-callout-error-bg: rgb(from #ff6188 r g b / 12%);
-  --monokai-callout-error-border: #ff6188;
-  --monokai-callout-failure-bg: rgb(from #ff6188 r g b / 12%);
-  --monokai-callout-failure-border: #ff6188;
-  --monokai-callout-bug-bg: rgb(from #ff6188 r g b / 12%);
-  --monokai-callout-bug-border: #ff6188;
-  --monokai-callout-success-bg: rgb(from #a9dc76 r g b / 12%);
-  --monokai-callout-success-border: #a9dc76;
-  --monokai-callout-example-bg: rgb(from #fc9867 r g b / 12%);
-  --monokai-callout-example-border: #fc9867;
-  --monokai-callout-quote-bg: rgb(from #fff9fb r g b / 8%);
-  --monokai-callout-quote-border: #978da3;
-  --monokai-graph-background: #1f1d26;
-  --monokai-graph-panel: #463f52;
-  --monokai-graph-line: rgb(from #78dce8 r g b / 42%);
-  --monokai-graph-node: #cbc3d4;
-  --monokai-graph-focused: #ff6188;
-  --monokai-graph-node-tag: #ab9df2;
-  --monokai-graph-node-attachment: #a9dc76;
-  --monokai-graph-node-unresolved: #978da3;
-  --monokai-graph-ring: rgb(from #78dce8 r g b / 28%);
-  --canvas-color-1: #ff6188;
-  --canvas-color-2: #fc9867;
-  --canvas-color-3: #ffd866;
-  --canvas-color-4: #a9dc76;
-  --canvas-color-5: #78dce8;
-  --canvas-color-6: #ab9df2;
-  --ribbon-background: #1f1d26;
-  --nav-item-background-hover: #3a3444;
-  --nav-item-background-active: #463f52;
-  --nav-item-color: #cbc3d4;
-  --nav-item-color-hover: #fff9fb;
-  --nav-item-color-active: #fff9fb;
-}
-
-body.monokai-syntax-filter-ristretto {
-  --monokai-filter-name: "ristretto";
-  --background-primary: #2b241f;
-  --background-secondary: #211b18;
-  --background-secondary-alt: #211b18;
-  --background-modifier-hover: #3c322b;
-  --background-modifier-active-hover: #483c33;
-  --background-modifier-border: #463b32;
-  --text-normal: #fff8ef;
-  --text-muted: #cfc1b2;
-  --text-faint: #998b7d;
-  --text-accent: #ff6188;
-  --text-accent-hover: #ff6188;
-  --interactive-accent: #ff6188;
-  --interactive-accent-hover: #ff6188;
-  --link-color: #78dce8;
-  --link-color-hover: #78dce8;
-  --link-external-color: #78dce8;
-  --link-external-color-hover: #78dce8;
-  --h1-color: #ff6188;
-  --h2-color: #fc9867;
-  --h3-color: #ffd866;
-  --h4-color: #a9dc76;
-  --h5-color: #78dce8;
-  --h6-color: #ab9df2;
-  --icon-color: #cfc1b2;
-  --icon-color-hover: #fff8ef;
-  --icon-color-active: #78dce8;
-  --metadata-label-text-color: #fc9867;
-  --metadata-label-text-color-hover: #fc9867;
-  --monokai-default-accent: #ff6188;
-  --monokai-default-link: #78dce8;
-  --monokai-default-success: #a9dc76;
-  --monokai-default-warning: rgba(255, 216, 102, 0.22);
-  --monokai-default-code-background: #211b18;
-  --monokai-spectrum-red: #ff6188;
-  --monokai-spectrum-orange: #fc9867;
-  --monokai-spectrum-yellow: #ffd866;
-  --monokai-spectrum-green: #a9dc76;
-  --monokai-spectrum-cyan: #78dce8;
-  --monokai-spectrum-purple: #ab9df2;
-  --code-normal: #fff8ef;
-  --code-background: #211b18;
-  --code-comment: #7b7066;
-  --code-function: #a9dc76;
-  --code-important: #ff6188;
-  --code-keyword: #ff6188;
-  --code-operator: #fc9867;
-  --code-property: #78dce8;
-  --code-punctuation: #cfc1b2;
-  --code-string: #ffd866;
-  --code-tag: #ff6188;
-  --code-value: #ab9df2;
-  --code-type: #ab9df2;
-  --code-class: #a9dc76;
-  --code-builtin: #78dce8;
-  --code-constant: #ab9df2;
-  --code-namespace: #cfc1b2;
-  --code-decorator: #fc9867;
-  --code-regex: #ffd866;
-  --code-meta: #998b7d;
-  --code-error: #ff6188;
-  --monokai-callout-note-bg: rgb(from #78dce8 r g b / 12%);
-  --monokai-callout-note-border: #78dce8;
-  --monokai-callout-info-bg: rgb(from #78dce8 r g b / 12%);
-  --monokai-callout-info-border: #78dce8;
-  --monokai-callout-abstract-bg: rgb(from #ab9df2 r g b / 12%);
-  --monokai-callout-abstract-border: #ab9df2;
-  --monokai-callout-question-bg: rgb(from #ab9df2 r g b / 12%);
-  --monokai-callout-question-border: #ab9df2;
-  --monokai-callout-todo-bg: rgb(from #ffd866 r g b / 12%);
-  --monokai-callout-todo-border: #ffd866;
-  --monokai-callout-tip-bg: rgb(from #a9dc76 r g b / 12%);
-  --monokai-callout-tip-border: #a9dc76;
-  --monokai-callout-warning-bg: rgb(from #fc9867 r g b / 12%);
-  --monokai-callout-warning-border: #fc9867;
-  --monokai-callout-error-bg: rgb(from #ff6188 r g b / 12%);
-  --monokai-callout-error-border: #ff6188;
-  --monokai-callout-failure-bg: rgb(from #ff6188 r g b / 12%);
-  --monokai-callout-failure-border: #ff6188;
-  --monokai-callout-bug-bg: rgb(from #ff6188 r g b / 12%);
-  --monokai-callout-bug-border: #ff6188;
-  --monokai-callout-success-bg: rgb(from #a9dc76 r g b / 12%);
-  --monokai-callout-success-border: #a9dc76;
-  --monokai-callout-example-bg: rgb(from #fc9867 r g b / 12%);
-  --monokai-callout-example-border: #fc9867;
-  --monokai-callout-quote-bg: rgb(from #fff8ef r g b / 8%);
-  --monokai-callout-quote-border: #998b7d;
-  --monokai-graph-background: #211b18;
-  --monokai-graph-panel: #483c33;
-  --monokai-graph-line: rgb(from #78dce8 r g b / 42%);
-  --monokai-graph-node: #cfc1b2;
-  --monokai-graph-focused: #ff6188;
-  --monokai-graph-node-tag: #ab9df2;
-  --monokai-graph-node-attachment: #a9dc76;
-  --monokai-graph-node-unresolved: #998b7d;
-  --monokai-graph-ring: rgb(from #78dce8 r g b / 28%);
-  --canvas-color-1: #ff6188;
-  --canvas-color-2: #fc9867;
-  --canvas-color-3: #ffd866;
-  --canvas-color-4: #a9dc76;
-  --canvas-color-5: #78dce8;
-  --canvas-color-6: #ab9df2;
-  --ribbon-background: #211b18;
-  --nav-item-background-hover: #3c322b;
-  --nav-item-background-active: #483c33;
-  --nav-item-color: #cfc1b2;
-  --nav-item-color-hover: #fff8ef;
-  --nav-item-color-active: #fff8ef;
-}
-
-body.monokai-syntax-filter-spectrum {
-  --monokai-filter-name: "spectrum";
-  --background-primary: #262933;
-  --background-secondary: #1c1f28;
-  --background-secondary-alt: #1c1f28;
-  --background-modifier-hover: #353b49;
-  --background-modifier-active-hover: #42495a;
-  --background-modifier-border: #3e4454;
-  --text-normal: #f7f8ff;
-  --text-muted: #c3c8d8;
-  --text-faint: #8d94a8;
-  --text-accent: #ff6188;
-  --text-accent-hover: #ff6188;
-  --interactive-accent: #ff6188;
-  --interactive-accent-hover: #ff6188;
-  --link-color: #78dce8;
-  --link-color-hover: #78dce8;
-  --link-external-color: #78dce8;
-  --link-external-color-hover: #78dce8;
-  --h1-color: #ff6188;
-  --h2-color: #fc9867;
-  --h3-color: #ffd866;
-  --h4-color: #a9dc76;
-  --h5-color: #78dce8;
-  --h6-color: #ab9df2;
-  --icon-color: #c3c8d8;
-  --icon-color-hover: #f7f8ff;
-  --icon-color-active: #78dce8;
-  --metadata-label-text-color: #fc9867;
-  --metadata-label-text-color-hover: #fc9867;
-  --monokai-default-accent: #ff6188;
-  --monokai-default-link: #78dce8;
-  --monokai-default-success: #a9dc76;
-  --monokai-default-warning: rgba(255, 216, 102, 0.22);
-  --monokai-default-code-background: #1c1f28;
-  --monokai-spectrum-red: #ff6188;
-  --monokai-spectrum-orange: #fc9867;
-  --monokai-spectrum-yellow: #ffd866;
-  --monokai-spectrum-green: #a9dc76;
-  --monokai-spectrum-cyan: #78dce8;
-  --monokai-spectrum-purple: #ab9df2;
-  --code-normal: #f7f8ff;
-  --code-background: #1c1f28;
-  --code-comment: #71788c;
-  --code-function: #a9dc76;
-  --code-important: #ff6188;
-  --code-keyword: #ff6188;
-  --code-operator: #fc9867;
-  --code-property: #78dce8;
-  --code-punctuation: #c3c8d8;
-  --code-string: #ffd866;
-  --code-tag: #ff6188;
-  --code-value: #ab9df2;
-  --code-type: #ab9df2;
-  --code-class: #a9dc76;
-  --code-builtin: #78dce8;
-  --code-constant: #ab9df2;
-  --code-namespace: #c3c8d8;
-  --code-decorator: #fc9867;
-  --code-regex: #ffd866;
-  --code-meta: #8d94a8;
-  --code-error: #ff6188;
-  --monokai-callout-note-bg: rgb(from #78dce8 r g b / 12%);
-  --monokai-callout-note-border: #78dce8;
-  --monokai-callout-info-bg: rgb(from #78dce8 r g b / 12%);
-  --monokai-callout-info-border: #78dce8;
-  --monokai-callout-abstract-bg: rgb(from #ab9df2 r g b / 12%);
-  --monokai-callout-abstract-border: #ab9df2;
-  --monokai-callout-question-bg: rgb(from #ab9df2 r g b / 12%);
-  --monokai-callout-question-border: #ab9df2;
-  --monokai-callout-todo-bg: rgb(from #ffd866 r g b / 12%);
-  --monokai-callout-todo-border: #ffd866;
-  --monokai-callout-tip-bg: rgb(from #a9dc76 r g b / 12%);
-  --monokai-callout-tip-border: #a9dc76;
-  --monokai-callout-warning-bg: rgb(from #fc9867 r g b / 12%);
-  --monokai-callout-warning-border: #fc9867;
-  --monokai-callout-error-bg: rgb(from #ff6188 r g b / 12%);
-  --monokai-callout-error-border: #ff6188;
-  --monokai-callout-failure-bg: rgb(from #ff6188 r g b / 12%);
-  --monokai-callout-failure-border: #ff6188;
-  --monokai-callout-bug-bg: rgb(from #ff6188 r g b / 12%);
-  --monokai-callout-bug-border: #ff6188;
-  --monokai-callout-success-bg: rgb(from #a9dc76 r g b / 12%);
-  --monokai-callout-success-border: #a9dc76;
-  --monokai-callout-example-bg: rgb(from #fc9867 r g b / 12%);
-  --monokai-callout-example-border: #fc9867;
-  --monokai-callout-quote-bg: rgb(from #f7f8ff r g b / 8%);
-  --monokai-callout-quote-border: #8d94a8;
-  --monokai-graph-background: #1c1f28;
-  --monokai-graph-panel: #42495a;
-  --monokai-graph-line: rgb(from #78dce8 r g b / 42%);
-  --monokai-graph-node: #c3c8d8;
-  --monokai-graph-focused: #ff6188;
-  --monokai-graph-node-tag: #ab9df2;
-  --monokai-graph-node-attachment: #a9dc76;
-  --monokai-graph-node-unresolved: #8d94a8;
-  --monokai-graph-ring: rgb(from #78dce8 r g b / 28%);
-  --canvas-color-1: #ff6188;
-  --canvas-color-2: #fc9867;
-  --canvas-color-3: #ffd866;
-  --canvas-color-4: #a9dc76;
-  --canvas-color-5: #78dce8;
-  --canvas-color-6: #ab9df2;
-  --ribbon-background: #1c1f28;
-  --nav-item-background-hover: #353b49;
-  --nav-item-background-active: #42495a;
-  --nav-item-color: #c3c8d8;
-  --nav-item-color-hover: #f7f8ff;
-  --nav-item-color-active: #f7f8ff;
-}
-
-body.monokai-syntax-filter-light {
+body.theme-light.monokai-syntax-filter-light {
   --monokai-filter-name: "light";
   --background-primary: #fdf9f3;
   --background-secondary: #f5f0e6;
@@ -2684,122 +2383,12 @@ body.monokai-syntax-filter-light {
   --canvas-color-5: #14748a;
   --canvas-color-6: #7058be;
   --ribbon-background: #f5f0e6;
+  --ribbon-background-collapsed: #f5f0e6;
   --nav-item-background-hover: #eee6d8;
   --nav-item-background-active: #e5dccd;
   --nav-item-color: #666666;
   --nav-item-color-hover: #3d3d3d;
   --nav-item-color-active: #3d3d3d;
-}
-
-body.monokai-syntax-filter-sun {
-  --monokai-filter-name: "sun";
-  --background-primary: #fbf3db;
-  --background-secondary: #f4e8c4;
-  --background-secondary-alt: #f4e8c4;
-  --background-modifier-hover: #ecdfbc;
-  --background-modifier-active-hover: #e2d3ad;
-  --background-modifier-border: #d7c89e;
-  --text-normal: #3a3426;
-  --text-muted: #675f4a;
-  --text-faint: #847a60;
-  --text-accent: #c83f67;
-  --text-accent-hover: #c83f67;
-  --interactive-accent: #c83f67;
-  --interactive-accent-hover: #c83f67;
-  --link-color: #1f7184;
-  --link-color-hover: #1f7184;
-  --link-external-color: #1f7184;
-  --link-external-color-hover: #1f7184;
-  --h1-color: #c83f67;
-  --h2-color: #c85f2b;
-  --h3-color: #8a6a00;
-  --h4-color: #2f7d57;
-  --h5-color: #1f7184;
-  --h6-color: #6251a8;
-  --icon-color: #675f4a;
-  --icon-color-hover: #3a3426;
-  --icon-color-active: #1f7184;
-  --metadata-label-text-color: #c85f2b;
-  --metadata-label-text-color-hover: #c85f2b;
-  --monokai-default-accent: #c83f67;
-  --monokai-default-link: #1f7184;
-  --monokai-default-success: #2f7d57;
-  --monokai-default-warning: rgba(199, 151, 0, 0.24);
-  --monokai-default-code-background: #f4e8c4;
-  --monokai-spectrum-red: #c83f67;
-  --monokai-spectrum-orange: #c85f2b;
-  --monokai-spectrum-yellow: #8a6a00;
-  --monokai-spectrum-green: #2f7d57;
-  --monokai-spectrum-cyan: #1f7184;
-  --monokai-spectrum-purple: #6251a8;
-  --code-normal: #3a3426;
-  --code-background: #f4e8c4;
-  --code-comment: #847a60;
-  --code-function: #2f7d57;
-  --code-important: #c83f67;
-  --code-keyword: #c83f67;
-  --code-operator: #c85f2b;
-  --code-property: #1f7184;
-  --code-punctuation: #675f4a;
-  --code-string: #8a6a00;
-  --code-tag: #c83f67;
-  --code-value: #6251a8;
-  --code-type: #6251a8;
-  --code-class: #2f7d57;
-  --code-builtin: #1f7184;
-  --code-constant: #6251a8;
-  --code-namespace: #675f4a;
-  --code-decorator: #c85f2b;
-  --code-regex: #8a6a00;
-  --code-meta: #847a60;
-  --code-error: #c83f67;
-  --monokai-callout-note-bg: rgb(from #1f7184 r g b / 12%);
-  --monokai-callout-note-border: #1f7184;
-  --monokai-callout-info-bg: rgb(from #1f7184 r g b / 12%);
-  --monokai-callout-info-border: #1f7184;
-  --monokai-callout-abstract-bg: rgb(from #6251a8 r g b / 12%);
-  --monokai-callout-abstract-border: #6251a8;
-  --monokai-callout-question-bg: rgb(from #6251a8 r g b / 12%);
-  --monokai-callout-question-border: #6251a8;
-  --monokai-callout-todo-bg: rgb(from #8a6a00 r g b / 12%);
-  --monokai-callout-todo-border: #8a6a00;
-  --monokai-callout-tip-bg: rgb(from #2f7d57 r g b / 12%);
-  --monokai-callout-tip-border: #2f7d57;
-  --monokai-callout-warning-bg: rgb(from #c85f2b r g b / 12%);
-  --monokai-callout-warning-border: #c85f2b;
-  --monokai-callout-error-bg: rgb(from #c83f67 r g b / 12%);
-  --monokai-callout-error-border: #c83f67;
-  --monokai-callout-failure-bg: rgb(from #c83f67 r g b / 12%);
-  --monokai-callout-failure-border: #c83f67;
-  --monokai-callout-bug-bg: rgb(from #c83f67 r g b / 12%);
-  --monokai-callout-bug-border: #c83f67;
-  --monokai-callout-success-bg: rgb(from #2f7d57 r g b / 12%);
-  --monokai-callout-success-border: #2f7d57;
-  --monokai-callout-example-bg: rgb(from #c85f2b r g b / 12%);
-  --monokai-callout-example-border: #c85f2b;
-  --monokai-callout-quote-bg: rgb(from #3a3426 r g b / 8%);
-  --monokai-callout-quote-border: #847a60;
-  --monokai-graph-background: #f4e8c4;
-  --monokai-graph-panel: #e2d3ad;
-  --monokai-graph-line: rgb(from #1f7184 r g b / 42%);
-  --monokai-graph-node: #675f4a;
-  --monokai-graph-focused: #c83f67;
-  --monokai-graph-node-tag: #6251a8;
-  --monokai-graph-node-attachment: #2f7d57;
-  --monokai-graph-node-unresolved: #847a60;
-  --monokai-graph-ring: rgb(from #1f7184 r g b / 28%);
-  --canvas-color-1: #c83f67;
-  --canvas-color-2: #c85f2b;
-  --canvas-color-3: #8a6a00;
-  --canvas-color-4: #2f7d57;
-  --canvas-color-5: #1f7184;
-  --canvas-color-6: #6251a8;
-  --ribbon-background: #f4e8c4;
-  --nav-item-background-hover: #ecdfbc;
-  --nav-item-background-active: #e2d3ad;
-  --nav-item-color: #675f4a;
-  --nav-item-color-hover: #3a3426;
-  --nav-item-color-active: #3a3426;
 }
 
 body.monokai-syntax-compact {
@@ -2809,6 +2398,8 @@ body.monokai-syntax-compact {
   --input-height: 28px;
   --callout-padding: 0.9rem;
   --callout-content-padding: var(--spacing-3) 0 0 0;
+  --monokai-codeblock-padding-block: 0.75rem;
+  --monokai-codeblock-padding-inline: 0.75rem;
 }
 body.monokai-syntax-compact .nav-files-container {
   font-size: var(--monokai-nav-font-size);
@@ -2831,9 +2422,6 @@ body.monokai-syntax-compact .nav-folder-title-content {
 body.monokai-syntax-compact .side-dock-ribbon-action {
   height: var(--ribbon-item-size);
   padding: 4px;
-}
-body.monokai-syntax-compact .markdown-rendered pre {
-  padding: 0.75rem;
 }
 body.monokai-syntax-compact .markdown-rendered th,
 body.monokai-syntax-compact .markdown-rendered td {
@@ -2874,6 +2462,29 @@ body.monokai-syntax-heading-accents .markdown-source-view.mod-cm6 .HyperMD-heade
 }
 body.monokai-syntax-heading-accents {
   /* stylelint-enable selector-class-pattern */
+}
+
+body.monokai-syntax-accent-amber-vscode {
+  --monokai-accent-color: #ffa000;
+  --monokai-link-color: #ffa000;
+  --monokai-warning-color: rgb(255 160 0 / 24%);
+  --monokai-scrollbar-active-background: rgb(255 160 0 / 31%);
+  --monokai-selection-foreground: #ffa000;
+  --monokai-tab-active-border-color: #ffa000;
+  --monokai-settings-heading-color: #ffa000;
+  --icon-color-active: #ffa000;
+  --nav-item-color-active: #ffa000;
+  --metadata-label-text-color-hover: #ffa000;
+}
+
+body.theme-dark.monokai-syntax-accent-amber-vscode {
+  --ribbon-background: #221f22;
+  --ribbon-background-collapsed: #221f22;
+}
+
+body.theme-light.monokai-syntax-accent-amber-vscode {
+  --ribbon-background: var(--background-secondary);
+  --ribbon-background-collapsed: var(--background-secondary);
 }
 
 body {
@@ -3480,32 +3091,17 @@ settings:
     title: 调色板滤镜
     type: class-select
     allowEmpty: false
-    default: monokai-syntax-filter-pro
+    default: monokai-syntax-filter-auto
     options:
+      -
+        label: 跟随系统
+        value: monokai-syntax-filter-auto
       -
         label: Pro
         value: monokai-syntax-filter-pro
       -
-        label: Classic
-        value: monokai-syntax-filter-classic
-      -
-        label: Machine
-        value: monokai-syntax-filter-machine
-      -
-        label: Octagon
-        value: monokai-syntax-filter-octagon
-      -
-        label: Ristretto
-        value: monokai-syntax-filter-ristretto
-      -
-        label: Spectrum
-        value: monokai-syntax-filter-spectrum
-      -
         label: Light
         value: monokai-syntax-filter-light
-      -
-        label: Sun
-        value: monokai-syntax-filter-sun
 */
 
 /*
@@ -3535,6 +3131,11 @@ settings:
   -
     id: monokai-syntax-hide-file-tree-icons
     title: 关闭文档树图标
+    type: class-toggle
+    default: false
+  -
+    id: monokai-syntax-hide-sync-status-button
+    title: 隐藏右下角同步按钮
     type: class-toggle
     default: false
 */
@@ -3619,6 +3220,19 @@ settings:
 name: Monokai Syntax 强调色
 id: monokai-syntax-accents
 settings:
+  -
+    id: monokai-syntax-accent-preset
+    title: 强调色预设
+    type: class-select
+    allowEmpty: false
+    default: monokai-syntax-accent-default
+    options:
+      -
+        label: 默认 Pro / Light
+        value: monokai-syntax-accent-default
+      -
+        label: Amber / VS Code
+        value: monokai-syntax-accent-amber-vscode
   -
     id: monokai-accent-color
     title: 强调色

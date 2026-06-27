@@ -18,6 +18,7 @@
   --monokai-heading-weight: 600;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
+  --monokai-inline-code-font-weight: 500;
   --monokai-inline-code-padding: 0.1em 0.3em;
   --monokai-formatting-marker-color: var(--text-faint);
   --monokai-strikethrough-color: var(--text-muted);
@@ -49,7 +50,8 @@
   --monokai-list-item-spacing: 0.35rem;
   --monokai-nested-list-spacing: 0.25rem;
   --monokai-table-source-background: var(--background-secondary);
-  --monokai-table-source-font-family: var(--font-monospace-theme);
+  --monokai-code-font-family: var(--font-monospace);
+  --monokai-table-source-font-family: var(--monokai-code-font-family);
   --monokai-table-source-separator-color: var(--text-faint);
   --monokai-table-cell-padding: 0.55rem 0.7rem;
   --monokai-table-row-hover-background: var(--background-modifier-hover);
@@ -58,16 +60,22 @@
   --monokai-table-api-type-color: var(--code-type);
   --monokai-table-api-default-color: var(--code-value);
   --monokai-table-api-required-color: var(--text-accent);
+  --monokai-codeblock-background: var(--code-background);
   --monokai-codeblock-border-color: var(--background-modifier-border);
   --monokai-codeblock-radius: var(--radius-m);
   --monokai-codeblock-header-height: 1.75rem;
+  --monokai-codeblock-margin-block: #{$spacing-4};
   --monokai-codeblock-padding: #{$spacing-4};
+  --monokai-codeblock-padding-block: var(--monokai-codeblock-padding);
   --monokai-codeblock-padding-inline: #{$spacing-4};
-  --monokai-codeblock-shadow: 0 10px 24px rgb(0 0 0 / 16%);
+  --monokai-codeblock-shadow: none;
   --monokai-codeblock-language-color: var(--text-faint);
   --monokai-codeblock-line-height: var(--monokai-code-line-height, 1.55);
+  --monokai-codeblock-active-line-background: var(--background-modifier-hover);
+  --monokai-codeblock-active-line-border: var(--interactive-accent);
+  --monokai-codeblock-selection-background: rgb(120 220 232 / 32%);
   --monokai-editor-active-line-background: rgb(248 248 242 / 5%);
-  --monokai-editor-selection-background: rgb(102 217 239 / 22%);
+  --monokai-editor-selection-background: rgb(102 217 239 / 30%);
   --monokai-editor-cursor-color: var(--interactive-accent);
   --monokai-editor-gutter-background: var(--background-secondary);
   --monokai-editor-gutter-color: var(--text-faint);
@@ -86,36 +94,41 @@
 
 body.theme-dark {
   --monokai-heading-weight: 600;
-  --blockquote-border-color: #{$color-dark-blockquote-border};
-  --monokai-blockquote-border: #{$color-dark-blockquote-border};
-  --monokai-callout-note-bg: rgb(102 217 239 / 12%);
-  --monokai-callout-note-border: #66d9ef;
-  --monokai-callout-abstract-bg: rgb(174 129 255 / 12%);
-  --monokai-callout-abstract-border: #ae81ff;
-  --monokai-callout-info-bg: rgb(102 217 239 / 12%);
-  --monokai-callout-info-border: #66d9ef;
-  --monokai-callout-todo-bg: rgb(230 219 116 / 12%);
-  --monokai-callout-todo-border: #e6db74;
-  --monokai-callout-tip-bg: rgb(166 226 46 / 12%);
-  --monokai-callout-tip-border: #a6e22e;
-  --monokai-callout-question-bg: rgb(174 129 255 / 12%);
-  --monokai-callout-question-border: #ae81ff;
-  --monokai-callout-warning-bg: rgb(253 151 31 / 12%);
-  --monokai-callout-warning-border: #fd971f;
-  --monokai-callout-error-bg: rgb(249 38 114 / 12%);
-  --monokai-callout-error-border: #f92672;
-  --monokai-callout-failure-bg: rgb(249 38 114 / 12%);
-  --monokai-callout-failure-border: #f92672;
-  --monokai-callout-bug-bg: rgb(249 38 114 / 12%);
-  --monokai-callout-bug-border: #f92672;
-  --monokai-callout-success-bg: rgb(166 226 46 / 12%);
-  --monokai-callout-success-border: #a6e22e;
-  --monokai-callout-example-bg: rgb(253 151 31 / 12%);
-  --monokai-callout-example-border: #fd971f;
-  --monokai-callout-quote-bg: rgb(248 248 242 / 8%);
-  --monokai-callout-quote-border: #8f908a;
-  --monokai-inline-code-color: #a6e22e;
+  --blockquote-border-color: #{$color-pro-yellow};
+  --monokai-blockquote-border: #{$color-pro-yellow};
+  --monokai-callout-note-bg: rgb(120 220 232 / 12%);
+  --monokai-callout-note-border: #{$color-pro-cyan};
+  --monokai-callout-abstract-bg: rgb(171 157 242 / 12%);
+  --monokai-callout-abstract-border: #{$color-pro-purple};
+  --monokai-callout-info-bg: rgb(120 220 232 / 12%);
+  --monokai-callout-info-border: #{$color-pro-cyan};
+  --monokai-callout-todo-bg: rgb(255 216 102 / 12%);
+  --monokai-callout-todo-border: #{$color-pro-yellow};
+  --monokai-callout-tip-bg: rgb(169 220 118 / 12%);
+  --monokai-callout-tip-border: #{$color-pro-green};
+  --monokai-callout-question-bg: rgb(171 157 242 / 12%);
+  --monokai-callout-question-border: #{$color-pro-purple};
+  --monokai-callout-warning-bg: rgb(252 152 103 / 12%);
+  --monokai-callout-warning-border: #{$color-pro-orange};
+  --monokai-callout-error-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-error-border: #{$color-pro-magenta};
+  --monokai-callout-failure-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-failure-border: #{$color-pro-magenta};
+  --monokai-callout-bug-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-bug-border: #{$color-pro-magenta};
+  --monokai-callout-success-bg: rgb(169 220 118 / 12%);
+  --monokai-callout-success-border: #{$color-pro-green};
+  --monokai-callout-example-bg: rgb(252 152 103 / 12%);
+  --monokai-callout-example-border: #{$color-pro-orange};
+  --monokai-callout-quote-bg: rgb(252 252 250 / 8%);
+  --monokai-callout-quote-border: #{$color-pro-text-faint};
+  --monokai-inline-code-color: #{$color-pro-green};
   --monokai-inline-code-background: var(--code-background);
+  --monokai-codeblock-background: #{$color-pro-background-secondary};
+  --monokai-codeblock-border-color: rgb(252 252 250 / 14%);
+  --monokai-codeblock-active-line-background: #{$color-pro-hover};
+  --monokai-codeblock-active-line-border: #{$color-pro-cyan};
+  --monokai-codeblock-selection-background: #344349;
   --monokai-table-border: rgb(248 248 242 / 18%);
   --monokai-table-header-background: rgb(248 248 242 / 6%);
   --monokai-table-row-alt-background: rgb(248 248 242 / 3%);
@@ -125,9 +138,9 @@ body.theme-dark {
   --monokai-task-question-color: var(--link-color);
   --monokai-modal-shadow: 0 18px 50px rgb(0 0 0 / 35%);
   --monokai-selection-ring: rgb(249 38 114 / 28%);
-  --monokai-codeblock-shadow: 0 10px 28px rgb(0 0 0 / 22%);
+  --monokai-codeblock-shadow: none;
   --monokai-editor-active-line-background: rgb(248 248 242 / 5%);
-  --monokai-editor-selection-background: rgb(102 217 239 / 22%);
+  --monokai-editor-selection-background: rgb(102 217 239 / 30%);
   --monokai-editor-bracket-match-background: rgb(166 226 46 / 18%);
 }
 
@@ -161,8 +174,14 @@ body.theme-light {
   --monokai-callout-example-border: #e16032;
   --monokai-callout-quote-bg: rgb(61 61 61 / 8%);
   --monokai-callout-quote-border: #6f6f6f;
-  --monokai-inline-code-color: #269d69;
-  --monokai-inline-code-background: var(--code-background);
+  --monokai-inline-code-color: #0b5262;
+  --monokai-inline-code-background: rgb(20 116 138 / 16%);
+  --monokai-inline-code-font-weight: 600;
+  --monokai-codeblock-background: #eee6d8;
+  --monokai-codeblock-border-color: #c6b9a6;
+  --monokai-codeblock-active-line-background: #e3d4bf;
+  --monokai-codeblock-active-line-border: #{$color-light-cyan};
+  --monokai-codeblock-selection-background: #c9e8ee;
   --monokai-table-border: rgb(61 61 61 / 18%);
   --monokai-table-header-background: rgb(61 61 61 / 6%);
   --monokai-table-row-alt-background: rgb(61 61 61 / 3%);
@@ -172,9 +191,9 @@ body.theme-light {
   --monokai-task-question-color: var(--link-color);
   --monokai-modal-shadow: 0 16px 36px rgb(61 61 61 / 16%);
   --monokai-selection-ring: rgb(200 63 103 / 22%);
-  --monokai-codeblock-shadow: 0 8px 20px rgb(61 61 61 / 10%);
+  --monokai-codeblock-shadow: none;
   --monokai-editor-active-line-background: rgb(61 61 61 / 5%);
-  --monokai-editor-selection-background: rgb(20 116 138 / 18%);
+  --monokai-editor-selection-background: rgb(20 116 138 / 26%);
   --monokai-editor-bracket-match-background: rgb(38 157 105 / 16%);
 }
 
@@ -376,18 +395,21 @@ body.theme-light {
     border: 0;
     border-radius: var(--radius-s);
     box-shadow: none;
+    font-family: var(--monokai-code-font-family);
+    font-weight: var(--monokai-inline-code-font-weight);
     padding: var(--monokai-inline-code-padding);
   }
 
   pre {
-    background-color: var(--code-background);
+    background-color: var(--monokai-codeblock-background);
     border: 1px solid var(--monokai-codeblock-border-color);
     border-radius: var(--monokai-codeblock-radius);
     box-shadow: var(--monokai-codeblock-shadow);
-    font-family: var(--font-monospace-theme);
+    font-family: var(--monokai-code-font-family);
     line-height: var(--monokai-codeblock-line-height);
+    margin-block: var(--monokai-codeblock-margin-block);
     overflow-x: auto;
-    padding: var(--monokai-codeblock-padding);
+    padding: var(--monokai-codeblock-padding-block) var(--monokai-codeblock-padding-inline);
     scrollbar-color: var(--text-faint) transparent;
     tab-size: 2;
 
@@ -396,6 +418,11 @@ body.theme-light {
       border: 0;
       box-shadow: none;
       padding: 0;
+    }
+
+    ::selection {
+      color: var(--code-normal);
+      background-color: var(--monokai-codeblock-selection-background);
     }
   }
 
@@ -554,10 +581,18 @@ body.theme-light {
   }
 
   .HyperMD-codeblock {
-    background-color: var(--code-background);
-    font-family: var(--font-monospace-theme);
+    background-color: var(--monokai-codeblock-background);
+    font-family: var(--monokai-code-font-family);
     line-height: var(--monokai-codeblock-line-height);
     padding-inline: var(--monokai-codeblock-padding-inline);
+  }
+
+  .cm-line.HyperMD-codeblock:has(.cm-hmd-codeblock-begin) {
+    padding-block-start: var(--monokai-codeblock-padding-block);
+  }
+
+  .cm-line.HyperMD-codeblock:has(.cm-hmd-codeblock-end) {
+    padding-block-end: var(--monokai-codeblock-padding-block);
   }
 
   .HyperMD-hr {
@@ -721,12 +756,30 @@ body.theme-light {
     border: 0;
     border-radius: var(--radius-s);
     box-shadow: none;
+    font-family: var(--monokai-code-font-family);
+    font-weight: var(--monokai-inline-code-font-weight);
     padding: var(--monokai-inline-code-padding);
   }
 
   /* stylelint-disable selector-class-pattern -- CodeMirror 内部类名。 */
   .cm-active {
     background-color: var(--monokai-editor-active-line-background);
+  }
+
+  .cm-line.HyperMD-codeblock.cm-active {
+    background-color: var(--monokai-codeblock-active-line-background);
+    box-shadow: inset 2px 0 0 var(--monokai-codeblock-active-line-border);
+  }
+
+  .cm-line.HyperMD-codeblock {
+    &::selection {
+      color: var(--code-normal);
+      background-color: var(--monokai-codeblock-selection-background);
+    }
+
+    .cm-selectionBackground {
+      background-color: var(--monokai-codeblock-selection-background);
+    }
   }
 
   .cm-selectionBackground {

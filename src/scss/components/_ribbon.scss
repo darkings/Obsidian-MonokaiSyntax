@@ -1,5 +1,18 @@
+.workspace-ribbon,
+.workspace-ribbon.mod-left,
+.workspace-ribbon.mod-left.is-collapsed,
+.workspace-ribbon.mod-left .workspace-ribbon-collapse-btn,
+.workspace-ribbon.mod-left .side-dock-actions,
+.workspace-ribbon.mod-left .side-dock-settings,
+.side-dock-ribbon.mod-left {
+  background-color: var(--background-secondary);
+}
+
+.workspace-ribbon.mod-left.is-collapsed {
+  background-color: var(--ribbon-background-collapsed);
+}
+
 .workspace-ribbon {
-  background-color: var(--ribbon-background);
   border-inline-end: 1px solid var(--background-modifier-border);
 }
 

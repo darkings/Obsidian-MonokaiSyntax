@@ -89,6 +89,9 @@ const checks = [
     "紧凑模式同步压缩 Callout 与表格",
     /body\.monokai-syntax-compact[\s\S]*?--callout-padding:\s*0\.9rem;/.test(files.styleSettings)
       && /body\.monokai-syntax-compact[\s\S]*?--callout-content-padding:\s*var\(--spacing-3\) 0 0 0;/.test(files.styleSettings)
+      && /body\.monokai-syntax-compact[\s\S]*?--monokai-codeblock-padding-block:\s*0\.75rem;/.test(files.styleSettings)
+      && /body\.monokai-syntax-compact[\s\S]*?--monokai-codeblock-padding-inline:\s*0\.75rem;/.test(files.styleSettings)
+      && !/body\.monokai-syntax-compact[\s\S]*?\.markdown-rendered pre[\s\S]*?padding:\s*0\.75rem;/.test(files.styleSettings)
       && /body\.monokai-syntax-compact[\s\S]*?\.markdown-rendered th,[\s\S]*?\.markdown-rendered td[\s\S]*?padding:\s*0\.35rem 0\.5rem;/.test(files.styleSettings),
   ],
   [
@@ -105,6 +108,65 @@ const checks = [
     "标签页和 Modal 输入具备克制动效与舒适内边距",
     /\.workspace-tab-header\s*\{[\s\S]*?transition:[\s\S]*?color 140ms ease,[\s\S]*?background-color 140ms ease,[\s\S]*?box-shadow 140ms ease;/.test(files.tabs)
       && /\.prompt-input,[\s\S]*?\.modal textarea\s*\{[\s\S]*?padding:\s*0\.45rem 0\.6rem;[\s\S]*?transition:[\s\S]*?border-color 140ms ease,[\s\S]*?box-shadow 140ms ease;/.test(files.modals),
+  ],
+  [
+    "Amber / VS Code 强调色预设覆盖 tab、列表、命令面板和滚动条",
+    /monokai-syntax-accent-amber-vscode/.test(readFileSync(resolve(rootDir, "src/css/style-settings/50-accents.css.md"), "utf8"))
+      && /body\.monokai-syntax-accent-amber-vscode[\s\S]*?--monokai-accent-color:\s*#ffa000;/.test(files.styleSettings)
+      && /body\.monokai-syntax-accent-amber-vscode[\s\S]*?--monokai-link-color:\s*#ffa000;/.test(files.styleSettings)
+      && !/body\.monokai-syntax-accent-amber-vscode\s*\{[^}]*--ribbon-background:\s*#221f22;/.test(files.styleSettings)
+      && /body\.theme-dark\.monokai-syntax-accent-amber-vscode[\s\S]*?--ribbon-background:\s*#221f22;/.test(files.styleSettings)
+      && /body\.theme-dark\.monokai-syntax-accent-amber-vscode[\s\S]*?--ribbon-background-collapsed:\s*#221f22;/.test(files.styleSettings)
+      && /body\.theme-light\.monokai-syntax-accent-amber-vscode[\s\S]*?--ribbon-background:\s*var\(--background-secondary\);/.test(files.styleSettings)
+      && /body\.theme-light\.monokai-syntax-accent-amber-vscode[\s\S]*?--ribbon-background-collapsed:\s*var\(--background-secondary\);/.test(files.styleSettings)
+      && /--monokai-tab-active-border-color:\s*var\(--interactive-accent\);/.test(files.base)
+      && /\.workspace-tab-header\.is-active[\s\S]*?box-shadow:\s*inset 0 -2px 0 var\(--monokai-tab-active-border-color\);/.test(files.tabs)
+      && /\.nav-file-title\.is-active[\s\S]*?color:\s*var\(--monokai-selection-foreground, var\(--nav-item-color-active\)\);/.test(files.base)
+      && /\.suggestion-item\.is-selected,[\s\S]*?\.suggestion-item\.mod-complex\.is-selected[\s\S]*?color:\s*var\(--monokai-selection-foreground, var\(--text-normal\)\);/.test(files.modals)
+      && /::-webkit-scrollbar-thumb:active[\s\S]*?background-color:\s*var\(--monokai-scrollbar-active-background\);/.test(files.base),
+  ],
+  [
+    "Settings 左侧导航跟随浅色/深色主题变量",
+    /\.modal\.mod-settings[\s\S]*?\.vertical-tab-header\s*\{[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(files.modals)
+      && /\.modal\.mod-settings[\s\S]*?\.vertical-tab-content-container\s*\{[\s\S]*?background-color:\s*var\(--background-primary\);/.test(files.modals)
+      && /\.modal\.mod-settings[\s\S]*?\.vertical-tab-nav-item\.is-active\s*\{[\s\S]*?color:\s*var\(--monokai-selection-foreground, var\(--nav-item-color-active\)\);[\s\S]*?background-color:\s*var\(--nav-item-background-active\);/.test(files.modals),
+  ],
+  [
+    "左侧文件导航面板使用更深的 secondary 背景",
+    /\.workspace,[\s\S]*?\.workspace-split,[\s\S]*?\.workspace-leaf,[\s\S]*?\.workspace-leaf-content,[\s\S]*?\.workspace-tabs\s*\{[\s\S]*?background-color:\s*var\(--background-primary\);/.test(files.base)
+      && !/body::before\s*\{[\s\S]*?--monokai-left-sidebar-strip/.test(files.base)
+      && /\.workspace-split\.mod-left-split,[\s\S]*?\.workspace-split\.mod-left-split \.workspace-tabs,[\s\S]*?\.workspace-split\.mod-left-split \.workspace-leaf,[\s\S]*?\.workspace-split\.mod-left-split \.workspace-leaf-content,[\s\S]*?\.workspace-split\.mod-left-split \.view-content,[\s\S]*?\.workspace-split\.mod-left-split \.nav-files-container\s*\{[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(files.base)
+      && /\.workspace-ribbon,[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(readFileSync(resolve(rootDir, "src/scss/components/_ribbon.scss"), "utf8"))
+      && !/\.workspace-ribbon\s*\{[\s\S]*?z-index:/.test(readFileSync(resolve(rootDir, "src/scss/components/_ribbon.scss"), "utf8"))
+      && /--ribbon-background-collapsed:\s*#\{\$color-pro-background-secondary\};/.test(files.base)
+      && /--ribbon-background-collapsed:\s*#\{\$color-light-background-secondary\};/.test(files.base)
+      && /--ribbon-background-collapsed:\s*#\{\$background-secondary\};/.test(files.styleSettings)
+      && /\.workspace-ribbon\.mod-left,[\s\S]*?\.workspace-ribbon\.mod-left\.is-collapsed,[\s\S]*?\.workspace-ribbon\.mod-left \.workspace-ribbon-collapse-btn,[\s\S]*?\.workspace-ribbon\.mod-left \.side-dock-actions,[\s\S]*?\.workspace-ribbon\.mod-left \.side-dock-settings,[\s\S]*?\.side-dock-ribbon\.mod-left\s*\{[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(readFileSync(resolve(rootDir, "src/scss/components/_ribbon.scss"), "utf8"))
+      && /\.workspace-ribbon\.mod-left\.is-collapsed\s*\{[\s\S]*?background-color:\s*var\(--ribbon-background-collapsed\);/.test(readFileSync(resolve(rootDir, "src/scss/components/_ribbon.scss"), "utf8"))
+      && /\.workspace-tabs\.mod-left,[\s\S]*?\.workspace-tab-header-container\.mod-left,[\s\S]*?\.workspace-tab-header-container-inner\.mod-left,[\s\S]*?\.workspace-tab-container\.mod-left,[\s\S]*?\.workspace-tab-header\.mod-left\s*\{[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(files.tabs)
+      && /\.workspace-split\.mod-left-split \.workspace-tab-header-container,/.test(files.tabs)
+      && /\.workspace-sidedock\.mod-left,/.test(files.tabs)
+      && /\.workspace-sidedock\.mod-left \.workspace-tab-container,/.test(files.tabs)
+      && /\.mod-left-split,/.test(files.tabs)
+      && /\.mod-left \.workspace-tab-container\s*\{/.test(files.tabs)
+      && /\.workspace-split\.mod-left-split \.workspace-tab-header-container,[\s\S]*?\.mod-left \.workspace-tab-container\s*\{[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(files.tabs)
+      && /\.workspace-split\.mod-left-split \.workspace-tab-header\.is-active\s*\{[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(files.tabs),
+  ],
+  [
+    "Style Settings 搜索框为图标预留文字内边距",
+    /\.modal\.mod-settings[\s\S]*?\.setting-item-name \.search-input-container,[\s\S]*?\.style-settings-container \.search-input-container\s*\{[\s\S]*?max-width:\s*23rem;/.test(files.modals)
+      && /\.modal\.mod-settings[\s\S]*?\.setting-item-name \.search-input-container::before,[\s\S]*?\.style-settings-container \.search-input-container::before\s*\{[\s\S]*?inset-inline-start:\s*0\.75rem;/.test(files.modals)
+      && /\.modal\.mod-settings[\s\S]*?\.setting-item-name \.search-input-container input,[\s\S]*?\.style-settings-container \.search-input-container input\[type="search"\]\s*\{[\s\S]*?min-height:\s*2\.25rem;[\s\S]*?padding-inline:\s*2\.15rem 0\.85rem;/.test(files.modals),
+  ],
+  [
+    "Style Settings 可隐藏右下角同步按钮且限定状态栏范围",
+    /monokai-syntax-hide-sync-status-button/.test(readFileSync(resolve(rootDir, "src/css/style-settings/30-icons.css.md"), "utf8"))
+      && /body\.monokai-syntax-hide-sync-status-button[\s\S]*?\.status-bar/.test(files.base)
+      && /\.status-bar-item\.plugin-sync/.test(files.base)
+      && /\.status-bar-item\.mod-sync/.test(files.base)
+      && /\.status-bar-item\[aria-label\*="Sync" i\]/.test(files.base)
+      && /\.status-bar-item\[title\*="同步"\]/.test(files.base)
+      && !/body\.monokai-syntax-hide-sync-status-button[\s\S]*?\.status-bar\s*\{[\s\S]*?display:\s*none;/.test(files.base),
   ],
   [
     "表格表头具备独立背景与文字层级",
@@ -142,12 +204,13 @@ const checks = [
   ],
   [
     "深色代码 token 使用 Monokai Pro palette",
-    /\.theme-dark[\s\S]*?--code-keyword:\s*#\{\$color-dark-red-soft\};/.test(files.base)
-      && /\.theme-dark[\s\S]*?--code-operator:\s*#\{\$color-dark-orange-soft\};/.test(files.base)
-      && /\.theme-dark[\s\S]*?--code-string:\s*#\{\$color-dark-yellow-soft\};/.test(files.base)
-      && /\.theme-dark[\s\S]*?--code-function:\s*#\{\$color-dark-green-soft\};/.test(files.base)
-      && /\.theme-dark[\s\S]*?--code-property:\s*#\{\$color-dark-cyan-soft\};/.test(files.base)
-      && /\.theme-dark[\s\S]*?--code-value:\s*#\{\$color-dark-purple-soft\};/.test(files.base),
+    /\.theme-dark[\s\S]*?--background-primary:\s*#\{\$color-pro-background-primary\};/.test(files.base)
+      && /\.theme-dark[\s\S]*?--code-keyword:\s*#\{\$color-pro-magenta\};/.test(files.base)
+      && /\.theme-dark[\s\S]*?--code-operator:\s*#\{\$color-pro-orange\};/.test(files.base)
+      && /\.theme-dark[\s\S]*?--code-string:\s*#\{\$color-pro-yellow\};/.test(files.base)
+      && /\.theme-dark[\s\S]*?--code-function:\s*#\{\$color-pro-green\};/.test(files.base)
+      && /\.theme-dark[\s\S]*?--code-property:\s*#\{\$color-pro-cyan\};/.test(files.base)
+      && /\.theme-dark[\s\S]*?--code-value:\s*#\{\$color-pro-purple\};/.test(files.base),
   ],
   [
     "CodeMirror 扩展语法 token 覆盖类型、类、内建、属性、meta 与错误",
@@ -182,8 +245,10 @@ const checks = [
   ],
   [
     "编辑模式代码块使用阅读模式代码块背景和等宽字体",
-    /\.markdown-rendered[\s\S]*?pre\s*\{[\s\S]*?background-color:\s*var\(--code-background\);[\s\S]*?font-family:\s*var\(--font-monospace-theme\);/.test(files.editor)
-      && /\.HyperMD-codeblock[\s\S]*?background-color:\s*var\(--code-background\);[\s\S]*?font-family:\s*var\(--font-monospace-theme\);/.test(files.editor),
+    /--monokai-codeblock-background:\s*var\(--code-background\);/.test(files.editor)
+      && /--monokai-code-font-family:\s*var\(--font-monospace\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?pre\s*\{[\s\S]*?background-color:\s*var\(--monokai-codeblock-background\);[\s\S]*?font-family:\s*var\(--monokai-code-font-family\);/.test(files.editor)
+      && /\.HyperMD-codeblock[\s\S]*?background-color:\s*var\(--monokai-codeblock-background\);[\s\S]*?font-family:\s*var\(--monokai-code-font-family\);/.test(files.editor),
   ],
   [
     "删除线阅读模式与编辑模式共享弱化颜色",
@@ -258,7 +323,7 @@ const checks = [
   [
     "Markdown 表格源码在编辑模式具备等宽和分隔符层级",
     /--monokai-table-source-background:\s*var\(--background-secondary\);/.test(files.editor)
-      && /--monokai-table-source-font-family:\s*var\(--font-monospace-theme\);/.test(files.editor)
+      && /--monokai-table-source-font-family:\s*var\(--monokai-code-font-family\);/.test(files.editor)
       && /--monokai-table-source-separator-color:\s*var\(--text-faint\);/.test(files.editor)
       && /\.HyperMD-table-row[\s\S]*?font-family:\s*var\(--monokai-table-source-font-family\);[\s\S]*?background-color:\s*var\(--monokai-table-source-background\);/.test(files.editor)
       && /\.cm-hmd-table-sep,[\s\S]*?\.cm-hmd-table-align,[\s\S]*?\.cm-formatting-table[\s\S]*?color:\s*var\(--monokai-table-source-separator-color\);/.test(files.editor)
@@ -303,16 +368,21 @@ const checks = [
     "代码块阅读模式与编辑模式共享边框圆角并弱化 fence token",
     /--monokai-codeblock-border-color:\s*var\(--background-modifier-border\);/.test(files.editor)
       && /--monokai-codeblock-radius:\s*var\(--radius-m\);/.test(files.editor)
+      && /--monokai-codeblock-margin-block:\s*#\{\$spacing-4\};/.test(files.editor)
       && /--monokai-codeblock-padding:\s*#\{\$spacing-4\};/.test(files.editor)
+      && /--monokai-codeblock-padding-block:\s*var\(--monokai-codeblock-padding\);/.test(files.editor)
       && /--monokai-codeblock-padding-inline:\s*#\{\$spacing-4\};/.test(files.editor)
-      && /\.markdown-rendered[\s\S]*?pre\s*\{[\s\S]*?border:\s*1px solid var\(--monokai-codeblock-border-color\);[\s\S]*?border-radius:\s*var\(--monokai-codeblock-radius\);[\s\S]*?padding:\s*var\(--monokai-codeblock-padding\);/.test(files.editor)
-      && /\.HyperMD-codeblock[\s\S]*?background-color:\s*var\(--code-background\);[\s\S]*?font-family:\s*var\(--font-monospace-theme\);[\s\S]*?padding-inline:\s*var\(--monokai-codeblock-padding-inline\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?pre\s*\{[\s\S]*?border:\s*1px solid var\(--monokai-codeblock-border-color\);[\s\S]*?border-radius:\s*var\(--monokai-codeblock-radius\);[\s\S]*?margin-block:\s*var\(--monokai-codeblock-margin-block\);[\s\S]*?padding:\s*var\(--monokai-codeblock-padding-block\) var\(--monokai-codeblock-padding-inline\);/.test(files.editor)
+      && /\.HyperMD-codeblock[\s\S]*?background-color:\s*var\(--monokai-codeblock-background\);[\s\S]*?font-family:\s*var\(--monokai-code-font-family\);[\s\S]*?padding-inline:\s*var\(--monokai-codeblock-padding-inline\);/.test(files.editor)
+      && /\.cm-line\.HyperMD-codeblock:has\(\.cm-hmd-codeblock-begin\)[\s\S]*?padding-block-start:\s*var\(--monokai-codeblock-padding-block\);/.test(files.editor)
+      && /\.cm-line\.HyperMD-codeblock:has\(\.cm-hmd-codeblock-end\)[\s\S]*?padding-block-end:\s*var\(--monokai-codeblock-padding-block\);/.test(files.editor)
       && /\.cm-formatting-code-block,[\s\S]*?\.cm-hmd-codeblock-begin,[\s\S]*?\.cm-hmd-codeblock-end[\s\S]*?color:\s*var\(--monokai-formatting-marker-color\);/.test(files.editor),
   ],
   [
     "代码块具备 Monokai Pro 编辑器 surface 变量与滚动状态",
     /--monokai-codeblock-header-height:\s*1\.75rem;/.test(files.editor)
-      && /--monokai-codeblock-shadow:/.test(files.editor)
+      && /--monokai-codeblock-shadow:\s*none;/.test(files.editor)
+      && !/--monokai-codeblock-shadow:\s*0\s/.test(files.editor)
       && /--monokai-codeblock-language-color:\s*var\(--text-faint\);/.test(files.editor)
       && /--monokai-codeblock-line-height:\s*var\(--monokai-code-line-height, 1\.55\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?pre\s*\{[\s\S]*?box-shadow:\s*var\(--monokai-codeblock-shadow\);[\s\S]*?line-height:\s*var\(--monokai-codeblock-line-height\);[\s\S]*?overflow-x:\s*auto;/.test(files.editor)
@@ -329,6 +399,47 @@ const checks = [
       && /\.cm-cursor[\s\S]*?border-left-color:\s*var\(--monokai-editor-cursor-color\);/.test(files.editor)
       && /\.cm-gutters[\s\S]*?background-color:\s*var\(--monokai-editor-gutter-background\);/.test(files.editor)
       && /\.cm-matchingBracket[\s\S]*?background-color:\s*var\(--monokai-editor-bracket-match-background\);/.test(files.editor),
+  ],
+  [
+    "代码块选中态与当前行使用代码块专用变量",
+    /--monokai-codeblock-active-line-background:\s*var\(--background-modifier-hover\);/.test(files.editor)
+      && /--monokai-codeblock-active-line-border:\s*var\(--interactive-accent\);/.test(files.editor)
+      && /--monokai-codeblock-selection-background:\s*rgb\(120 220 232 \/ 32%\);/.test(files.editor)
+      && /body\.theme-dark[\s\S]*?--monokai-codeblock-active-line-background:\s*#\{\$color-pro-hover\};/.test(files.editor)
+      && /body\.theme-dark[\s\S]*?--monokai-codeblock-selection-background:\s*#344349;/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-codeblock-background:\s*#eee6d8;/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-codeblock-border-color:\s*#c6b9a6;/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-codeblock-active-line-background:\s*#e3d4bf;/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-codeblock-active-line-border:\s*#\{\$color-light-cyan\};/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-codeblock-selection-background:\s*#c9e8ee;/.test(files.editor)
+      && /\.cm-line\.HyperMD-codeblock\.cm-active[\s\S]*?background-color:\s*var\(--monokai-codeblock-active-line-background\);/.test(files.editor)
+      && /\.cm-line\.HyperMD-codeblock\.cm-active[\s\S]*?box-shadow:\s*inset 2px 0 0 var\(--monokai-codeblock-active-line-border\);/.test(files.editor)
+      && /\.cm-line\.HyperMD-codeblock[\s\S]*?\.cm-selectionBackground[\s\S]*?background-color:\s*var\(--monokai-codeblock-selection-background\);/.test(files.editor)
+      && /pre[\s\S]*?::selection[\s\S]*?background-color:\s*var\(--monokai-codeblock-selection-background\);/.test(files.editor)
+      && /\.cm-line\.HyperMD-codeblock[\s\S]*?&::selection[\s\S]*?background-color:\s*var\(--monokai-codeblock-selection-background\);/.test(files.editor),
+  ],
+  [
+    "浅色行内代码使用增强背景和字重",
+    /--monokai-inline-code-font-weight:\s*500;/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-inline-code-color:\s*#0b5262;/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-inline-code-background:\s*rgb\(20 116 138 \/ 16%\);/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-inline-code-font-weight:\s*600;/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?code\s*\{[\s\S]*?font-family:\s*var\(--monokai-code-font-family\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?code\s*\{[\s\S]*?font-weight:\s*var\(--monokai-inline-code-font-weight\);/.test(files.editor)
+      && /\.cm-inline-code[\s\S]*?font-family:\s*var\(--monokai-code-font-family\);/.test(files.editor)
+      && /\.cm-inline-code[\s\S]*?font-weight:\s*var\(--monokai-inline-code-font-weight\);/.test(files.editor),
+  ],
+  [
+    "Style Settings 选中项与下拉控件使用主题 surface",
+    /--monokai-settings-item-background:/.test(files.modals)
+      && /--monokai-settings-item-border:/.test(files.modals)
+      && /--monokai-settings-selected-background:/.test(files.modals)
+      && /body\.theme-dark[\s\S]*?--monokai-settings-item-background:\s*rgb\(248 248 242 \/ 4%\);/.test(files.modals)
+      && /\.modal\.mod-settings[\s\S]*?\.setting-item[\s\S]*?background-color:\s*var\(--monokai-settings-item-background\);/.test(files.modals)
+      && /\.modal\.mod-settings[\s\S]*?\.setting-item-description,[\s\S]*?\.setting-item-info[\s\S]*?color:\s*var\(--monokai-settings-item-description\);/.test(files.modals)
+      && /\.style-settings-container[\s\S]*?\.setting-item[\s\S]*?background-color:\s*var\(--monokai-settings-item-background\);/.test(files.modals)
+      && /\.style-settings-container[\s\S]*?\.setting-item\.is-selected,[\s\S]*?\.setting-item:hover[\s\S]*?background-color:\s*var\(--monokai-settings-selected-background\);/.test(files.modals)
+      && /\.style-settings-container[\s\S]*?select,[\s\S]*?\.dropdown[\s\S]*?background-color:\s*var\(--monokai-settings-control-background\);/.test(files.modals),
   ],
   [
     "附件与内部嵌入扩展共享媒体容器变量",

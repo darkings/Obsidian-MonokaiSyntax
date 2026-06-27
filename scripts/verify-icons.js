@@ -43,11 +43,10 @@ const checks = [
   ["CLAUDE.md/claude.md 文件名规则", /\[data-path\$="\/CLAUDE\.md"\]::before/.test(files.generated) && /\[data-path\$="\/claude\.md"\]::before/.test(files.generated)],
   ["AGENTS.md/agents.md 文件名规则", /\[data-path\$="\/AGENTS\.md"\]::before/.test(files.generated) && /\[data-path\$="\/agents\.md"\]::before/.test(files.generated)],
   ["Bug_ 开头文档规则", /\[data-path\*="\/Bug_"\]\[data-path\$="\.md"\]::before/.test(files.generated)],
-  ["第二层文件夹使用 folder-dimmed2 折叠图标作为默认回退", /\.nav-folder-children\s+\.nav-folder-children\s+\.nav-folder-title\s+\.collapse-icon[\s\S]*content:\s*var\(--monokai-folder-icon-content,\s*"\\e64d"\);/.test(files.wrapper)],
+  ["一级文件夹保持 Obsidian 默认文件夹图标", !/\.nav-folder\.mod-root\s*>\s*\.nav-folder-children\s*>\s*\.nav-folder\s*>\s*\.nav-folder-title\s+\.nav-folder-title-content::before/.test(files.wrapper)],
   [
     "学习目录图标规则由生成器输出为文件夹语义变量",
     [
-      "concepts",
       "labs",
       "examples",
       "exercises",
@@ -61,11 +60,31 @@ const checks = [
       && /\.nav-folder-title\[data-path\^="Day"\],[\s\S]*?\.nav-folder-title\[data-path\*="\/Day"\][\s\S]*?--monokai-folder-icon-content:[\s\S]*?--monokai-folder-icon-color:/.test(files.generated),
   ],
   [
-    "学习目录图标复用折叠槽变量且不新增文件夹标题伪元素",
+    "二级及更深层文件夹接收自定义文件夹语义变量",
+    /\.nav-folder-title\[data-path\$="\//.test(files.generated)
+      && /\.nav-folder\[data-path\$="\//.test(files.generated)
+      && /\.nav-folder-title\[data-path\*="\//.test(files.generated)
+      && /\.nav-folder\[data-path\*="\//.test(files.generated),
+  ],
+  [
+    "concepts 目录不使用专属颜色并回退到普通文件夹图标",
+    !/\.nav-folder-title\[data-path="concepts"\]/.test(files.generated)
+      && /content:\s*var\(--monokai-folder-icon-content,\s*"\\e64d"\);/.test(files.wrapper)
+      && /color:\s*var\(--monokai-folder-icon-color,\s*var\(--icon-color\)\);/.test(files.wrapper),
+  ],
+  [
+    "二级及更深层文件夹隐藏 Obsidian 折叠图标并绘制单一自定义图标",
     /content:\s*var\(--monokai-folder-icon-content,\s*"\\e64d"\);/.test(files.wrapper)
       && /color:\s*var\(--monokai-folder-icon-color,\s*var\(--icon-color\)\);/.test(files.wrapper)
-      && !/\.nav-folder-title-content::before/.test(files.wrapper)
+      && /\.nav-folder-title\[data-path\*="\/"\]\s+\.nav-folder-title-content::before/.test(files.wrapper)
+      && /\.nav-folder\[data-path\*="\/"\]\s*>\s*\.nav-folder-title\s+\.nav-folder-title-content::before/.test(files.wrapper)
+      && /\.nav-folder-title\[data-path\*="\/"\]\s+\.nav-folder-collapse-indicator,\s*[\r\n]+\.nav-folder-title\[data-path\*="\/"\]\s+\.collapse-icon,[\s\S]*?display:\s*none;/.test(files.wrapper)
       && !/\.nav-folder-title::before/.test(files.wrapper),
+  ],
+  [
+    "二级及更深层文件夹图标使用不占文字宽度的 gutter 绝对定位",
+    /\.nav-folder-title\s+\.nav-folder-title-content\s*\{[\s\S]*?overflow:\s*visible;[\s\S]*?position:\s*relative;/.test(files.wrapper)
+      && /\.nav-folder-title\[data-path\*="\/"\]\s+\.nav-folder-title-content::before,[\s\S]*?\.nav-folder\[data-path\*="\/"\]\s*>\s*\.nav-folder-title\s+\.nav-folder-title-content::before\s*\{[\s\S]*?position:\s*absolute;[\s\S]*?inset-inline-start:\s*calc\(-1 \* \(var\(--monokai-file-tree-slot-size\) \+ var\(--monokai-file-tree-icon-gap\)\)\);[\s\S]*?inset-block-start:\s*50%;[\s\S]*?width:\s*var\(--monokai-file-tree-slot-size\);[\s\S]*?height:\s*var\(--monokai-file-tree-glyph-size\);[\s\S]*?transform:\s*translateY\(-50%\);/.test(files.wrapper),
   ],
   ["兼容 Obsidian 折叠图标类名", /\.nav-folder-collapse-indicator/.test(files.wrapper) && /\.collapse-icon/.test(files.wrapper)],
   ["第一层文件夹保留 Obsidian 原生折叠图标", !/\.nav-folder\.mod-root\s*>\s*\.nav-folder-children\s*>\s*\.nav-folder\s*>\s*\.nav-folder-title\s+\.nav-folder-collapse-indicator[\s\S]*content:\s*"\\e64d";/.test(files.wrapper)],
@@ -74,8 +93,9 @@ const checks = [
   ["所有默认 Callout 类型都有背景与边框映射", ["note", "abstract", "info", "todo", "tip", "question", "warning", "failure", "bug", "success", "example", "quote"].every((name) => new RegExp(`--monokai-callout-${name}-bg`).test(files.activeVisual) || new RegExp(`--monokai-callout-${name}-bg`).test(readFileSync(resolve(rootDir, "src/scss/components/_editor.scss"), "utf8")))],
   ["Callout 图标尺寸放大", /--callout-icon-size:\s*1\.25em/.test(readFileSync(resolve(rootDir, "src/scss/components/_editor.scss"), "utf8"))],
   ["文件树扩展名颜色多样", /--monokai-file-icon-color:\s*#ff6188/.test(files.generated) && /--monokai-file-icon-color:\s*#fc9867/.test(files.generated) && /--monokai-file-icon-color:\s*#ffd866/.test(files.generated) && /--monokai-file-icon-color:\s*#a9dc76/.test(files.generated) && /--monokai-file-icon-color:\s*#78dce8/.test(files.generated) && /--monokai-file-icon-color:\s*#ab9df2/.test(files.generated)],
-  ["文件夹内容不额外生成第二个图标", !/\.nav-folder-title-content::before/.test(files.wrapper) && !/\.nav-folder-title::before/.test(files.wrapper)],
+  ["二级及更深层文件夹不使用折叠图标伪元素避免双图标", !/\.nav-folder-collapse-indicator::before/.test(files.wrapper) && !/\.collapse-icon::before/.test(files.wrapper) && !/\.nav-folder-title::before/.test(files.wrapper)],
   ["文件行不通过移动标题盒修正对齐", !/\.nav-file-title\s*\{[\s\S]*?margin-inline-start:/.test(files.wrapper) && !/\.nav-file-title-content\s*\{[\s\S]*?margin-inline-start:/.test(files.wrapper)],
+  ["文件树容器保留左侧呼吸感并隐藏层级竖线", /\.nav-files-container\s*\{[\s\S]*?padding-inline:\s*0\.45rem 0\.55rem;/.test(files.wrapper) && /\.nav-folder-children\s*\{[\s\S]*?border-inline-start-color:\s*transparent;[\s\S]*?border-left-color:\s*transparent;/.test(files.wrapper)],
   ["文件树拆分布局槽与真实图标尺寸", /--monokai-file-tree-slot-size:\s*1rem/.test(files.wrapper) && /--monokai-file-tree-glyph-size:\s*0\.8125rem/.test(files.wrapper) && /--monokai-file-tree-toggle-size:\s*9px/.test(files.wrapper) && /--monokai-file-tree-toggle-stroke-width:\s*1\.75/.test(files.wrapper) && /\.nav-folder-title\s+\.nav-folder-collapse-indicator,\s*[\r\n]+\.nav-folder-title\s+\.collapse-icon[\s\S]*?flex:\s*0 0 var\(--monokai-file-tree-slot-size\);[\s\S]*?width:\s*var\(--monokai-file-tree-slot-size\);[\s\S]*?margin-inline-end:\s*var\(--monokai-file-tree-icon-gap\);/.test(files.wrapper)],
   ["根层文件夹折叠 SVG 使用独立轻量尺寸与线宽", /\.nav-folder-title\s+\.nav-folder-collapse-indicator svg,\s*[\r\n]+\.nav-folder-title\s+\.collapse-icon svg[\s\S]*?width:\s*var\(--monokai-file-tree-toggle-size\);[\s\S]*?height:\s*var\(--monokai-file-tree-toggle-size\);[\s\S]*?stroke-width:\s*var\(--monokai-file-tree-toggle-stroke-width\);/.test(files.wrapper)],
   ["紧凑模式仍共享同一图标槽变量", /body\.monokai-syntax-compact[\s\S]*?\.nav-file-title,\s*[\r\n]+\s*\.nav-folder-title[\s\S]*?--monokai-file-tree-slot-size:\s*13px;[\s\S]*?--monokai-file-tree-icon-gap:\s*4px;[\s\S]*?--monokai-file-tree-glyph-size:\s*12px;[\s\S]*?--monokai-file-tree-toggle-size:\s*8px;/.test(readFileSync(resolve(rootDir, "src/scss/plugins/_style-settings.scss"), "utf8"))],

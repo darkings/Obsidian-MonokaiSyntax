@@ -401,14 +401,6 @@
   --monokai-folder-icon-color: #ffd866;
 }
 
-.nav-folder-title[data-path="concepts"],
-.nav-folder-title[data-path$="/concepts"],
-.nav-folder[data-path="concepts"] > .nav-folder-title,
-.nav-folder[data-path$="/concepts"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e668";
-  --monokai-folder-icon-color: #ab9df2;
-}
-
 .nav-folder-title[data-path="examples"],
 .nav-folder-title[data-path$="/examples"],
 .nav-folder[data-path="examples"] > .nav-folder-title,

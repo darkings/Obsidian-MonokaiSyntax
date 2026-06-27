@@ -123,6 +123,7 @@
   --canvas-color-5: #{$cyan};
   --canvas-color-6: #{$purple};
   --ribbon-background: #{$background-secondary};
+  --ribbon-background-collapsed: #{$background-secondary};
   --nav-item-background-hover: #{$hover};
   --nav-item-background-active: #{$active};
   --nav-item-color: #{$text-muted};
@@ -130,7 +131,7 @@
   --nav-item-color-active: #{$text-normal};
 }
 
-body.monokai-syntax-filter-pro {
+body.theme-dark.monokai-syntax-filter-pro {
   @include monokai-filter(
     "pro",
     $color-pro-background-primary,
@@ -152,117 +153,7 @@ body.monokai-syntax-filter-pro {
   );
 }
 
-body.monokai-syntax-filter-classic {
-  @include monokai-filter(
-    "classic",
-    $color-dark-background-primary,
-    $color-dark-background-secondary,
-    $color-dark-text-normal,
-    $color-dark-text-muted,
-    $color-dark-text-faint,
-    $color-dark-border,
-    $color-dark-hover,
-    $color-dark-active,
-    $color-dark-magenta,
-    $color-dark-orange-soft,
-    $color-dark-yellow-soft,
-    $color-dark-green-soft,
-    $color-dark-cyan-soft,
-    $color-dark-purple-soft,
-    #72736f,
-    rgb(230 219 116 / 28%)
-  );
-}
-
-body.monokai-syntax-filter-machine {
-  @include monokai-filter(
-    "machine",
-    #222421,
-    #191b19,
-    #f2ffef,
-    #c2c9bd,
-    #8b9387,
-    #394037,
-    #323930,
-    #3b4438,
-    #ff4f8b,
-    #ff9f43,
-    #ffe66d,
-    #a5ff6b,
-    #6bf5ff,
-    #b68cff,
-    #747d70,
-    rgb(255 230 109 / 22%)
-  );
-}
-
-body.monokai-syntax-filter-octagon {
-  @include monokai-filter(
-    "octagon",
-    #28252f,
-    #1f1d26,
-    #fff9fb,
-    #cbc3d4,
-    #978da3,
-    #443d50,
-    #3a3444,
-    #463f52,
-    #ff6188,
-    #fc9867,
-    #ffd866,
-    #a9dc76,
-    #78dce8,
-    #ab9df2,
-    #77707f,
-    rgb(255 216 102 / 22%)
-  );
-}
-
-body.monokai-syntax-filter-ristretto {
-  @include monokai-filter(
-    "ristretto",
-    #2b241f,
-    #211b18,
-    #fff8ef,
-    #cfc1b2,
-    #998b7d,
-    #463b32,
-    #3c322b,
-    #483c33,
-    #ff6188,
-    #fc9867,
-    #ffd866,
-    #a9dc76,
-    #78dce8,
-    #ab9df2,
-    #7b7066,
-    rgb(255 216 102 / 22%)
-  );
-}
-
-body.monokai-syntax-filter-spectrum {
-  @include monokai-filter(
-    "spectrum",
-    #262933,
-    #1c1f28,
-    #f7f8ff,
-    #c3c8d8,
-    #8d94a8,
-    #3e4454,
-    #353b49,
-    #42495a,
-    #ff6188,
-    #fc9867,
-    #ffd866,
-    #a9dc76,
-    #78dce8,
-    #ab9df2,
-    #71788c,
-    rgb(255 216 102 / 22%)
-  );
-}
-
-body.monokai-syntax-filter-light {
+body.theme-light.monokai-syntax-filter-light {
   @include monokai-filter(
     "light",
     $color-light-background-primary,
@@ -284,33 +175,13 @@ body.monokai-syntax-filter-light {
   );
 }
 
-body.monokai-syntax-filter-sun {
-  @include monokai-filter(
-    "sun",
-    $color-sun-background-primary,
-    $color-sun-background-secondary,
-    $color-sun-text-normal,
-    $color-sun-text-muted,
-    $color-sun-text-faint,
-    $color-sun-border,
-    $color-sun-hover,
-    $color-sun-active,
-    $color-sun-magenta,
-    $color-sun-orange,
-    $color-sun-yellow,
-    $color-sun-green,
-    $color-sun-cyan,
-    $color-sun-purple,
-    $color-sun-text-faint,
-    rgb(199 151 0 / 24%)
-  );
-}
-
 body.monokai-syntax-compact {
   @include compact-density;
 
   --callout-padding: 0.9rem;
   --callout-content-padding: var(--spacing-3) 0 0 0;
+  --monokai-codeblock-padding-block: 0.75rem;
+  --monokai-codeblock-padding-inline: 0.75rem;
 
   .nav-files-container {
     font-size: var(--monokai-nav-font-size);
@@ -337,10 +208,6 @@ body.monokai-syntax-compact {
   .side-dock-ribbon-action {
     height: var(--ribbon-item-size);
     padding: 4px;
-  }
-
-  .markdown-rendered pre {
-    padding: 0.75rem;
   }
 
   .markdown-rendered th,
@@ -383,6 +250,29 @@ body.monokai-syntax-heading-accents {
     padding-inline-start: calc(var(--monokai-heading-accent-width) + var(--spacing-2));
   }
   /* stylelint-enable selector-class-pattern */
+}
+
+body.monokai-syntax-accent-amber-vscode {
+  --monokai-accent-color: #ffa000;
+  --monokai-link-color: #ffa000;
+  --monokai-warning-color: rgb(255 160 0 / 24%);
+  --monokai-scrollbar-active-background: rgb(255 160 0 / 31%);
+  --monokai-selection-foreground: #ffa000;
+  --monokai-tab-active-border-color: #ffa000;
+  --monokai-settings-heading-color: #ffa000;
+  --icon-color-active: #ffa000;
+  --nav-item-color-active: #ffa000;
+  --metadata-label-text-color-hover: #ffa000;
+}
+
+body.theme-dark.monokai-syntax-accent-amber-vscode {
+  --ribbon-background: #221f22;
+  --ribbon-background-collapsed: #221f22;
+}
+
+body.theme-light.monokai-syntax-accent-amber-vscode {
+  --ribbon-background: var(--background-secondary);
+  --ribbon-background-collapsed: var(--background-secondary);
 }
 
 body {

@@ -9,13 +9,7 @@ const baseScssPath = resolve(rootDir, "src/scss/_base.scss");
 
 export const paletteFilters = [
   "pro",
-  "classic",
-  "machine",
-  "octagon",
-  "ristretto",
-  "spectrum",
   "light",
-  "sun",
 ];
 
 const requiredVariables = [
@@ -95,7 +89,8 @@ function readProjectFiles() {
 
 function findFilterBlock(scss, filterName) {
   const className = `monokai-syntax-filter-${filterName}`;
-  const pattern = new RegExp(`body\\.${className}\\s*\\{([\\s\\S]*?)\\n\\}`, "m");
+  const themeName = filterName === "pro" ? "dark" : "light";
+  const pattern = new RegExp(`body\\.theme-${themeName}\\.${className}\\s*\\{([\\s\\S]*?)\\n\\}`, "m");
 
   return pattern.exec(scss)?.[1] ?? "";
 }
@@ -112,6 +107,42 @@ export function inspectPaletteFilters(files = readProjectFiles()) {
 
   if (!filterMixinBlock) {
     failures.push("_style-settings.scss 缺少 monokai-filter mixin");
+  }
+
+  if (!files.paletteSettings.includes("value: monokai-syntax-filter-auto")) {
+    failures.push("Style Settings 缺少跟随系统选项");
+  }
+
+  if (!/default:\s*monokai-syntax-filter-auto/.test(files.paletteSettings)) {
+    failures.push("Style Settings 默认滤镜不是跟随系统");
+  }
+
+  const paletteOptionMatches = [...files.paletteSettings.matchAll(/value:\s*(monokai-syntax-filter-[a-z-]+)/g)]
+    .map((match) => match[1])
+    .sort();
+  const expectedOptions = [
+    "monokai-syntax-filter-auto",
+    "monokai-syntax-filter-light",
+    "monokai-syntax-filter-pro",
+  ].sort();
+
+  if (JSON.stringify(paletteOptionMatches) !== JSON.stringify(expectedOptions)) {
+    failures.push("Style Settings 调色板选项不是跟随系统、Pro、Light");
+  }
+
+  const unscopedFilterMatches = [...files.styleSettingsScss.matchAll(/body\.monokai-syntax-filter-([a-z-]+)\s*\{/g)]
+    .map((match) => match[1])
+    .sort();
+  const scssFilterMatches = [...files.styleSettingsScss.matchAll(/body\.theme-(?:dark|light)\.monokai-syntax-filter-([a-z-]+)\s*\{/g)]
+    .map((match) => match[1])
+    .sort();
+
+  if (unscopedFilterMatches.length > 0) {
+    failures.push("_style-settings.scss 存在未绑定 theme-dark/theme-light 的滤镜 class");
+  }
+
+  if (JSON.stringify(scssFilterMatches) !== JSON.stringify(paletteFilters.sort())) {
+    failures.push("_style-settings.scss 存在 Pro/Light 之外的滤镜 class");
   }
 
   for (const filterName of paletteFilters) {
@@ -138,10 +169,6 @@ export function inspectPaletteFilters(files = readProjectFiles()) {
     if (!/@include monokai-filter\(/.test(block)) {
       failures.push(`${className} 未使用 monokai-filter mixin`);
     }
-  }
-
-  if (!/default:\s*monokai-syntax-filter-pro/.test(files.paletteSettings)) {
-    failures.push("Style Settings 默认滤镜不是 Pro");
   }
 
   if (!/\.theme-dark[\s\S]*?--code-keyword:/.test(files.baseScss)) {

@@ -185,7 +185,6 @@ const obsidianFileNames = {
 };
 const obsidianDirectoryNames = {
   assets: "image-accent3",
-  concepts: "callout-abstract",
   examples: "callout-example",
   exercises: "todo",
   labs: "test-accent5",
