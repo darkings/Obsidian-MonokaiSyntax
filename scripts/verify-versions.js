@@ -21,7 +21,7 @@ export function checkVersionConsistency({
   const packageVersion = packageJson.version;
   const manifestVersion = manifestJson.version;
   const minAppVersion = manifestJson.minAppVersion;
-  const tagVersion = normalizeReleaseTag(releaseTag);
+  const tagVersion = requireReleaseTag ? normalizeReleaseTag(releaseTag) : "";
 
   if (!packageVersion) {
     failures.push("package.json 缺少 version 字段");
