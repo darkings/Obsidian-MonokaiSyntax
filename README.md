@@ -124,11 +124,11 @@ theme.css
 manifest.json
 ```
 
-4. Create and push a version tag, for example:
+4. Create and push a version tag that exactly matches `manifest.json`. Obsidian expects no `v` prefix:
 
 ```powershell
-git tag v1.1.1
-git push origin v1.1.1
+git tag 1.1.1
+git push origin 1.1.1
 ```
 
 5. GitHub Actions runs the release verification and publishes a release with `theme.css` and `manifest.json`.

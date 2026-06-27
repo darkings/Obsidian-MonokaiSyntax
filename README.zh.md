@@ -124,11 +124,11 @@ theme.css
 manifest.json
 ```
 
-4. 创建并推送版本标签，例如：
+4. 创建并推送与 `manifest.json` 完全一致的版本标签。Obsidian 要求标签不能带 `v` 前缀：
 
 ```powershell
-git tag v1.1.1
-git push origin v1.1.1
+git tag 1.1.1
+git push origin 1.1.1
 ```
 
 5. GitHub Actions 会在标签推送后运行发布检查并创建 Release，附件包含 `theme.css` 与 `manifest.json`。
