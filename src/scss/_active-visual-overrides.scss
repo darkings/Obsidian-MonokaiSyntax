@@ -1,6 +1,6 @@
 @use "variables" as *;
 
-/* stylelint-disable selector-class-pattern -- Obsidian 内部类名，不能改成 kebab-case。 */
+// stylelint-disable selector-class-pattern -- Obsidian 内部类名，不能改成 kebab-case。
 
 body:is(.theme-dark, .theme-light) {
   --blockquote-background-color: transparent;
@@ -557,4 +557,4 @@ body .markdown-source-view.mod-cm6 .callout[data-callout="output"] .cm-callout-i
   content: "\e672";
 }
 
-/* stylelint-enable selector-class-pattern */
+// stylelint-enable selector-class-pattern

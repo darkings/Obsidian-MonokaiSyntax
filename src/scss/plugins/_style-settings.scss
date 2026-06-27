@@ -242,14 +242,14 @@ body.monokai-syntax-heading-accents {
     border-radius: var(--radius-s);
   }
 
-  /* stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。 */
+  // stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。
   .markdown-source-view.mod-cm6 .HyperMD-header-1,
   .markdown-source-view.mod-cm6 .HyperMD-header-2,
   .markdown-source-view.mod-cm6 .HyperMD-header-3 {
     border-inline-start: var(--monokai-heading-accent-width) solid currentcolor;
     padding-inline-start: calc(var(--monokai-heading-accent-width) + var(--spacing-2));
   }
-  /* stylelint-enable selector-class-pattern */
+  // stylelint-enable selector-class-pattern
 }
 
 body.monokai-syntax-accent-amber-vscode {

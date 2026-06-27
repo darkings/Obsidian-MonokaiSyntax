@@ -772,9 +772,6 @@ body.theme-light {
   color: var(--monokai-heading-anchor-color);
 }
 
-.markdown-source-view.mod-cm6 {
-  /* stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。 */
-}
 .markdown-source-view.mod-cm6 .HyperMD-header-1 {
   padding-block-end: var(--monokai-heading-gap-h1);
 }
@@ -844,9 +841,6 @@ body.theme-light {
 .markdown-source-view.mod-cm6 .HyperMD-table-row {
   font-family: var(--monokai-table-source-font-family);
   background-color: var(--monokai-table-source-background);
-}
-.markdown-source-view.mod-cm6 {
-  /* stylelint-enable selector-class-pattern */
 }
 .markdown-source-view.mod-cm6 .cm-header-1 {
   color: var(--h1-color);
@@ -973,9 +967,6 @@ body.theme-light {
   font-weight: var(--monokai-inline-code-font-weight);
   padding: var(--monokai-inline-code-padding);
 }
-.markdown-source-view.mod-cm6 {
-  /* stylelint-disable selector-class-pattern -- CodeMirror 内部类名。 */
-}
 .markdown-source-view.mod-cm6 .cm-active {
   background-color: var(--monokai-editor-active-line-background);
 }
@@ -1008,9 +999,6 @@ body.theme-light {
   color: var(--text-normal);
   background-color: var(--monokai-editor-bracket-match-background);
   border-radius: var(--radius-s);
-}
-.markdown-source-view.mod-cm6 {
-  /* stylelint-enable selector-class-pattern */
 }
 
 .cm-s-obsidian span.cm-comment {
@@ -1098,7 +1086,6 @@ a:focus-visible,
   border-radius: var(--radius-s);
 }
 
-/* stylelint-disable */
 /*
  * 此文件由 `npm run generate:icons` 自动生成。
  * 请修改 `scripts/generate-icon-theme.js` 或 `icons/` 源资产，不要手写编辑本文件。
@@ -2451,17 +2438,11 @@ body.monokai-syntax-heading-accents .markdown-rendered h3::before {
   background-color: currentcolor;
   border-radius: var(--radius-s);
 }
-body.monokai-syntax-heading-accents {
-  /* stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。 */
-}
 body.monokai-syntax-heading-accents .markdown-source-view.mod-cm6 .HyperMD-header-1,
 body.monokai-syntax-heading-accents .markdown-source-view.mod-cm6 .HyperMD-header-2,
 body.monokai-syntax-heading-accents .markdown-source-view.mod-cm6 .HyperMD-header-3 {
   border-inline-start: var(--monokai-heading-accent-width) solid currentcolor;
   padding-inline-start: calc(var(--monokai-heading-accent-width) + var(--spacing-2));
-}
-body.monokai-syntax-heading-accents {
-  /* stylelint-enable selector-class-pattern */
 }
 
 body.monokai-syntax-accent-amber-vscode {
@@ -2512,7 +2493,6 @@ body {
   --code-background: var(--monokai-code-background, var(--monokai-default-code-background));
 }
 
-/* stylelint-disable selector-class-pattern -- Obsidian 内部类名，不能改成 kebab-case。 */
 body:is(.theme-dark, .theme-light) {
   --blockquote-background-color: transparent;
   --blockquote-border-thickness: 2px;
@@ -3063,8 +3043,6 @@ body .markdown-source-view.mod-cm6 .callout[data-callout=output] .callout-icon::
 body .markdown-source-view.mod-cm6 .callout[data-callout=output] .cm-callout-icon::before {
   content: "\e672";
 }
-
-/* stylelint-enable selector-class-pattern */
 
 /*
 @settings

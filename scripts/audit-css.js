@@ -13,6 +13,7 @@ export function auditCssContent(themeCss) {
     ["非本地内联字体 url() 资源", forbiddenRuntimeUrls.length > 0],
     ["!important 声明", /!important/i.test(themeCss)],
     ["ID 选择器", /(^|[{};])\s*#[A-Za-z][\w-]*/m.test(themeCss)],
+    ["Stylelint 控制注释", /stylelint-(?:disable|enable)/i.test(themeCss)],
   ];
   const failures = checks.filter(([, matched]) => matched).map(([label]) => label);
 

@@ -518,7 +518,7 @@ body.theme-light {
 }
 
 .markdown-source-view.mod-cm6 {
-  /* stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。 */
+  // stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。
   .HyperMD-header-1 {
     padding-block-end: var(--monokai-heading-gap-h1);
   }
@@ -609,7 +609,7 @@ body.theme-light {
     background-color: var(--monokai-table-source-background);
   }
 
-  /* stylelint-enable selector-class-pattern */
+  // stylelint-enable selector-class-pattern
 
   .cm-header-1 {
     color: var(--h1-color);
@@ -761,7 +761,7 @@ body.theme-light {
     padding: var(--monokai-inline-code-padding);
   }
 
-  /* stylelint-disable selector-class-pattern -- CodeMirror 内部类名。 */
+  // stylelint-disable selector-class-pattern -- CodeMirror 内部类名。
   .cm-active {
     background-color: var(--monokai-editor-active-line-background);
   }
@@ -805,7 +805,7 @@ body.theme-light {
     background-color: var(--monokai-editor-bracket-match-background);
     border-radius: var(--radius-s);
   }
-  /* stylelint-enable selector-class-pattern */
+  // stylelint-enable selector-class-pattern
 }
 
 .cm-s-obsidian {

@@ -16,3 +16,10 @@ test("CSS 审计报告远程资源和 ID 选择器", () => {
   assert.match(result.failures.join("\n"), /远程 URL/);
   assert.match(result.failures.join("\n"), /ID 选择器/);
 });
+
+test("CSS 审计报告发布产物中的 Stylelint 控制注释", () => {
+  const result = auditCssContent("/* stylelint-disable selector-class-pattern */\n.nav { color: red; }");
+
+  assert.equal(result.passed, false);
+  assert.match(result.failures.join("\n"), /Stylelint 控制注释/);
+});
