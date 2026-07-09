@@ -26,13 +26,37 @@
 .side-dock-ribbon-action:hover,
 .workspace-ribbon-collapse-btn:hover {
   color: var(--icon-color-hover);
-  background-color: var(--background-modifier-hover);
+  background-color: var(--monokai-selection-muted-background, var(--background-modifier-hover));
 }
 
 .side-dock-ribbon-action.is-active {
   color: var(--icon-color-active);
-  background-color: var(--background-modifier-hover);
-  box-shadow: inset 2px 0 0 var(--icon-color-active);
+  background-color: var(--monokai-selection-background, var(--background-modifier-hover));
+  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color, var(--icon-color-active));
+}
+
+.status-bar {
+  color: var(--text-muted);
+  background-color: var(--background-secondary);
+  border-color: var(--background-modifier-border);
+}
+
+.status-bar-item {
+  border-radius: var(--radius-s);
+  transition:
+    color 120ms ease,
+    background-color 120ms ease;
+}
+
+.status-bar-item:hover {
+  color: var(--text-normal);
+  background-color: var(--monokai-selection-muted-background, var(--background-modifier-hover));
+}
+
+.status-bar-item.mod-clickable:active,
+.status-bar-item.is-active {
+  color: var(--icon-color-active);
+  background-color: var(--monokai-selection-background, var(--background-modifier-active-hover));
 }
 
 body.is-mobile .workspace-ribbon {

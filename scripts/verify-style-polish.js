@@ -435,7 +435,7 @@ const checks = [
       && /--monokai-settings-item-border:/.test(files.modals)
       && /--monokai-settings-selected-background:/.test(files.modals)
       && /body\.theme-dark[\s\S]*?--monokai-settings-item-background:\s*rgb\(248 248 242 \/ 4%\);/.test(files.modals)
-      && /\.modal\.mod-settings[\s\S]*?\.setting-item[\s\S]*?background-color:\s*var\(--monokai-settings-item-background\);/.test(files.modals)
+      && /\.modal\.mod-settings[\s\S]*?\.setting-item[\s\S]*?background-color:\s*transparent;/.test(files.modals)
       && /\.modal\.mod-settings[\s\S]*?\.setting-item-description,[\s\S]*?\.setting-item-info[\s\S]*?color:\s*var\(--monokai-settings-item-description\);/.test(files.modals)
       && /\.style-settings-container[\s\S]*?\.setting-item[\s\S]*?background-color:\s*var\(--monokai-settings-item-background\);/.test(files.modals)
       && /\.style-settings-container[\s\S]*?\.setting-item\.is-selected,[\s\S]*?\.setting-item:hover[\s\S]*?background-color:\s*var\(--monokai-settings-selected-background\);/.test(files.modals)

@@ -5,6 +5,11 @@ name: Monokai Syntax 排版
 id: monokai-syntax-typography
 settings:
   -
+    id: monokai-syntax-markdown-reading-heading
+    title: Markdown Reading
+    type: heading
+    level: 2
+  -
     id: monokai-readable-line-width
     title: 可读行宽
     type: variable-number-slider
@@ -22,6 +27,11 @@ settings:
     max: 20
     step: 1
     format: px
+  -
+    id: monokai-syntax-editor-heading
+    title: Editor
+    type: heading
+    level: 2
   -
     id: monokai-code-font-size
     title: 代码字号
@@ -56,6 +66,19 @@ settings:
     max: 2.2
     step: 0.05
     format: rem
+  -
+    id: monokai-syntax-heading-color-mode
+    title: 标题色彩模式
+    type: class-select
+    allowEmpty: false
+    default: monokai-syntax-heading-full-spectrum
+    options:
+      -
+        label: 全光谱
+        value: monokai-syntax-heading-full-spectrum
+      -
+        label: 低彩尾部
+        value: monokai-syntax-heading-muted-tail
   -
     id: monokai-syntax-heading-accents
     title: 标题左侧色条

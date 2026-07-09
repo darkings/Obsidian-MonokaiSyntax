@@ -9,6 +9,10 @@
   --monokai-highlight-text: var(--text-normal);
   --monokai-scrollbar-active-background: var(--background-modifier-active-hover);
   --monokai-selection-foreground: var(--text-normal);
+  --monokai-selection-background: var(--background-modifier-active-hover);
+  --monokai-selection-muted-background: var(--background-modifier-hover);
+  --monokai-selection-border-color: var(--interactive-accent);
+  --monokai-light-tool-background: var(--background-secondary);
   --monokai-tab-active-border-color: var(--interactive-accent);
 }
 
@@ -28,6 +32,9 @@
   --monokai-default-success: #{$color-pro-green};
   --monokai-default-warning: rgb(255 216 102 / 24%);
   --monokai-default-code-background: #{$color-pro-background-secondary};
+  --monokai-selection-background: rgb(120 220 232 / 18%);
+  --monokai-selection-muted-background: rgb(252 252 250 / 6%);
+  --monokai-selection-border-color: #{$color-pro-cyan};
   --text-accent-hover: #{$color-pro-magenta};
   --interactive-accent: #{$color-pro-magenta};
   --interactive-accent-hover: #{$color-pro-magenta};
@@ -77,6 +84,9 @@
   --code-regex: #{$color-pro-yellow};
   --code-meta: #{$color-pro-text-faint};
   --code-error: #{$color-pro-magenta};
+  --code-variable: #{$color-pro-text-normal};
+  --code-parameter: #{$color-pro-orange};
+  --code-module: #{$color-pro-cyan};
   --ribbon-background: #{$color-pro-background-secondary};
   --ribbon-background-collapsed: #{$color-pro-background-secondary};
   --nav-item-background-hover: #{$color-pro-hover};
@@ -104,7 +114,11 @@
   --monokai-default-link: #{$color-light-cyan};
   --monokai-default-success: #{$color-light-green};
   --monokai-default-warning: rgb(232 179 10 / 24%);
-  --monokai-default-code-background: #{$color-light-background-secondary};
+  --monokai-default-code-background: #ebe8df;
+  --monokai-selection-background: rgb(20 116 138 / 16%);
+  --monokai-selection-muted-background: rgb(52 52 52 / 6%);
+  --monokai-selection-border-color: #{$color-light-cyan};
+  --monokai-light-tool-background: #f5f3ec;
   --text-accent-hover: #{$color-light-red-soft};
   --interactive-accent: #{$color-light-magenta};
   --interactive-accent-hover: #{$color-light-red-soft};
@@ -154,6 +168,9 @@
   --code-regex: #{$color-light-yellow};
   --code-meta: #{$color-light-text-faint};
   --code-error: #{$color-light-magenta};
+  --code-variable: #{$color-light-text-normal};
+  --code-parameter: #{$color-light-orange};
+  --code-module: #{$color-light-cyan};
   --ribbon-background: #{$color-light-background-secondary};
   --ribbon-background-collapsed: #{$color-light-background-secondary};
   --nav-item-background-hover: #{$color-light-hover};
@@ -188,6 +205,10 @@
   align-items: center;
   color: var(--nav-item-color);
   border-radius: var(--radius-s);
+  transition:
+    color 120ms ease,
+    background-color 120ms ease,
+    box-shadow 120ms ease;
 }
 
 .nav-file-title:hover,
@@ -198,7 +219,15 @@
 
 .nav-file-title.is-active {
   color: var(--monokai-selection-foreground, var(--nav-item-color-active));
-  background-color: var(--nav-item-background-active);
+  background-color: var(--monokai-selection-background, var(--nav-item-background-active));
+  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color);
+}
+
+.nav-folder-title.is-active,
+.tree-item-self.is-active {
+  color: var(--monokai-selection-foreground, var(--nav-item-color-active));
+  background-color: var(--monokai-selection-background, var(--nav-item-background-active));
+  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color);
 }
 
 .nav-folder-collapse-indicator,
@@ -287,7 +316,8 @@ input[type="checkbox"]:checked {
 .tag-pane-tag.is-active,
 .bookmark.is-active {
   color: var(--monokai-selection-foreground, var(--text-normal));
-  background-color: var(--nav-item-background-active);
+  background-color: var(--monokai-selection-background, var(--nav-item-background-active));
+  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color);
 }
 
 .tag {
@@ -304,4 +334,9 @@ input[type="checkbox"]:checked {
 
 ::-webkit-scrollbar-thumb:active {
   background-color: var(--monokai-scrollbar-active-background);
+}
+
+::selection {
+  color: var(--monokai-selection-foreground);
+  background-color: var(--monokai-selection-background);
 }

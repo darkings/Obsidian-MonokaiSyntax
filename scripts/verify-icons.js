@@ -45,26 +45,16 @@ const checks = [
   ["Bug_ 开头文档规则", /\[data-path\*="\/Bug_"\]\[data-path\$="\.md"\]::before/.test(files.generated)],
   ["一级文件夹保持 Obsidian 默认文件夹图标", !/\.nav-folder\.mod-root\s*>\s*\.nav-folder-children\s*>\s*\.nav-folder\s*>\s*\.nav-folder-title\s+\.nav-folder-title-content::before/.test(files.wrapper)],
   [
-    "学习目录图标规则由生成器输出为文件夹语义变量",
-    [
-      "labs",
-      "examples",
-      "exercises",
-      "leetcode",
-      "notes",
-      "assets",
-      "src",
-      "tests",
-    ].every((name) => new RegExp(`\\.nav-folder-title\\[data-path="${name}"\\],[\\s\\S]*?\\.nav-folder-title\\[data-path\\$="/${name}"\\][\\s\\S]*?--monokai-folder-icon-content:[\\s\\S]*?--monokai-folder-icon-color:`).test(files.generated))
-      && /\.nav-folder-title\[data-path\^="day"\],[\s\S]*?\.nav-folder-title\[data-path\*="\/day"\][\s\S]*?--monokai-folder-icon-content:[\s\S]*?--monokai-folder-icon-color:/.test(files.generated)
-      && /\.nav-folder-title\[data-path\^="Day"\],[\s\S]*?\.nav-folder-title\[data-path\*="\/Day"\][\s\S]*?--monokai-folder-icon-content:[\s\S]*?--monokai-folder-icon-color:/.test(files.generated),
+    "文件夹不再按名称或前缀生成专属图标",
+    !/\.nav-folder-title\[data-path/.test(files.generated)
+      && !/--monokai-folder-icon-content/.test(files.generated)
+      && !/--monokai-folder-icon-color/.test(files.generated),
   ],
   [
-    "二级及更深层文件夹接收自定义文件夹语义变量",
-    /\.nav-folder-title\[data-path\$="\//.test(files.generated)
-      && /\.nav-folder\[data-path\$="\//.test(files.generated)
-      && /\.nav-folder-title\[data-path\*="\//.test(files.generated)
-      && /\.nav-folder\[data-path\*="\//.test(files.generated),
+    "图片文件扩展名仍使用图片图标",
+    /\[data-path\$="\.png"\]::before[\s\S]*?content:\s*"\\[0-9a-f]{4}";/i.test(files.generated)
+      && /\[data-path\$="\.jpg"\]::before[\s\S]*?content:\s*"\\[0-9a-f]{4}";/i.test(files.generated)
+      && /\[data-path\$="\.jpeg"\]::before[\s\S]*?content:\s*"\\[0-9a-f]{4}";/i.test(files.generated),
   ],
   [
     "concepts 目录不使用专属颜色并回退到普通文件夹图标",

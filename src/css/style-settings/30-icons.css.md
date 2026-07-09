@@ -1,7 +1,7 @@
 /*
 @settings
 
-name: Monokai Syntax 图标
+name: Monokai Syntax File Explorer
 id: monokai-syntax-icons
 settings:
   -

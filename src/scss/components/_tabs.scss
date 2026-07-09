@@ -59,7 +59,7 @@
 
 .workspace-tab-header:hover {
   color: var(--text-normal);
-  background-color: var(--background-modifier-hover);
+  background-color: var(--monokai-selection-muted-background, var(--background-modifier-hover));
 }
 
 .workspace-tab-header.is-active {

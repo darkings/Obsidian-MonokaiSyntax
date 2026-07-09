@@ -3,10 +3,10 @@
 body.theme-dark {
   --monokai-settings-heading-color: var(--text-normal);
   --monokai-settings-item-background: rgb(248 248 242 / 4%);
-  --monokai-settings-item-border: rgb(248 248 242 / 12%);
+  --monokai-settings-item-border: rgb(248 248 242 / 10%);
   --monokai-settings-item-text: var(--text-normal);
   --monokai-settings-item-description: var(--text-muted);
-  --monokai-settings-selected-background: rgb(102 217 239 / 12%);
+  --monokai-settings-selected-background: var(--monokai-selection-background);
   --monokai-settings-control-background: rgb(39 32 28 / 96%);
   --monokai-settings-control-border: rgb(248 248 242 / 18%);
   --monokai-settings-control-text: var(--text-normal);
@@ -14,12 +14,12 @@ body.theme-dark {
 
 body.theme-light {
   --monokai-settings-heading-color: var(--text-normal);
-  --monokai-settings-item-background: rgb(255 253 248 / 72%);
+  --monokai-settings-item-background: rgb(245 243 236 / 82%);
   --monokai-settings-item-border: rgb(61 61 61 / 12%);
   --monokai-settings-item-text: var(--text-normal);
   --monokai-settings-item-description: var(--text-muted);
-  --monokai-settings-selected-background: rgb(20 116 138 / 9%);
-  --monokai-settings-control-background: rgb(255 253 248 / 94%);
+  --monokai-settings-selected-background: var(--monokai-selection-background);
+  --monokai-settings-control-background: rgb(250 248 242 / 96%);
   --monokai-settings-control-border: rgb(61 61 61 / 20%);
   --monokai-settings-control-text: var(--text-normal);
 }
@@ -32,6 +32,10 @@ body.theme-light {
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-m);
   box-shadow: var(--monokai-modal-shadow);
+}
+
+.modal.mod-settings {
+  background-color: var(--background-secondary);
 }
 
 .modal-title,
@@ -96,6 +100,11 @@ body.theme-light {
   .vertical-tab-nav-item {
     color: var(--nav-item-color);
     border-radius: var(--radius-s);
+    margin-block: 1px;
+    transition:
+      color 120ms ease,
+      background-color 120ms ease,
+      box-shadow 120ms ease;
   }
 
   .vertical-tab-nav-item:hover {
@@ -106,12 +115,15 @@ body.theme-light {
   .vertical-tab-nav-item.is-active {
     color: var(--monokai-selection-foreground, var(--nav-item-color-active));
     background-color: var(--nav-item-background-active);
+    box-shadow: inset 2px 0 0 var(--monokai-selection-border-color);
   }
 
   .setting-item {
     color: var(--monokai-settings-item-text);
-    background-color: var(--monokai-settings-item-background);
-    border-color: var(--monokai-settings-item-border);
+    background-color: transparent;
+    border-color: var(--background-modifier-border);
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .setting-item-description,
@@ -121,11 +133,24 @@ body.theme-light {
 
   .community-plugin,
   .installed-plugins-container,
-  .modal-button-container,
-  .vertical-tab-content-container > div {
+  .modal-button-container {
     color: var(--monokai-settings-item-text);
-    background-color: var(--monokai-settings-item-background);
+    background-color: transparent;
     border-color: var(--monokai-settings-item-border);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .setting-item-container,
+  .vertical-tab-content-container > div:not(.style-settings-container) {
+    background-color: transparent;
+    border-color: var(--background-modifier-border);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .setting-item:hover {
+    background-color: var(--monokai-selection-muted-background);
   }
 
   button,
@@ -136,6 +161,12 @@ body.theme-light {
     color: var(--monokai-settings-control-text);
     background-color: var(--monokai-settings-control-background);
     border-color: var(--monokai-settings-control-border);
+  }
+
+  button:hover,
+  .clickable-icon:hover {
+    color: var(--icon-color-hover);
+    background-color: var(--monokai-selection-muted-background);
   }
 
   .setting-item-name .search-input-container,
@@ -164,6 +195,7 @@ body.theme-light {
     background-color: var(--monokai-settings-item-background);
     border: 1px solid var(--monokai-settings-item-border);
     border-radius: var(--radius-m);
+    box-shadow: none;
     transition:
       background-color 140ms ease,
       border-color 140ms ease,

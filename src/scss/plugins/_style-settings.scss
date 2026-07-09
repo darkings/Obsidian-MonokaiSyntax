@@ -54,6 +54,10 @@
   --monokai-default-success: #{$green};
   --monokai-default-warning: #{$warning-bg};
   --monokai-default-code-background: #{$background-secondary};
+  --monokai-selection-background: rgb(from #{$cyan} r g b / 18%);
+  --monokai-selection-muted-background: rgb(from #{$text-normal} r g b / 6%);
+  --monokai-selection-border-color: #{$cyan};
+  --monokai-light-tool-background: #{$background-secondary};
   --monokai-spectrum-red: #{$red};
   --monokai-spectrum-orange: #{$orange};
   --monokai-spectrum-yellow: #{$yellow};
@@ -81,6 +85,9 @@
   --code-regex: #{$yellow};
   --code-meta: #{$text-faint};
   --code-error: #{$red};
+  --code-variable: #{$text-normal};
+  --code-parameter: #{$orange};
+  --code-module: #{$cyan};
   --monokai-callout-note-bg: rgb(from #{$cyan} r g b / 12%);
   --monokai-callout-note-border: #{$cyan};
   --monokai-callout-info-bg: rgb(from #{$cyan} r g b / 12%);
@@ -258,6 +265,7 @@ body.monokai-syntax-accent-amber-vscode {
   --monokai-warning-color: rgb(255 160 0 / 24%);
   --monokai-scrollbar-active-background: rgb(255 160 0 / 31%);
   --monokai-selection-foreground: #ffa000;
+  --monokai-selection-border-color: #ffa000;
   --monokai-tab-active-border-color: #ffa000;
   --monokai-settings-heading-color: #ffa000;
   --icon-color-active: #ffa000;
@@ -298,4 +306,23 @@ body {
   --checkbox-color-checked: var(--monokai-success-color, var(--monokai-default-success));
   --text-highlight-bg: var(--monokai-warning-color, var(--monokai-default-warning));
   --code-background: var(--monokai-code-background, var(--monokai-default-code-background));
+}
+
+body.monokai-syntax-media-border-none {
+  --monokai-media-border-width: 0;
+  --monokai-media-background: transparent;
+  --monokai-embed-padding: 0;
+}
+
+body.monokai-syntax-media-border-card {
+  --monokai-media-border-width: 1px;
+  --monokai-media-background: var(--monokai-light-tool-background, var(--background-secondary));
+  --monokai-media-shadow: 0 10px 28px rgb(0 0 0 / 16%);
+  --monokai-embed-padding: 0.85rem;
+}
+
+body.monokai-syntax-heading-muted-tail {
+  --h4-color: var(--text-muted);
+  --h5-color: var(--text-muted);
+  --h6-color: var(--text-faint);
 }

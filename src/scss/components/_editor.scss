@@ -31,8 +31,10 @@
   --monokai-footnote-marker-color: var(--text-faint);
   --monokai-footnote-font-size: 0.85em;
   --monokai-media-radius: var(--radius-m);
+  --monokai-media-border-width: 1px;
   --monokai-media-border-color: var(--background-modifier-border);
   --monokai-media-background: var(--background-secondary);
+  --monokai-media-shadow: none;
   --monokai-embed-padding: #{$spacing-3};
   --monokai-plugin-surface-background: var(--background-secondary);
   --monokai-plugin-surface-border: var(--background-modifier-border);
@@ -62,6 +64,8 @@
   --monokai-table-api-required-color: var(--text-accent);
   --monokai-codeblock-background: var(--code-background);
   --monokai-codeblock-border-color: var(--background-modifier-border);
+  --monokai-codeblock-header-background: var(--background-secondary);
+  --monokai-codeblock-header-border-color: var(--background-modifier-border);
   --monokai-codeblock-radius: var(--radius-m);
   --monokai-codeblock-header-height: 1.75rem;
   --monokai-codeblock-margin-block: #{$spacing-4};
@@ -74,6 +78,9 @@
   --monokai-codeblock-active-line-background: var(--background-modifier-hover);
   --monokai-codeblock-active-line-border: var(--interactive-accent);
   --monokai-codeblock-selection-background: rgb(120 220 232 / 32%);
+  --monokai-code-variable: var(--code-variable, var(--code-normal));
+  --monokai-code-parameter: var(--code-parameter, var(--code-operator));
+  --monokai-code-module: var(--code-module, var(--code-property));
   --monokai-editor-active-line-background: rgb(248 248 242 / 5%);
   --monokai-editor-selection-background: rgb(102 217 239 / 30%);
   --monokai-editor-cursor-color: var(--interactive-accent);
@@ -98,33 +105,34 @@ body.theme-dark {
   --monokai-blockquote-border: #{$color-pro-yellow};
   --monokai-callout-note-bg: rgb(120 220 232 / 12%);
   --monokai-callout-note-border: #{$color-pro-cyan};
-  --monokai-callout-abstract-bg: rgb(171 157 242 / 12%);
+  --monokai-callout-abstract-bg: rgb(171 157 242 / 8%);
   --monokai-callout-abstract-border: #{$color-pro-purple};
-  --monokai-callout-info-bg: rgb(120 220 232 / 12%);
+  --monokai-callout-info-bg: rgb(120 220 232 / 8%);
   --monokai-callout-info-border: #{$color-pro-cyan};
-  --monokai-callout-todo-bg: rgb(255 216 102 / 12%);
+  --monokai-callout-todo-bg: rgb(255 216 102 / 8%);
   --monokai-callout-todo-border: #{$color-pro-yellow};
-  --monokai-callout-tip-bg: rgb(169 220 118 / 12%);
+  --monokai-callout-tip-bg: rgb(169 220 118 / 8%);
   --monokai-callout-tip-border: #{$color-pro-green};
-  --monokai-callout-question-bg: rgb(171 157 242 / 12%);
+  --monokai-callout-question-bg: rgb(171 157 242 / 8%);
   --monokai-callout-question-border: #{$color-pro-purple};
-  --monokai-callout-warning-bg: rgb(252 152 103 / 12%);
+  --monokai-callout-warning-bg: rgb(252 152 103 / 8%);
   --monokai-callout-warning-border: #{$color-pro-orange};
-  --monokai-callout-error-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-error-bg: rgb(255 97 136 / 8%);
   --monokai-callout-error-border: #{$color-pro-magenta};
-  --monokai-callout-failure-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-failure-bg: rgb(255 97 136 / 8%);
   --monokai-callout-failure-border: #{$color-pro-magenta};
-  --monokai-callout-bug-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-bug-bg: rgb(255 97 136 / 8%);
   --monokai-callout-bug-border: #{$color-pro-magenta};
-  --monokai-callout-success-bg: rgb(169 220 118 / 12%);
+  --monokai-callout-success-bg: rgb(169 220 118 / 8%);
   --monokai-callout-success-border: #{$color-pro-green};
-  --monokai-callout-example-bg: rgb(252 152 103 / 12%);
+  --monokai-callout-example-bg: rgb(252 152 103 / 8%);
   --monokai-callout-example-border: #{$color-pro-orange};
   --monokai-callout-quote-bg: rgb(252 252 250 / 8%);
   --monokai-callout-quote-border: #{$color-pro-text-faint};
   --monokai-inline-code-color: #{$color-pro-green};
   --monokai-inline-code-background: var(--code-background);
   --monokai-codeblock-background: #{$color-pro-background-secondary};
+  --monokai-codeblock-header-background: #272329;
   --monokai-codeblock-border-color: rgb(252 252 250 / 14%);
   --monokai-codeblock-active-line-background: #{$color-pro-hover};
   --monokai-codeblock-active-line-border: #{$color-pro-cyan};
@@ -148,29 +156,29 @@ body.theme-light {
   --monokai-heading-weight: 700;
   --blockquote-border-color: #{$color-light-blockquote-border};
   --monokai-blockquote-border: #{$color-light-blockquote-border};
-  --monokai-callout-note-bg: rgb(20 116 138 / 14%);
+  --monokai-callout-note-bg: rgb(20 116 138 / 9%);
   --monokai-callout-note-border: #14748a;
-  --monokai-callout-abstract-bg: rgb(107 83 148 / 13%);
+  --monokai-callout-abstract-bg: rgb(107 83 148 / 9%);
   --monokai-callout-abstract-border: #6b5394;
-  --monokai-callout-info-bg: rgb(20 116 138 / 14%);
+  --monokai-callout-info-bg: rgb(20 116 138 / 9%);
   --monokai-callout-info-border: #14748a;
-  --monokai-callout-todo-bg: rgb(151 116 0 / 14%);
+  --monokai-callout-todo-bg: rgb(151 116 0 / 9%);
   --monokai-callout-todo-border: #977400;
-  --monokai-callout-tip-bg: rgb(38 157 105 / 14%);
+  --monokai-callout-tip-bg: rgb(38 157 105 / 9%);
   --monokai-callout-tip-border: #269d69;
-  --monokai-callout-question-bg: rgb(107 83 148 / 13%);
+  --monokai-callout-question-bg: rgb(107 83 148 / 9%);
   --monokai-callout-question-border: #6b5394;
-  --monokai-callout-warning-bg: rgb(225 96 50 / 14%);
+  --monokai-callout-warning-bg: rgb(225 96 50 / 9%);
   --monokai-callout-warning-border: #e16032;
-  --monokai-callout-error-bg: rgb(225 71 117 / 14%);
+  --monokai-callout-error-bg: rgb(225 71 117 / 9%);
   --monokai-callout-error-border: #e14775;
-  --monokai-callout-failure-bg: rgb(225 71 117 / 14%);
+  --monokai-callout-failure-bg: rgb(225 71 117 / 9%);
   --monokai-callout-failure-border: #e14775;
-  --monokai-callout-bug-bg: rgb(225 71 117 / 14%);
+  --monokai-callout-bug-bg: rgb(225 71 117 / 9%);
   --monokai-callout-bug-border: #e14775;
-  --monokai-callout-success-bg: rgb(38 157 105 / 14%);
+  --monokai-callout-success-bg: rgb(38 157 105 / 9%);
   --monokai-callout-success-border: #269d69;
-  --monokai-callout-example-bg: rgb(225 96 50 / 14%);
+  --monokai-callout-example-bg: rgb(225 96 50 / 9%);
   --monokai-callout-example-border: #e16032;
   --monokai-callout-quote-bg: rgb(61 61 61 / 8%);
   --monokai-callout-quote-border: #6f6f6f;
@@ -178,6 +186,7 @@ body.theme-light {
   --monokai-inline-code-background: rgb(20 116 138 / 16%);
   --monokai-inline-code-font-weight: 600;
   --monokai-codeblock-background: #eee6d8;
+  --monokai-codeblock-header-background: #f5f3ec;
   --monokai-codeblock-border-color: #c6b9a6;
   --monokai-codeblock-active-line-background: #e3d4bf;
   --monokai-codeblock-active-line-border: #{$color-light-cyan};
@@ -346,21 +355,32 @@ body.theme-light {
     border: 1px solid var(--monokai-table-border);
     border-collapse: separate;
     border-spacing: 0;
+    font-variant-numeric: tabular-nums;
     margin-block: var(--monokai-paragraph-spacing);
     overflow: hidden;
   }
 
   th,
   td {
-    border: 1px solid var(--monokai-table-border);
+    border: 0;
+    border-block-end: 1px solid var(--monokai-table-border);
     padding: var(--monokai-table-cell-padding);
     vertical-align: top;
+  }
+
+  th:not(:last-child),
+  td:not(:last-child) {
+    border-inline-end: 1px solid var(--monokai-table-border);
   }
 
   th {
     color: var(--text-normal);
     background-color: var(--monokai-table-header-background);
     font-weight: 700;
+  }
+
+  tbody tr:last-child td {
+    border-block-end: 0;
   }
 
   tbody tr:nth-child(even) {
@@ -409,14 +429,26 @@ body.theme-light {
     line-height: var(--monokai-codeblock-line-height);
     margin-block: var(--monokai-codeblock-margin-block);
     overflow-x: auto;
+    position: relative;
     padding: var(--monokai-codeblock-padding-block) var(--monokai-codeblock-padding-inline);
     scrollbar-color: var(--text-faint) transparent;
     tab-size: 2;
 
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--monokai-selection-muted-background);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: var(--monokai-selection-background);
+    }
+
     code {
+      color: var(--code-normal);
       background-color: transparent;
       border: 0;
+      border-radius: 0;
       box-shadow: none;
+      font-weight: inherit;
       padding: 0;
     }
 
@@ -424,6 +456,146 @@ body.theme-light {
       color: var(--code-normal);
       background-color: var(--monokai-codeblock-selection-background);
     }
+  }
+
+  pre:not([class*="language-"], :has(code[class*="language-"]))::before,
+  pre:not(:has(.code-block-flair))[class*="language-"]::before,
+  pre:not(:has(.code-block-flair)):has(code[class*="language-"])::before {
+    content: "CODE";
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    inset-block-start: 0.45rem;
+    inset-inline-end: var(--monokai-codeblock-padding-inline);
+    min-height: auto;
+    color: var(--monokai-codeblock-language-color);
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--radius-s);
+    font-family: var(--font-text-theme);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    padding-inline: 0;
+    pointer-events: none;
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  $codeblock-language-labels: (
+    "bash": "BASH",
+    "c": "C",
+    "cpp": "C++",
+    "csharp": "C#",
+    "css": "CSS",
+    "go": "GO",
+    "html": "HTML",
+    "java": "JAVA",
+    "javascript": "JS",
+    "js": "JS",
+    "json": "JSON",
+    "markdown": "MD",
+    "md": "MD",
+    "mermaid": "MERMAID",
+    "powershell": "POWERSHELL",
+    "python": "PYTHON",
+    "py": "PYTHON",
+    "scss": "SCSS",
+    "shell": "SHELL",
+    "sh": "SH",
+    "sql": "SQL",
+    "text": "TEXT",
+    "toml": "TOML",
+    "ts": "TS",
+    "typescript": "TS",
+    "xml": "XML",
+    "yaml": "YAML",
+    "yml": "YAML"
+  );
+
+  @each $language, $label in $codeblock-language-labels {
+    pre:not(:has(.code-block-flair)).language-#{$language}::before,
+    pre:not(:has(.code-block-flair)):has(code.language-#{$language})::before {
+      content: $label;
+    }
+  }
+
+  .copy-code-button,
+  .code-block-flair {
+    color: var(--monokai-codeblock-language-color);
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--radius-s);
+    font-family: var(--font-text-theme);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    transition:
+      color 160ms ease,
+      background-color 160ms ease,
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .code-block-flair {
+    pointer-events: auto;
+    cursor: var(--cursor);
+  }
+
+  .code-block-flair,
+  .code-block-flair:hover,
+  .code-block-flair:focus,
+  .code-block-flair:focus-visible,
+  .code-block-flair:active,
+  .cm-line:hover .code-block-flair,
+  .cm-line:focus-within .code-block-flair {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+
+  .copy-code-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    opacity: 0;
+    padding: 0.25rem;
+    transform: translateY(-1px);
+    visibility: hidden;
+  }
+
+  .el-pre:hover .copy-code-button,
+  .el-pre:focus-within .copy-code-button,
+  pre:hover .copy-code-button,
+  pre:focus-within .copy-code-button,
+  pre:hover button.copy-code-button,
+  pre:focus-within button.copy-code-button,
+  .copy-code-button:hover,
+  .copy-code-button:focus-visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .el-pre:hover .code-block-flair,
+  .el-pre:focus-within .code-block-flair,
+  pre:hover .code-block-flair,
+  pre:focus-within .code-block-flair,
+  pre:hover::before,
+  pre:focus-within::before {
+    opacity: 0;
+    transform: translateY(-1px);
+  }
+
+  .copy-code-button:hover,
+  .copy-code-button:focus-visible,
+  .code-block-flair:hover,
+  .code-block-flair:focus-visible {
+    color: var(--text-normal);
+    background-color: var(--monokai-selection-muted-background);
   }
 
   hr {
@@ -447,7 +619,9 @@ body.theme-light {
     max-width: 100%;
     background-color: var(--monokai-media-background);
     border: 1px solid var(--monokai-media-border-color);
+    border-width: var(--monokai-media-border-width);
     border-radius: var(--monokai-media-radius);
+    box-shadow: var(--monokai-media-shadow);
   }
 
   .file-embed,
@@ -457,7 +631,9 @@ body.theme-light {
   .internal-embed {
     background-color: var(--monokai-media-background);
     border: 1px solid var(--monokai-media-border-color);
+    border-width: var(--monokai-media-border-width);
     border-radius: var(--monokai-media-radius);
+    box-shadow: var(--monokai-media-shadow);
     padding: var(--monokai-embed-padding);
   }
 
@@ -514,6 +690,28 @@ body.theme-light {
   .heading-collapse-indicator,
   .heading-anchor {
     color: var(--monokai-heading-anchor-color);
+  }
+
+  .callout {
+    background-color: var(--callout-background, transparent);
+    border: 1px solid var(--background-modifier-border);
+    border-inline-start: 3px solid rgb(var(--callout-color));
+    border-radius: var(--radius-m);
+    box-shadow: none;
+  }
+
+  .callout-title {
+    color: var(--text-normal);
+    font-weight: 700;
+  }
+}
+
+.markdown-preview-view .markdown-rendered {
+  .copy-code-button {
+    font-size: 0.58rem;
+    min-height: 1.35rem;
+    min-width: 1.35rem;
+    padding: 0.16rem;
   }
 }
 
@@ -588,10 +786,16 @@ body.theme-light {
   }
 
   .cm-line.HyperMD-codeblock:has(.cm-hmd-codeblock-begin) {
+    border-block-start: 1px solid var(--monokai-codeblock-border-color);
+    border-start-start-radius: var(--monokai-codeblock-radius);
+    border-start-end-radius: var(--monokai-codeblock-radius);
     padding-block-start: var(--monokai-codeblock-padding-block);
   }
 
   .cm-line.HyperMD-codeblock:has(.cm-hmd-codeblock-end) {
+    border-block-end: 1px solid var(--monokai-codeblock-border-color);
+    border-end-start-radius: var(--monokai-codeblock-radius);
+    border-end-end-radius: var(--monokai-codeblock-radius);
     padding-block-end: var(--monokai-codeblock-padding-block);
   }
 
@@ -723,7 +927,9 @@ body.theme-light {
     max-width: 100%;
     background-color: var(--monokai-media-background);
     border: 1px solid var(--monokai-media-border-color);
+    border-width: var(--monokai-media-border-width);
     border-radius: var(--monokai-media-radius);
+    box-shadow: var(--monokai-media-shadow);
   }
 
   .file-embed,
@@ -734,7 +940,9 @@ body.theme-light {
   .cm-embed-block {
     background-color: var(--monokai-media-background);
     border: 1px solid var(--monokai-media-border-color);
+    border-width: var(--monokai-media-border-width);
     border-radius: var(--monokai-media-radius);
+    box-shadow: var(--monokai-media-shadow);
     padding: var(--monokai-embed-padding);
   }
 
@@ -759,6 +967,117 @@ body.theme-light {
     font-family: var(--monokai-code-font-family);
     font-weight: var(--monokai-inline-code-font-weight);
     padding: var(--monokai-inline-code-padding);
+  }
+
+  .copy-code-button,
+  .code-block-flair {
+    color: var(--monokai-codeblock-language-color);
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--radius-s);
+    font-family: var(--font-text-theme);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    transition:
+      color 160ms ease,
+      background-color 160ms ease,
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .code-block-flair {
+    pointer-events: auto;
+    cursor: var(--cursor);
+  }
+
+  .code-block-flair,
+  .code-block-flair:hover,
+  .code-block-flair:focus,
+  .code-block-flair:focus-visible,
+  .code-block-flair:active,
+  .cm-line:hover .code-block-flair,
+  .cm-line:focus-within .code-block-flair {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+
+  .copy-code-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    opacity: 1;
+    padding: 0.25rem;
+    transform: none;
+    visibility: visible;
+  }
+
+  .cm-preview-code-block:hover button.copy-code-button,
+  .cm-preview-code-block:focus-within button.copy-code-button,
+  .cm-preview-code-block:hover .copy-code-button,
+  .cm-preview-code-block:focus-within .copy-code-button,
+  .el-pre:hover .copy-code-button,
+  .el-pre:focus-within .copy-code-button,
+  .el-pre:hover button.copy-code-button,
+  .el-pre:focus-within button.copy-code-button,
+  .markdown-rendered pre:hover .copy-code-button,
+  .markdown-rendered pre:focus-within .copy-code-button,
+  .markdown-rendered pre:hover button.copy-code-button,
+  .markdown-rendered pre:focus-within button.copy-code-button,
+  .copy-code-button:hover,
+  .copy-code-button:focus-visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .copy-code-button:hover,
+  .copy-code-button:focus-visible,
+  .code-block-flair:hover,
+  .code-block-flair:focus-visible {
+    color: var(--text-normal);
+    background-color: var(--monokai-selection-muted-background);
+  }
+
+  .markdown-rendered .code-block-flair,
+  .markdown-rendered .el-pre:hover .code-block-flair,
+  .markdown-rendered .el-pre:focus-within .code-block-flair,
+  .markdown-rendered pre:hover .code-block-flair,
+  .markdown-rendered pre:focus-within .code-block-flair,
+  .markdown-rendered pre:hover::before,
+  .markdown-rendered pre:focus-within::before {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cm-preview-code-block {
+    position: relative;
+  }
+
+  .cm-preview-code-block:not(:has(.code-block-flair))::before {
+    content: "CODE";
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    inset-block-start: 0.45rem;
+    inset-inline-end: var(--monokai-codeblock-padding-inline);
+    min-height: auto;
+    color: var(--monokai-codeblock-language-color);
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--radius-s);
+    font-family: var(--font-text-theme);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    padding-inline: 0;
+    pointer-events: none;
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
   }
 
   // stylelint-disable selector-class-pattern -- CodeMirror 内部类名。
@@ -826,6 +1145,11 @@ body.theme-light {
     color: var(--code-function);
   }
 
+  span.cm-variable.cm-callee,
+  span.cm-def.cm-callee {
+    color: var(--code-function);
+  }
+
   span.cm-number,
   span.cm-atom {
     color: var(--code-value);
@@ -850,7 +1174,11 @@ body.theme-light {
 
   span.cm-variable,
   span.cm-variable-3 {
-    color: var(--code-normal);
+    color: var(--monokai-code-variable);
+  }
+
+  span.cm-parameter {
+    color: var(--monokai-code-parameter);
   }
 
   span.cm-constant {
@@ -867,7 +1195,7 @@ body.theme-light {
 
   span.cm-qualifier,
   span.cm-namespace {
-    color: var(--code-namespace);
+    color: var(--monokai-code-module);
   }
 
   span.cm-meta {

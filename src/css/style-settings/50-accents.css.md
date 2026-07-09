@@ -1,9 +1,26 @@
 /*
 @settings
 
-name: Monokai Syntax 强调色
+name: Monokai Syntax Code Blocks 与强调色
 id: monokai-syntax-accents
 settings:
+  -
+    id: monokai-syntax-code-blocks-heading
+    title: Code Blocks
+    type: heading
+    level: 2
+  -
+    id: monokai-code-background
+    title: 代码背景
+    type: variable-color
+    opacity: true
+    format: hex
+    default: '#1e1f1c'
+  -
+    id: monokai-syntax-accents-heading
+    title: Accents
+    type: heading
+    level: 2
   -
     id: monokai-syntax-accent-preset
     title: 强调色预设
@@ -45,11 +62,4 @@ settings:
     opacity: true
     format: rgb
     default: 'rgb(230 219 116 / 28%)'
-  -
-    id: monokai-code-background
-    title: 代码背景
-    type: variable-color
-    opacity: true
-    format: hex
-    default: '#1e1f1c'
 */

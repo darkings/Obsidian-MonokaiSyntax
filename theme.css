@@ -14,6 +14,10 @@
   --monokai-highlight-text: var(--text-normal);
   --monokai-scrollbar-active-background: var(--background-modifier-active-hover);
   --monokai-selection-foreground: var(--text-normal);
+  --monokai-selection-background: var(--background-modifier-active-hover);
+  --monokai-selection-muted-background: var(--background-modifier-hover);
+  --monokai-selection-border-color: var(--interactive-accent);
+  --monokai-light-tool-background: var(--background-secondary);
   --monokai-tab-active-border-color: var(--interactive-accent);
 }
 
@@ -33,6 +37,9 @@
   --monokai-default-success: #a9dc76;
   --monokai-default-warning: rgb(255 216 102 / 24%);
   --monokai-default-code-background: #221f22;
+  --monokai-selection-background: rgb(120 220 232 / 18%);
+  --monokai-selection-muted-background: rgb(252 252 250 / 6%);
+  --monokai-selection-border-color: #78dce8;
   --text-accent-hover: #ff6188;
   --interactive-accent: #ff6188;
   --interactive-accent-hover: #ff6188;
@@ -82,6 +89,9 @@
   --code-regex: #ffd866;
   --code-meta: #939293;
   --code-error: #ff6188;
+  --code-variable: #fcfcfa;
+  --code-parameter: #fc9867;
+  --code-module: #78dce8;
   --ribbon-background: #221f22;
   --ribbon-background-collapsed: #221f22;
   --nav-item-background-hover: #403e41;
@@ -95,21 +105,25 @@
 }
 
 .theme-light {
-  --background-primary: #fdf9f3;
-  --background-secondary: #f5f0e6;
-  --background-secondary-alt: #f5f0e6;
-  --background-modifier-hover: #eee6d8;
-  --background-modifier-active-hover: #e5dccd;
-  --text-normal: #3d3d3d;
-  --text-muted: #666666;
-  --text-faint: #7a7369;
-  --background-modifier-border: #d8d0c2;
+  --background-primary: #faf8f2;
+  --background-secondary: #f0eee7;
+  --background-secondary-alt: #f0eee7;
+  --background-modifier-hover: #e8e5dc;
+  --background-modifier-active-hover: #ddd9cf;
+  --text-normal: #343434;
+  --text-muted: #606060;
+  --text-faint: #77736c;
+  --background-modifier-border: #d2cec4;
   --text-accent: #e14775;
   --monokai-default-accent: #e14775;
   --monokai-default-link: #14748a;
   --monokai-default-success: #269d69;
   --monokai-default-warning: rgb(232 179 10 / 24%);
-  --monokai-default-code-background: #f5f0e6;
+  --monokai-default-code-background: #ebe8df;
+  --monokai-selection-background: rgb(20 116 138 / 16%);
+  --monokai-selection-muted-background: rgb(52 52 52 / 6%);
+  --monokai-selection-border-color: #14748a;
+  --monokai-light-tool-background: #f5f3ec;
   --text-accent-hover: #f63d77;
   --interactive-accent: #e14775;
   --interactive-accent-hover: #f63d77;
@@ -125,8 +139,8 @@
   --link-color-hover: #1ba5bf;
   --link-external-color: #14748a;
   --link-external-color-hover: #1ba5bf;
-  --icon-color: #666666;
-  --icon-color-hover: #3d3d3d;
+  --icon-color: #606060;
+  --icon-color-hover: #343434;
   --icon-color-active: #14748a;
   --metadata-label-text-color: #e16032;
   --text-highlight-bg: rgb(232 179 10 / 24%);
@@ -135,18 +149,18 @@
   --monokai-checkbox-checked-color: #269d69;
   --checkbox-color: #cc7a0a;
   --checkbox-color-hover: #e8b30a;
-  --checkbox-marker-color: #fdf9f3;
+  --checkbox-marker-color: #faf8f2;
   --checkbox-color-checked: #269d69;
   --list-marker-color: #7058be;
-  --code-normal: #3d3d3d;
-  --code-background: #f5f0e6;
-  --code-comment: #7a7369;
+  --code-normal: #343434;
+  --code-background: #f0eee7;
+  --code-comment: #77736c;
   --code-function: #269d69;
   --code-important: #e14775;
   --code-keyword: #e14775;
   --code-operator: #f63d77;
   --code-property: #14748a;
-  --code-punctuation: #666666;
+  --code-punctuation: #606060;
   --code-string: #cc7a0a;
   --code-tag: #e14775;
   --code-value: #7058be;
@@ -154,18 +168,21 @@
   --code-class: #269d69;
   --code-builtin: #14748a;
   --code-constant: #7058be;
-  --code-namespace: #666666;
+  --code-namespace: #606060;
   --code-decorator: #e16032;
   --code-regex: #cc7a0a;
-  --code-meta: #7a7369;
+  --code-meta: #77736c;
   --code-error: #e14775;
-  --ribbon-background: #f5f0e6;
-  --ribbon-background-collapsed: #f5f0e6;
-  --nav-item-background-hover: #eee6d8;
-  --nav-item-background-active: #e5dccd;
-  --nav-item-color: #666666;
-  --nav-item-color-hover: #3d3d3d;
-  --nav-item-color-active: #3d3d3d;
+  --code-variable: #343434;
+  --code-parameter: #e16032;
+  --code-module: #14748a;
+  --ribbon-background: #f0eee7;
+  --ribbon-background-collapsed: #f0eee7;
+  --nav-item-background-hover: #e8e5dc;
+  --nav-item-background-active: #ddd9cf;
+  --nav-item-color: #606060;
+  --nav-item-color-hover: #343434;
+  --nav-item-color-active: #343434;
   --metadata-input-background: transparent;
   --metadata-input-background-active: transparent;
   --metadata-label-text-color-hover: #fb6214;
@@ -193,6 +210,7 @@
   align-items: center;
   color: var(--nav-item-color);
   border-radius: var(--radius-s);
+  transition: color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
 }
 
 .nav-file-title:hover,
@@ -203,7 +221,15 @@
 
 .nav-file-title.is-active {
   color: var(--monokai-selection-foreground, var(--nav-item-color-active));
-  background-color: var(--nav-item-background-active);
+  background-color: var(--monokai-selection-background, var(--nav-item-background-active));
+  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color);
+}
+
+.nav-folder-title.is-active,
+.tree-item-self.is-active {
+  color: var(--monokai-selection-foreground, var(--nav-item-color-active));
+  background-color: var(--monokai-selection-background, var(--nav-item-background-active));
+  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color);
 }
 
 .nav-folder-collapse-indicator,
@@ -290,7 +316,8 @@ input[type=checkbox]:checked {
 .tag-pane-tag.is-active,
 .bookmark.is-active {
   color: var(--monokai-selection-foreground, var(--text-normal));
-  background-color: var(--nav-item-background-active);
+  background-color: var(--monokai-selection-background, var(--nav-item-background-active));
+  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color);
 }
 
 .tag {
@@ -307,6 +334,11 @@ input[type=checkbox]:checked {
 
 ::-webkit-scrollbar-thumb:active {
   background-color: var(--monokai-scrollbar-active-background);
+}
+
+::selection {
+  color: var(--monokai-selection-foreground);
+  background-color: var(--monokai-selection-background);
 }
 
 .markdown-source-view,
@@ -340,8 +372,10 @@ input[type=checkbox]:checked {
   --monokai-footnote-marker-color: var(--text-faint);
   --monokai-footnote-font-size: 0.85em;
   --monokai-media-radius: var(--radius-m);
+  --monokai-media-border-width: 1px;
   --monokai-media-border-color: var(--background-modifier-border);
   --monokai-media-background: var(--background-secondary);
+  --monokai-media-shadow: none;
   --monokai-embed-padding: 0.75rem;
   --monokai-plugin-surface-background: var(--background-secondary);
   --monokai-plugin-surface-border: var(--background-modifier-border);
@@ -371,6 +405,8 @@ input[type=checkbox]:checked {
   --monokai-table-api-required-color: var(--text-accent);
   --monokai-codeblock-background: var(--code-background);
   --monokai-codeblock-border-color: var(--background-modifier-border);
+  --monokai-codeblock-header-background: var(--background-secondary);
+  --monokai-codeblock-header-border-color: var(--background-modifier-border);
   --monokai-codeblock-radius: var(--radius-m);
   --monokai-codeblock-header-height: 1.75rem;
   --monokai-codeblock-margin-block: 1rem;
@@ -383,6 +419,9 @@ input[type=checkbox]:checked {
   --monokai-codeblock-active-line-background: var(--background-modifier-hover);
   --monokai-codeblock-active-line-border: var(--interactive-accent);
   --monokai-codeblock-selection-background: rgb(120 220 232 / 32%);
+  --monokai-code-variable: var(--code-variable, var(--code-normal));
+  --monokai-code-parameter: var(--code-parameter, var(--code-operator));
+  --monokai-code-module: var(--code-module, var(--code-property));
   --monokai-editor-active-line-background: rgb(248 248 242 / 5%);
   --monokai-editor-selection-background: rgb(102 217 239 / 30%);
   --monokai-editor-cursor-color: var(--interactive-accent);
@@ -406,33 +445,34 @@ body.theme-dark {
   --monokai-blockquote-border: #ffd866;
   --monokai-callout-note-bg: rgb(120 220 232 / 12%);
   --monokai-callout-note-border: #78dce8;
-  --monokai-callout-abstract-bg: rgb(171 157 242 / 12%);
+  --monokai-callout-abstract-bg: rgb(171 157 242 / 8%);
   --monokai-callout-abstract-border: #ab9df2;
-  --monokai-callout-info-bg: rgb(120 220 232 / 12%);
+  --monokai-callout-info-bg: rgb(120 220 232 / 8%);
   --monokai-callout-info-border: #78dce8;
-  --monokai-callout-todo-bg: rgb(255 216 102 / 12%);
+  --monokai-callout-todo-bg: rgb(255 216 102 / 8%);
   --monokai-callout-todo-border: #ffd866;
-  --monokai-callout-tip-bg: rgb(169 220 118 / 12%);
+  --monokai-callout-tip-bg: rgb(169 220 118 / 8%);
   --monokai-callout-tip-border: #a9dc76;
-  --monokai-callout-question-bg: rgb(171 157 242 / 12%);
+  --monokai-callout-question-bg: rgb(171 157 242 / 8%);
   --monokai-callout-question-border: #ab9df2;
-  --monokai-callout-warning-bg: rgb(252 152 103 / 12%);
+  --monokai-callout-warning-bg: rgb(252 152 103 / 8%);
   --monokai-callout-warning-border: #fc9867;
-  --monokai-callout-error-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-error-bg: rgb(255 97 136 / 8%);
   --monokai-callout-error-border: #ff6188;
-  --monokai-callout-failure-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-failure-bg: rgb(255 97 136 / 8%);
   --monokai-callout-failure-border: #ff6188;
-  --monokai-callout-bug-bg: rgb(255 97 136 / 12%);
+  --monokai-callout-bug-bg: rgb(255 97 136 / 8%);
   --monokai-callout-bug-border: #ff6188;
-  --monokai-callout-success-bg: rgb(169 220 118 / 12%);
+  --monokai-callout-success-bg: rgb(169 220 118 / 8%);
   --monokai-callout-success-border: #a9dc76;
-  --monokai-callout-example-bg: rgb(252 152 103 / 12%);
+  --monokai-callout-example-bg: rgb(252 152 103 / 8%);
   --monokai-callout-example-border: #fc9867;
   --monokai-callout-quote-bg: rgb(252 252 250 / 8%);
   --monokai-callout-quote-border: #939293;
   --monokai-inline-code-color: #a9dc76;
   --monokai-inline-code-background: var(--code-background);
   --monokai-codeblock-background: #221f22;
+  --monokai-codeblock-header-background: #272329;
   --monokai-codeblock-border-color: rgb(252 252 250 / 14%);
   --monokai-codeblock-active-line-background: #403e41;
   --monokai-codeblock-active-line-border: #78dce8;
@@ -456,29 +496,29 @@ body.theme-light {
   --monokai-heading-weight: 700;
   --blockquote-border-color: #cc7a0a;
   --monokai-blockquote-border: #cc7a0a;
-  --monokai-callout-note-bg: rgb(20 116 138 / 14%);
+  --monokai-callout-note-bg: rgb(20 116 138 / 9%);
   --monokai-callout-note-border: #14748a;
-  --monokai-callout-abstract-bg: rgb(107 83 148 / 13%);
+  --monokai-callout-abstract-bg: rgb(107 83 148 / 9%);
   --monokai-callout-abstract-border: #6b5394;
-  --monokai-callout-info-bg: rgb(20 116 138 / 14%);
+  --monokai-callout-info-bg: rgb(20 116 138 / 9%);
   --monokai-callout-info-border: #14748a;
-  --monokai-callout-todo-bg: rgb(151 116 0 / 14%);
+  --monokai-callout-todo-bg: rgb(151 116 0 / 9%);
   --monokai-callout-todo-border: #977400;
-  --monokai-callout-tip-bg: rgb(38 157 105 / 14%);
+  --monokai-callout-tip-bg: rgb(38 157 105 / 9%);
   --monokai-callout-tip-border: #269d69;
-  --monokai-callout-question-bg: rgb(107 83 148 / 13%);
+  --monokai-callout-question-bg: rgb(107 83 148 / 9%);
   --monokai-callout-question-border: #6b5394;
-  --monokai-callout-warning-bg: rgb(225 96 50 / 14%);
+  --monokai-callout-warning-bg: rgb(225 96 50 / 9%);
   --monokai-callout-warning-border: #e16032;
-  --monokai-callout-error-bg: rgb(225 71 117 / 14%);
+  --monokai-callout-error-bg: rgb(225 71 117 / 9%);
   --monokai-callout-error-border: #e14775;
-  --monokai-callout-failure-bg: rgb(225 71 117 / 14%);
+  --monokai-callout-failure-bg: rgb(225 71 117 / 9%);
   --monokai-callout-failure-border: #e14775;
-  --monokai-callout-bug-bg: rgb(225 71 117 / 14%);
+  --monokai-callout-bug-bg: rgb(225 71 117 / 9%);
   --monokai-callout-bug-border: #e14775;
-  --monokai-callout-success-bg: rgb(38 157 105 / 14%);
+  --monokai-callout-success-bg: rgb(38 157 105 / 9%);
   --monokai-callout-success-border: #269d69;
-  --monokai-callout-example-bg: rgb(225 96 50 / 14%);
+  --monokai-callout-example-bg: rgb(225 96 50 / 9%);
   --monokai-callout-example-border: #e16032;
   --monokai-callout-quote-bg: rgb(61 61 61 / 8%);
   --monokai-callout-quote-border: #6f6f6f;
@@ -486,6 +526,7 @@ body.theme-light {
   --monokai-inline-code-background: rgb(20 116 138 / 16%);
   --monokai-inline-code-font-weight: 600;
   --monokai-codeblock-background: #eee6d8;
+  --monokai-codeblock-header-background: #f5f3ec;
   --monokai-codeblock-border-color: #c6b9a6;
   --monokai-codeblock-active-line-background: #e3d4bf;
   --monokai-codeblock-active-line-border: #14748a;
@@ -627,19 +668,28 @@ body.theme-light {
   border: 1px solid var(--monokai-table-border);
   border-collapse: separate;
   border-spacing: 0;
+  font-variant-numeric: tabular-nums;
   margin-block: var(--monokai-paragraph-spacing);
   overflow: hidden;
 }
 .markdown-rendered th,
 .markdown-rendered td {
-  border: 1px solid var(--monokai-table-border);
+  border: 0;
+  border-block-end: 1px solid var(--monokai-table-border);
   padding: var(--monokai-table-cell-padding);
   vertical-align: top;
+}
+.markdown-rendered th:not(:last-child),
+.markdown-rendered td:not(:last-child) {
+  border-inline-end: 1px solid var(--monokai-table-border);
 }
 .markdown-rendered th {
   color: var(--text-normal);
   background-color: var(--monokai-table-header-background);
   font-weight: 700;
+}
+.markdown-rendered tbody tr:last-child td {
+  border-block-end: 0;
 }
 .markdown-rendered tbody tr:nth-child(even) {
   background-color: var(--monokai-table-row-alt-background);
@@ -680,19 +730,229 @@ body.theme-light {
   line-height: var(--monokai-codeblock-line-height);
   margin-block: var(--monokai-codeblock-margin-block);
   overflow-x: auto;
+  position: relative;
   padding: var(--monokai-codeblock-padding-block) var(--monokai-codeblock-padding-inline);
   scrollbar-color: var(--text-faint) transparent;
   tab-size: 2;
 }
+.markdown-rendered pre::-webkit-scrollbar-thumb {
+  background-color: var(--monokai-selection-muted-background);
+}
+.markdown-rendered pre::-webkit-scrollbar-thumb:hover {
+  background-color: var(--monokai-selection-background);
+}
 .markdown-rendered pre code {
+  color: var(--code-normal);
   background-color: transparent;
   border: 0;
+  border-radius: 0;
   box-shadow: none;
+  font-weight: inherit;
   padding: 0;
 }
 .markdown-rendered pre ::selection {
   color: var(--code-normal);
   background-color: var(--monokai-codeblock-selection-background);
+}
+.markdown-rendered pre:not([class*=language-], :has(code[class*=language-]))::before,
+.markdown-rendered pre:not(:has(.code-block-flair))[class*=language-]::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code[class*=language-])::before {
+  content: "CODE";
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 0.45rem;
+  inset-inline-end: var(--monokai-codeblock-padding-inline);
+  min-height: auto;
+  color: var(--monokai-codeblock-language-color);
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-s);
+  font-family: var(--font-text-theme);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding-inline: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-bash::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-bash)::before {
+  content: "BASH";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-c::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-c)::before {
+  content: "C";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-cpp::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-cpp)::before {
+  content: "C++";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-csharp::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-csharp)::before {
+  content: "C#";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-css::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-css)::before {
+  content: "CSS";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-go::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-go)::before {
+  content: "GO";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-html::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-html)::before {
+  content: "HTML";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-java::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-java)::before {
+  content: "JAVA";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-javascript::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-javascript)::before {
+  content: "JS";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-js::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-js)::before {
+  content: "JS";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-json::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-json)::before {
+  content: "JSON";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-markdown::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-markdown)::before {
+  content: "MD";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-md::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-md)::before {
+  content: "MD";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-mermaid::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-mermaid)::before {
+  content: "MERMAID";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-powershell::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-powershell)::before {
+  content: "POWERSHELL";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-python::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-python)::before {
+  content: "PYTHON";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-py::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-py)::before {
+  content: "PYTHON";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-scss::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-scss)::before {
+  content: "SCSS";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-shell::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-shell)::before {
+  content: "SHELL";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-sh::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-sh)::before {
+  content: "SH";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-sql::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-sql)::before {
+  content: "SQL";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-text::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-text)::before {
+  content: "TEXT";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-toml::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-toml)::before {
+  content: "TOML";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-ts::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-ts)::before {
+  content: "TS";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-typescript::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-typescript)::before {
+  content: "TS";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-xml::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-xml)::before {
+  content: "XML";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-yaml::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-yaml)::before {
+  content: "YAML";
+}
+.markdown-rendered pre:not(:has(.code-block-flair)).language-yml::before,
+.markdown-rendered pre:not(:has(.code-block-flair)):has(code.language-yml)::before {
+  content: "YAML";
+}
+.markdown-rendered .copy-code-button,
+.markdown-rendered .code-block-flair {
+  color: var(--monokai-codeblock-language-color);
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-s);
+  font-family: var(--font-text-theme);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  transition: color 160ms ease, background-color 160ms ease, opacity 160ms ease, transform 160ms ease;
+}
+.markdown-rendered .code-block-flair {
+  pointer-events: auto;
+  cursor: var(--cursor);
+}
+.markdown-rendered .code-block-flair,
+.markdown-rendered .code-block-flair:hover,
+.markdown-rendered .code-block-flair:focus,
+.markdown-rendered .code-block-flair:focus-visible,
+.markdown-rendered .code-block-flair:active,
+.markdown-rendered .cm-line:hover .code-block-flair,
+.markdown-rendered .cm-line:focus-within .code-block-flair {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+.markdown-rendered .copy-code-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  opacity: 0;
+  padding: 0.25rem;
+  transform: translateY(-1px);
+  visibility: hidden;
+}
+.markdown-rendered .el-pre:hover .copy-code-button,
+.markdown-rendered .el-pre:focus-within .copy-code-button,
+.markdown-rendered pre:hover .copy-code-button,
+.markdown-rendered pre:focus-within .copy-code-button,
+.markdown-rendered pre:hover button.copy-code-button,
+.markdown-rendered pre:focus-within button.copy-code-button,
+.markdown-rendered .copy-code-button:hover,
+.markdown-rendered .copy-code-button:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+.markdown-rendered .el-pre:hover .code-block-flair,
+.markdown-rendered .el-pre:focus-within .code-block-flair,
+.markdown-rendered pre:hover .code-block-flair,
+.markdown-rendered pre:focus-within .code-block-flair,
+.markdown-rendered pre:hover::before,
+.markdown-rendered pre:focus-within::before {
+  opacity: 0;
+  transform: translateY(-1px);
+}
+.markdown-rendered .copy-code-button:hover,
+.markdown-rendered .copy-code-button:focus-visible,
+.markdown-rendered .code-block-flair:hover,
+.markdown-rendered .code-block-flair:focus-visible {
+  color: var(--text-normal);
+  background-color: var(--monokai-selection-muted-background);
 }
 .markdown-rendered hr {
   border: 0;
@@ -712,7 +972,9 @@ body.theme-light {
   max-width: 100%;
   background-color: var(--monokai-media-background);
   border: 1px solid var(--monokai-media-border-color);
+  border-width: var(--monokai-media-border-width);
   border-radius: var(--monokai-media-radius);
+  box-shadow: var(--monokai-media-shadow);
 }
 .markdown-rendered .file-embed,
 .markdown-rendered .pdf-embed,
@@ -721,7 +983,9 @@ body.theme-light {
 .markdown-rendered .internal-embed {
   background-color: var(--monokai-media-background);
   border: 1px solid var(--monokai-media-border-color);
+  border-width: var(--monokai-media-border-width);
   border-radius: var(--monokai-media-radius);
+  box-shadow: var(--monokai-media-shadow);
   padding: var(--monokai-embed-padding);
 }
 .markdown-rendered .mermaid {
@@ -770,6 +1034,24 @@ body.theme-light {
 .markdown-rendered .heading-collapse-indicator,
 .markdown-rendered .heading-anchor {
   color: var(--monokai-heading-anchor-color);
+}
+.markdown-rendered .callout {
+  background-color: var(--callout-background, transparent);
+  border: 1px solid var(--background-modifier-border);
+  border-inline-start: 3px solid rgb(var(--callout-color));
+  border-radius: var(--radius-m);
+  box-shadow: none;
+}
+.markdown-rendered .callout-title {
+  color: var(--text-normal);
+  font-weight: 700;
+}
+
+.markdown-preview-view .markdown-rendered .copy-code-button {
+  font-size: 0.58rem;
+  min-height: 1.35rem;
+  min-width: 1.35rem;
+  padding: 0.16rem;
 }
 
 .markdown-source-view.mod-cm6 .HyperMD-header-1 {
@@ -826,9 +1108,15 @@ body.theme-light {
   padding-inline: var(--monokai-codeblock-padding-inline);
 }
 .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:has(.cm-hmd-codeblock-begin) {
+  border-block-start: 1px solid var(--monokai-codeblock-border-color);
+  border-start-start-radius: var(--monokai-codeblock-radius);
+  border-start-end-radius: var(--monokai-codeblock-radius);
   padding-block-start: var(--monokai-codeblock-padding-block);
 }
 .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock:has(.cm-hmd-codeblock-end) {
+  border-block-end: 1px solid var(--monokai-codeblock-border-color);
+  border-end-start-radius: var(--monokai-codeblock-radius);
+  border-end-end-radius: var(--monokai-codeblock-radius);
   padding-block-end: var(--monokai-codeblock-padding-block);
 }
 .markdown-source-view.mod-cm6 .HyperMD-hr {
@@ -934,7 +1222,9 @@ body.theme-light {
   max-width: 100%;
   background-color: var(--monokai-media-background);
   border: 1px solid var(--monokai-media-border-color);
+  border-width: var(--monokai-media-border-width);
   border-radius: var(--monokai-media-radius);
+  box-shadow: var(--monokai-media-shadow);
 }
 .markdown-source-view.mod-cm6 .file-embed,
 .markdown-source-view.mod-cm6 .pdf-embed,
@@ -944,7 +1234,9 @@ body.theme-light {
 .markdown-source-view.mod-cm6 .cm-embed-block {
   background-color: var(--monokai-media-background);
   border: 1px solid var(--monokai-media-border-color);
+  border-width: var(--monokai-media-border-width);
   border-radius: var(--monokai-media-radius);
+  box-shadow: var(--monokai-media-shadow);
   padding: var(--monokai-embed-padding);
 }
 .markdown-source-view.mod-cm6 .cm-hashtag {
@@ -966,6 +1258,102 @@ body.theme-light {
   font-family: var(--monokai-code-font-family);
   font-weight: var(--monokai-inline-code-font-weight);
   padding: var(--monokai-inline-code-padding);
+}
+.markdown-source-view.mod-cm6 .copy-code-button,
+.markdown-source-view.mod-cm6 .code-block-flair {
+  color: var(--monokai-codeblock-language-color);
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-s);
+  font-family: var(--font-text-theme);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  transition: color 160ms ease, background-color 160ms ease, opacity 160ms ease, transform 160ms ease;
+}
+.markdown-source-view.mod-cm6 .code-block-flair {
+  pointer-events: auto;
+  cursor: var(--cursor);
+}
+.markdown-source-view.mod-cm6 .code-block-flair,
+.markdown-source-view.mod-cm6 .code-block-flair:hover,
+.markdown-source-view.mod-cm6 .code-block-flair:focus,
+.markdown-source-view.mod-cm6 .code-block-flair:focus-visible,
+.markdown-source-view.mod-cm6 .code-block-flair:active,
+.markdown-source-view.mod-cm6 .cm-line:hover .code-block-flair,
+.markdown-source-view.mod-cm6 .cm-line:focus-within .code-block-flair {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+.markdown-source-view.mod-cm6 .copy-code-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  opacity: 1;
+  padding: 0.25rem;
+  transform: none;
+  visibility: visible;
+}
+.markdown-source-view.mod-cm6 .cm-preview-code-block:hover button.copy-code-button,
+.markdown-source-view.mod-cm6 .cm-preview-code-block:focus-within button.copy-code-button,
+.markdown-source-view.mod-cm6 .cm-preview-code-block:hover .copy-code-button,
+.markdown-source-view.mod-cm6 .cm-preview-code-block:focus-within .copy-code-button,
+.markdown-source-view.mod-cm6 .el-pre:hover .copy-code-button,
+.markdown-source-view.mod-cm6 .el-pre:focus-within .copy-code-button,
+.markdown-source-view.mod-cm6 .el-pre:hover button.copy-code-button,
+.markdown-source-view.mod-cm6 .el-pre:focus-within button.copy-code-button,
+.markdown-source-view.mod-cm6 .markdown-rendered pre:hover .copy-code-button,
+.markdown-source-view.mod-cm6 .markdown-rendered pre:focus-within .copy-code-button,
+.markdown-source-view.mod-cm6 .markdown-rendered pre:hover button.copy-code-button,
+.markdown-source-view.mod-cm6 .markdown-rendered pre:focus-within button.copy-code-button,
+.markdown-source-view.mod-cm6 .copy-code-button:hover,
+.markdown-source-view.mod-cm6 .copy-code-button:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+.markdown-source-view.mod-cm6 .copy-code-button:hover,
+.markdown-source-view.mod-cm6 .copy-code-button:focus-visible,
+.markdown-source-view.mod-cm6 .code-block-flair:hover,
+.markdown-source-view.mod-cm6 .code-block-flair:focus-visible {
+  color: var(--text-normal);
+  background-color: var(--monokai-selection-muted-background);
+}
+.markdown-source-view.mod-cm6 .markdown-rendered .code-block-flair,
+.markdown-source-view.mod-cm6 .markdown-rendered .el-pre:hover .code-block-flair,
+.markdown-source-view.mod-cm6 .markdown-rendered .el-pre:focus-within .code-block-flair,
+.markdown-source-view.mod-cm6 .markdown-rendered pre:hover .code-block-flair,
+.markdown-source-view.mod-cm6 .markdown-rendered pre:focus-within .code-block-flair,
+.markdown-source-view.mod-cm6 .markdown-rendered pre:hover::before,
+.markdown-source-view.mod-cm6 .markdown-rendered pre:focus-within::before {
+  opacity: 1;
+  transform: none;
+}
+.markdown-source-view.mod-cm6 .cm-preview-code-block {
+  position: relative;
+}
+.markdown-source-view.mod-cm6 .cm-preview-code-block:not(:has(.code-block-flair))::before {
+  content: "CODE";
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 0.45rem;
+  inset-inline-end: var(--monokai-codeblock-padding-inline);
+  min-height: auto;
+  color: var(--monokai-codeblock-language-color);
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-s);
+  font-family: var(--font-text-theme);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding-inline: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 .markdown-source-view.mod-cm6 .cm-active {
   background-color: var(--monokai-editor-active-line-background);
@@ -1014,6 +1402,10 @@ body.theme-light {
 .cm-s-obsidian span.cm-variable-2 {
   color: var(--code-function);
 }
+.cm-s-obsidian span.cm-variable.cm-callee,
+.cm-s-obsidian span.cm-def.cm-callee {
+  color: var(--code-function);
+}
 .cm-s-obsidian span.cm-number,
 .cm-s-obsidian span.cm-atom {
   color: var(--code-value);
@@ -1033,7 +1425,10 @@ body.theme-light {
 }
 .cm-s-obsidian span.cm-variable,
 .cm-s-obsidian span.cm-variable-3 {
-  color: var(--code-normal);
+  color: var(--monokai-code-variable);
+}
+.cm-s-obsidian span.cm-parameter {
+  color: var(--monokai-code-parameter);
 }
 .cm-s-obsidian span.cm-constant {
   color: var(--code-constant);
@@ -1046,7 +1441,7 @@ body.theme-light {
 }
 .cm-s-obsidian span.cm-qualifier,
 .cm-s-obsidian span.cm-namespace {
-  color: var(--code-namespace);
+  color: var(--monokai-code-module);
 }
 .cm-s-obsidian span.cm-meta {
   color: var(--code-meta);
@@ -1478,86 +1873,6 @@ a:focus-visible,
   content: "\e679";
 }
 
-.nav-folder-title[data-path=assets],
-.nav-folder-title[data-path$="/assets"],
-.nav-folder[data-path=assets] > .nav-folder-title,
-.nav-folder[data-path$="/assets"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e638";
-  --monokai-folder-icon-color: #ffd866;
-}
-
-.nav-folder-title[data-path=examples],
-.nav-folder-title[data-path$="/examples"],
-.nav-folder[data-path=examples] > .nav-folder-title,
-.nav-folder[data-path$="/examples"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e674";
-  --monokai-folder-icon-color: #fc9867;
-}
-
-.nav-folder-title[data-path=exercises],
-.nav-folder-title[data-path$="/exercises"],
-.nav-folder[data-path=exercises] > .nav-folder-title,
-.nav-folder[data-path$="/exercises"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e679";
-  --monokai-folder-icon-color: #ffd866;
-}
-
-.nav-folder-title[data-path=labs],
-.nav-folder-title[data-path$="/labs"],
-.nav-folder[data-path=labs] > .nav-folder-title,
-.nav-folder[data-path$="/labs"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e610";
-  --monokai-folder-icon-color: #78dce8;
-}
-
-.nav-folder-title[data-path=leetcode],
-.nav-folder-title[data-path$="/leetcode"],
-.nav-folder[data-path=leetcode] > .nav-folder-title,
-.nav-folder[data-path$="/leetcode"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\eab5";
-  --monokai-folder-icon-color: #78dce8;
-}
-
-.nav-folder-title[data-path=notes],
-.nav-folder-title[data-path$="/notes"],
-.nav-folder[data-path=notes] > .nav-folder-title,
-.nav-folder[data-path$="/notes"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e695";
-  --monokai-folder-icon-color: #a9dc76;
-}
-
-.nav-folder-title[data-path=src],
-.nav-folder-title[data-path$="/src"],
-.nav-folder[data-path=src] > .nav-folder-title,
-.nav-folder[data-path$="/src"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e61d";
-  --monokai-folder-icon-color: #ffd866;
-}
-
-.nav-folder-title[data-path=tests],
-.nav-folder-title[data-path$="/tests"],
-.nav-folder[data-path=tests] > .nav-folder-title,
-.nav-folder[data-path$="/tests"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e610";
-  --monokai-folder-icon-color: #78dce8;
-}
-
-.nav-folder-title[data-path^=day],
-.nav-folder-title[data-path*="/day"],
-.nav-folder[data-path^=day] > .nav-folder-title,
-.nav-folder[data-path*="/day"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e637";
-  --monokai-folder-icon-color: #a9dc76;
-}
-
-.nav-folder-title[data-path^=Day],
-.nav-folder-title[data-path*="/Day"],
-.nav-folder[data-path^=Day] > .nav-folder-title,
-.nav-folder[data-path*="/Day"] > .nav-folder-title {
-  --monokai-folder-icon-content: "\e637";
-  --monokai-folder-icon-color: #a9dc76;
-}
-
 .nav-file-title[data-path^=Bug_][data-path$=".md"]::before,
 .nav-file-title[data-path*="/Bug_"][data-path$=".md"]::before {
   --monokai-file-icon-color: #ff6188;
@@ -1695,13 +2010,35 @@ body.monokai-syntax-monochrome-icons .nav-file-title.is-active::before {
 .side-dock-ribbon-action:hover,
 .workspace-ribbon-collapse-btn:hover {
   color: var(--icon-color-hover);
-  background-color: var(--background-modifier-hover);
+  background-color: var(--monokai-selection-muted-background, var(--background-modifier-hover));
 }
 
 .side-dock-ribbon-action.is-active {
   color: var(--icon-color-active);
-  background-color: var(--background-modifier-hover);
-  box-shadow: inset 2px 0 0 var(--icon-color-active);
+  background-color: var(--monokai-selection-background, var(--background-modifier-hover));
+  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color, var(--icon-color-active));
+}
+
+.status-bar {
+  color: var(--text-muted);
+  background-color: var(--background-secondary);
+  border-color: var(--background-modifier-border);
+}
+
+.status-bar-item {
+  border-radius: var(--radius-s);
+  transition: color 120ms ease, background-color 120ms ease;
+}
+
+.status-bar-item:hover {
+  color: var(--text-normal);
+  background-color: var(--monokai-selection-muted-background, var(--background-modifier-hover));
+}
+
+.status-bar-item.mod-clickable:active,
+.status-bar-item.is-active {
+  color: var(--icon-color-active);
+  background-color: var(--monokai-selection-background, var(--background-modifier-active-hover));
 }
 
 body.is-mobile .workspace-ribbon {
@@ -1766,7 +2103,7 @@ body.is-mobile .workspace-ribbon {
 
 .workspace-tab-header:hover {
   color: var(--text-normal);
-  background-color: var(--background-modifier-hover);
+  background-color: var(--monokai-selection-muted-background, var(--background-modifier-hover));
 }
 
 .workspace-tab-header.is-active {
@@ -1788,10 +2125,10 @@ body.is-mobile .workspace-ribbon {
 body.theme-dark {
   --monokai-settings-heading-color: var(--text-normal);
   --monokai-settings-item-background: rgb(248 248 242 / 4%);
-  --monokai-settings-item-border: rgb(248 248 242 / 12%);
+  --monokai-settings-item-border: rgb(248 248 242 / 10%);
   --monokai-settings-item-text: var(--text-normal);
   --monokai-settings-item-description: var(--text-muted);
-  --monokai-settings-selected-background: rgb(102 217 239 / 12%);
+  --monokai-settings-selected-background: var(--monokai-selection-background);
   --monokai-settings-control-background: rgb(39 32 28 / 96%);
   --monokai-settings-control-border: rgb(248 248 242 / 18%);
   --monokai-settings-control-text: var(--text-normal);
@@ -1799,12 +2136,12 @@ body.theme-dark {
 
 body.theme-light {
   --monokai-settings-heading-color: var(--text-normal);
-  --monokai-settings-item-background: rgb(255 253 248 / 72%);
+  --monokai-settings-item-background: rgb(245 243 236 / 82%);
   --monokai-settings-item-border: rgb(61 61 61 / 12%);
   --monokai-settings-item-text: var(--text-normal);
   --monokai-settings-item-description: var(--text-muted);
-  --monokai-settings-selected-background: rgb(20 116 138 / 9%);
-  --monokai-settings-control-background: rgb(255 253 248 / 94%);
+  --monokai-settings-selected-background: var(--monokai-selection-background);
+  --monokai-settings-control-background: rgb(250 248 242 / 96%);
   --monokai-settings-control-border: rgb(61 61 61 / 20%);
   --monokai-settings-control-text: var(--text-normal);
 }
@@ -1817,6 +2154,10 @@ body.theme-light {
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-m);
   box-shadow: var(--monokai-modal-shadow);
+}
+
+.modal.mod-settings {
+  background-color: var(--background-secondary);
 }
 
 .modal-title,
@@ -1876,6 +2217,8 @@ body.theme-light {
 .modal.mod-settings .vertical-tab-nav-item {
   color: var(--nav-item-color);
   border-radius: var(--radius-s);
+  margin-block: 1px;
+  transition: color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
 }
 .modal.mod-settings .vertical-tab-nav-item:hover {
   color: var(--nav-item-color-hover);
@@ -1884,11 +2227,14 @@ body.theme-light {
 .modal.mod-settings .vertical-tab-nav-item.is-active {
   color: var(--monokai-selection-foreground, var(--nav-item-color-active));
   background-color: var(--nav-item-background-active);
+  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color);
 }
 .modal.mod-settings .setting-item {
   color: var(--monokai-settings-item-text);
-  background-color: var(--monokai-settings-item-background);
-  border-color: var(--monokai-settings-item-border);
+  background-color: transparent;
+  border-color: var(--background-modifier-border);
+  border-radius: 0;
+  box-shadow: none;
 }
 .modal.mod-settings .setting-item-description,
 .modal.mod-settings .setting-item-info {
@@ -1896,11 +2242,22 @@ body.theme-light {
 }
 .modal.mod-settings .community-plugin,
 .modal.mod-settings .installed-plugins-container,
-.modal.mod-settings .modal-button-container,
-.modal.mod-settings .vertical-tab-content-container > div {
+.modal.mod-settings .modal-button-container {
   color: var(--monokai-settings-item-text);
-  background-color: var(--monokai-settings-item-background);
+  background-color: transparent;
   border-color: var(--monokai-settings-item-border);
+  border-radius: 0;
+  box-shadow: none;
+}
+.modal.mod-settings .setting-item-container,
+.modal.mod-settings .vertical-tab-content-container > div:not(.style-settings-container) {
+  background-color: transparent;
+  border-color: var(--background-modifier-border);
+  border-radius: 0;
+  box-shadow: none;
+}
+.modal.mod-settings .setting-item:hover {
+  background-color: var(--monokai-selection-muted-background);
 }
 .modal.mod-settings button,
 .modal.mod-settings select,
@@ -1910,6 +2267,11 @@ body.theme-light {
   color: var(--monokai-settings-control-text);
   background-color: var(--monokai-settings-control-background);
   border-color: var(--monokai-settings-control-border);
+}
+.modal.mod-settings button:hover,
+.modal.mod-settings .clickable-icon:hover {
+  color: var(--icon-color-hover);
+  background-color: var(--monokai-selection-muted-background);
 }
 .modal.mod-settings .setting-item-name .search-input-container,
 .modal.mod-settings .style-settings-container .search-input-container {
@@ -1934,6 +2296,7 @@ body.theme-light {
   background-color: var(--monokai-settings-item-background);
   border: 1px solid var(--monokai-settings-item-border);
   border-radius: var(--radius-m);
+  box-shadow: none;
   transition: background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
 }
 .style-settings-container .setting-item.is-selected,
@@ -1963,6 +2326,7 @@ body.theme-light {
   --monokai-graph-background: var(--background-secondary);
   --monokai-graph-panel: var(--background-modifier-active-hover);
   --monokai-graph-line: rgb(from var(--monokai-spectrum-cyan, var(--link-color)) r g b / 42%);
+  --monokai-graph-direction-line: rgb(from var(--monokai-spectrum-cyan, var(--link-color)) r g b / 58%);
   --monokai-graph-node: var(--text-muted);
   --monokai-graph-focused: var(--monokai-spectrum-red, var(--interactive-accent));
   --monokai-graph-node-tag: var(--monokai-spectrum-purple, var(--h6-color));
@@ -1975,7 +2339,7 @@ body.theme-light {
   --graph-node-tag: var(--monokai-graph-node-tag);
   --graph-node-attachment: var(--monokai-graph-node-attachment);
   --graph-node-unresolved: var(--monokai-graph-node-unresolved);
-  --graph-arrow: var(--monokai-graph-line);
+  --graph-arrow: var(--monokai-graph-direction-line);
   --graph-line-highlight: var(--link-color);
   --graph-node-highlight-fill: var(--interactive-accent);
   --graph-node-highlight-line: var(--link-color);
@@ -2002,7 +2366,7 @@ body.theme-light {
   background-color: var(--monokai-graph-panel);
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-m);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   transition: border-color 140ms ease, box-shadow 180ms ease;
 }
 
@@ -2014,7 +2378,7 @@ body.theme-light {
 
 .graph-controls-button:hover {
   color: var(--icon-color-hover);
-  background-color: var(--background-modifier-hover);
+  background-color: var(--monokai-selection-muted-background, var(--background-modifier-hover));
   transform: translateY(-1px);
 }
 
@@ -2025,8 +2389,8 @@ body.theme-light {
 
 .graph-controls-button.mod-active {
   color: var(--icon-color-active);
-  background-color: var(--nav-item-background-active);
-  box-shadow: inset 2px 0 0 var(--icon-color-active);
+  background-color: var(--monokai-selection-background, var(--nav-item-background-active));
+  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color, var(--icon-color-active));
 }
 
 .graph-view.color-fill,
@@ -2106,6 +2470,7 @@ body.theme-light {
 .canvas-wrapper {
   --canvas-background: var(--background-primary);
   --canvas-card-label-color: var(--text-muted);
+  --canvas-dot-pattern: radial-gradient(var(--background-modifier-border) 1px, transparent 1px);
   --canvas-color-1: var(--monokai-spectrum-red, var(--text-accent));
   --canvas-color-2: var(--monokai-spectrum-orange, var(--h2-color));
   --canvas-color-3: var(--monokai-spectrum-yellow, var(--h3-color));
@@ -2113,11 +2478,15 @@ body.theme-light {
   --canvas-color-5: var(--monokai-spectrum-cyan, var(--link-color));
   --canvas-color-6: var(--monokai-spectrum-purple, var(--h6-color));
   background-color: var(--canvas-background);
+  background-image: var(--canvas-dot-pattern);
+  background-position: 0 0;
+  background-size: 24px 24px;
 }
 
 .canvas-node {
   border-color: var(--background-modifier-border);
   border-radius: var(--radius-m);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
 }
 
 .canvas-node-content {
@@ -2128,7 +2497,7 @@ body.theme-light {
 
 .canvas-node.is-focused,
 .canvas-node.is-selected {
-  border-color: var(--interactive-accent);
+  border-color: var(--monokai-selection-border-color, var(--interactive-accent));
   box-shadow: 0 0 0 2px var(--monokai-selection-ring);
 }
 
@@ -2138,11 +2507,13 @@ body.theme-light {
 
 .canvas-path {
   stroke: var(--text-faint);
+  stroke-opacity: 0.72;
 }
 
 .canvas-path.is-focused,
 .canvas-path.is-selected {
   stroke: var(--link-color);
+  stroke-opacity: 1;
 }
 
 .canvas-node-container {
@@ -2189,6 +2560,10 @@ body.theme-dark.monokai-syntax-filter-pro {
   --monokai-default-success: #a9dc76;
   --monokai-default-warning: rgba(255, 216, 102, 0.24);
   --monokai-default-code-background: #221f22;
+  --monokai-selection-background: rgb(from #78dce8 r g b / 18%);
+  --monokai-selection-muted-background: rgb(from #fcfcfa r g b / 6%);
+  --monokai-selection-border-color: #78dce8;
+  --monokai-light-tool-background: #221f22;
   --monokai-spectrum-red: #ff6188;
   --monokai-spectrum-orange: #fc9867;
   --monokai-spectrum-yellow: #ffd866;
@@ -2216,6 +2591,9 @@ body.theme-dark.monokai-syntax-filter-pro {
   --code-regex: #ffd866;
   --code-meta: #939293;
   --code-error: #ff6188;
+  --code-variable: #fcfcfa;
+  --code-parameter: #fc9867;
+  --code-module: #78dce8;
   --monokai-callout-note-bg: rgb(from #78dce8 r g b / 12%);
   --monokai-callout-note-border: #78dce8;
   --monokai-callout-info-bg: rgb(from #78dce8 r g b / 12%);
@@ -2268,15 +2646,15 @@ body.theme-dark.monokai-syntax-filter-pro {
 
 body.theme-light.monokai-syntax-filter-light {
   --monokai-filter-name: "light";
-  --background-primary: #fdf9f3;
-  --background-secondary: #f5f0e6;
-  --background-secondary-alt: #f5f0e6;
-  --background-modifier-hover: #eee6d8;
-  --background-modifier-active-hover: #e5dccd;
-  --background-modifier-border: #d8d0c2;
-  --text-normal: #3d3d3d;
-  --text-muted: #666666;
-  --text-faint: #7a7369;
+  --background-primary: #faf8f2;
+  --background-secondary: #f0eee7;
+  --background-secondary-alt: #f0eee7;
+  --background-modifier-hover: #e8e5dc;
+  --background-modifier-active-hover: #ddd9cf;
+  --background-modifier-border: #d2cec4;
+  --text-normal: #343434;
+  --text-muted: #606060;
+  --text-faint: #77736c;
   --text-accent: #e14775;
   --text-accent-hover: #e14775;
   --interactive-accent: #e14775;
@@ -2291,8 +2669,8 @@ body.theme-light.monokai-syntax-filter-light {
   --h4-color: #269d69;
   --h5-color: #14748a;
   --h6-color: #7058be;
-  --icon-color: #666666;
-  --icon-color-hover: #3d3d3d;
+  --icon-color: #606060;
+  --icon-color-hover: #343434;
   --icon-color-active: #14748a;
   --metadata-label-text-color: #e16032;
   --metadata-label-text-color-hover: #e16032;
@@ -2300,22 +2678,26 @@ body.theme-light.monokai-syntax-filter-light {
   --monokai-default-link: #14748a;
   --monokai-default-success: #269d69;
   --monokai-default-warning: rgba(232, 179, 10, 0.24);
-  --monokai-default-code-background: #f5f0e6;
+  --monokai-default-code-background: #f0eee7;
+  --monokai-selection-background: rgb(from #14748a r g b / 18%);
+  --monokai-selection-muted-background: rgb(from #343434 r g b / 6%);
+  --monokai-selection-border-color: #14748a;
+  --monokai-light-tool-background: #f0eee7;
   --monokai-spectrum-red: #e14775;
   --monokai-spectrum-orange: #e16032;
   --monokai-spectrum-yellow: #cc7a0a;
   --monokai-spectrum-green: #269d69;
   --monokai-spectrum-cyan: #14748a;
   --monokai-spectrum-purple: #7058be;
-  --code-normal: #3d3d3d;
-  --code-background: #f5f0e6;
-  --code-comment: #7a7369;
+  --code-normal: #343434;
+  --code-background: #f0eee7;
+  --code-comment: #77736c;
   --code-function: #269d69;
   --code-important: #e14775;
   --code-keyword: #e14775;
   --code-operator: #e16032;
   --code-property: #14748a;
-  --code-punctuation: #666666;
+  --code-punctuation: #606060;
   --code-string: #cc7a0a;
   --code-tag: #e14775;
   --code-value: #7058be;
@@ -2323,11 +2705,14 @@ body.theme-light.monokai-syntax-filter-light {
   --code-class: #269d69;
   --code-builtin: #14748a;
   --code-constant: #7058be;
-  --code-namespace: #666666;
+  --code-namespace: #606060;
   --code-decorator: #e16032;
   --code-regex: #cc7a0a;
-  --code-meta: #7a7369;
+  --code-meta: #77736c;
   --code-error: #e14775;
+  --code-variable: #343434;
+  --code-parameter: #e16032;
+  --code-module: #14748a;
   --monokai-callout-note-bg: rgb(from #14748a r g b / 12%);
   --monokai-callout-note-border: #14748a;
   --monokai-callout-info-bg: rgb(from #14748a r g b / 12%);
@@ -2352,16 +2737,16 @@ body.theme-light.monokai-syntax-filter-light {
   --monokai-callout-success-border: #269d69;
   --monokai-callout-example-bg: rgb(from #e16032 r g b / 12%);
   --monokai-callout-example-border: #e16032;
-  --monokai-callout-quote-bg: rgb(from #3d3d3d r g b / 8%);
-  --monokai-callout-quote-border: #7a7369;
-  --monokai-graph-background: #f5f0e6;
-  --monokai-graph-panel: #e5dccd;
+  --monokai-callout-quote-bg: rgb(from #343434 r g b / 8%);
+  --monokai-callout-quote-border: #77736c;
+  --monokai-graph-background: #f0eee7;
+  --monokai-graph-panel: #ddd9cf;
   --monokai-graph-line: rgb(from #14748a r g b / 42%);
-  --monokai-graph-node: #666666;
+  --monokai-graph-node: #606060;
   --monokai-graph-focused: #e14775;
   --monokai-graph-node-tag: #7058be;
   --monokai-graph-node-attachment: #269d69;
-  --monokai-graph-node-unresolved: #7a7369;
+  --monokai-graph-node-unresolved: #77736c;
   --monokai-graph-ring: rgb(from #14748a r g b / 28%);
   --canvas-color-1: #e14775;
   --canvas-color-2: #e16032;
@@ -2369,13 +2754,13 @@ body.theme-light.monokai-syntax-filter-light {
   --canvas-color-4: #269d69;
   --canvas-color-5: #14748a;
   --canvas-color-6: #7058be;
-  --ribbon-background: #f5f0e6;
-  --ribbon-background-collapsed: #f5f0e6;
-  --nav-item-background-hover: #eee6d8;
-  --nav-item-background-active: #e5dccd;
-  --nav-item-color: #666666;
-  --nav-item-color-hover: #3d3d3d;
-  --nav-item-color-active: #3d3d3d;
+  --ribbon-background: #f0eee7;
+  --ribbon-background-collapsed: #f0eee7;
+  --nav-item-background-hover: #e8e5dc;
+  --nav-item-background-active: #ddd9cf;
+  --nav-item-color: #606060;
+  --nav-item-color-hover: #343434;
+  --nav-item-color-active: #343434;
 }
 
 body.monokai-syntax-compact {
@@ -2451,6 +2836,7 @@ body.monokai-syntax-accent-amber-vscode {
   --monokai-warning-color: rgb(255 160 0 / 24%);
   --monokai-scrollbar-active-background: rgb(255 160 0 / 31%);
   --monokai-selection-foreground: #ffa000;
+  --monokai-selection-border-color: #ffa000;
   --monokai-tab-active-border-color: #ffa000;
   --monokai-settings-heading-color: #ffa000;
   --icon-color-active: #ffa000;
@@ -2491,6 +2877,25 @@ body {
   --checkbox-color-checked: var(--monokai-success-color, var(--monokai-default-success));
   --text-highlight-bg: var(--monokai-warning-color, var(--monokai-default-warning));
   --code-background: var(--monokai-code-background, var(--monokai-default-code-background));
+}
+
+body.monokai-syntax-media-border-none {
+  --monokai-media-border-width: 0;
+  --monokai-media-background: transparent;
+  --monokai-embed-padding: 0;
+}
+
+body.monokai-syntax-media-border-card {
+  --monokai-media-border-width: 1px;
+  --monokai-media-background: var(--monokai-light-tool-background, var(--background-secondary));
+  --monokai-media-shadow: 0 10px 28px rgb(0 0 0 / 16%);
+  --monokai-embed-padding: 0.85rem;
+}
+
+body.monokai-syntax-heading-muted-tail {
+  --h4-color: var(--text-muted);
+  --h5-color: var(--text-muted);
+  --h6-color: var(--text-faint);
 }
 
 body:is(.theme-dark, .theme-light) {
@@ -3085,9 +3490,35 @@ settings:
 /*
 @settings
 
-name: Monokai Syntax 密度
+name: Monokai Syntax 外观与密度
 id: monokai-syntax-density
 settings:
+  -
+    id: monokai-syntax-appearance-heading
+    title: Appearance
+    type: heading
+    level: 2
+  -
+    id: monokai-syntax-media-border-style
+    title: 媒体边框
+    type: class-select
+    allowEmpty: false
+    default: monokai-syntax-media-border-thin
+    options:
+      -
+        label: 细边框
+        value: monokai-syntax-media-border-thin
+      -
+        label: 关闭
+        value: monokai-syntax-media-border-none
+      -
+        label: 卡片式
+        value: monokai-syntax-media-border-card
+  -
+    id: monokai-syntax-density-heading
+    title: Density
+    type: heading
+    level: 2
   -
     id: monokai-syntax-compact
     title: 紧凑模式
@@ -3098,7 +3529,7 @@ settings:
 /*
 @settings
 
-name: Monokai Syntax 图标
+name: Monokai Syntax File Explorer
 id: monokai-syntax-icons
 settings:
   -
@@ -3125,6 +3556,11 @@ name: Monokai Syntax 排版
 id: monokai-syntax-typography
 settings:
   -
+    id: monokai-syntax-markdown-reading-heading
+    title: Markdown Reading
+    type: heading
+    level: 2
+  -
     id: monokai-readable-line-width
     title: 可读行宽
     type: variable-number-slider
@@ -3142,6 +3578,11 @@ settings:
     max: 20
     step: 1
     format: px
+  -
+    id: monokai-syntax-editor-heading
+    title: Editor
+    type: heading
+    level: 2
   -
     id: monokai-code-font-size
     title: 代码字号
@@ -3177,6 +3618,19 @@ settings:
     step: 0.05
     format: rem
   -
+    id: monokai-syntax-heading-color-mode
+    title: 标题色彩模式
+    type: class-select
+    allowEmpty: false
+    default: monokai-syntax-heading-full-spectrum
+    options:
+      -
+        label: 全光谱
+        value: monokai-syntax-heading-full-spectrum
+      -
+        label: 低彩尾部
+        value: monokai-syntax-heading-muted-tail
+  -
     id: monokai-syntax-heading-accents
     title: 标题左侧色条
     type: class-toggle
@@ -3195,9 +3649,26 @@ settings:
 /*
 @settings
 
-name: Monokai Syntax 强调色
+name: Monokai Syntax Code Blocks 与强调色
 id: monokai-syntax-accents
 settings:
+  -
+    id: monokai-syntax-code-blocks-heading
+    title: Code Blocks
+    type: heading
+    level: 2
+  -
+    id: monokai-code-background
+    title: 代码背景
+    type: variable-color
+    opacity: true
+    format: hex
+    default: '#1e1f1c'
+  -
+    id: monokai-syntax-accents-heading
+    title: Accents
+    type: heading
+    level: 2
   -
     id: monokai-syntax-accent-preset
     title: 强调色预设
@@ -3239,11 +3710,4 @@ settings:
     opacity: true
     format: rgb
     default: 'rgb(230 219 116 / 28%)'
-  -
-    id: monokai-code-background
-    title: 代码背景
-    type: variable-color
-    opacity: true
-    format: hex
-    default: '#1e1f1c'
 */
