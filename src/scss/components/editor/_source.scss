@@ -1,0 +1,414 @@
+@use "../../variables" as *;
+
+.markdown-source-view.mod-cm6 {
+  // stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。
+  .HyperMD-header-1 {
+    padding-block-end: var(--monokai-heading-gap-h1);
+  }
+
+  .HyperMD-header-2 {
+    padding-block: calc(var(--monokai-heading-group-spacing) / 3) var(--monokai-heading-gap-h2);
+  }
+
+  .HyperMD-header-3 {
+    padding-block: calc(var(--monokai-heading-group-spacing) / 4) var(--monokai-heading-gap-h3);
+  }
+
+  .HyperMD-header-4 {
+    padding-block-end: var(--monokai-heading-gap-h4);
+  }
+
+  .HyperMD-header-5 {
+    padding-block-end: var(--monokai-heading-gap-h5);
+  }
+
+  .HyperMD-header-6 {
+    padding-block-end: var(--monokai-heading-gap-h6);
+  }
+
+  .HyperMD-task-line[data-task=" "],
+  .HyperMD-task-line[data-task=""] {
+    color: var(--monokai-task-open-color);
+  }
+
+  .HyperMD-task-line[data-task="x"],
+  .HyperMD-task-line[data-task="X"] {
+    color: var(--monokai-task-done-color);
+  }
+
+  .HyperMD-task-line[data-task=">"] {
+    color: var(--monokai-task-forward-color);
+  }
+
+  .HyperMD-task-line[data-task="-"] {
+    color: var(--monokai-task-cancelled-color);
+    text-decoration-line: line-through;
+  }
+
+  .HyperMD-task-line[data-task="?"] {
+    color: var(--monokai-task-question-color);
+  }
+
+  .HyperMD-task-line[data-task="!"] {
+    color: var(--monokai-task-important-color);
+    font-weight: 700;
+  }
+
+  .HyperMD-task-line[data-task="/"] {
+    color: var(--monokai-task-in-progress-color);
+  }
+
+  .HyperMD-task-line[data-task="*"] {
+    color: var(--monokai-task-starred-color);
+    font-weight: 700;
+  }
+
+  .HyperMD-codeblock {
+    background-color: var(--monokai-codeblock-background);
+    font-family: var(--monokai-code-font-family);
+    line-height: var(--monokai-codeblock-line-height);
+    padding-inline: var(--monokai-codeblock-padding-inline);
+  }
+
+  .cm-line.HyperMD-codeblock:has(.cm-hmd-codeblock-begin) {
+    border-block-start: 1px solid var(--monokai-codeblock-border-color);
+    border-start-start-radius: var(--monokai-codeblock-radius);
+    border-start-end-radius: var(--monokai-codeblock-radius);
+    padding-block-start: var(--monokai-codeblock-padding-block);
+  }
+
+  .cm-line.HyperMD-codeblock:has(.cm-hmd-codeblock-end) {
+    border-block-end: 1px solid var(--monokai-codeblock-border-color);
+    border-end-start-radius: var(--monokai-codeblock-radius);
+    border-end-end-radius: var(--monokai-codeblock-radius);
+    padding-block-end: var(--monokai-codeblock-padding-block);
+  }
+
+  .HyperMD-hr {
+    color: var(--monokai-formatting-marker-color);
+    padding-block: calc(var(--monokai-hr-spacing) / 2);
+  }
+
+  .HyperMD-paragraph {
+    padding-block-end: calc(var(--monokai-paragraph-spacing) / 3);
+  }
+
+  .HyperMD-table-row {
+    font-family: var(--monokai-table-source-font-family);
+    background-color: var(--monokai-table-source-background);
+  }
+
+  // stylelint-enable selector-class-pattern
+
+  .cm-header-1 {
+    color: var(--h1-color);
+    font-size: var(--h1-size);
+    font-weight: var(--monokai-heading-weight);
+  }
+
+  .cm-header-2 {
+    color: var(--h2-color);
+    font-size: var(--h2-size);
+    font-weight: var(--monokai-heading-weight);
+  }
+
+  .cm-header-3 {
+    color: var(--h3-color);
+    font-size: var(--h3-size);
+    font-weight: var(--monokai-heading-weight);
+  }
+
+  .cm-header-4 {
+    color: var(--h4-color);
+    font-size: var(--h4-size);
+    font-weight: var(--monokai-heading-weight);
+  }
+
+  .cm-header-5 {
+    color: var(--h5-color);
+    font-size: var(--h5-size);
+    font-weight: var(--monokai-heading-weight);
+  }
+
+  .cm-header-6 {
+    color: var(--h6-color);
+    font-size: var(--h6-size);
+    font-weight: var(--monokai-heading-weight);
+  }
+
+  .cm-strong {
+    color: var(--bold-color);
+    font-weight: var(--bold-weight);
+  }
+
+  .cm-em {
+    color: var(--italic-color);
+  }
+
+  .cm-strikethrough {
+    color: var(--monokai-strikethrough-color);
+    text-decoration-color: var(--monokai-strikethrough-color);
+  }
+
+  .cm-link,
+  .cm-url {
+    color: var(--link-color);
+  }
+
+  .cm-formatting-link {
+    color: var(--monokai-formatting-marker-color);
+  }
+
+  .cm-hmd-table-sep,
+  .cm-hmd-table-align,
+  .cm-formatting-table {
+    color: var(--monokai-table-source-separator-color);
+  }
+
+  .cm-formatting-code-block,
+  .cm-hmd-codeblock-begin,
+  .cm-hmd-codeblock-end {
+    color: var(--monokai-formatting-marker-color);
+  }
+
+  .cm-table {
+    color: var(--text-normal);
+  }
+
+  .cm-formatting-list {
+    color: var(--list-marker-color);
+  }
+
+  .cm-formatting-strong,
+  .cm-formatting-em,
+  .cm-formatting-strikethrough,
+  .cm-formatting-code,
+  .cm-formatting-highlight {
+    color: var(--monokai-formatting-marker-color);
+  }
+
+  .cm-highlight {
+    color: var(--monokai-highlight-text);
+    background-color: var(--text-highlight-bg);
+    border-radius: var(--monokai-highlight-radius);
+    padding-inline: var(--monokai-highlight-padding-inline);
+  }
+
+  .cm-hr {
+    color: var(--monokai-hr-color);
+  }
+
+  .cm-footref {
+    color: var(--monokai-footnote-color);
+    font-size: var(--monokai-footnote-font-size);
+  }
+
+  .cm-formatting-footref {
+    color: var(--monokai-footnote-marker-color);
+  }
+
+  .image-embed,
+  .cm-embed-block {
+    max-width: 100%;
+    background-color: var(--monokai-media-background);
+    border: 1px solid var(--monokai-media-border-color);
+    border-width: var(--monokai-media-border-width);
+    border-radius: var(--monokai-media-radius);
+    box-shadow: var(--monokai-media-shadow);
+  }
+
+  .file-embed,
+  .pdf-embed,
+  .audio-embed,
+  .video-embed,
+  .internal-embed,
+  .cm-embed-block {
+    background-color: var(--monokai-media-background);
+    border: 1px solid var(--monokai-media-border-color);
+    border-width: var(--monokai-media-border-width);
+    border-radius: var(--monokai-media-radius);
+    box-shadow: var(--monokai-media-shadow);
+    padding: var(--monokai-embed-padding);
+  }
+
+  .cm-hashtag {
+    color: var(--monokai-tag-color);
+    background-color: var(--monokai-tag-background);
+    border: 1px solid var(--monokai-tag-border-color);
+    border-radius: var(--monokai-tag-radius);
+    padding-inline: 0.25em;
+  }
+
+  .cm-line {
+    line-height: var(--monokai-paragraph-line-height);
+  }
+
+  .cm-inline-code {
+    color: var(--monokai-inline-code-color);
+    background-color: var(--monokai-inline-code-background);
+    border: 0;
+    border-radius: var(--radius-s);
+    box-shadow: none;
+    font-family: var(--monokai-code-font-family);
+    font-weight: var(--monokai-inline-code-font-weight);
+    padding: var(--monokai-inline-code-padding);
+  }
+
+  .copy-code-button,
+  .code-block-flair {
+    color: var(--monokai-codeblock-language-color);
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--radius-s);
+    font-family: var(--font-text-theme);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition:
+      color 160ms ease,
+      background-color 160ms ease,
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .code-block-flair {
+    pointer-events: auto;
+    cursor: var(--cursor);
+  }
+
+  .code-block-flair,
+  .code-block-flair:hover,
+  .code-block-flair:focus,
+  .code-block-flair:focus-visible,
+  .code-block-flair:active,
+  .cm-line:hover .code-block-flair,
+  .cm-line:focus-within .code-block-flair {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+
+  .copy-code-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    opacity: 1;
+    padding: 0.25rem;
+    transform: none;
+    visibility: visible;
+  }
+
+  .cm-preview-code-block:hover button.copy-code-button,
+  .cm-preview-code-block:focus-within button.copy-code-button,
+  .cm-preview-code-block:hover .copy-code-button,
+  .cm-preview-code-block:focus-within .copy-code-button,
+  .el-pre:hover .copy-code-button,
+  .el-pre:focus-within .copy-code-button,
+  .el-pre:hover button.copy-code-button,
+  .el-pre:focus-within button.copy-code-button,
+  .markdown-rendered pre:hover .copy-code-button,
+  .markdown-rendered pre:focus-within .copy-code-button,
+  .markdown-rendered pre:hover button.copy-code-button,
+  .markdown-rendered pre:focus-within button.copy-code-button,
+  .copy-code-button:hover,
+  .copy-code-button:focus-visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .copy-code-button:hover,
+  .copy-code-button:focus-visible,
+  .code-block-flair:hover,
+  .code-block-flair:focus-visible {
+    color: var(--text-normal);
+    background-color: var(--monokai-selection-muted-background);
+  }
+
+  .markdown-rendered .code-block-flair,
+  .markdown-rendered .el-pre:hover .code-block-flair,
+  .markdown-rendered .el-pre:focus-within .code-block-flair,
+  .markdown-rendered pre:hover .code-block-flair,
+  .markdown-rendered pre:focus-within .code-block-flair,
+  .markdown-rendered pre:hover::before,
+  .markdown-rendered pre:focus-within::before {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cm-preview-code-block {
+    position: relative;
+  }
+
+  .cm-preview-code-block:not(:has(.code-block-flair))::before {
+    content: "CODE";
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    inset-block-start: 0.45rem;
+    inset-inline-end: var(--monokai-codeblock-padding-inline);
+    min-height: auto;
+    color: var(--monokai-codeblock-language-color);
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--radius-s);
+    font-family: var(--font-text-theme);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding-inline: 0;
+    pointer-events: none;
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  // stylelint-disable selector-class-pattern -- CodeMirror 内部类名。
+  .cm-active {
+    background-color: var(--monokai-editor-active-line-background);
+  }
+
+  .cm-line.HyperMD-codeblock.cm-active {
+    background-color: var(--monokai-codeblock-active-line-background);
+    box-shadow: inset 2px 0 0 var(--monokai-codeblock-active-line-border);
+  }
+
+  .cm-line.HyperMD-codeblock {
+    &::selection {
+      color: var(--code-normal);
+      background-color: var(--monokai-codeblock-selection-background);
+    }
+
+    .cm-selectionBackground {
+      background-color: var(--monokai-codeblock-selection-background);
+    }
+  }
+
+  .cm-selectionBackground {
+    background-color: var(--monokai-editor-selection-background);
+  }
+
+  .cm-cursor {
+    border-left-color: var(--monokai-editor-cursor-color);
+  }
+
+  .cm-gutters {
+    color: var(--monokai-editor-gutter-color);
+    background-color: var(--monokai-editor-gutter-background);
+    border-right: 1px solid var(--background-modifier-border);
+  }
+
+  .cm-lineNumbers .cm-gutterElement {
+    color: var(--monokai-editor-gutter-color);
+  }
+
+  .cm-matchingBracket {
+    color: var(--text-normal);
+    background-color: var(--monokai-editor-bracket-match-background);
+    border-radius: var(--radius-s);
+  }
+  // stylelint-enable selector-class-pattern
+}
+

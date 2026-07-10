@@ -1,0 +1,25 @@
+@use "../../variables" as *;
+
+a,
+.markdown-rendered a,
+.cm-hmd-internal-link,
+.cm-link,
+.cm-url {
+  color: var(--link-color);
+  text-decoration-color: var(--monokai-link-decoration-color);
+  text-decoration-thickness: var(--monokai-link-decoration-thickness);
+}
+
+a:hover,
+.markdown-rendered a:hover,
+.cm-hmd-internal-link:hover {
+  color: var(--link-color-hover);
+}
+
+a:focus-visible,
+.markdown-rendered a:focus-visible,
+.cm-hmd-internal-link:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-s);
+}

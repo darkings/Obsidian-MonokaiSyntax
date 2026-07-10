@@ -3,10 +3,18 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const readSource = (path) => readFileSync(new URL(path, import.meta.url), "utf8");
+const readEditorSource = () => [
+  readSource("../src/scss/components/_editor.scss"),
+  readSource("../src/scss/components/editor/_tokens.scss"),
+  readSource("../src/scss/components/editor/_reading.scss"),
+  readSource("../src/scss/components/editor/_source.scss"),
+  readSource("../src/scss/components/editor/_syntax.scss"),
+  readSource("../src/scss/components/editor/_links.scss"),
+].join("\n");
 
 test("Monokai Pro 打磨项暴露稳定的样式入口", () => {
   const base = readSource("../src/scss/_base.scss");
-  const editor = readSource("../src/scss/components/_editor.scss");
+  const editor = readEditorSource();
   const modals = readSource("../src/scss/components/_modals.scss");
   const ribbon = readSource("../src/scss/components/_ribbon.scss");
   const graph = readSource("../src/scss/plugins/_graph.scss");
@@ -69,7 +77,7 @@ test("Monokai Pro 打磨项暴露稳定的样式入口", () => {
 test("低风险基础清理使用统一 token 并避免重复 Callout 基础规则", () => {
   const variables = readSource("../src/scss/_variables.scss");
   const base = readSource("../src/scss/_base.scss");
-  const editor = readSource("../src/scss/components/_editor.scss");
+  const editor = readEditorSource();
   const activeVisual = readSource("../src/scss/_active-visual-overrides.scss");
   const contrast = readSource("../scripts/check-contrast.js");
 
@@ -86,7 +94,7 @@ test("低风险基础清理使用统一 token 并避免重复 Callout 基础规�
 test("核心阅读视觉降低噪音并保留 Monokai 语义", () => {
   const variables = readSource("../src/scss/_variables.scss");
   const base = readSource("../src/scss/_base.scss");
-  const editor = readSource("../src/scss/components/_editor.scss");
+  const editor = readEditorSource();
 
   assert.match(variables, /\$color-pro-heading-h1:\s*#ff9ab0;/);
   assert.match(base, /--h1-color:\s*#\{\$color-pro-heading-h1\};/);
@@ -103,7 +111,7 @@ test("核心阅读视觉降低噪音并保留 Monokai 语义", () => {
 
 test("布局与代码块组件使用更稳的默认尺寸", () => {
   const variables = readSource("../src/scss/_variables.scss");
-  const editor = readSource("../src/scss/components/_editor.scss");
+  const editor = readEditorSource();
   const styleSettingsScss = readSource("../src/scss/plugins/_style-settings.scss");
   const typographySettings = readSource("../src/css/style-settings/40-typography.css.md");
 
@@ -142,4 +150,26 @@ test("Obsidian 常见界面补齐主题 surface 覆盖", () => {
   assert.match(base, /\.popover\.hover-popover[\s\S]*?box-shadow:\s*var\(--monokai-popover-shadow\);/);
   assert.match(base, /\.workspace-split\.mod-right-split[\s\S]*?background-color:\s*var\(--background-secondary\);/);
   assert.match(base, /\.markdown-rendered \.internal-link\.is-unresolved[\s\S]*?color:\s*var\(--text-faint\);/);
+});
+
+test("编辑器样式按职责拆分为聚合模块", () => {
+  const editorEntry = readSource("../src/scss/components/_editor.scss");
+  const editorIndex = readSource("../src/scss/components/editor/_index.scss");
+  const tokens = readSource("../src/scss/components/editor/_tokens.scss");
+  const reading = readSource("../src/scss/components/editor/_reading.scss");
+  const source = readSource("../src/scss/components/editor/_source.scss");
+  const syntax = readSource("../src/scss/components/editor/_syntax.scss");
+  const links = readSource("../src/scss/components/editor/_links.scss");
+
+  assert.match(editorEntry, /@forward "editor";/);
+  for (const moduleName of ["tokens", "reading", "source", "syntax", "links"]) {
+    assert.match(editorIndex, new RegExp(`@forward "${moduleName}";`));
+  }
+
+  assert.match(tokens, /body\.theme-dark[\s\S]*?--monokai-codeblock-background:/);
+  assert.match(reading, /\.markdown-rendered[\s\S]*?\.copy-code-button/);
+  assert.match(source, /\.markdown-source-view\.mod-cm6[\s\S]*?\.HyperMD-codeblock/);
+  assert.match(syntax, /\.cm-s-obsidian[\s\S]*?span\.cm-keyword/);
+  assert.match(links, /a,[\s\S]*?\.markdown-rendered a,[\s\S]*?\.cm-hmd-internal-link/);
+  assert.ok(reading.length < 35000, "阅读模块不应重新膨胀成完整 editor 大文件");
 });

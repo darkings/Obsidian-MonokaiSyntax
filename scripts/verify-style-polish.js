@@ -1,9 +1,10 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { readEditorScss } from "./scss-source.js";
 
 const rootDir = resolve(import.meta.dirname, "..");
 const files = {
-  editor: readFileSync(resolve(rootDir, "src/scss/components/_editor.scss"), "utf8"),
+  editor: readEditorScss(rootDir),
   activeVisual: readFileSync(resolve(rootDir, "src/scss/_active-visual-overrides.scss"), "utf8"),
   base: readFileSync(resolve(rootDir, "src/scss/_base.scss"), "utf8"),
   modals: readFileSync(resolve(rootDir, "src/scss/components/_modals.scss"), "utf8"),

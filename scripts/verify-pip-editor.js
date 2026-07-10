@@ -1,9 +1,10 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { readEditorScss } from "./scss-source.js";
 
-const editorPath = resolve(import.meta.dirname, "../src/scss/components/_editor.scss");
 const activeVisualPath = resolve(import.meta.dirname, "../src/scss/_active-visual-overrides.scss");
-const editorScss = readFileSync(editorPath, "utf8");
+const rootDir = resolve(import.meta.dirname, "..");
+const editorScss = readEditorScss(rootDir);
 const activeVisualScss = readFileSync(activeVisualPath, "utf8");
 
 const checks = [
@@ -16,8 +17,8 @@ const checks = [
   ["Obsidian 块引用原生变量同步细边框", /--blockquote-border-thickness:\s*2px;/],
   ["阅读视图块引用使用左边框", /\.markdown-rendered[\s\S]*?blockquote[\s\S]*?border-inline-start:\s*2px solid var\(--monokai-blockquote-border\);/],
   ["阅读视图块引用增加左侧呼吸感", /\.markdown-rendered[\s\S]*?blockquote[\s\S]*?padding:\s*#\{\$spacing-3\} #\{\$spacing-3\} #\{\$spacing-3\} var\(--monokai-blockquote-content-gap\);/],
-  ["深色块引用边框使用 Monokai Pro 黄色", /body\.theme-dark[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-pro-yellow\};/],
-  ["浅色块引用边框使用 Monokai 黄色", /body\.theme-light[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-light-blockquote-border\};/],
+  ["深色块引用边框使用 Monokai Pro 绿色", /body\.theme-dark[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-pro-green\};/],
+  ["浅色块引用边框使用 Monokai 绿色", /body\.theme-light[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-light-green\};/],
   ["Live Preview 块引用取消默认格式符号显示", /\.cm-formatting-quote[\s\S]*?display:\s*none;/],
   ["Live Preview 块引用标记不重复绘制边框", /\.cm-quote[\s\S]*?border-inline-start:\s*0;/],
   ["Live Preview 块引用背景保持透明", /\.HyperMD-quote[\s\S]*?background-color:\s*transparent;/],

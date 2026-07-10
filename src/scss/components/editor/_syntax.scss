@@ -1,0 +1,91 @@
+@use "../../variables" as *;
+
+.cm-s-obsidian {
+  span.cm-comment {
+    color: var(--code-comment);
+  }
+
+  span.cm-string {
+    color: var(--code-string);
+  }
+
+  span.cm-keyword {
+    color: var(--code-keyword);
+  }
+
+  span.cm-def,
+  span.cm-variable-2 {
+    color: var(--code-function);
+  }
+
+  span.cm-variable.cm-callee,
+  span.cm-def.cm-callee {
+    color: var(--code-function);
+  }
+
+  span.cm-number,
+  span.cm-atom {
+    color: var(--code-value);
+  }
+
+  span.cm-property {
+    color: var(--code-property);
+  }
+
+  span.cm-operator {
+    color: var(--code-operator);
+  }
+
+  span.cm-type,
+  span.cm-class {
+    color: var(--code-type);
+  }
+
+  span.cm-builtin {
+    color: var(--code-builtin);
+  }
+
+  span.cm-variable,
+  span.cm-variable-3 {
+    color: var(--monokai-code-variable);
+  }
+
+  span.cm-parameter {
+    color: var(--monokai-code-parameter);
+  }
+
+  span.cm-constant {
+    color: var(--code-constant);
+  }
+
+  span.cm-attribute {
+    color: var(--code-property);
+  }
+
+  span.cm-tag {
+    color: var(--code-tag);
+  }
+
+  span.cm-qualifier,
+  span.cm-namespace {
+    color: var(--monokai-code-module);
+  }
+
+  span.cm-meta {
+    color: var(--code-meta);
+  }
+
+  span.cm-decorator {
+    color: var(--code-decorator);
+  }
+
+  span.cm-string-2 {
+    color: var(--code-regex);
+  }
+
+  span.cm-error {
+    color: var(--code-error);
+    text-decoration-color: var(--code-error);
+  }
+}
+

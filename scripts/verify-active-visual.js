@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { readEditorScss } from "./scss-source.js";
 
 const rootDir = resolve(import.meta.dirname, "..");
 const paths = {
@@ -18,6 +19,7 @@ const files = Object.fromEntries(
     existsSync(path) ? readFileSync(path, "utf8") : "",
   ]),
 );
+files.editor = readEditorScss(rootDir);
 
 const packageJson = JSON.parse(files.packageJson);
 
