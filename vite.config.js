@@ -50,7 +50,7 @@ export default defineConfig({
   build: {
     assetsDir: ".",
     cssCodeSplit: false,
-    cssMinify: false,
+    cssMinify: true,
     emptyOutDir: true,
     minify: false,
     outDir: "dist",
