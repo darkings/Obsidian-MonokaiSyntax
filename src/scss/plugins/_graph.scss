@@ -22,8 +22,8 @@
 
   background-color: var(--monokai-graph-background);
   transition:
-    color 140ms ease,
-    background-color 180ms ease;
+    color var(--monokai-transition-base),
+    background-color var(--monokai-transition-emphasis);
 }
 
 @keyframes monokai-graph-tap {
@@ -51,18 +51,18 @@
   border-radius: var(--radius-m);
   box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
   transition:
-    border-color 140ms ease,
-    box-shadow 180ms ease;
+    border-color var(--monokai-transition-base),
+    box-shadow var(--monokai-transition-emphasis);
 }
 
 .graph-controls-button {
   color: var(--icon-color);
   border-radius: var(--radius-s);
   transition:
-    color 140ms ease,
-    background-color 140ms ease,
-    box-shadow 140ms ease,
-    transform 140ms ease;
+    color var(--monokai-transition-base),
+    background-color var(--monokai-transition-base),
+    box-shadow var(--monokai-transition-base),
+    transform var(--monokai-transition-base);
 }
 
 .graph-controls-button:hover {
@@ -72,7 +72,7 @@
 }
 
 .graph-controls-button:active {
-  animation: monokai-graph-tap 160ms ease-out;
+  animation: monokai-graph-tap var(--monokai-transition-emphasis);
   transform: translateY(0);
 }
 
@@ -128,8 +128,8 @@
 .workspace-leaf-content[data-type="localgraph"] {
   background-color: var(--monokai-graph-background);
   transition:
-    box-shadow 180ms ease,
-    background-color 180ms ease;
+    box-shadow var(--monokai-transition-emphasis),
+    background-color var(--monokai-transition-emphasis);
 }
 
 .workspace-leaf-content[data-type="graph"] .view-content,

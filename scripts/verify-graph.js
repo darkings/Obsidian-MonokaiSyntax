@@ -5,8 +5,8 @@ const graphPath = resolve(import.meta.dirname, "../src/scss/plugins/_graph.scss"
 const graphScss = readFileSync(graphPath, "utf8");
 
 const checks = [
-  ["图谱颜色支持过渡", /\.graph-view[\s\S]*?transition:[\s\S]*?color 140ms ease/],
-  ["图谱背景支持过渡", /\.graph-view[\s\S]*?background-color 180ms ease/],
+  ["图谱颜色支持过渡", /\.graph-view[\s\S]*?transition:[\s\S]*?color var\(--monokai-transition-base\)/],
+  ["图谱背景支持过渡", /\.graph-view[\s\S]*?background-color var\(--monokai-transition-emphasis\)/],
   ["图谱使用 Monokai Pro 背景变量", /\.graph-view[\s\S]*?background-color:\s*var\(--monokai-graph-background\)/],
   ["图谱背景默认继承当前滤镜侧栏背景", /\.graph-view[\s\S]*?--monokai-graph-background:\s*var\(--background-secondary\)/],
   ["图谱高亮节点跟随滤镜红色光谱", /\.graph-view[\s\S]*?--monokai-graph-focused:\s*var\(--monokai-spectrum-red, var\(--interactive-accent\)\)/],
@@ -16,9 +16,9 @@ const checks = [
   ["图谱高亮节点无光晕", (scss) => !/drop-shadow\(/.test(scss)],
   ["图谱容器无呼吸光晕伪元素", (scss) => !/\.workspace-leaf-content\[data-type="graph"\] \.view-content::before/.test(scss)],
   ["图谱容器无径向光背景", (scss) => !/radial-gradient\(circle at 50% 45%, var\(--monokai-graph-ring\)/.test(scss)],
-  ["图谱控制按钮支持动画", /\.graph-controls-button[\s\S]*?transition:[\s\S]*?transform 140ms ease/],
+  ["图谱控制按钮支持动画", /\.graph-controls-button[\s\S]*?transition:[\s\S]*?transform var\(--monokai-transition-base\)/],
   ["图谱控制按钮 hover 轻微上移", /\.graph-controls-button:hover[\s\S]*?transform:\s*translateY\(-1px\)/],
-  ["图谱控制按钮点击时轻微晃动", /\.graph-controls-button:active[\s\S]*?animation:\s*monokai-graph-tap 160ms ease-out/],
+  ["图谱控制按钮点击时轻微晃动", /\.graph-controls-button:active[\s\S]*?animation:\s*monokai-graph-tap var\(--monokai-transition-emphasis\)/],
   ["图谱控制按钮点击态复位", /\.graph-controls-button:active[\s\S]*?transform:\s*translateY\(0\)/],
   ["图谱点击晃动关键帧", /@keyframes monokai-graph-tap[\s\S]*?translateX\(1px\)[\s\S]*?translateX\(-1px\)/],
   ["图谱面板获得焦点时响应", /\.workspace-leaf-content\[data-type="graph"\]:focus-within[\s\S]*?box-shadow:/],

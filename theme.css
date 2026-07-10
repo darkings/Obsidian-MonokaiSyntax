@@ -19,6 +19,9 @@
   --monokai-selection-border-color: var(--interactive-accent);
   --monokai-light-tool-background: var(--background-secondary);
   --monokai-tab-active-border-color: var(--interactive-accent);
+  --monokai-transition-fast: 120ms ease;
+  --monokai-transition-base: 140ms ease;
+  --monokai-transition-emphasis: 180ms ease;
 }
 
 .theme-dark {
@@ -116,13 +119,13 @@
   --background-modifier-border: #d2cec4;
   --text-accent: #e14775;
   --monokai-default-accent: #e14775;
-  --monokai-default-link: #14748a;
+  --monokai-default-link: #0f6478;
   --monokai-default-success: #269d69;
   --monokai-default-warning: rgb(232 179 10 / 24%);
   --monokai-default-code-background: #ebe8df;
   --monokai-selection-background: rgb(20 116 138 / 16%);
   --monokai-selection-muted-background: rgb(52 52 52 / 6%);
-  --monokai-selection-border-color: #14748a;
+  --monokai-selection-border-color: #0f6478;
   --monokai-light-tool-background: #f5f3ec;
   --text-accent-hover: #f63d77;
   --interactive-accent: #e14775;
@@ -131,17 +134,17 @@
   --h2-color: #e16032;
   --h3-color: #cc7a0a;
   --h4-color: #269d69;
-  --h5-color: #14748a;
+  --h5-color: #0f6478;
   --h6-color: #7058be;
-  --text-a: #14748a;
+  --text-a: #0f6478;
   --text-a-hover: #1ba5bf;
-  --link-color: #14748a;
+  --link-color: #0f6478;
   --link-color-hover: #1ba5bf;
-  --link-external-color: #14748a;
+  --link-external-color: #0f6478;
   --link-external-color-hover: #1ba5bf;
   --icon-color: #606060;
   --icon-color-hover: #343434;
-  --icon-color-active: #14748a;
+  --icon-color-active: #0f6478;
   --metadata-label-text-color: #e16032;
   --text-highlight-bg: rgb(232 179 10 / 24%);
   --blockquote-border-color: #269d69;
@@ -159,14 +162,14 @@
   --code-important: #e14775;
   --code-keyword: #e14775;
   --code-operator: #f63d77;
-  --code-property: #14748a;
+  --code-property: #0f6478;
   --code-punctuation: #606060;
   --code-string: #cc7a0a;
   --code-tag: #e14775;
   --code-value: #7058be;
   --code-type: #7058be;
   --code-class: #269d69;
-  --code-builtin: #14748a;
+  --code-builtin: #0f6478;
   --code-constant: #7058be;
   --code-namespace: #606060;
   --code-decorator: #e16032;
@@ -175,7 +178,7 @@
   --code-error: #e14775;
   --code-variable: #343434;
   --code-parameter: #e16032;
-  --code-module: #14748a;
+  --code-module: #0f6478;
   --ribbon-background: #f0eee7;
   --ribbon-background-collapsed: #f0eee7;
   --nav-item-background-hover: #e8e5dc;
@@ -210,7 +213,7 @@
   align-items: center;
   color: var(--nav-item-color);
   border-radius: var(--radius-s);
-  transition: color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
+  transition: color var(--monokai-transition-fast), background-color var(--monokai-transition-fast), box-shadow var(--monokai-transition-fast);
 }
 
 .nav-file-title:hover,
@@ -341,6 +344,16 @@ input[type=checkbox]:checked {
   background-color: var(--monokai-selection-background);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
+}
 .markdown-source-view,
 .markdown-preview-view {
   --bold-color: var(--text-normal);
@@ -497,11 +510,11 @@ body.theme-light {
   --blockquote-border-color: #cc7a0a;
   --monokai-blockquote-border: #cc7a0a;
   --monokai-callout-note-bg: rgb(20 116 138 / 9%);
-  --monokai-callout-note-border: #14748a;
+  --monokai-callout-note-border: #0f6478;
   --monokai-callout-abstract-bg: rgb(107 83 148 / 9%);
   --monokai-callout-abstract-border: #6b5394;
   --monokai-callout-info-bg: rgb(20 116 138 / 9%);
-  --monokai-callout-info-border: #14748a;
+  --monokai-callout-info-border: #0f6478;
   --monokai-callout-todo-bg: rgb(151 116 0 / 9%);
   --monokai-callout-todo-border: #977400;
   --monokai-callout-tip-bg: rgb(38 157 105 / 9%);
@@ -529,7 +542,7 @@ body.theme-light {
   --monokai-codeblock-header-background: #f5f3ec;
   --monokai-codeblock-border-color: #c6b9a6;
   --monokai-codeblock-active-line-background: #e3d4bf;
-  --monokai-codeblock-active-line-border: #14748a;
+  --monokai-codeblock-active-line-border: #0f6478;
   --monokai-codeblock-selection-background: #c9e8ee;
   --monokai-table-border: rgb(61 61 61 / 18%);
   --monokai-table-header-background: rgb(61 61 61 / 6%);
@@ -1034,17 +1047,6 @@ body.theme-light {
 .markdown-rendered .heading-collapse-indicator,
 .markdown-rendered .heading-anchor {
   color: var(--monokai-heading-anchor-color);
-}
-.markdown-rendered .callout {
-  background-color: var(--callout-background, transparent);
-  border: 1px solid var(--background-modifier-border);
-  border-inline-start: 3px solid rgb(var(--callout-color));
-  border-radius: var(--radius-m);
-  box-shadow: none;
-}
-.markdown-rendered .callout-title {
-  color: var(--text-normal);
-  font-weight: 700;
 }
 
 .markdown-preview-view .markdown-rendered .copy-code-button {
@@ -2027,7 +2029,7 @@ body.monokai-syntax-monochrome-icons .nav-file-title.is-active::before {
 
 .status-bar-item {
   border-radius: var(--radius-s);
-  transition: color 120ms ease, background-color 120ms ease;
+  transition: color var(--monokai-transition-fast), background-color var(--monokai-transition-fast);
 }
 
 .status-bar-item:hover {
@@ -2098,7 +2100,7 @@ body.is-mobile .workspace-ribbon {
   color: var(--text-muted);
   background-color: transparent;
   border-radius: var(--radius-s) var(--radius-s) 0 0;
-  transition: color 140ms ease, background-color 140ms ease, box-shadow 140ms ease;
+  transition: color var(--monokai-transition-base), background-color var(--monokai-transition-base), box-shadow var(--monokai-transition-base);
 }
 
 .workspace-tab-header:hover {
@@ -2174,7 +2176,7 @@ body.theme-light {
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-s);
   padding: 0.45rem 0.6rem;
-  transition: border-color 140ms ease, box-shadow 140ms ease;
+  transition: border-color var(--monokai-transition-base), box-shadow var(--monokai-transition-base);
 }
 
 .prompt-input:focus,
@@ -2218,7 +2220,7 @@ body.theme-light {
   color: var(--nav-item-color);
   border-radius: var(--radius-s);
   margin-block: 1px;
-  transition: color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
+  transition: color var(--monokai-transition-fast), background-color var(--monokai-transition-fast), box-shadow var(--monokai-transition-fast);
 }
 .modal.mod-settings .vertical-tab-nav-item:hover {
   color: var(--nav-item-color-hover);
@@ -2297,7 +2299,7 @@ body.theme-light {
   border: 1px solid var(--monokai-settings-item-border);
   border-radius: var(--radius-m);
   box-shadow: none;
-  transition: background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+  transition: background-color var(--monokai-transition-base), border-color var(--monokai-transition-base), box-shadow var(--monokai-transition-base);
 }
 .style-settings-container .setting-item.is-selected,
 .style-settings-container .setting-item:hover {
@@ -2344,7 +2346,7 @@ body.theme-light {
   --graph-node-highlight-fill: var(--interactive-accent);
   --graph-node-highlight-line: var(--link-color);
   background-color: var(--monokai-graph-background);
-  transition: color 140ms ease, background-color 180ms ease;
+  transition: color var(--monokai-transition-base), background-color var(--monokai-transition-emphasis);
 }
 
 @keyframes monokai-graph-tap {
@@ -2367,13 +2369,13 @@ body.theme-light {
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-m);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: border-color 140ms ease, box-shadow 180ms ease;
+  transition: border-color var(--monokai-transition-base), box-shadow var(--monokai-transition-emphasis);
 }
 
 .graph-controls-button {
   color: var(--icon-color);
   border-radius: var(--radius-s);
-  transition: color 140ms ease, background-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+  transition: color var(--monokai-transition-base), background-color var(--monokai-transition-base), box-shadow var(--monokai-transition-base), transform var(--monokai-transition-base);
 }
 
 .graph-controls-button:hover {
@@ -2383,7 +2385,7 @@ body.theme-light {
 }
 
 .graph-controls-button:active {
-  animation: monokai-graph-tap 160ms ease-out;
+  animation: monokai-graph-tap var(--monokai-transition-emphasis);
   transform: translateY(0);
 }
 
@@ -2438,7 +2440,7 @@ body.theme-light {
 .workspace-leaf-content[data-type=graph],
 .workspace-leaf-content[data-type=localgraph] {
   background-color: var(--monokai-graph-background);
-  transition: box-shadow 180ms ease, background-color 180ms ease;
+  transition: box-shadow var(--monokai-transition-emphasis), background-color var(--monokai-transition-emphasis);
 }
 
 .workspace-leaf-content[data-type=graph] .view-content,
@@ -2486,7 +2488,7 @@ body.theme-light {
 .canvas-node {
   border-color: var(--background-modifier-border);
   border-radius: var(--radius-m);
-  transition: border-color 120ms ease, box-shadow 120ms ease;
+  transition: border-color var(--monokai-transition-fast), box-shadow var(--monokai-transition-fast);
 }
 
 .canvas-node-content {
@@ -2659,35 +2661,35 @@ body.theme-light.monokai-syntax-filter-light {
   --text-accent-hover: #e14775;
   --interactive-accent: #e14775;
   --interactive-accent-hover: #e14775;
-  --link-color: #14748a;
-  --link-color-hover: #14748a;
-  --link-external-color: #14748a;
-  --link-external-color-hover: #14748a;
+  --link-color: #0f6478;
+  --link-color-hover: #0f6478;
+  --link-external-color: #0f6478;
+  --link-external-color-hover: #0f6478;
   --h1-color: #e14775;
   --h2-color: #e16032;
   --h3-color: #cc7a0a;
   --h4-color: #269d69;
-  --h5-color: #14748a;
+  --h5-color: #0f6478;
   --h6-color: #7058be;
   --icon-color: #606060;
   --icon-color-hover: #343434;
-  --icon-color-active: #14748a;
+  --icon-color-active: #0f6478;
   --metadata-label-text-color: #e16032;
   --metadata-label-text-color-hover: #e16032;
   --monokai-default-accent: #e14775;
-  --monokai-default-link: #14748a;
+  --monokai-default-link: #0f6478;
   --monokai-default-success: #269d69;
   --monokai-default-warning: rgba(232, 179, 10, 0.24);
   --monokai-default-code-background: #f0eee7;
-  --monokai-selection-background: rgb(from #14748a r g b / 18%);
+  --monokai-selection-background: rgb(from #0f6478 r g b / 18%);
   --monokai-selection-muted-background: rgb(from #343434 r g b / 6%);
-  --monokai-selection-border-color: #14748a;
+  --monokai-selection-border-color: #0f6478;
   --monokai-light-tool-background: #f0eee7;
   --monokai-spectrum-red: #e14775;
   --monokai-spectrum-orange: #e16032;
   --monokai-spectrum-yellow: #cc7a0a;
   --monokai-spectrum-green: #269d69;
-  --monokai-spectrum-cyan: #14748a;
+  --monokai-spectrum-cyan: #0f6478;
   --monokai-spectrum-purple: #7058be;
   --code-normal: #343434;
   --code-background: #f0eee7;
@@ -2696,14 +2698,14 @@ body.theme-light.monokai-syntax-filter-light {
   --code-important: #e14775;
   --code-keyword: #e14775;
   --code-operator: #e16032;
-  --code-property: #14748a;
+  --code-property: #0f6478;
   --code-punctuation: #606060;
   --code-string: #cc7a0a;
   --code-tag: #e14775;
   --code-value: #7058be;
   --code-type: #7058be;
   --code-class: #269d69;
-  --code-builtin: #14748a;
+  --code-builtin: #0f6478;
   --code-constant: #7058be;
   --code-namespace: #606060;
   --code-decorator: #e16032;
@@ -2712,11 +2714,11 @@ body.theme-light.monokai-syntax-filter-light {
   --code-error: #e14775;
   --code-variable: #343434;
   --code-parameter: #e16032;
-  --code-module: #14748a;
-  --monokai-callout-note-bg: rgb(from #14748a r g b / 12%);
-  --monokai-callout-note-border: #14748a;
-  --monokai-callout-info-bg: rgb(from #14748a r g b / 12%);
-  --monokai-callout-info-border: #14748a;
+  --code-module: #0f6478;
+  --monokai-callout-note-bg: rgb(from #0f6478 r g b / 12%);
+  --monokai-callout-note-border: #0f6478;
+  --monokai-callout-info-bg: rgb(from #0f6478 r g b / 12%);
+  --monokai-callout-info-border: #0f6478;
   --monokai-callout-abstract-bg: rgb(from #7058be r g b / 12%);
   --monokai-callout-abstract-border: #7058be;
   --monokai-callout-question-bg: rgb(from #7058be r g b / 12%);
@@ -2741,18 +2743,18 @@ body.theme-light.monokai-syntax-filter-light {
   --monokai-callout-quote-border: #77736c;
   --monokai-graph-background: #f0eee7;
   --monokai-graph-panel: #ddd9cf;
-  --monokai-graph-line: rgb(from #14748a r g b / 42%);
+  --monokai-graph-line: rgb(from #0f6478 r g b / 42%);
   --monokai-graph-node: #606060;
   --monokai-graph-focused: #e14775;
   --monokai-graph-node-tag: #7058be;
   --monokai-graph-node-attachment: #269d69;
   --monokai-graph-node-unresolved: #77736c;
-  --monokai-graph-ring: rgb(from #14748a r g b / 28%);
+  --monokai-graph-ring: rgb(from #0f6478 r g b / 28%);
   --canvas-color-1: #e14775;
   --canvas-color-2: #e16032;
   --canvas-color-3: #cc7a0a;
   --canvas-color-4: #269d69;
-  --canvas-color-5: #14748a;
+  --canvas-color-5: #0f6478;
   --canvas-color-6: #7058be;
   --ribbon-background: #f0eee7;
   --ribbon-background-collapsed: #f0eee7;

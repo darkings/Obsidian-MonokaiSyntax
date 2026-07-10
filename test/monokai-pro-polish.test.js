@@ -65,3 +65,20 @@ test("Monokai Pro 打磨项暴露稳定的样式入口", () => {
   assert.match(styleSettings, /monokai-syntax-media-border-style/);
   assert.match(styleSettings, /monokai-syntax-heading-color-mode/);
 });
+
+test("低风险基础清理使用统一 token 并避免重复 Callout 基础规则", () => {
+  const variables = readSource("../src/scss/_variables.scss");
+  const base = readSource("../src/scss/_base.scss");
+  const editor = readSource("../src/scss/components/_editor.scss");
+  const activeVisual = readSource("../src/scss/_active-visual-overrides.scss");
+  const contrast = readSource("../scripts/check-contrast.js");
+
+  assert.match(variables, /\$color-light-cyan:\s*#0f6478;/);
+  assert.match(contrast, /\{ filter: "light", label: "链接", foreground: "#0f6478"/);
+  assert.match(base, /--monokai-transition-fast:\s*120ms ease;/);
+  assert.match(base, /--monokai-transition-base:\s*140ms ease;/);
+  assert.match(base, /--monokai-transition-emphasis:\s*180ms ease;/);
+  assert.match(base, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\*,[\s\S]*?\*::before,[\s\S]*?\*::after[\s\S]*?transition-duration:\s*0\.01ms;/);
+  assert.doesNotMatch(editor, /\.markdown-rendered\s*\{[\s\S]*?\.callout\s*\{/);
+  assert.match(activeVisual, /body \.markdown-preview-view\.markdown-rendered \.callout,[\s\S]*?body \.markdown-rendered \.callout,[\s\S]*?body \.markdown-source-view\.mod-cm6 \.callout/);
+});

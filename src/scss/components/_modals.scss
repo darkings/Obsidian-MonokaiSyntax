@@ -53,8 +53,8 @@ body.theme-light {
   border-radius: var(--radius-s);
   padding: 0.45rem 0.6rem;
   transition:
-    border-color 140ms ease,
-    box-shadow 140ms ease;
+    border-color var(--monokai-transition-base),
+    box-shadow var(--monokai-transition-base);
 }
 
 .prompt-input:focus,
@@ -102,9 +102,9 @@ body.theme-light {
     border-radius: var(--radius-s);
     margin-block: 1px;
     transition:
-      color 120ms ease,
-      background-color 120ms ease,
-      box-shadow 120ms ease;
+      color var(--monokai-transition-fast),
+      background-color var(--monokai-transition-fast),
+      box-shadow var(--monokai-transition-fast);
   }
 
   .vertical-tab-nav-item:hover {
@@ -197,9 +197,9 @@ body.theme-light {
     border-radius: var(--radius-m);
     box-shadow: none;
     transition:
-      background-color 140ms ease,
-      border-color 140ms ease,
-      box-shadow 140ms ease;
+      background-color var(--monokai-transition-base),
+      border-color var(--monokai-transition-base),
+      box-shadow var(--monokai-transition-base);
   }
 
   .setting-item.is-selected,

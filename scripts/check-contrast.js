@@ -11,14 +11,14 @@ export const pairs = [
   { filter: "pro", label: "代码块边框", foreground: "#403e41", background: "#221f22", minimum: 1.3 },
   { filter: "pro", label: "Callout 标题", foreground: "#78dce8", background: "#2e3e42", minimum: 4.5 },
   { filter: "light", label: "正文", foreground: "#3d3d3d", background: "#fdf9f3", minimum: 4.5 },
-  { filter: "light", label: "链接", foreground: "#14748a", background: "#fdf9f3", minimum: 4.5 },
+  { filter: "light", label: "链接", foreground: "#0f6478", background: "#fdf9f3", minimum: 4.5 },
   { filter: "light", label: "图标", foreground: "#666666", background: "#f5f0e6", minimum: 3 },
   { filter: "light", label: "高亮文本", foreground: "#3d3d3d", background: "#f7e7b3", minimum: 4.5 },
   { filter: "light", label: "代码注释", foreground: "#7a7369", background: "#f5f0e6", minimum: 3 },
   { filter: "light", label: "行号", foreground: "#7a7369", background: "#f5f0e6", minimum: 3 },
   { filter: "light", label: "选区文字", foreground: "#3d3d3d", background: "#d8edf0", minimum: 4.5 },
   { filter: "light", label: "代码块边框", foreground: "#d8d0c2", background: "#f5f0e6", minimum: 1.3 },
-  { filter: "light", label: "Callout 标题", foreground: "#14748a", background: "#eef6f5", minimum: 4.5 },
+  { filter: "light", label: "Callout 标题", foreground: "#0f6478", background: "#eef6f5", minimum: 4.5 },
 ];
 
 export function toRgb(hex) {

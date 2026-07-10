@@ -106,8 +106,9 @@ const checks = [
   ],
   [
     "标签页和 Modal 输入具备克制动效与舒适内边距",
-    /\.workspace-tab-header\s*\{[\s\S]*?transition:[\s\S]*?color 140ms ease,[\s\S]*?background-color 140ms ease,[\s\S]*?box-shadow 140ms ease;/.test(files.tabs)
-      && /\.prompt-input,[\s\S]*?\.modal textarea\s*\{[\s\S]*?padding:\s*0\.45rem 0\.6rem;[\s\S]*?transition:[\s\S]*?border-color 140ms ease,[\s\S]*?box-shadow 140ms ease;/.test(files.modals),
+    /--monokai-transition-base:\s*140ms ease;/.test(files.base)
+      && /\.workspace-tab-header\s*\{[\s\S]*?transition:[\s\S]*?color var\(--monokai-transition-base\),[\s\S]*?background-color var\(--monokai-transition-base\),[\s\S]*?box-shadow var\(--monokai-transition-base\);/.test(files.tabs)
+      && /\.prompt-input,[\s\S]*?\.modal textarea\s*\{[\s\S]*?padding:\s*0\.45rem 0\.6rem;[\s\S]*?transition:[\s\S]*?border-color var\(--monokai-transition-base\),[\s\S]*?box-shadow var\(--monokai-transition-base\);/.test(files.modals),
   ],
   [
     "Amber / VS Code 强调色预设覆盖 tab、列表、命令面板和滚动条",

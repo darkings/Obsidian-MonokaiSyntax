@@ -157,11 +157,11 @@ body.theme-light {
   --blockquote-border-color: #{$color-light-blockquote-border};
   --monokai-blockquote-border: #{$color-light-blockquote-border};
   --monokai-callout-note-bg: rgb(20 116 138 / 9%);
-  --monokai-callout-note-border: #14748a;
+  --monokai-callout-note-border: #{$color-light-cyan};
   --monokai-callout-abstract-bg: rgb(107 83 148 / 9%);
   --monokai-callout-abstract-border: #6b5394;
   --monokai-callout-info-bg: rgb(20 116 138 / 9%);
-  --monokai-callout-info-border: #14748a;
+  --monokai-callout-info-border: #{$color-light-cyan};
   --monokai-callout-todo-bg: rgb(151 116 0 / 9%);
   --monokai-callout-todo-border: #977400;
   --monokai-callout-tip-bg: rgb(38 157 105 / 9%);
@@ -692,18 +692,6 @@ body.theme-light {
     color: var(--monokai-heading-anchor-color);
   }
 
-  .callout {
-    background-color: var(--callout-background, transparent);
-    border: 1px solid var(--background-modifier-border);
-    border-inline-start: 3px solid rgb(var(--callout-color));
-    border-radius: var(--radius-m);
-    box-shadow: none;
-  }
-
-  .callout-title {
-    color: var(--text-normal);
-    font-weight: 700;
-  }
 }
 
 .markdown-preview-view .markdown-rendered {

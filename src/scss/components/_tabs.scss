@@ -52,9 +52,9 @@
   background-color: transparent;
   border-radius: var(--radius-s) var(--radius-s) 0 0;
   transition:
-    color 140ms ease,
-    background-color 140ms ease,
-    box-shadow 140ms ease;
+    color var(--monokai-transition-base),
+    background-color var(--monokai-transition-base),
+    box-shadow var(--monokai-transition-base);
 }
 
 .workspace-tab-header:hover {

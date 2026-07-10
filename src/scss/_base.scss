@@ -14,6 +14,9 @@
   --monokai-selection-border-color: var(--interactive-accent);
   --monokai-light-tool-background: var(--background-secondary);
   --monokai-tab-active-border-color: var(--interactive-accent);
+  --monokai-transition-fast: 120ms ease;
+  --monokai-transition-base: 140ms ease;
+  --monokai-transition-emphasis: 180ms ease;
 }
 
 .theme-dark {
@@ -206,9 +209,9 @@
   color: var(--nav-item-color);
   border-radius: var(--radius-s);
   transition:
-    color 120ms ease,
-    background-color 120ms ease,
-    box-shadow 120ms ease;
+    color var(--monokai-transition-fast),
+    background-color var(--monokai-transition-fast),
+    box-shadow var(--monokai-transition-fast);
 }
 
 .nav-file-title:hover,
@@ -339,4 +342,15 @@ input[type="checkbox"]:checked {
 ::selection {
   color: var(--monokai-selection-foreground);
   background-color: var(--monokai-selection-background);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
 }

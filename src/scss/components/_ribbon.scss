@@ -44,8 +44,8 @@
 .status-bar-item {
   border-radius: var(--radius-s);
   transition:
-    color 120ms ease,
-    background-color 120ms ease;
+    color var(--monokai-transition-fast),
+    background-color var(--monokai-transition-fast);
 }
 
 .status-bar-item:hover {
