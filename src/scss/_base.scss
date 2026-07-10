@@ -214,6 +214,10 @@
   background-color: var(--background-secondary);
 }
 
+.workspace-split.mod-left-split {
+  border-inline-end: 1px solid var(--monokai-sidebar-divider-color);
+}
+
 .workspace-split.mod-right-split,
 .workspace-split.mod-right-split .workspace-tabs,
 .workspace-split.mod-right-split .workspace-leaf,
@@ -224,12 +228,12 @@
 
 .workspace-leaf-resize-handle {
   background-color: transparent;
-  border-inline-start: 1px solid var(--monokai-sidebar-divider-color);
+  border-inline-start: 0;
+  border-inline-end: 0;
 }
 
 .workspace-leaf-resize-handle:hover {
   background-color: transparent;
-  border-inline-start-color: var(--monokai-nav-active-border-color);
 }
 
 .nav-file-title,
@@ -385,8 +389,8 @@ input[type="checkbox"]:checked {
 .tag-pane-tag.is-active,
 .bookmark.is-active {
   color: var(--monokai-selection-foreground, var(--text-normal));
-  background-color: var(--monokai-selection-background, var(--nav-item-background-active));
-  box-shadow: inset 2px 0 0 var(--monokai-selection-border-color);
+  background-color: var(--monokai-nav-active-background);
+  box-shadow: inset 1px 0 0 var(--monokai-nav-active-border-color);
 }
 
 .tag {
