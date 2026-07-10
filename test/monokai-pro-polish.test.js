@@ -152,6 +152,20 @@ test("Obsidian 常见界面补齐主题 surface 覆盖", () => {
   assert.match(base, /\.markdown-rendered \.internal-link\.is-unresolved[\s\S]*?color:\s*var\(--text-faint\);/);
 });
 
+test("文件树选中态和侧栏分隔线保持低噪音", () => {
+  const base = readSource("../src/scss/_base.scss");
+
+  assert.match(base, /--monokai-nav-active-background:\s*rgb\(120 220 232 \/ 12%\);/);
+  assert.match(base, /--monokai-nav-active-border-color:\s*rgb\(120 220 232 \/ 58%\);/);
+  assert.match(base, /--monokai-sidebar-divider-color:\s*rgb\(248 248 242 \/ 8%\);/);
+  assert.match(base, /\.theme-light[\s\S]*?--monokai-nav-active-background:\s*rgb\(15 100 120 \/ 10%\);/);
+  assert.match(base, /\.theme-light[\s\S]*?--monokai-sidebar-divider-color:\s*rgb\(61 61 61 \/ 10%\);/);
+  assert.match(base, /\.workspace-leaf-resize-handle\s*\{[\s\S]*?background-color:\s*transparent;[\s\S]*?border-inline-start:\s*1px solid var\(--monokai-sidebar-divider-color\);/);
+  assert.match(base, /\.nav-file-title\.is-active[\s\S]*?background-color:\s*var\(--monokai-nav-active-background\);[\s\S]*?box-shadow:\s*inset 1px 0 0 var\(--monokai-nav-active-border-color\);/);
+  const activeFileRule = base.match(/\.nav-file-title\.is-active\s*\{[^}]+\}/)?.[0] ?? "";
+  assert.doesNotMatch(activeFileRule, /--monokai-selection-background/);
+});
+
 test("编辑器样式按职责拆分为聚合模块", () => {
   const editorEntry = readSource("../src/scss/components/_editor.scss");
   const editorIndex = readSource("../src/scss/components/editor/_index.scss");
