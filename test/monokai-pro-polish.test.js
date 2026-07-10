@@ -156,19 +156,20 @@ test("文件树选中态和侧栏分隔线保持低噪音", () => {
   const base = readSource("../src/scss/_base.scss");
 
   assert.match(base, /--monokai-nav-active-background:\s*rgb\(120 220 232 \/ 12%\);/);
-  assert.match(base, /--monokai-nav-active-border-color:\s*rgb\(120 220 232 \/ 58%\);/);
-  assert.match(base, /--monokai-sidebar-divider-color:\s*rgb\(248 248 242 \/ 8%\);/);
+  assert.doesNotMatch(base, /--monokai-nav-active-border-color:/);
+  assert.match(base, /--monokai-sidebar-divider-color:\s*rgb\(248 248 242 \/ 4%\);/);
   assert.match(base, /\.theme-light[\s\S]*?--monokai-nav-active-background:\s*rgb\(15 100 120 \/ 10%\);/);
-  assert.match(base, /\.theme-light[\s\S]*?--monokai-sidebar-divider-color:\s*rgb\(61 61 61 \/ 10%\);/);
+  assert.match(base, /\.theme-light[\s\S]*?--monokai-sidebar-divider-color:\s*rgb\(61 61 61 \/ 5%\);/);
   assert.match(base, /\.workspace-split\.mod-left-split\s*\{[\s\S]*?border-inline-end:\s*1px solid var\(--monokai-sidebar-divider-color\);/);
   assert.match(base, /\.workspace-leaf-resize-handle\s*\{[\s\S]*?background-color:\s*transparent;[\s\S]*?border-inline-start:\s*0;[\s\S]*?border-inline-end:\s*0;/);
-  assert.match(base, /\.nav-file-title\.is-active[\s\S]*?background-color:\s*var\(--monokai-nav-active-background\);[\s\S]*?box-shadow:\s*inset 1px 0 0 var\(--monokai-nav-active-border-color\);/);
+  assert.match(base, /\.nav-file-title\.is-active[\s\S]*?background-color:\s*var\(--monokai-nav-active-background\);/);
   const activeFileRule = base.match(/\.nav-file-title\.is-active\s*\{[^}]+\}/)?.[0] ?? "";
   const clickableTreeRule = base.match(/\.tree-item-self\.is-clickable\.is-active,[\s\S]*?\.bookmark\.is-active\s*\{[^}]+\}/)?.[0] ?? "";
   assert.doesNotMatch(activeFileRule, /--monokai-selection-background/);
+  assert.doesNotMatch(activeFileRule, /box-shadow/);
   assert.match(clickableTreeRule, /background-color:\s*var\(--monokai-nav-active-background\);/);
-  assert.match(clickableTreeRule, /box-shadow:\s*inset 1px 0 0 var\(--monokai-nav-active-border-color\);/);
   assert.doesNotMatch(clickableTreeRule, /--monokai-selection-background/);
+  assert.doesNotMatch(clickableTreeRule, /box-shadow/);
 });
 
 test("编辑器样式按职责拆分为聚合模块", () => {

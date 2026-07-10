@@ -14,7 +14,6 @@
   --monokai-selection-muted-background: var(--background-modifier-hover);
   --monokai-selection-border-color: var(--interactive-accent);
   --monokai-nav-active-background: var(--background-modifier-hover);
-  --monokai-nav-active-border-color: var(--interactive-accent);
   --monokai-sidebar-divider-color: var(--background-modifier-border);
   --monokai-light-tool-background: var(--background-secondary);
   --monokai-tab-active-border-color: var(--interactive-accent);
@@ -44,8 +43,7 @@
   --monokai-selection-muted-background: rgb(252 252 250 / 6%);
   --monokai-selection-border-color: #{$color-pro-cyan};
   --monokai-nav-active-background: rgb(120 220 232 / 12%);
-  --monokai-nav-active-border-color: rgb(120 220 232 / 58%);
-  --monokai-sidebar-divider-color: rgb(248 248 242 / 8%);
+  --monokai-sidebar-divider-color: rgb(248 248 242 / 4%);
   --text-accent-hover: #{$color-pro-magenta};
   --interactive-accent: #{$color-pro-magenta};
   --interactive-accent-hover: #{$color-pro-magenta};
@@ -130,8 +128,7 @@
   --monokai-selection-muted-background: rgb(52 52 52 / 6%);
   --monokai-selection-border-color: #{$color-light-cyan};
   --monokai-nav-active-background: rgb(15 100 120 / 10%);
-  --monokai-nav-active-border-color: rgb(15 100 120 / 52%);
-  --monokai-sidebar-divider-color: rgb(61 61 61 / 10%);
+  --monokai-sidebar-divider-color: rgb(61 61 61 / 5%);
   --monokai-light-tool-background: #f5f3ec;
   --text-accent-hover: #{$color-light-red-soft};
   --interactive-accent: #{$color-light-magenta};
@@ -256,14 +253,12 @@
 .nav-file-title.is-active {
   color: var(--monokai-selection-foreground, var(--nav-item-color-active));
   background-color: var(--monokai-nav-active-background);
-  box-shadow: inset 1px 0 0 var(--monokai-nav-active-border-color);
 }
 
 .nav-folder-title.is-active,
 .tree-item-self.is-active {
   color: var(--monokai-selection-foreground, var(--nav-item-color-active));
   background-color: var(--monokai-nav-active-background);
-  box-shadow: inset 1px 0 0 var(--monokai-nav-active-border-color);
 }
 
 .nav-folder-collapse-indicator,
@@ -390,7 +385,6 @@ input[type="checkbox"]:checked {
 .bookmark.is-active {
   color: var(--monokai-selection-foreground, var(--text-normal));
   background-color: var(--monokai-nav-active-background);
-  box-shadow: inset 1px 0 0 var(--monokai-nav-active-border-color);
 }
 
 .tag {
