@@ -15,6 +15,7 @@
   --monokai-selection-border-color: var(--interactive-accent);
   --monokai-nav-active-background: var(--background-modifier-hover);
   --monokai-sidebar-divider-color: var(--background-modifier-border);
+  --monokai-sidebar-scrollbar-thumb: var(--text-faint);
   --monokai-light-tool-background: var(--background-secondary);
   --monokai-tab-active-border-color: var(--interactive-accent);
   --monokai-transition-fast: 120ms ease;
@@ -44,6 +45,7 @@
   --monokai-selection-border-color: #{$color-pro-cyan};
   --monokai-nav-active-background: rgb(120 220 232 / 12%);
   --monokai-sidebar-divider-color: rgb(248 248 242 / 4%);
+  --monokai-sidebar-scrollbar-thumb: rgb(248 248 242 / 10%);
   --text-accent-hover: #{$color-pro-magenta};
   --interactive-accent: #{$color-pro-magenta};
   --interactive-accent-hover: #{$color-pro-magenta};
@@ -129,6 +131,7 @@
   --monokai-selection-border-color: #{$color-light-cyan};
   --monokai-nav-active-background: rgb(15 100 120 / 10%);
   --monokai-sidebar-divider-color: rgb(61 61 61 / 5%);
+  --monokai-sidebar-scrollbar-thumb: rgb(61 61 61 / 12%);
   --monokai-light-tool-background: #f5f3ec;
   --text-accent-hover: #{$color-light-red-soft};
   --interactive-accent: #{$color-light-magenta};
@@ -410,6 +413,14 @@ input[type="checkbox"]:checked {
 
 ::-webkit-scrollbar-thumb:active {
   background-color: var(--monokai-scrollbar-active-background);
+}
+
+.workspace-split.mod-left-split ::-webkit-scrollbar-thumb {
+  background-color: var(--monokai-sidebar-scrollbar-thumb);
+}
+
+.workspace-split.mod-left-split ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--monokai-sidebar-divider-color);
 }
 
 ::selection {

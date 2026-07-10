@@ -158,10 +158,13 @@ test("文件树选中态和侧栏分隔线保持低噪音", () => {
   assert.match(base, /--monokai-nav-active-background:\s*rgb\(120 220 232 \/ 12%\);/);
   assert.doesNotMatch(base, /--monokai-nav-active-border-color:/);
   assert.match(base, /--monokai-sidebar-divider-color:\s*rgb\(248 248 242 \/ 4%\);/);
+  assert.match(base, /--monokai-sidebar-scrollbar-thumb:\s*rgb\(248 248 242 \/ 10%\);/);
   assert.match(base, /\.theme-light[\s\S]*?--monokai-nav-active-background:\s*rgb\(15 100 120 \/ 10%\);/);
   assert.match(base, /\.theme-light[\s\S]*?--monokai-sidebar-divider-color:\s*rgb\(61 61 61 \/ 5%\);/);
+  assert.match(base, /\.theme-light[\s\S]*?--monokai-sidebar-scrollbar-thumb:\s*rgb\(61 61 61 \/ 12%\);/);
   assert.match(base, /\.workspace-split\.mod-left-split\s*\{[\s\S]*?border-inline-end:\s*1px solid var\(--monokai-sidebar-divider-color\);/);
   assert.match(base, /\.workspace-leaf-resize-handle\s*\{[\s\S]*?background-color:\s*transparent;[\s\S]*?border-inline-start:\s*0;[\s\S]*?border-inline-end:\s*0;/);
+  assert.match(base, /\.workspace-split\.mod-left-split ::-webkit-scrollbar-thumb\s*\{[\s\S]*?background-color:\s*var\(--monokai-sidebar-scrollbar-thumb\);/);
   assert.match(base, /\.nav-file-title\.is-active[\s\S]*?background-color:\s*var\(--monokai-nav-active-background\);/);
   const activeFileRule = base.match(/\.nav-file-title\.is-active\s*\{[^}]+\}/)?.[0] ?? "";
   const clickableTreeRule = base.match(/\.tree-item-self\.is-clickable\.is-active,[\s\S]*?\.bookmark\.is-active\s*\{[^}]+\}/)?.[0] ?? "";
