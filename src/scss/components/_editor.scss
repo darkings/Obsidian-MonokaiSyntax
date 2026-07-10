@@ -3,7 +3,7 @@
 .markdown-source-view,
 .markdown-preview-view {
   --bold-color: var(--text-normal);
-  --bold-weight: 900;
+  --bold-weight: 700;
   --italic-color: var(--text-normal);
   --heading-spacing: #{$spacing-4};
   --monokai-heading-gap-h1: 1.25rem;
@@ -101,8 +101,8 @@
 
 body.theme-dark {
   --monokai-heading-weight: 600;
-  --blockquote-border-color: #{$color-pro-yellow};
-  --monokai-blockquote-border: #{$color-pro-yellow};
+  --blockquote-border-color: #{$color-pro-green};
+  --monokai-blockquote-border: #{$color-pro-green};
   --monokai-callout-note-bg: rgb(120 220 232 / 12%);
   --monokai-callout-note-border: #{$color-pro-cyan};
   --monokai-callout-abstract-bg: rgb(171 157 242 / 8%);
@@ -154,8 +154,8 @@ body.theme-dark {
 
 body.theme-light {
   --monokai-heading-weight: 700;
-  --blockquote-border-color: #{$color-light-blockquote-border};
-  --monokai-blockquote-border: #{$color-light-blockquote-border};
+  --blockquote-border-color: #{$color-light-green};
+  --monokai-blockquote-border: #{$color-light-green};
   --monokai-callout-note-bg: rgb(20 116 138 / 9%);
   --monokai-callout-note-border: #{$color-light-cyan};
   --monokai-callout-abstract-bg: rgb(107 83 148 / 9%);

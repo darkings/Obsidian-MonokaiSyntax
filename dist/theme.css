@@ -40,18 +40,18 @@
   --monokai-default-success: #a9dc76;
   --monokai-default-warning: rgb(255 216 102 / 24%);
   --monokai-default-code-background: #221f22;
-  --monokai-selection-background: rgb(120 220 232 / 18%);
+  --monokai-selection-background: rgb(120 220 232 / 30%);
   --monokai-selection-muted-background: rgb(252 252 250 / 6%);
   --monokai-selection-border-color: #78dce8;
   --text-accent-hover: #ff6188;
   --interactive-accent: #ff6188;
   --interactive-accent-hover: #ff6188;
-  --h1-color: #ff6188;
+  --h1-color: #ff9ab0;
   --h2-color: #fc9867;
   --h3-color: #ffd866;
-  --h4-color: #a9dc76;
-  --h5-color: #78dce8;
-  --h6-color: #ab9df2;
+  --h4-color: #c1c0c0;
+  --h5-color: #939293;
+  --h6-color: #939293;
   --text-a: #78dce8;
   --text-a-hover: #78dce8;
   --link-color: #78dce8;
@@ -61,7 +61,7 @@
   --icon-color: #c1c0c0;
   --icon-color-hover: #fcfcfa;
   --icon-color-active: #78dce8;
-  --metadata-label-text-color: #fc9867;
+  --metadata-label-text-color: #78dce8;
   --text-highlight-bg: rgb(255 216 102 / 24%);
   --blockquote-border-color: #a9dc76;
   --monokai-checkbox-unchecked-color: #ffd866;
@@ -104,7 +104,7 @@
   --nav-item-color-active: #fcfcfa;
   --metadata-input-background: transparent;
   --metadata-input-background-active: transparent;
-  --metadata-label-text-color-hover: #fc9867;
+  --metadata-label-text-color-hover: #78dce8;
 }
 
 .theme-light {
@@ -123,7 +123,7 @@
   --monokai-default-success: #269d69;
   --monokai-default-warning: rgb(232 179 10 / 24%);
   --monokai-default-code-background: #ebe8df;
-  --monokai-selection-background: rgb(20 116 138 / 16%);
+  --monokai-selection-background: rgb(15 100 120 / 22%);
   --monokai-selection-muted-background: rgb(52 52 52 / 6%);
   --monokai-selection-border-color: #0f6478;
   --monokai-light-tool-background: #f5f3ec;
@@ -133,9 +133,9 @@
   --h1-color: #e14775;
   --h2-color: #e16032;
   --h3-color: #cc7a0a;
-  --h4-color: #269d69;
-  --h5-color: #0f6478;
-  --h6-color: #7058be;
+  --h4-color: #606060;
+  --h5-color: #77736c;
+  --h6-color: #77736c;
   --text-a: #0f6478;
   --text-a-hover: #1ba5bf;
   --link-color: #0f6478;
@@ -145,7 +145,7 @@
   --icon-color: #606060;
   --icon-color-hover: #343434;
   --icon-color-active: #0f6478;
-  --metadata-label-text-color: #e16032;
+  --metadata-label-text-color: #0f6478;
   --text-highlight-bg: rgb(232 179 10 / 24%);
   --blockquote-border-color: #269d69;
   --monokai-checkbox-unchecked-color: #cc7a0a;
@@ -188,7 +188,7 @@
   --nav-item-color-active: #343434;
   --metadata-input-background: transparent;
   --metadata-input-background-active: transparent;
-  --metadata-label-text-color-hover: #fb6214;
+  --metadata-label-text-color-hover: #1ba5bf;
 }
 
 .workspace,
@@ -357,7 +357,7 @@ input[type=checkbox]:checked {
 .markdown-source-view,
 .markdown-preview-view {
   --bold-color: var(--text-normal);
-  --bold-weight: 900;
+  --bold-weight: 700;
   --italic-color: var(--text-normal);
   --heading-spacing: 1rem;
   --monokai-heading-gap-h1: 1.25rem;
@@ -454,8 +454,8 @@ input[type=checkbox]:checked {
 
 body.theme-dark {
   --monokai-heading-weight: 600;
-  --blockquote-border-color: #ffd866;
-  --monokai-blockquote-border: #ffd866;
+  --blockquote-border-color: #a9dc76;
+  --monokai-blockquote-border: #a9dc76;
   --monokai-callout-note-bg: rgb(120 220 232 / 12%);
   --monokai-callout-note-border: #78dce8;
   --monokai-callout-abstract-bg: rgb(171 157 242 / 8%);
@@ -507,8 +507,8 @@ body.theme-dark {
 
 body.theme-light {
   --monokai-heading-weight: 700;
-  --blockquote-border-color: #cc7a0a;
-  --monokai-blockquote-border: #cc7a0a;
+  --blockquote-border-color: #269d69;
+  --monokai-blockquote-border: #269d69;
   --monokai-callout-note-bg: rgb(20 116 138 / 9%);
   --monokai-callout-note-border: #0f6478;
   --monokai-callout-abstract-bg: rgb(107 83 148 / 9%);

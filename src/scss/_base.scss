@@ -35,18 +35,18 @@
   --monokai-default-success: #{$color-pro-green};
   --monokai-default-warning: rgb(255 216 102 / 24%);
   --monokai-default-code-background: #{$color-pro-background-secondary};
-  --monokai-selection-background: rgb(120 220 232 / 18%);
+  --monokai-selection-background: rgb(120 220 232 / 30%);
   --monokai-selection-muted-background: rgb(252 252 250 / 6%);
   --monokai-selection-border-color: #{$color-pro-cyan};
   --text-accent-hover: #{$color-pro-magenta};
   --interactive-accent: #{$color-pro-magenta};
   --interactive-accent-hover: #{$color-pro-magenta};
-  --h1-color: #{$color-pro-magenta};
+  --h1-color: #{$color-pro-heading-h1};
   --h2-color: #{$color-pro-orange};
   --h3-color: #{$color-pro-yellow};
-  --h4-color: #{$color-pro-green};
-  --h5-color: #{$color-pro-cyan};
-  --h6-color: #{$color-pro-purple};
+  --h4-color: #{$color-pro-text-muted};
+  --h5-color: #{$color-pro-text-faint};
+  --h6-color: #{$color-pro-text-faint};
   --text-a: #{$color-pro-cyan};
   --text-a-hover: #{$color-pro-cyan};
   --link-color: #{$color-pro-cyan};
@@ -56,7 +56,7 @@
   --icon-color: #{$color-pro-text-muted};
   --icon-color-hover: #{$color-pro-text-normal};
   --icon-color-active: #{$color-pro-cyan};
-  --metadata-label-text-color: #{$color-pro-orange};
+  --metadata-label-text-color: #{$color-pro-cyan};
   --text-highlight-bg: rgb(255 216 102 / 24%);
   --blockquote-border-color: #{$color-pro-green};
   --monokai-checkbox-unchecked-color: #{$color-pro-yellow};
@@ -99,7 +99,7 @@
   --nav-item-color-active: #{$color-pro-text-normal};
   --metadata-input-background: transparent;
   --metadata-input-background-active: transparent;
-  --metadata-label-text-color-hover: #{$color-pro-orange};
+  --metadata-label-text-color-hover: #{$color-pro-cyan};
 }
 
 .theme-light {
@@ -118,7 +118,7 @@
   --monokai-default-success: #{$color-light-green};
   --monokai-default-warning: rgb(232 179 10 / 24%);
   --monokai-default-code-background: #ebe8df;
-  --monokai-selection-background: rgb(20 116 138 / 16%);
+  --monokai-selection-background: rgb(15 100 120 / 22%);
   --monokai-selection-muted-background: rgb(52 52 52 / 6%);
   --monokai-selection-border-color: #{$color-light-cyan};
   --monokai-light-tool-background: #f5f3ec;
@@ -128,9 +128,9 @@
   --h1-color: #{$color-light-magenta};
   --h2-color: #{$color-light-orange};
   --h3-color: #{$color-light-yellow};
-  --h4-color: #{$color-light-green};
-  --h5-color: #{$color-light-cyan};
-  --h6-color: #{$color-light-purple};
+  --h4-color: #{$color-light-text-muted};
+  --h5-color: #{$color-light-text-faint};
+  --h6-color: #{$color-light-text-faint};
   --text-a: #{$color-light-cyan};
   --text-a-hover: #{$color-light-cyan-soft};
   --link-color: #{$color-light-cyan};
@@ -140,7 +140,7 @@
   --icon-color: #{$color-light-text-muted};
   --icon-color-hover: #{$color-light-text-normal};
   --icon-color-active: #{$color-light-cyan};
-  --metadata-label-text-color: #{$color-light-orange};
+  --metadata-label-text-color: #{$color-light-cyan};
   --text-highlight-bg: rgb(232 179 10 / 24%);
   --blockquote-border-color: #{$color-light-green};
   --monokai-checkbox-unchecked-color: #{$color-light-yellow};
@@ -183,7 +183,7 @@
   --nav-item-color-active: #{$color-light-text-normal};
   --metadata-input-background: transparent;
   --metadata-input-background-active: transparent;
-  --metadata-label-text-color-hover: #{$color-light-orange-soft};
+  --metadata-label-text-color-hover: #{$color-light-cyan-soft};
 }
 
 .workspace,
