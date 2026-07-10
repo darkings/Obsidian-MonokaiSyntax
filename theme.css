@@ -10,7 +10,8 @@
   --font-monospace-theme: Fira Code, Cascadia Code, Consolas, monospace;
   --line-height-normal: 1.6;
   --radius-s: 4px;
-  --radius-m: 6px;
+  --radius-m: 8px;
+  --radius-l: 12px;
   --monokai-highlight-text: var(--text-normal);
   --monokai-scrollbar-active-background: var(--background-modifier-active-hover);
   --monokai-selection-foreground: var(--text-normal);
@@ -424,7 +425,7 @@ input[type=checkbox]:checked {
   --monokai-codeblock-header-height: 1.75rem;
   --monokai-codeblock-margin-block: 1rem;
   --monokai-codeblock-padding: 1rem;
-  --monokai-codeblock-padding-block: var(--monokai-codeblock-padding);
+  --monokai-codeblock-padding-block: 0.75rem;
   --monokai-codeblock-padding-inline: 1rem;
   --monokai-codeblock-shadow: none;
   --monokai-codeblock-language-color: var(--text-faint);
@@ -785,7 +786,7 @@ body.theme-light {
   font-family: var(--font-text-theme);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: 0.05em;
   padding-inline: 0;
   pointer-events: none;
   transition: opacity 160ms ease, transform 160ms ease;
@@ -911,7 +912,7 @@ body.theme-light {
   font-family: var(--font-text-theme);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: 0.05em;
   transition: color 160ms ease, background-color 160ms ease, opacity 160ms ease, transform 160ms ease;
 }
 .markdown-rendered .code-block-flair {
@@ -934,10 +935,10 @@ body.theme-light {
   align-items: center;
   justify-content: center;
   box-shadow: none;
-  opacity: 0;
+  opacity: 0.3;
   padding: 0.25rem;
   transform: translateY(-1px);
-  visibility: hidden;
+  visibility: visible;
 }
 .markdown-rendered .el-pre:hover .copy-code-button,
 .markdown-rendered .el-pre:focus-within .copy-code-button,
@@ -966,6 +967,7 @@ body.theme-light {
 .markdown-rendered .code-block-flair:focus-visible {
   color: var(--text-normal);
   background-color: var(--monokai-selection-muted-background);
+  opacity: 1;
 }
 .markdown-rendered hr {
   border: 0;
@@ -1270,7 +1272,7 @@ body.theme-light {
   font-family: var(--font-text-theme);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: 0.05em;
   transition: color 160ms ease, background-color 160ms ease, opacity 160ms ease, transform 160ms ease;
 }
 .markdown-source-view.mod-cm6 .code-block-flair {
@@ -1352,7 +1354,7 @@ body.theme-light {
   font-family: var(--font-text-theme);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: 0.05em;
   padding-inline: 0;
   pointer-events: none;
   transition: opacity 160ms ease, transform 160ms ease;
@@ -2857,7 +2859,7 @@ body.theme-light.monokai-syntax-accent-amber-vscode {
 }
 
 body {
-  --file-line-width: var(--monokai-readable-line-width, 48rem);
+  --file-line-width: var(--monokai-readable-line-width, 45rem);
   --font-text-size: var(--monokai-body-font-size, 16px);
   --code-size: var(--monokai-code-font-size, 0.9em);
   --line-height-normal: var(--monokai-body-line-height, 1.6);
@@ -3566,7 +3568,7 @@ settings:
     id: monokai-readable-line-width
     title: 可读行宽
     type: variable-number-slider
-    default: 48
+    default: 45
     min: 40
     max: 75
     step: 1

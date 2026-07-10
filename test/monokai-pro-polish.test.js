@@ -40,7 +40,7 @@ test("Monokai Pro 打磨项暴露稳定的样式入口", () => {
   assert.match(editor, /"python":\s*"PYTHON"/);
   assert.match(editor, /pre:not\(:has\(\.code-block-flair\)\)\.language-#\{\$language\}::before,[\s\S]*?content:\s*\$label;/);
   assert.match(editor, /pre\s*\{[\s\S]*?code\s*\{[\s\S]*?color:\s*var\(--code-normal\);[\s\S]*?background-color:\s*transparent;[\s\S]*?border-radius:\s*0;[\s\S]*?font-weight:\s*inherit;[\s\S]*?\}/);
-  assert.match(editor, /\.copy-code-button\s*\{[\s\S]*?display:\s*inline-flex;[\s\S]*?opacity:\s*0;[\s\S]*?visibility:\s*hidden;/);
+  assert.match(editor, /\.copy-code-button\s*\{[\s\S]*?display:\s*inline-flex;[\s\S]*?opacity:\s*0\.3;[\s\S]*?visibility:\s*visible;/);
   assert.match(editor, /\.markdown-preview-view \.markdown-rendered[\s\S]*?\.copy-code-button\s*\{[\s\S]*?font-size:\s*0\.58rem;[\s\S]*?min-height:\s*1\.35rem;[\s\S]*?min-width:\s*1\.35rem;[\s\S]*?padding:\s*0\.16rem;/);
   assert.match(editor, /\.markdown-source-view\.mod-cm6[\s\S]*?\.copy-code-button\s*\{[\s\S]*?opacity:\s*1;[\s\S]*?visibility:\s*visible;/);
   assert.match(editor, /\.markdown-source-view\.mod-cm6[\s\S]*?\.code-block-flair\s*\{[\s\S]*?pointer-events:\s*auto;[\s\S]*?cursor:\s*var\(--cursor\);/);
@@ -99,4 +99,22 @@ test("核心阅读视觉降低噪音并保留 Monokai 语义", () => {
   assert.match(editor, /body\.theme-dark[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-pro-green\};/);
   assert.match(editor, /body\.theme-light[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-light-green\};/);
   assert.doesNotMatch(editor, /letter-spacing:\s*-0\.015em;/);
+});
+
+test("布局与代码块组件使用更稳的默认尺寸", () => {
+  const variables = readSource("../src/scss/_variables.scss");
+  const editor = readSource("../src/scss/components/_editor.scss");
+  const styleSettingsScss = readSource("../src/scss/plugins/_style-settings.scss");
+  const typographySettings = readSource("../src/css/style-settings/40-typography.css.md");
+
+  assert.match(variables, /\$radius-small:\s*4px;/);
+  assert.match(variables, /\$radius-medium:\s*8px;/);
+  assert.match(variables, /\$radius-large:\s*12px;/);
+  assert.match(editor, /--monokai-codeblock-padding-block:\s*0\.75rem;/);
+  assert.match(editor, /--monokai-codeblock-padding-inline:\s*1rem;/);
+  assert.match(editor, /letter-spacing:\s*0\.05em;/);
+  assert.match(editor, /\.copy-code-button\s*\{[\s\S]*?opacity:\s*0\.3;[\s\S]*?visibility:\s*visible;/);
+  assert.match(editor, /\.copy-code-button:hover,[\s\S]*?\.copy-code-button:focus-visible[\s\S]*?opacity:\s*1;/);
+  assert.match(styleSettingsScss, /--file-line-width:\s*var\(--monokai-readable-line-width, 45rem\);/);
+  assert.match(typographySettings, /id: monokai-readable-line-width[\s\S]*?default: 45/);
 });

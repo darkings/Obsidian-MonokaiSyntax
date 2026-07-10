@@ -13,7 +13,7 @@ settings:
     id: monokai-readable-line-width
     title: 可读行宽
     type: variable-number-slider
-    default: 48
+    default: 45
     min: 40
     max: 75
     step: 1

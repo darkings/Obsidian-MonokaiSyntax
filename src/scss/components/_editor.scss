@@ -70,8 +70,8 @@
   --monokai-codeblock-header-height: 1.75rem;
   --monokai-codeblock-margin-block: #{$spacing-4};
   --monokai-codeblock-padding: #{$spacing-4};
-  --monokai-codeblock-padding-block: var(--monokai-codeblock-padding);
-  --monokai-codeblock-padding-inline: #{$spacing-4};
+  --monokai-codeblock-padding-block: 0.75rem;
+  --monokai-codeblock-padding-inline: 1rem;
   --monokai-codeblock-shadow: none;
   --monokai-codeblock-language-color: var(--text-faint);
   --monokai-codeblock-line-height: var(--monokai-code-line-height, 1.55);
@@ -476,7 +476,7 @@ body.theme-light {
     font-family: var(--font-text-theme);
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
     padding-inline: 0;
     pointer-events: none;
     transition:
@@ -531,7 +531,7 @@ body.theme-light {
     font-family: var(--font-text-theme);
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
     transition:
       color 160ms ease,
       background-color 160ms ease,
@@ -561,10 +561,10 @@ body.theme-light {
     align-items: center;
     justify-content: center;
     box-shadow: none;
-    opacity: 0;
+    opacity: 0.3;
     padding: 0.25rem;
     transform: translateY(-1px);
-    visibility: hidden;
+    visibility: visible;
   }
 
   .el-pre:hover .copy-code-button,
@@ -596,6 +596,7 @@ body.theme-light {
   .code-block-flair:focus-visible {
     color: var(--text-normal);
     background-color: var(--monokai-selection-muted-background);
+    opacity: 1;
   }
 
   hr {
@@ -966,7 +967,7 @@ body.theme-light {
     font-family: var(--font-text-theme);
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
     transition:
       color 160ms ease,
       background-color 160ms ease,
@@ -1060,7 +1061,7 @@ body.theme-light {
     font-family: var(--font-text-theme);
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
     padding-inline: 0;
     pointer-events: none;
     transition:

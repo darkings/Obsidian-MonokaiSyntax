@@ -50,7 +50,7 @@ const checks = [
       "monokai-heading-scale",
       "monokai-paragraph-spacing-value",
     ].every((settingId) => readFileSync(resolve(rootDir, "src/css/style-settings/40-typography.css.md"), "utf8").includes(settingId))
-      && /--file-line-width:\s*var\(--monokai-readable-line-width, 48rem\);/.test(files.styleSettings)
+      && /--file-line-width:\s*var\(--monokai-readable-line-width, 45rem\);/.test(files.styleSettings)
       && /--font-text-size:\s*var\(--monokai-body-font-size, 16px\);/.test(files.styleSettings)
       && /--code-size:\s*var\(--monokai-code-font-size, 0\.9em\);/.test(files.styleSettings)
       && /--monokai-codeblock-line-height:\s*var\(--monokai-code-line-height, 1\.55\);/.test(files.styleSettings)
@@ -371,8 +371,8 @@ const checks = [
       && /--monokai-codeblock-radius:\s*var\(--radius-m\);/.test(files.editor)
       && /--monokai-codeblock-margin-block:\s*#\{\$spacing-4\};/.test(files.editor)
       && /--monokai-codeblock-padding:\s*#\{\$spacing-4\};/.test(files.editor)
-      && /--monokai-codeblock-padding-block:\s*var\(--monokai-codeblock-padding\);/.test(files.editor)
-      && /--monokai-codeblock-padding-inline:\s*#\{\$spacing-4\};/.test(files.editor)
+      && /--monokai-codeblock-padding-block:\s*0\.75rem;/.test(files.editor)
+      && /--monokai-codeblock-padding-inline:\s*1rem;/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?pre\s*\{[\s\S]*?border:\s*1px solid var\(--monokai-codeblock-border-color\);[\s\S]*?border-radius:\s*var\(--monokai-codeblock-radius\);[\s\S]*?margin-block:\s*var\(--monokai-codeblock-margin-block\);[\s\S]*?padding:\s*var\(--monokai-codeblock-padding-block\) var\(--monokai-codeblock-padding-inline\);/.test(files.editor)
       && /\.HyperMD-codeblock[\s\S]*?background-color:\s*var\(--monokai-codeblock-background\);[\s\S]*?font-family:\s*var\(--monokai-code-font-family\);[\s\S]*?padding-inline:\s*var\(--monokai-codeblock-padding-inline\);/.test(files.editor)
       && /\.cm-line\.HyperMD-codeblock:has\(\.cm-hmd-codeblock-begin\)[\s\S]*?padding-block-start:\s*var\(--monokai-codeblock-padding-block\);/.test(files.editor)
