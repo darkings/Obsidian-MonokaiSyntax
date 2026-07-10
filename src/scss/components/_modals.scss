@@ -64,6 +64,19 @@ body.theme-light {
   @include focus-ring(var(--interactive-accent));
 }
 
+.prompt-instructions {
+  color: var(--text-muted);
+
+  kbd {
+    color: var(--text-normal);
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+    box-shadow: none;
+    padding: 0.1rem 0.35rem;
+  }
+}
+
 .suggestion-item {
   color: var(--text-muted);
   border-radius: var(--radius-s);

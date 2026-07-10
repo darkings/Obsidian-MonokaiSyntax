@@ -118,3 +118,28 @@ test("布局与代码块组件使用更稳的默认尺寸", () => {
   assert.match(styleSettingsScss, /--file-line-width:\s*var\(--monokai-readable-line-width, 45rem\);/);
   assert.match(typographySettings, /id: monokai-readable-line-width[\s\S]*?default: 45/);
 });
+
+test("Obsidian 常见界面补齐主题 surface 覆盖", () => {
+  const base = readSource("../src/scss/_base.scss");
+  const modals = readSource("../src/scss/components/_modals.scss");
+  const tabs = readSource("../src/scss/components/_tabs.scss");
+
+  for (const selector of [
+    ".notice",
+    ".tooltip",
+    ".popover.hover-popover",
+    ".workspace-leaf-resize-handle",
+    ".workspace-split.mod-right-split",
+    ".markdown-rendered .internal-link.is-unresolved",
+    "::-webkit-scrollbar-thumb",
+    ".workspace-sidedock-vault-profile",
+  ]) {
+    assert.match(base + tabs, new RegExp(selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  assert.match(modals, /\.prompt-instructions[\s\S]*?kbd\s*\{[\s\S]*?background-color:\s*var\(--background-primary\);/);
+  assert.match(base, /\.notice[\s\S]*?background-color:\s*var\(--background-secondary\);[\s\S]*?border:\s*1px solid var\(--background-modifier-border\);/);
+  assert.match(base, /\.popover\.hover-popover[\s\S]*?box-shadow:\s*var\(--monokai-popover-shadow\);/);
+  assert.match(base, /\.workspace-split\.mod-right-split[\s\S]*?background-color:\s*var\(--background-secondary\);/);
+  assert.match(base, /\.markdown-rendered \.internal-link\.is-unresolved[\s\S]*?color:\s*var\(--text-faint\);/);
+});
