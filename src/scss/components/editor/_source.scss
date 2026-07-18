@@ -94,6 +94,7 @@
   }
 
   .HyperMD-table-row {
+    line-height: var(--monokai-table-line-height);
     font-family: var(--monokai-table-source-font-family);
     background-color: var(--monokai-table-source-background);
   }
@@ -207,8 +208,7 @@
     color: var(--monokai-footnote-marker-color);
   }
 
-  .image-embed,
-  .cm-embed-block {
+  .image-embed {
     max-width: 100%;
     background-color: var(--monokai-media-background);
     border: 1px solid var(--monokai-media-border-color);
@@ -221,8 +221,7 @@
   .pdf-embed,
   .audio-embed,
   .video-embed,
-  .internal-embed,
-  .cm-embed-block {
+  .internal-embed {
     background-color: var(--monokai-media-background);
     border: 1px solid var(--monokai-media-border-color);
     border-width: var(--monokai-media-border-width);
@@ -230,6 +229,94 @@
     box-shadow: var(--monokai-media-shadow);
     padding: var(--monokai-embed-padding);
   }
+
+  // stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 表格嵌入类名。
+  .cm-line:has(.cm-table),
+  .cm-line:has(.cm-hmd-table-sep),
+  .cm-table-widget,
+  .table-wrapper,
+  .el-table,
+  .cm-embed-block:has(.HyperMD-table-row),
+  .cm-embed-block:has(.cm-table),
+  .cm-embed-block:has(.cm-hmd-table-sep),
+  .cm-embed-block:has(table) {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    margin-inline: 0;
+    max-width: 100%;
+    min-width: 0;
+    overflow: visible;
+    padding: 0;
+    width: auto;
+  }
+
+  .table-wrapper table,
+  .el-table table,
+  .cm-table-widget table,
+  .cm-embed-block:has(table) table {
+    max-width: 100%;
+    min-width: 0;
+    width: auto;
+  }
+
+  .cm-embed-block.cm-table-widget.markdown-rendered,
+  .cm-embed-block.cm-table-widget.markdown-rendered > .table-wrapper,
+  .cm-embed-block.cm-table-widget.markdown-rendered table.table-editor {
+    max-width: 100%;
+    min-width: 0;
+    width: auto;
+  }
+
+  .cm-embed-block.cm-table-widget.markdown-rendered {
+    box-sizing: border-box;
+    margin-inline: 0;
+    padding-inline-start: var(--monokai-editor-block-offset);
+    width: 100%;
+  }
+
+  .cm-table-widget table.table-editor {
+    border: var(--monokai-table-border-width) solid var(--monokai-table-border);
+    border-collapse: separate;
+    border-spacing: 0;
+    line-height: var(--monokai-table-line-height);
+    overflow: hidden;
+  }
+
+  .cm-table-widget table.table-editor th,
+  .cm-table-widget table.table-editor td {
+    border: 0;
+    border-block-end: var(--monokai-table-border-width) solid var(--monokai-table-border);
+    padding: 0;
+    vertical-align: top;
+  }
+
+  .cm-table-widget table.table-editor th:not(:last-child),
+  .cm-table-widget table.table-editor td:not(:last-child) {
+    border-inline-end: var(--monokai-table-border-width) solid var(--monokai-table-column-border);
+  }
+
+  .cm-table-widget table.table-editor th {
+    color: var(--text-normal);
+    background-color: var(--monokai-table-header-background);
+    font-weight: 700;
+  }
+
+  .cm-table-widget table.table-editor .table-cell-wrapper {
+    padding: var(--monokai-table-cell-padding);
+  }
+
+  .cm-table-widget table.table-editor th .table-cell-wrapper {
+    background-color: var(--monokai-table-header-background);
+    padding: var(--monokai-table-header-cell-padding);
+  }
+
+  .cm-table-widget table.table-editor tbody tr:last-child td {
+    border-block-end: 0;
+  }
+  // stylelint-enable selector-class-pattern
 
   .cm-hashtag {
     color: var(--monokai-tag-color);

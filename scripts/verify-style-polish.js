@@ -172,20 +172,35 @@ const checks = [
   ],
   [
     "表格表头具备独立背景与文字层级",
-    /--monokai-table-header-background:\s*rgb\(248 248 242 \/ 6%\);/.test(files.editor)
-      && /--monokai-table-header-background:\s*rgb\(61 61 61 \/ 6%\);/.test(files.editor)
+    /--monokai-table-header-background:\s*var\(--background-secondary\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?thead,[\s\S]*?thead tr\s*\{[\s\S]*?background-color:\s*var\(--monokai-table-header-background\);[\s\S]*?\}/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?th\s*\{(?=[\s\S]*?color:\s*var\(--text-normal\);)(?=[\s\S]*?background-color:\s*var\(--monokai-table-header-background\);)[\s\S]*?\}/.test(files.editor),
   ],
   [
     "API 参数表具备名称、类型、默认值和必填语义变量",
-    /--monokai-table-api-name-color:\s*var\(--link-color\);/.test(files.editor)
+    /--monokai-table-api-name-color:\s*var\(--monokai-spectrum-cyan, var\(--link-color\)\);/.test(files.editor)
+      && /--monokai-table-api-name-color:\s*#0f6478;/.test(files.editor)
       && /--monokai-table-api-type-color:\s*var\(--code-type\);/.test(files.editor)
       && /--monokai-table-api-default-color:\s*var\(--code-value\);/.test(files.editor)
       && /--monokai-table-api-required-color:\s*var\(--text-accent\);/.test(files.editor)
-      && /--monokai-table-cell-padding:\s*0\.55rem 0\.7rem;/.test(files.editor)
-      && /--monokai-table-row-hover-background:\s*var\(--background-modifier-hover\);/.test(files.editor)
-      && /\.markdown-rendered[\s\S]*?table\s*\{[\s\S]*?width:\s*100%;[\s\S]*?border-collapse:\s*separate;/.test(files.editor)
+      && /--monokai-table-border-width:\s*1\.5px;/.test(files.editor)
+      && /--monokai-table-cell-padding:\s*0\.55rem 0\.8rem;/.test(files.editor)
+      && /--monokai-table-header-cell-padding:\s*0\.6rem 0\.8rem;/.test(files.editor)
+      && /--monokai-table-line-height:\s*1\.55;/.test(files.editor)
+      && /--monokai-table-max-width:\s*min\(100%, 62rem\);/.test(files.editor)
+      && /--monokai-table-min-width:\s*min\(100%, 48rem\);/.test(files.editor)
+      && /--monokai-editor-block-offset:\s*1\.5rem;/.test(files.editor)
+      && /--monokai-table-row-hover-background:\s*rgb\(120 220 232 \/ 7%\);/.test(files.editor)
+      && /--monokai-table-row-hover-background:\s*rgb\(15 100 120 \/ 5%\);/.test(files.editor)
+      && /--monokai-table-column-border:\s*rgb\(61 61 61 \/ 4%\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?\.el-table,[\s\S]*?> div:has\(> table\),[\s\S]*?> div:has\(> \.table-wrapper\)\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?border:\s*0;[\s\S]*?box-shadow:\s*none;[\s\S]*?margin-inline:\s*0;[\s\S]*?max-width:\s*var\(--monokai-table-max-width\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?> div:has\(> table\),[\s\S]*?> div:has\(> \.table-wrapper\)\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?border:\s*0;[\s\S]*?box-shadow:\s*none;[\s\S]*?margin-inline:\s*0;[\s\S]*?outline:\s*0;/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?\.el-table > \.table-wrapper\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?border:\s*0;[\s\S]*?box-shadow:\s*none;[\s\S]*?margin-inline:\s*0;[\s\S]*?max-width:\s*var\(--monokai-table-max-width\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?table\s*\{[\s\S]*?border:\s*var\(--monokai-table-border-width\) solid var\(--monokai-table-border\);[\s\S]*?line-height:\s*var\(--monokai-table-line-height\);[\s\S]*?margin-inline:\s*0;[\s\S]*?max-width:\s*100%;[\s\S]*?min-width:\s*var\(--monokai-table-min-width\);[\s\S]*?table-layout:\s*auto;[\s\S]*?width:\s*100%;/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?th,[\s\S]*?td\s*\{[\s\S]*?padding:\s*var\(--monokai-table-cell-padding\);[\s\S]*?vertical-align:\s*top;/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?th:not\(:last-child\),[\s\S]*?td:not\(:last-child\)[\s\S]*?border-inline-end:\s*var\(--monokai-table-border-width\) solid var\(--monokai-table-column-border\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?th\s*\{[\s\S]*?padding:\s*var\(--monokai-table-header-cell-padding\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?th:first-child,[\s\S]*?td:first-child\s*\{[\s\S]*?min-width:\s*5\.5rem;[\s\S]*?white-space:\s*nowrap;/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?tbody tr:hover[\s\S]*?background-color:\s*var\(--monokai-table-row-hover-background\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?td:first-child[\s\S]*?color:\s*var\(--monokai-table-api-name-color\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?td:nth-child\(2\) code[\s\S]*?color:\s*var\(--monokai-table-api-type-color\);/.test(files.editor)
@@ -295,7 +310,7 @@ const checks = [
       && /--monokai-media-border-color:\s*var\(--background-modifier-border\);/.test(files.editor)
       && /--monokai-media-background:\s*var\(--background-secondary\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?img,[\s\S]*?\.image-embed\s*\{[\s\S]*?background-color:\s*var\(--monokai-media-background\);[\s\S]*?border:\s*1px solid var\(--monokai-media-border-color\);[\s\S]*?border-radius:\s*var\(--monokai-media-radius\);/.test(files.editor)
-      && /\.markdown-source-view\.mod-cm6[\s\S]*?\.image-embed,[\s\S]*?\.cm-embed-block\s*\{[\s\S]*?background-color:\s*var\(--monokai-media-background\);[\s\S]*?border:\s*1px solid var\(--monokai-media-border-color\);[\s\S]*?border-radius:\s*var\(--monokai-media-radius\);/.test(files.editor),
+      && /\.markdown-source-view\.mod-cm6[\s\S]*?\.image-embed\s*\{[\s\S]*?background-color:\s*var\(--monokai-media-background\);[\s\S]*?border:\s*1px solid var\(--monokai-media-border-color\);[\s\S]*?border-radius:\s*var\(--monokai-media-radius\);/.test(files.editor),
   ],
   [
     "标签阅读模式与编辑模式共享胶囊样式变量",
@@ -327,7 +342,7 @@ const checks = [
     /--monokai-table-source-background:\s*var\(--background-secondary\);/.test(files.editor)
       && /--monokai-table-source-font-family:\s*var\(--monokai-code-font-family\);/.test(files.editor)
       && /--monokai-table-source-separator-color:\s*var\(--text-faint\);/.test(files.editor)
-      && /\.HyperMD-table-row[\s\S]*?font-family:\s*var\(--monokai-table-source-font-family\);[\s\S]*?background-color:\s*var\(--monokai-table-source-background\);/.test(files.editor)
+      && /\.HyperMD-table-row[\s\S]*?line-height:\s*var\(--monokai-table-line-height\);[\s\S]*?font-family:\s*var\(--monokai-table-source-font-family\);[\s\S]*?background-color:\s*var\(--monokai-table-source-background\);/.test(files.editor)
       && /\.cm-hmd-table-sep,[\s\S]*?\.cm-hmd-table-align,[\s\S]*?\.cm-formatting-table[\s\S]*?color:\s*var\(--monokai-table-source-separator-color\);/.test(files.editor)
       && /\.cm-table[\s\S]*?color:\s*var\(--text-normal\);/.test(files.editor),
   ],
@@ -447,7 +462,14 @@ const checks = [
     "附件与内部嵌入扩展共享媒体容器变量",
     /--monokai-embed-padding:\s*#\{\$spacing-3\};/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?\.file-embed,[\s\S]*?\.pdf-embed,[\s\S]*?\.audio-embed,[\s\S]*?\.video-embed,[\s\S]*?\.internal-embed\s*\{[\s\S]*?background-color:\s*var\(--monokai-media-background\);[\s\S]*?border:\s*1px solid var\(--monokai-media-border-color\);[\s\S]*?border-radius:\s*var\(--monokai-media-radius\);[\s\S]*?padding:\s*var\(--monokai-embed-padding\);/.test(files.editor)
-      && /\.markdown-source-view\.mod-cm6[\s\S]*?\.file-embed,[\s\S]*?\.pdf-embed,[\s\S]*?\.audio-embed,[\s\S]*?\.video-embed,[\s\S]*?\.internal-embed,[\s\S]*?\.cm-embed-block\s*\{[\s\S]*?background-color:\s*var\(--monokai-media-background\);[\s\S]*?border:\s*1px solid var\(--monokai-media-border-color\);[\s\S]*?border-radius:\s*var\(--monokai-media-radius\);[\s\S]*?padding:\s*var\(--monokai-embed-padding\);/.test(files.editor),
+      && /\.markdown-source-view\.mod-cm6[\s\S]*?\.file-embed,[\s\S]*?\.pdf-embed,[\s\S]*?\.audio-embed,[\s\S]*?\.video-embed,[\s\S]*?\.internal-embed\s*\{[\s\S]*?background-color:\s*var\(--monokai-media-background\);[\s\S]*?border:\s*1px solid var\(--monokai-media-border-color\);[\s\S]*?border-radius:\s*var\(--monokai-media-radius\);[\s\S]*?padding:\s*var\(--monokai-embed-padding\);/.test(files.editor)
+      && !/\.markdown-source-view\.mod-cm6[\s\S]*?\.image-embed,[\s\S]*?\.cm-embed-block\s*\{/.test(files.editor)
+      && !/\.markdown-source-view\.mod-cm6[\s\S]*?\.internal-embed,[\s\S]*?\.cm-embed-block\s*\{/.test(files.editor)
+      && /\.markdown-source-view\.mod-cm6[\s\S]*?\.cm-line:has\(\.cm-table\),[\s\S]*?\.cm-line:has\(\.cm-hmd-table-sep\),[\s\S]*?\.cm-table-widget,[\s\S]*?\.cm-embed-block:has\(table\)\s*\{[\s\S]*?background-color:\s*transparent;[\s\S]*?border:\s*0;[\s\S]*?border-radius:\s*0;[\s\S]*?box-shadow:\s*none;[\s\S]*?box-sizing:\s*border-box;[\s\S]*?margin-inline:\s*0;[\s\S]*?max-width:\s*100%;[\s\S]*?min-width:\s*0;[\s\S]*?overflow:\s*visible;[\s\S]*?padding:\s*0;[\s\S]*?width:\s*auto;/.test(files.editor)
+      && /\.markdown-source-view\.mod-cm6[\s\S]*?\.table-wrapper table,[\s\S]*?\.el-table table,[\s\S]*?\.cm-table-widget table,[\s\S]*?\.cm-embed-block:has\(table\) table\s*\{[\s\S]*?max-width:\s*100%;[\s\S]*?min-width:\s*0;[\s\S]*?width:\s*auto;/.test(files.editor)
+      && /\.markdown-source-view\.mod-cm6[\s\S]*?\.cm-embed-block\.cm-table-widget\.markdown-rendered\s*\{[\s\S]*?box-sizing:\s*border-box;[\s\S]*?margin-inline:\s*0;[\s\S]*?padding-inline-start:\s*var\(--monokai-editor-block-offset\);[\s\S]*?width:\s*100%;/.test(files.editor)
+      && /\.markdown-source-view\.mod-cm6[\s\S]*?\.cm-table-widget table\.table-editor \.table-cell-wrapper\s*\{[\s\S]*?padding:\s*var\(--monokai-table-cell-padding\);/.test(files.editor)
+      && /\.markdown-source-view\.mod-cm6[\s\S]*?\.cm-table-widget table\.table-editor th \.table-cell-wrapper\s*\{[\s\S]*?background-color:\s*var\(--monokai-table-header-background\);[\s\S]*?padding:\s*var\(--monokai-table-header-cell-padding\);/.test(files.editor),
   ],
   [
     "8 种任务状态阅读模式与编辑模式共享语义颜色",
