@@ -532,6 +532,12 @@
 
 }
 
+.markdown-rendered.community-modal-readme
+  pre:not(:has(.code-block-flair)):is([class*="language-"], :has(code[class*="language-"]))::before {
+  content: none;
+  display: none;
+}
+
 .markdown-preview-view .markdown-rendered {
   .copy-code-button {
     font-size: 0.58rem;

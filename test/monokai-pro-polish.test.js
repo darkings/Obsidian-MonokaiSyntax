@@ -74,6 +74,28 @@ test("Monokai Pro 打磨项暴露稳定的样式入口", () => {
   assert.match(styleSettings, /monokai-syntax-heading-color-mode/);
 });
 
+test("模态框搜索输入保留 Obsidian 原生图标与清除按钮间距", () => {
+  const modals = readSource("../src/scss/components/_modals.scss");
+
+  assert.doesNotMatch(
+    modals,
+    /\.modal input\[type="search"\],\r?\n\.modal textarea\s*\{[^}]*padding:/,
+  );
+  assert.doesNotMatch(
+    modals,
+    /\.modal\.mod-settings[\s\S]*?\.search-input-container input\[type="search"\]\s*\{[\s\S]*?padding-inline:/,
+  );
+});
+
+test("社区主题 README 代码块为语言标签保留独立空间", () => {
+  const reading = readSource("../src/scss/components/editor/_reading.scss");
+
+  assert.match(
+    reading,
+    /\.markdown-rendered\.community-modal-readme[\s\S]*?pre:not\(:has\(\.code-block-flair\)\):is\(\[class\*="language-"\], :has\(code\[class\*="language-"\]\)\)::before\s*\{[\s\S]*?content:\s*none;[\s\S]*?display:\s*none;/,
+  );
+});
+
 test("低风险基础清理使用统一 token 并避免重复 Callout 基础规则", () => {
   const variables = readSource("../src/scss/_variables.scss");
   const base = readSource("../src/scss/_base.scss");

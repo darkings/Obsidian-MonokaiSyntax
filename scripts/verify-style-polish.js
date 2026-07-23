@@ -106,10 +106,11 @@ const checks = [
       && /outline-offset:\s*2px;/.test(files.editor),
   ],
   [
-    "标签页和 Modal 输入具备克制动效与舒适内边距",
+    "标签页和 Modal 输入具备克制动效，非搜索输入保留舒适内边距",
     /--monokai-transition-base:\s*140ms ease;/.test(files.base)
       && /\.workspace-tab-header\s*\{[\s\S]*?transition:[\s\S]*?color var\(--monokai-transition-base\),[\s\S]*?background-color var\(--monokai-transition-base\),[\s\S]*?box-shadow var\(--monokai-transition-base\);/.test(files.tabs)
-      && /\.prompt-input,[\s\S]*?\.modal textarea\s*\{[\s\S]*?padding:\s*0\.45rem 0\.6rem;[\s\S]*?transition:[\s\S]*?border-color var\(--monokai-transition-base\),[\s\S]*?box-shadow var\(--monokai-transition-base\);/.test(files.modals),
+      && /\.prompt-input,[\s\S]*?\.modal textarea\s*\{[^}]*transition:[\s\S]*?border-color var\(--monokai-transition-base\),[\s\S]*?box-shadow var\(--monokai-transition-base\);/.test(files.modals)
+      && /\.prompt-input,[\s\S]*?\.modal input\[type="text"\],[\s\S]*?\.modal textarea\s*\{[^}]*padding:\s*0\.45rem 0\.6rem;/.test(files.modals),
   ],
   [
     "Amber / VS Code 强调色预设覆盖 tab、列表、命令面板和滚动条",
@@ -130,7 +131,7 @@ const checks = [
   [
     "Settings 左侧导航跟随浅色/深色主题变量",
     /\.modal\.mod-settings[\s\S]*?\.vertical-tab-header\s*\{[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(files.modals)
-      && /\.modal\.mod-settings[\s\S]*?\.vertical-tab-content-container\s*\{[\s\S]*?background-color:\s*var\(--background-primary\);/.test(files.modals)
+      && /\.modal\.mod-settings[\s\S]*?\.vertical-tab-content-container\s*\{[\s\S]*?background-color:\s*transparent;/.test(files.modals)
       && /\.modal\.mod-settings[\s\S]*?\.vertical-tab-nav-item\.is-active\s*\{[\s\S]*?color:\s*var\(--monokai-selection-foreground, var\(--nav-item-color-active\)\);[\s\S]*?background-color:\s*var\(--nav-item-background-active\);/.test(files.modals),
   ],
   [
@@ -155,10 +156,11 @@ const checks = [
       && /\.workspace-split\.mod-left-split \.workspace-tab-header\.is-active\s*\{[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(files.tabs),
   ],
   [
-    "Style Settings 搜索框为图标预留文字内边距",
+    "Style Settings 搜索框保留 Obsidian 原生图标间距",
     /\.modal\.mod-settings[\s\S]*?\.setting-item-name \.search-input-container,[\s\S]*?\.style-settings-container \.search-input-container\s*\{[\s\S]*?max-width:\s*23rem;/.test(files.modals)
       && /\.modal\.mod-settings[\s\S]*?\.setting-item-name \.search-input-container::before,[\s\S]*?\.style-settings-container \.search-input-container::before\s*\{[\s\S]*?inset-inline-start:\s*0\.75rem;/.test(files.modals)
-      && /\.modal\.mod-settings[\s\S]*?\.setting-item-name \.search-input-container input,[\s\S]*?\.style-settings-container \.search-input-container input\[type="search"\]\s*\{[\s\S]*?min-height:\s*2\.25rem;[\s\S]*?padding-inline:\s*2\.15rem 0\.85rem;/.test(files.modals),
+      && /\.modal\.mod-settings[\s\S]*?\.setting-item-name \.search-input-container input,[\s\S]*?\.style-settings-container \.search-input-container input\[type="search"\]\s*\{[\s\S]*?min-height:\s*2\.25rem;/.test(files.modals)
+      && !/\.search-input-container input\[type="search"\]\s*\{[\s\S]*?padding-inline:/.test(files.modals),
   ],
   [
     "Style Settings 可隐藏右下角同步按钮且限定状态栏范围",

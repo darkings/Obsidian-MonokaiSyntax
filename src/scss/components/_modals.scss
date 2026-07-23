@@ -51,10 +51,15 @@ body.theme-light {
   background-color: var(--background-primary);
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-s);
-  padding: 0.45rem 0.6rem;
   transition:
     border-color var(--monokai-transition-base),
     box-shadow var(--monokai-transition-base);
+}
+
+.prompt-input,
+.modal input[type="text"],
+.modal textarea {
+  padding: 0.45rem 0.6rem;
 }
 
 .prompt-input:focus,
@@ -101,7 +106,7 @@ body.theme-light {
 
   .vertical-tab-content-container {
     color: var(--text-normal);
-    background-color: var(--background-primary);
+    background-color: transparent;
   }
 
   .vertical-tab-header-group-title,
@@ -196,7 +201,6 @@ body.theme-light {
   .setting-item-name .search-input-container input,
   .style-settings-container .search-input-container input[type="search"] {
     min-height: 2.25rem;
-    padding-inline: 2.15rem 0.85rem;
   }
 }
 
@@ -206,19 +210,17 @@ body.theme-light {
   .setting-item {
     color: var(--text-normal);
     background-color: var(--monokai-settings-item-background);
-    border: 1px solid var(--monokai-settings-item-border);
+    border: 0;
     border-radius: var(--radius-m);
     box-shadow: none;
     transition:
       background-color var(--monokai-transition-base),
-      border-color var(--monokai-transition-base),
       box-shadow var(--monokai-transition-base);
   }
 
   .setting-item.is-selected,
   .setting-item:hover {
     background-color: var(--monokai-settings-selected-background);
-    border-color: var(--interactive-accent);
   }
 
   .setting-item-name,
