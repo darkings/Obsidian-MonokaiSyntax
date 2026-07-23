@@ -65,10 +65,11 @@ const checks = [
       && /\.cm-header-6[\s\S]*?font-size:\s*var\(--h6-size\);/.test(files.editor),
   ],
   [
-    "块引用阅读模式与编辑模式共享内容间距变量",
+    "块引用阅读态保留呼吸感且编辑态使用紧凑间距",
     /--monokai-blockquote-content-gap:\s*1\.25rem;/.test(files.activeVisual)
       && /blockquote[\s\S]*?padding:\s*#\{\$spacing-3\} #\{\$spacing-3\} #\{\$spacing-3\} var\(--monokai-blockquote-content-gap\);/.test(files.activeVisual)
-      && /\.cm-quote[\s\S]*?margin-left:\s*var\(--monokai-blockquote-content-gap\);/.test(files.activeVisual),
+      && /--monokai-callout-source-content-gap:\s*0\.75rem;/.test(files.activeVisual)
+      && /\.cm-quote[\s\S]*?margin-left:\s*var\(--monokai-callout-source-content-gap\);/.test(files.activeVisual),
   ],
   [
     "Style Settings 成功色同步影响块引用边框",
@@ -88,8 +89,8 @@ const checks = [
   ],
   [
     "紧凑模式同步压缩 Callout 与表格",
-    /body\.monokai-syntax-compact[\s\S]*?--callout-padding:\s*0\.9rem;/.test(files.styleSettings)
-      && /body\.monokai-syntax-compact[\s\S]*?--callout-content-padding:\s*var\(--spacing-3\) 0 0 0;/.test(files.styleSettings)
+    /body\.monokai-syntax-compact[\s\S]*?--callout-padding:\s*0\.8rem 1rem 0\.8rem 1\.85rem;/.test(files.styleSettings)
+      && /body\.monokai-syntax-compact[\s\S]*?--callout-content-padding:\s*0\.5rem 0 0 0;/.test(files.styleSettings)
       && /body\.monokai-syntax-compact[\s\S]*?--monokai-codeblock-padding-block:\s*0\.75rem;/.test(files.styleSettings)
       && /body\.monokai-syntax-compact[\s\S]*?--monokai-codeblock-padding-inline:\s*0\.75rem;/.test(files.styleSettings)
       && !/body\.monokai-syntax-compact[\s\S]*?\.markdown-rendered pre[\s\S]*?padding:\s*0\.75rem;/.test(files.styleSettings)
@@ -232,14 +233,17 @@ const checks = [
       && /\.theme-dark[\s\S]*?--code-value:\s*#\{\$color-pro-purple\};/.test(files.base),
   ],
   [
-    "CodeMirror 扩展语法 token 覆盖类型、类、内建、属性、meta 与错误",
+    "CodeMirror 与渲染代码块覆盖完整语法 token",
     /\.theme-dark[\s\S]*?--code-type:/.test(files.base)
       && /\.theme-light[\s\S]*?--code-type:/.test(files.base)
       && /\.cm-s-obsidian[\s\S]*?span\.cm-type,[\s\S]*?span\.cm-class[\s\S]*?color:\s*var\(--code-type\);/.test(files.editor)
       && /\.cm-s-obsidian[\s\S]*?span\.cm-builtin[\s\S]*?color:\s*var\(--code-builtin\);/.test(files.editor)
       && /\.cm-s-obsidian[\s\S]*?span\.cm-attribute[\s\S]*?color:\s*var\(--code-property\);/.test(files.editor)
       && /\.cm-s-obsidian[\s\S]*?span\.cm-meta[\s\S]*?color:\s*var\(--code-meta\);/.test(files.editor)
-      && /\.cm-s-obsidian[\s\S]*?span\.cm-error[\s\S]*?color:\s*var\(--code-error\);/.test(files.editor),
+      && /\.cm-s-obsidian[\s\S]*?span\.cm-error[\s\S]*?color:\s*var\(--code-error\);/.test(files.editor)
+      && /\.markdown-rendered pre code,[\s\S]*?\.cm-preview-code-block code[\s\S]*?\.token\.property,[\s\S]*?color:\s*var\(--code-property\);/.test(files.editor)
+      && /\.token\.string,[\s\S]*?color:\s*var\(--code-string\);/.test(files.editor)
+      && /\.token\.number,[\s\S]*?color:\s*var\(--code-value\);/.test(files.editor),
   ],
   [
     "列表符号阅读模式与编辑模式共享颜色变量",
@@ -352,7 +356,7 @@ const checks = [
     "Callout 编辑态标题和源码标记贴近阅读模式层级",
     /--monokai-callout-title-gap:\s*var\(--spacing-2\);/.test(files.activeVisual)
       && /--monokai-callout-source-marker-color:\s*var\(--text-faint\);/.test(files.activeVisual)
-      && /\.callout-title,[\s\S]*?\.cm-callout-title[\s\S]*?gap:\s*var\(--monokai-callout-title-gap\);/.test(files.activeVisual)
+      && /\.callout-title,[\s\S]*?\.cm-callout-title[\s\S]*?color:\s*var\(--text-normal\);[\s\S]*?font-weight:\s*600;[\s\S]*?gap:\s*var\(--monokai-callout-title-gap\);/.test(files.activeVisual)
       && /body \.markdown-source-view\.mod-cm6 \.cm-callout-content[\s\S]*?color:\s*var\(--text-normal\);/.test(files.activeVisual)
       && /body \.markdown-source-view\.mod-cm6 \.cm-formatting-callout,[\s\S]*?body \.markdown-source-view\.mod-cm6 \.cm-callout \.cm-formatting[\s\S]*?color:\s*var\(--monokai-callout-source-marker-color\);/.test(files.activeVisual),
   ],
@@ -380,7 +384,9 @@ const checks = [
     "块引用多行和嵌套层级在阅读模式与编辑模式收敛",
     /--monokai-blockquote-nested-gap:\s*#\{\$spacing-3\};/.test(files.activeVisual)
       && /body \.markdown-rendered blockquote blockquote[\s\S]*?margin-block:\s*var\(--monokai-blockquote-nested-gap\);/.test(files.activeVisual)
-      && /body \.markdown-source-view\.mod-cm6 \.cm-line\.HyperMD-quote \+ \.cm-line\.HyperMD-quote,[\s\S]*?body \.markdown-source-view\.mod-cm6 \.HyperMD-quote \+ \.HyperMD-quote[\s\S]*?border-start-start-radius:\s*0;[\s\S]*?border-end-start-radius:\s*0;/.test(files.activeVisual)
+      && /--monokai-callout-source-token-offset:\s*-0\.15rem;/.test(files.activeVisual)
+      && /\.HyperMD-quote:not\(\.HyperMD-quote \+ \.HyperMD-quote\)[\s\S]*?border-start-start-radius:\s*0;[\s\S]*?border-start-end-radius:\s*var\(--radius-l\);[\s\S]*?padding-block-start:\s*0\.65rem;/.test(files.activeVisual)
+      && /\.HyperMD-quote:not\(:has\(\+ \.HyperMD-quote\)\)[\s\S]*?border-end-start-radius:\s*0;[\s\S]*?border-end-end-radius:\s*var\(--radius-l\);[\s\S]*?padding-block-end:\s*0\.65rem;/.test(files.activeVisual)
       && /\.cm-quote-2,[\s\S]*?\.cm-quote-3[\s\S]*?color:\s*var\(--text-normal\);/.test(files.activeVisual),
   ],
   [

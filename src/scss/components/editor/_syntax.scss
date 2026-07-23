@@ -24,12 +24,21 @@
   }
 
   span.cm-number,
-  span.cm-atom {
+  span.cm-atom,
+  span.cm-bool,
+  span.cm-boolean,
+  span.cm-null {
     color: var(--code-value);
   }
 
-  span.cm-property {
+  span.cm-property,
+  span.cm-attribute {
     color: var(--code-property);
+  }
+
+  span.cm-punctuation,
+  span.cm-bracket {
+    color: var(--code-punctuation);
   }
 
   span.cm-operator {
@@ -58,10 +67,6 @@
     color: var(--code-constant);
   }
 
-  span.cm-attribute {
-    color: var(--code-property);
-  }
-
   span.cm-tag {
     color: var(--code-tag);
   }
@@ -86,6 +91,76 @@
   span.cm-error {
     color: var(--code-error);
     text-decoration-color: var(--code-error);
+  }
+}
+
+.markdown-rendered pre code,
+.cm-preview-code-block code {
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: var(--code-comment);
+  }
+
+  .token.property,
+  .token.attr-name {
+    color: var(--code-property);
+  }
+
+  .token.string,
+  .token.char {
+    color: var(--code-string);
+  }
+
+  .token.number,
+  .token.boolean,
+  .token.constant,
+  .token.null {
+    color: var(--code-value);
+  }
+
+  .token.keyword,
+  .token.important {
+    color: var(--code-keyword);
+  }
+
+  .token.function {
+    color: var(--code-function);
+  }
+
+  .token.operator {
+    color: var(--code-operator);
+  }
+
+  .token.punctuation {
+    color: var(--code-punctuation);
+  }
+
+  .token.class-name,
+  .token.type {
+    color: var(--code-type);
+  }
+
+  .token.builtin {
+    color: var(--code-builtin);
+  }
+
+  .token.namespace {
+    color: var(--monokai-code-module);
+  }
+
+  .token.decorator,
+  .token.annotation {
+    color: var(--code-decorator);
+  }
+
+  .token.regex {
+    color: var(--code-regex);
+  }
+
+  .token.variable {
+    color: var(--monokai-code-variable);
   }
 }
 

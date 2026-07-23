@@ -27,7 +27,20 @@ test("全部滤镜对比度样本满足阈值", () => {
 });
 
 test("Pro 与 Light 覆盖代码学习专项对比度样本", () => {
-  const requiredLabels = ["代码注释", "行号", "选区文字", "代码块边框", "链接", "Callout 标题"];
+  const requiredLabels = [
+    "代码注释",
+    "代码字符串",
+    "代码属性",
+    "代码数值",
+    "代码关键字",
+    "代码函数",
+    "代码运算符",
+    "行号",
+    "选区文字",
+    "代码块边框",
+    "链接",
+    "Callout 标题",
+  ];
 
   for (const filter of ["light", "pro"]) {
     const labels = new Set(pairs.filter((pair) => pair.filter === filter).map((pair) => pair.label));

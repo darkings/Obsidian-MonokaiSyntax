@@ -180,13 +180,30 @@ body.theme-light.monokai-syntax-filter-light {
     $color-light-text-faint,
     rgb(232 179 10 / 24%)
   );
+
+  --code-function: #{$color-light-code-green};
+  --code-important: #{$color-light-code-magenta};
+  --code-keyword: #{$color-light-code-magenta};
+  --code-operator: #{$color-light-code-operator};
+  --code-string: #{$color-light-code-yellow};
+  --code-tag: #{$color-light-code-magenta};
+  --code-value: #{$color-light-code-purple};
+  --code-type: #{$color-light-code-purple};
+  --code-class: #{$color-light-code-green};
+  --code-constant: #{$color-light-code-purple};
+  --code-decorator: #{$color-light-code-orange};
+  --code-regex: #{$color-light-code-yellow};
+  --code-error: #{$color-light-code-magenta};
+  --code-parameter: #{$color-light-code-orange};
 }
 
 body.monokai-syntax-compact {
   @include compact-density;
 
-  --callout-padding: 0.9rem;
-  --callout-content-padding: var(--spacing-3) 0 0 0;
+  --callout-padding: 0.8rem 1rem 0.8rem 1.85rem;
+  --callout-content-padding: 0.5rem 0 0 0;
+  --monokai-callout-rail-inset: 0.6rem;
+  --monokai-callout-rail-offset: 0.65rem;
   --monokai-codeblock-padding-block: 0.75rem;
   --monokai-codeblock-padding-inline: 0.75rem;
 

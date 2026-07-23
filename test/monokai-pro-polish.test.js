@@ -96,6 +96,35 @@ test("社区主题 README 代码块为语言标签保留独立空间", () => {
   );
 });
 
+test("渲染代码块与 CodeMirror 使用统一语法 token", () => {
+  const syntax = readSource("../src/scss/components/editor/_syntax.scss");
+
+  assert.match(
+    syntax,
+    /\.markdown-rendered pre code,[\s\S]*?\.cm-preview-code-block code\s*\{[\s\S]*?\.token\.property,[\s\S]*?color:\s*var\(--code-property\);/,
+  );
+  assert.match(syntax, /\.token\.string,[\s\S]*?color:\s*var\(--code-string\);/);
+  assert.match(syntax, /\.token\.number,[\s\S]*?color:\s*var\(--code-value\);/);
+  assert.match(syntax, /span\.cm-bool,[\s\S]*?span\.cm-null[\s\S]*?color:\s*var\(--code-value\);/);
+  assert.match(syntax, /span\.cm-punctuation,[\s\S]*?span\.cm-bracket[\s\S]*?color:\s*var\(--code-punctuation\);/);
+  assert.doesNotMatch(syntax, /language-python[\s\S]*?\.token\.string:has/);
+});
+
+test("浅色代码 token 使用独立的高对比度调色板", () => {
+  const variables = readSource("../src/scss/_variables.scss");
+  const base = readSource("../src/scss/_base.scss");
+  const styleSettings = readSource("../src/scss/plugins/_style-settings.scss");
+
+  for (const token of ["magenta", "operator", "orange", "yellow", "green", "purple"]) {
+    assert.match(variables, new RegExp(`\\$color-light-code-${token}:`));
+  }
+
+  assert.match(base, /\.theme-light[\s\S]*?--code-string:\s*#\{\$color-light-code-yellow\};/);
+  assert.match(base, /\.theme-light[\s\S]*?--code-function:\s*#\{\$color-light-code-green\};/);
+  assert.match(base, /\.theme-light[\s\S]*?--code-value:\s*#\{\$color-light-code-purple\};/);
+  assert.match(styleSettings, /body\.theme-light\.monokai-syntax-filter-light[\s\S]*?--code-string:\s*#\{\$color-light-code-yellow\};/);
+});
+
 test("低风险基础清理使用统一 token 并避免重复 Callout 基础规则", () => {
   const variables = readSource("../src/scss/_variables.scss");
   const base = readSource("../src/scss/_base.scss");

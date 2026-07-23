@@ -87,13 +87,15 @@ const checks = [
       && /\.callout\[data-callout="success"\]/.test(files.overrides),
   ],
   [
-    "Callout 边框使用 border-inline-start 绘制",
-    /border-inline-start:\s*2px solid var\(--callout-border/.test(files.overrides)
-      && !/box-shadow.*callout/i.test(files.overrides),
+    "Callout 使用卡片内嵌语义色条",
+    /\.callout::before[\s\S]*?inset-block:\s*var\(--monokai-callout-rail-inset\);[\s\S]*?background-color:\s*var\(--callout-border/.test(files.overrides)
+      && /border-radius:\s*var\(--callout-radius\);/.test(files.overrides)
+      && /\.callout\s*\{[\s\S]*?box-shadow:\s*none;/.test(files.overrides),
   ],
   [
-    "Callout 内容与标题之间留出呼吸感",
-    /margin-block-start:\s*var\(--spacing-4\);/.test(files.overrides),
+    "Callout 内容与标题之间使用紧凑呼吸感",
+    /--callout-content-padding:\s*0\.65rem 0 0 0;/.test(files.overrides)
+      && /margin-block-start:\s*0;/.test(files.overrides),
   ],
   [
     "Callout 图标隐藏原生 SVG 使用文字替代",
@@ -125,13 +127,14 @@ const checks = [
       && !/--monokai-inline-code-border/.test(files.editor),
   ],
   [
-    "块引用左侧竖条使用 border-inline-start",
+    "阅读态块引用使用左边框，编辑态使用无弯钩内嵌色条",
     /border-inline-start:\s*2px solid var\(--monokai-blockquote-border/.test(files.overrides)
-      && /border-inline-start:\s*2px solid var\(--monokai-blockquote-border/.test(files.overrides),
+      && /--monokai-callout-source-rail-color:\s*var\(--text-faint\);/.test(files.overrides)
+      && /box-shadow:\s*inset var\(--monokai-callout-rail-width\) 0 0[\s\S]*?var\(--monokai-callout-source-rail-color\);/.test(files.overrides),
   ],
   [
-    "块引用格式符号隐藏",
-    /\.cm-formatting-quote[\s\S]*?display:\s*none/.test(files.overrides),
+    "块引用格式符号在编辑态可见且弱化",
+    /\.cm-formatting-quote[\s\S]*?display:\s*inline;[\s\S]*?color:\s*var\(--monokai-callout-source-marker-color\);[\s\S]*?opacity:\s*0\.8;/.test(files.overrides),
   ],
   [
     "复选框未选中为 Monokai Pro 黄色，选中为绿色",
