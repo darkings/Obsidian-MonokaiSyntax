@@ -8,9 +8,16 @@ Monokai Syntax 是一个面向 Obsidian 的 Monokai Pro 风格主题，主要用
 
 ## 版本
 
-当前版本：`1.1.1`
+当前版本：`1.1.3`
 
 最低 Obsidian 版本：`1.0.0`
+
+## 1.1.3 更新说明
+
+- 修复社区主题浏览器中搜索图标与提示词错位的问题，恢复 Obsidian 原生搜索框间距。
+- 修复社区主题 README 预览中代码块语言标签覆盖代码内容的问题。
+- 调整设置页内容背景，并简化 Style Settings 设置项边框，使界面更加干净统一。
+- 增加模态框搜索输入与社区主题 README 代码块的回归检查。
 
 ## 主要特性
 
@@ -25,131 +32,6 @@ Monokai Syntax 是一个面向 Obsidian 的 Monokai Pro 风格主题，主要用
 - 关系图谱、Canvas、Ribbon、标签页、弹窗、搜索、设置和插件界面复用统一主题变量。
 - 不加载远程运行时资源，图标字体以内联 WOFF 形式打包。
 
-## 1.1.1 更新重点
-
-- 修复 Obsidian pending 审核中因 `theme.css` 包含 Stylelint 控制注释导致的报错。
-- 增加 CSS 审计保护，发布产物中出现 Stylelint 控制注释会直接失败。
-- 拆分文档：英文主文档为 `README.md`，中文文档为 `README.zh.md`。
-- 文档中的调色板说明同步为当前实际支持的 `跟随系统`、`Pro`、`Light`。
-
-## 安装
-
-### 手动安装
-
-在 Obsidian vault 中创建目录：
-
-```text
-你的 Vault/.obsidian/themes/Monokai Syntax/
-```
-
-复制以下文件到该目录：
-
-```text
-theme.css
-manifest.json
-```
-
-然后在 Obsidian 中进入 `设置` -> `外观` -> `主题`，选择并启用 `Monokai Syntax`。
-
-### 从 GitHub Release 安装
-
-发布 GitHub Release 后，下载对应版本中的：
-
-```text
-theme.css
-manifest.json
-```
-
-放入你的 vault 主题目录即可。
-
-### 提交 Obsidian 社区主题
-
-社区主题上架需要向 `obsidianmd/obsidian-releases` 提交主题信息 PR，并等待审核通过。审核通过后，用户才能在 Obsidian 的社区主题商店中搜索安装。
-
-## Style Settings
-
-主题不依赖额外插件也能使用。建议安装 Obsidian 社区插件 `Style Settings`，以获得完整配置体验。
-
-当前支持：
-
-- 调色板滤镜：`跟随系统`、`Pro`、`Light`。
-- 密度模式。
-- 彩色或单色文件树图标。
-- 文件树图标开关。
-- 状态栏右下角同步按钮显示开关。
-- 字体与排版选项。
-- 标题色条。
-- 强调色、链接色与代码色覆盖。
-
-## 本地开发
-
-安装依赖：
-
-```powershell
-npm install
-```
-
-构建主题：
-
-```powershell
-npm run build
-```
-
-完整验证：
-
-```powershell
-npm run verify
-```
-
-构建并同步到默认 vault：
-
-```powershell
-npm run build:vault
-```
-
-发布前检查：
-
-```powershell
-npm run release:pack
-```
-
-## 发布流程
-
-1. 确认 `package.json`、`manifest.json`、`versions.json` 版本一致。
-2. 运行 `npm run release:pack`。
-3. 确认根目录存在发布产物：
-
-```text
-theme.css
-manifest.json
-```
-
-4. 创建并推送与 `manifest.json` 完全一致的版本标签。Obsidian 要求标签不能带 `v` 前缀：
-
-```powershell
-git tag 1.1.1
-git push origin 1.1.1
-```
-
-5. GitHub Actions 会在标签推送后运行发布检查并创建 Release，附件包含 `theme.css` 与 `manifest.json`。
-
-## 验证覆盖
-
-当前发布前验证包含：
-
-- 版本一致性检查。
-- 调色板滤镜配置检查。
-- 行内代码、编辑模式与阅读模式一致性检查。
-- 文件图标生成与图标规则验证。
-- 关系图谱变量验证。
-- Active 视觉覆盖验证。
-- 样式细节检查。
-- Node 测试。
-- Stylelint。
-- WCAG 对比度检查。
-- 构建产物一致性检查。
-- CSS 审计：禁止远程资源、`!important`、ID 选择器和 Stylelint 控制注释。
-
 ## 许可证
 
-MIT。详见 [LICENSE.md](./LICENSE.md)。
+本主题采用 MIT 许可证，详见 [LICENSE.md](./LICENSE.md)。

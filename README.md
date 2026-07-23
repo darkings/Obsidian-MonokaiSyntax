@@ -8,9 +8,16 @@ Monokai Syntax is a Monokai Pro inspired theme for Obsidian. It is designed for 
 
 ## Version
 
-Current version: `1.1.1`
+Current version: `1.1.3`
 
 Minimum Obsidian version: `1.0.0`
+
+## What's New In 1.1.3
+
+- Fixed the misplaced search icon and placeholder text in the Community Themes browser by preserving Obsidian's native search input spacing.
+- Fixed unwanted language labels overlapping code content in Community Theme README previews.
+- Refined the Settings content background and simplified Style Settings item borders for a cleaner, more consistent surface.
+- Added regression checks for modal search inputs and Community Theme README code blocks.
 
 ## Highlights
 
@@ -24,131 +31,6 @@ Minimum Obsidian version: `1.0.0`
 - Task states, API parameter tables, inline code, code blocks, Mermaid, Math, Dataview, embeds, images, tags, links, and footnotes are styled for technical notes.
 - Graph view, Canvas, Ribbon, tabs, modals, search, settings, and plugin surfaces follow the same theme tokens.
 - No runtime remote assets. The icon font is bundled as an inline WOFF resource.
-
-## What's New In 1.1.1
-
-- Fixed Obsidian pending review errors caused by Stylelint control comments being emitted into `theme.css`.
-- Added a CSS audit guard that rejects Stylelint control comments in published CSS.
-- Split the documentation into an English `README.md` and a Chinese `README.zh.md`.
-- Kept the documented palette system aligned with the current `Follow system`, `Pro`, and `Light` options.
-
-## Installation
-
-### Manual Installation
-
-Create this folder in your Obsidian vault:
-
-```text
-Your Vault/.obsidian/themes/Monokai Syntax/
-```
-
-Copy these files into that folder:
-
-```text
-theme.css
-manifest.json
-```
-
-Then open Obsidian and choose `Settings` -> `Appearance` -> `Themes` -> `Monokai Syntax`.
-
-### GitHub Release
-
-After a release is published, download these assets from the release page:
-
-```text
-theme.css
-manifest.json
-```
-
-Place them in your vault theme folder.
-
-### Obsidian Community Theme Listing
-
-To list this theme in Obsidian's community theme browser, submit the required theme metadata to `obsidianmd/obsidian-releases` and wait for review.
-
-## Style Settings
-
-The theme works without extra plugins, but the Obsidian community plugin `Style Settings` unlocks the full configuration surface.
-
-Supported controls include:
-
-- Palette filter: `Follow system`, `Pro`, `Light`.
-- Density mode.
-- Colored or monochrome file icons.
-- File icon visibility.
-- Sync button visibility in the status bar.
-- Typography and layout controls.
-- Heading accents.
-- Accent, link, and code color overrides.
-
-## Local Development
-
-Install dependencies:
-
-```powershell
-npm install
-```
-
-Build the theme:
-
-```powershell
-npm run build
-```
-
-Run the full verification suite:
-
-```powershell
-npm run verify
-```
-
-Build and sync to the default Obsidian vault:
-
-```powershell
-npm run build:vault
-```
-
-Run release checks:
-
-```powershell
-npm run release:pack
-```
-
-## Release Workflow
-
-1. Keep `package.json`, `manifest.json`, and `versions.json` versions aligned.
-2. Run `npm run release:pack`.
-3. Confirm the root release assets exist:
-
-```text
-theme.css
-manifest.json
-```
-
-4. Create and push a version tag that exactly matches `manifest.json`. Obsidian expects no `v` prefix:
-
-```powershell
-git tag 1.1.1
-git push origin 1.1.1
-```
-
-5. GitHub Actions runs the release verification and publishes a release with `theme.css` and `manifest.json`.
-
-## Verification Coverage
-
-The release verification suite covers:
-
-- Version consistency.
-- Palette filter configuration.
-- Inline code, editor, and reading mode consistency.
-- File icon generation and icon rules.
-- Graph view variables.
-- Active visual overrides.
-- Style polish checks.
-- Node tests.
-- Stylelint.
-- WCAG contrast checks.
-- Build output consistency.
-- CSS audit for remote resources, `!important`, ID selectors, and Stylelint control comments.
 
 ## License
 
