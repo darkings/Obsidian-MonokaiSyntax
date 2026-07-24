@@ -192,7 +192,7 @@ const checks = [
       && /--monokai-table-line-height:\s*1\.55;/.test(files.editor)
       && /--monokai-table-max-width:\s*min\(100%, 62rem\);/.test(files.editor)
       && /--monokai-table-min-width:\s*min\(100%, 48rem\);/.test(files.editor)
-      && /--monokai-editor-block-offset:\s*1\.5rem;/.test(files.editor)
+      && /--monokai-editor-block-offset:\s*1rem;/.test(files.editor)
       && /--monokai-table-row-hover-background:\s*rgb\(120 220 232 \/ 7%\);/.test(files.editor)
       && /--monokai-table-row-hover-background:\s*rgb\(15 100 120 \/ 5%\);/.test(files.editor)
       && /--monokai-table-column-border:\s*rgb\(61 61 61 \/ 4%\);/.test(files.editor)

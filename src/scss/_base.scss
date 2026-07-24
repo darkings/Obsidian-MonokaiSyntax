@@ -22,6 +22,7 @@
   --monokai-transition-base: 140ms ease;
   --monokai-transition-emphasis: 180ms ease;
   --monokai-popover-shadow: 0 16px 40px rgb(0 0 0 / 22%);
+  --monokai-notice-shadow: 0 6px 18px rgb(0 0 0 / 16%);
 }
 
 .theme-dark {
@@ -313,7 +314,7 @@ input[type="checkbox"]:checked {
   background-color: var(--background-secondary);
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-m);
-  box-shadow: var(--monokai-popover-shadow);
+  box-shadow: var(--monokai-notice-shadow);
 }
 
 .tooltip {
