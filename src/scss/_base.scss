@@ -25,6 +25,10 @@
   --monokai-notice-shadow: 0 6px 18px rgb(0 0 0 / 16%);
 }
 
+body {
+  --monokai-tab-active-border-color: var(--interactive-accent, #ff6188);
+}
+
 .theme-dark {
   --background-primary: #{$color-pro-background-primary};
   --background-secondary: #{$color-pro-background-secondary};
@@ -44,7 +48,9 @@
   --monokai-selection-background: rgb(120 220 232 / 30%);
   --monokai-selection-muted-background: rgb(252 252 250 / 6%);
   --monokai-selection-border-color: #{$color-pro-cyan};
-  --monokai-nav-active-background: rgb(120 220 232 / 12%);
+
+  /* Monokai Pro uses a subtle gray/white for active file background in sidebar */
+  --monokai-nav-active-background: rgb(255 255 255 / 6%);
   --monokai-sidebar-divider-color: rgb(248 248 242 / 4%);
   --monokai-sidebar-scrollbar-thumb: rgb(248 248 242 / 10%);
   --text-accent-hover: #{$color-pro-magenta};
@@ -67,7 +73,7 @@
   --icon-color-active: #{$color-pro-cyan};
   --metadata-label-text-color: #{$color-pro-cyan};
   --text-highlight-bg: rgb(255 216 102 / 24%);
-  --blockquote-border-color: #{$color-pro-green};
+  --blockquote-border-color: #{$color-pro-purple};
   --monokai-checkbox-unchecked-color: #{$color-pro-yellow};
   --monokai-checkbox-checked-color: #{$color-pro-green};
   --checkbox-color: #{$color-pro-yellow};
@@ -75,6 +81,11 @@
   --checkbox-marker-color: #{$color-pro-background-primary};
   --checkbox-color-checked: #{$color-pro-green};
   --list-marker-color: #{$color-pro-purple};
+  --list-level-1: #{$color-pro-magenta};
+  --list-level-2: #{$color-pro-green};
+  --list-level-3: #{$color-pro-yellow};
+  --list-level-4: #{$color-pro-cyan};
+  --list-level-5: #{$color-pro-purple};
   --code-normal: #{$color-pro-text-normal};
   --code-background: #{$color-pro-background-secondary};
   --code-comment: #727072;
@@ -127,10 +138,12 @@
   --monokai-default-success: #{$color-light-green};
   --monokai-default-warning: rgb(232 179 10 / 24%);
   --monokai-default-code-background: #ebe8df;
-  --monokai-selection-background: rgb(15 100 120 / 22%);
-  --monokai-selection-muted-background: rgb(52 52 52 / 6%);
+  --monokai-selection-background: rgb(15 100 120 / 15%);
+  --monokai-selection-muted-background: rgb(0 0 0 / 4%);
   --monokai-selection-border-color: #{$color-light-cyan};
-  --monokai-nav-active-background: rgb(15 100 120 / 10%);
+
+  /* Subtly darker gray for active file background in light sidebar */
+  --monokai-nav-active-background: rgb(0 0 0 / 6%);
   --monokai-sidebar-divider-color: rgb(61 61 61 / 5%);
   --monokai-sidebar-scrollbar-thumb: rgb(61 61 61 / 12%);
   --monokai-light-tool-background: #f5f3ec;
@@ -154,7 +167,7 @@
   --icon-color-active: #{$color-light-cyan};
   --metadata-label-text-color: #{$color-light-cyan};
   --text-highlight-bg: rgb(232 179 10 / 24%);
-  --blockquote-border-color: #{$color-light-green};
+  --blockquote-border-color: #{$color-light-purple};
   --monokai-checkbox-unchecked-color: #{$color-light-yellow};
   --monokai-checkbox-checked-color: #{$color-light-green};
   --checkbox-color: #{$color-light-yellow};
@@ -162,6 +175,11 @@
   --checkbox-marker-color: #{$color-light-background-primary};
   --checkbox-color-checked: #{$color-light-green};
   --list-marker-color: #{$color-light-purple};
+  --list-level-1: #{$color-light-magenta};
+  --list-level-2: #{$color-light-green};
+  --list-level-3: #{$color-light-yellow};
+  --list-level-4: #{$color-light-cyan};
+  --list-level-5: #{$color-light-purple};
   --code-normal: #{$color-light-text-normal};
   --code-background: #{$color-light-background-secondary};
   --code-comment: #{$color-light-text-faint};
@@ -238,36 +256,44 @@
 }
 
 .nav-file-title,
-.nav-folder-title {
+.nav-folder-title,
+.tree-item-self {
   align-items: center;
   color: var(--nav-item-color);
   border-radius: var(--radius-s);
+  box-shadow: inset 0 0 0 transparent; /* Base for transition slide */
   transition:
     color var(--monokai-transition-fast),
     background-color var(--monokai-transition-fast),
-    box-shadow var(--monokai-transition-fast);
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-file-title:hover,
-.nav-folder-title:hover {
+.nav-folder-title:hover,
+.tree-item-self:hover {
   color: var(--nav-item-color-hover);
   background-color: var(--nav-item-background-hover);
 }
 
-.nav-file-title.is-active {
-  color: var(--monokai-selection-foreground, var(--nav-item-color-active));
-  background-color: var(--monokai-nav-active-background);
-}
-
+.nav-file-title.is-active,
 .nav-folder-title.is-active,
 .tree-item-self.is-active {
   color: var(--monokai-selection-foreground, var(--nav-item-color-active));
   background-color: var(--monokai-nav-active-background);
+
+  /* Monokai Pro style active indicator */
+  box-shadow: inset 2px 0 0 var(--interactive-accent);
 }
 
 .nav-folder-collapse-indicator,
 .tree-item-icon {
   color: var(--icon-color);
+}
+
+body .collapse-indicator svg,
+body .nav-folder-collapse-indicator svg,
+body .tree-item-icon svg {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.monokai-syntax-hide-sync-status-button {
@@ -301,11 +327,20 @@ input[type="checkbox"]:checked {
 
 .metadata-property-value {
   color: var(--text-normal);
+  background-color: var(--metadata-input-background, transparent);
   border-radius: var(--radius-s);
+  transition:
+    background-color var(--monokai-transition-base),
+    outline var(--monokai-transition-base);
+}
+
+.metadata-property-value:hover {
+  background-color: var(--background-modifier-hover);
 }
 
 .metadata-property-value:focus-within {
-  outline: 1px solid var(--background-modifier-border);
+  background-color: var(--background-modifier-hover);
+  outline: 1px solid var(--interactive-accent);
   outline-offset: 2px;
 }
 
@@ -396,11 +431,15 @@ input[type="checkbox"]:checked {
   background-color: var(--monokai-tag-background, var(--background-secondary));
   border: 1px solid var(--monokai-tag-border-color, var(--background-modifier-border));
   border-radius: var(--monokai-tag-radius, var(--radius-s));
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block; /* Required for transform */
 }
 
 .tag:hover {
   color: var(--link-color-hover);
   background-color: var(--background-modifier-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
 ::-webkit-scrollbar-thumb {

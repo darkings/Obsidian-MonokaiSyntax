@@ -11,3 +11,16 @@ export const readEditorScss = (rootDir) => [
   "src/scss/components/editor/_syntax.scss",
   "src/scss/components/editor/_links.scss",
 ].map((path) => readScssSource(rootDir, path)).join("\n");
+
+export const readCalloutScss = (rootDir) => [
+  "src/scss/components/_callout.scss",
+  "src/scss/components/_callout-mappings.scss",
+].map((path) => readScssSource(rootDir, path)).join("\n");
+
+export const readListScss = (rootDir) =>
+  readScssSource(rootDir, "src/scss/components/_lists.scss");
+
+export const readVisualScss = (rootDir) => [
+  readCalloutScss(rootDir),
+  readListScss(rootDir),
+].join("\n");

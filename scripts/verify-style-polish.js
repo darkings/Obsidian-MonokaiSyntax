@@ -1,17 +1,20 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { readEditorScss } from "./scss-source.js";
+import { readEditorScss, readVisualScss } from "./scss-source.js";
 
 const rootDir = resolve(import.meta.dirname, "..");
 const files = {
   editor: readEditorScss(rootDir),
-  activeVisual: readFileSync(resolve(rootDir, "src/scss/_active-visual-overrides.scss"), "utf8"),
+  visual: readVisualScss(rootDir),
   base: readFileSync(resolve(rootDir, "src/scss/_base.scss"), "utf8"),
   modals: readFileSync(resolve(rootDir, "src/scss/components/_modals.scss"), "utf8"),
   tabs: readFileSync(resolve(rootDir, "src/scss/components/_tabs.scss"), "utf8"),
   canvas: readFileSync(resolve(rootDir, "src/scss/plugins/_canvas.scss"), "utf8"),
   styleSettings: readFileSync(resolve(rootDir, "src/scss/plugins/_style-settings.scss"), "utf8"),
 };
+
+const calloutSemanticMap = files.visual.match(/\$callout-semantics:\s*\(([\s\S]*?)\);\s*\$callout-icons/)?.[1] ?? "";
+const calloutIconMap = files.visual.match(/\$callout-icons:\s*\(([\s\S]*?)\);/)?.[1] ?? "";
 
 const checks = [
   [
@@ -66,14 +69,24 @@ const checks = [
   ],
   [
     "块引用阅读态保留呼吸感且编辑态使用紧凑间距",
-    /--monokai-blockquote-content-gap:\s*1\.25rem;/.test(files.activeVisual)
-      && /blockquote[\s\S]*?padding:\s*#\{\$spacing-3\} #\{\$spacing-3\} #\{\$spacing-3\} var\(--monokai-blockquote-content-gap\);/.test(files.activeVisual)
-      && /--monokai-callout-source-content-gap:\s*0\.75rem;/.test(files.activeVisual)
-      && /\.cm-quote[\s\S]*?margin-left:\s*var\(--monokai-callout-source-content-gap\);/.test(files.activeVisual),
+      /--monokai-blockquote-padding-block:\s*0\.75rem;/.test(files.visual)
+      && /--monokai-blockquote-padding-inline-end:\s*1rem;/.test(files.visual)
+      && /--monokai-blockquote-content-gap:\s*2rem;/.test(files.visual)
+      && /blockquote[\s\S]*?padding:\s*var\(--monokai-blockquote-padding-block\) var\(--monokai-blockquote-padding-inline-end\)[\s\S]*?var\(--monokai-blockquote-padding-block\) var\(--monokai-blockquote-content-gap\);/.test(files.visual)
+      && /blockquote[\s\S]*?font-style:\s*normal;/.test(files.visual)
+      && /\.HyperMD-quote[\s\S]*?font-style:\s*normal;/.test(files.visual)
+      && /--monokai-callout-source-content-gap:\s*0\.75rem;/.test(files.visual)
+      && /\.cm-quote[\s\S]*?margin-left:\s*var\(--monokai-callout-source-content-gap\);/.test(files.visual),
   ],
   [
-    "Style Settings 成功色同步影响块引用边框",
-    /--monokai-blockquote-border:\s*var\(--monokai-success-color, var\(--monokai-default-success\)\);/.test(files.styleSettings),
+    "引用来源使用弱化层级并保留链接语义色",
+    /blockquote :is\(cite, footer, \.blockquote-source\)[\s\S]*?display:\s*block;[\s\S]*?color:\s*var\(--text-faint\);[\s\S]*?font-size:\s*0\.875em;[\s\S]*?font-style:\s*normal;[\s\S]*?text-align:\s*end;/.test(files.visual)
+      && /blockquote :is\(cite, footer, \.blockquote-source\) a[\s\S]*?color:\s*var\(--link-color\);/.test(files.visual),
+  ],
+  [
+    "Style Settings 使用紫色语义变量控制块引用边框",
+    /--blockquote-border-color:\s*var\(--monokai-purple, var\(--monokai-default-purple, #[0-9a-f]+\)\);/.test(files.styleSettings)
+      && /--monokai-blockquote-border:\s*var\(--monokai-purple, var\(--monokai-default-purple, #[0-9a-f]+\)\);/.test(files.styleSettings),
   ],
   [
     "Modal 阴影使用深浅模式变量",
@@ -89,7 +102,8 @@ const checks = [
   ],
   [
     "紧凑模式同步压缩 Callout 与表格",
-    /body\.monokai-syntax-compact[\s\S]*?--callout-padding:\s*0\.8rem 1rem 0\.8rem 1\.85rem;/.test(files.styleSettings)
+      /body\.monokai-syntax-compact[\s\S]*?--callout-padding:\s*0\.8rem 1rem 0\.8rem 1\.85rem;/.test(files.styleSettings)
+      && /body\.monokai-syntax-compact[\s\S]*?--monokai-blockquote-padding-block:\s*0\.6rem;[\s\S]*?--monokai-blockquote-content-gap:\s*1\.6rem;/.test(files.styleSettings)
       && /body\.monokai-syntax-compact[\s\S]*?--callout-content-padding:\s*0\.5rem 0 0 0;/.test(files.styleSettings)
       && /body\.monokai-syntax-compact[\s\S]*?--monokai-codeblock-padding-block:\s*0\.75rem;/.test(files.styleSettings)
       && /body\.monokai-syntax-compact[\s\S]*?--monokai-codeblock-padding-inline:\s*0\.75rem;/.test(files.styleSettings)
@@ -109,7 +123,8 @@ const checks = [
   [
     "标签页和 Modal 输入具备克制动效，非搜索输入保留舒适内边距",
     /--monokai-transition-base:\s*140ms ease;/.test(files.base)
-      && /\.workspace-tab-header\s*\{[\s\S]*?transition:[\s\S]*?color var\(--monokai-transition-base\),[\s\S]*?background-color var\(--monokai-transition-base\),[\s\S]*?box-shadow var\(--monokai-transition-base\);/.test(files.tabs)
+      && /\.workspace-tab-header\s*\{[\s\S]*?transition:[\s\S]*?color var\(--monokai-transition-base\),[\s\S]*?background-color var\(--monokai-transition-base\);/.test(files.tabs)
+      && /@keyframes monokai-tab-activate[\s\S]*?background-size:\s*0 2px;[\s\S]*?background-size:\s*calc\(100% - 0\.4rem\) 2px;/.test(files.tabs)
       && /\.prompt-input,[\s\S]*?\.modal textarea\s*\{[^}]*transition:[\s\S]*?border-color var\(--monokai-transition-base\),[\s\S]*?box-shadow var\(--monokai-transition-base\);/.test(files.modals)
       && /\.prompt-input,[\s\S]*?\.modal input\[type="text"\],[\s\S]*?\.modal textarea\s*\{[^}]*padding:\s*0\.45rem 0\.6rem;/.test(files.modals),
   ],
@@ -124,7 +139,8 @@ const checks = [
       && /body\.theme-light\.monokai-syntax-accent-amber-vscode[\s\S]*?--ribbon-background:\s*var\(--background-secondary\);/.test(files.styleSettings)
       && /body\.theme-light\.monokai-syntax-accent-amber-vscode[\s\S]*?--ribbon-background-collapsed:\s*var\(--background-secondary\);/.test(files.styleSettings)
       && /--monokai-tab-active-border-color:\s*var\(--interactive-accent\);/.test(files.base)
-      && /\.workspace-tab-header\.is-active[\s\S]*?box-shadow:\s*inset 0 -2px 0 var\(--monokai-tab-active-border-color\);/.test(files.tabs)
+      && /body \.workspace \.mod-root \.workspace-tab-header\.tappable > \.workspace-tab-header-inner[\s\S]*?background-position:\s*center bottom;[\s\S]*?background-size 240ms cubic-bezier\(0\.4, 0, 0\.2, 1\);/.test(files.tabs)
+      && /body \.workspace \.mod-root \.workspace-tab-header\.tappable\.is-active\.mod-active > \.workspace-tab-header-inner[\s\S]*?animation:\s*monokai-tab-activate 240ms cubic-bezier\(0\.4, 0, 0\.2, 1\);/.test(files.tabs)
       && /\.nav-file-title\.is-active[\s\S]*?color:\s*var\(--monokai-selection-foreground, var\(--nav-item-color-active\)\);/.test(files.base)
       && /\.suggestion-item\.is-selected,[\s\S]*?\.suggestion-item\.mod-complex\.is-selected[\s\S]*?color:\s*var\(--monokai-selection-foreground, var\(--text-normal\)\);/.test(files.modals)
       && /::-webkit-scrollbar-thumb:active[\s\S]*?background-color:\s*var\(--monokai-scrollbar-active-background\);/.test(files.base),
@@ -193,9 +209,9 @@ const checks = [
       && /--monokai-table-max-width:\s*min\(100%, 62rem\);/.test(files.editor)
       && /--monokai-table-min-width:\s*min\(100%, 48rem\);/.test(files.editor)
       && /--monokai-editor-block-offset:\s*1rem;/.test(files.editor)
-      && /--monokai-table-row-hover-background:\s*rgb\(120 220 232 \/ 7%\);/.test(files.editor)
-      && /--monokai-table-row-hover-background:\s*rgb\(15 100 120 \/ 5%\);/.test(files.editor)
-      && /--monokai-table-column-border:\s*rgb\(61 61 61 \/ 4%\);/.test(files.editor)
+      && /--monokai-table-row-hover-background:\s*rgb\([^;]+\);/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-table-row-hover-background:\s*rgb\([^;]+\);/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-table-column-border:\s*rgb\([^;]+\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?\.el-table,[\s\S]*?> div:has\(> table\),[\s\S]*?> div:has\(> \.table-wrapper\)\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?border:\s*0;[\s\S]*?box-shadow:\s*none;[\s\S]*?margin-inline:\s*0;[\s\S]*?max-width:\s*var\(--monokai-table-max-width\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?> div:has\(> table\),[\s\S]*?> div:has\(> \.table-wrapper\)\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?border:\s*0;[\s\S]*?box-shadow:\s*none;[\s\S]*?margin-inline:\s*0;[\s\S]*?outline:\s*0;/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?\.el-table > \.table-wrapper\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?border:\s*0;[\s\S]*?box-shadow:\s*none;[\s\S]*?margin-inline:\s*0;[\s\S]*?max-width:\s*var\(--monokai-table-max-width\);/.test(files.editor)
@@ -208,7 +224,7 @@ const checks = [
       && /\.markdown-rendered[\s\S]*?td:first-child[\s\S]*?color:\s*var\(--monokai-table-api-name-color\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?td:nth-child\(2\) code[\s\S]*?color:\s*var\(--monokai-table-api-type-color\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?td:nth-child\(3\) code[\s\S]*?color:\s*var\(--monokai-table-api-default-color\);/.test(files.editor)
-      && /\.markdown-rendered[\s\S]*?td:nth-child\(4\) strong[\s\S]*?color:\s*var\(--monokai-table-api-required-color\);/.test(files.editor),
+      && /\.markdown-rendered[\s\S]*?td:nth-child\(4\) strong,[\s\S]*?td:nth-child\(4\) code[\s\S]*?color:\s*var\(--monokai-table-api-required-color\);/.test(files.editor),
   ],
   [
     "Mermaid、Math 与 Dataview 容器复用主题 surface",
@@ -331,7 +347,8 @@ const checks = [
     "链接阅读模式与编辑模式共享装饰和格式符号变量",
     /--monokai-link-decoration-color:\s*var\(--link-color\);/.test(files.editor)
       && /--monokai-link-decoration-thickness:\s*1px;/.test(files.editor)
-      && /a,[\s\S]*?\.markdown-rendered a,[\s\S]*?\.cm-hmd-internal-link,[\s\S]*?\.cm-link,[\s\S]*?\.cm-url[\s\S]*?color:\s*var\(--link-color\);[\s\S]*?text-decoration-color:\s*var\(--monokai-link-decoration-color\);[\s\S]*?text-decoration-thickness:\s*var\(--monokai-link-decoration-thickness\);/.test(files.editor)
+      && /body a,[\s\S]*?body \.markdown-rendered a,[\s\S]*?body \.markdown-source-view\.mod-cm6 \.cm-hmd-internal-link[\s\S]*?color:\s*var\(--link-color\);[\s\S]*?background-image:\s*linear-gradient\(var\(--monokai-link-decoration-color/.test(files.editor)
+      && /background-size:\s*0% var\(--monokai-link-decoration-thickness/.test(files.editor)
       && /\.cm-formatting-link[\s\S]*?color:\s*var\(--monokai-formatting-marker-color\);/.test(files.editor),
   ],
   [
@@ -354,11 +371,11 @@ const checks = [
   ],
   [
     "Callout 编辑态标题和源码标记贴近阅读模式层级",
-    /--monokai-callout-title-gap:\s*var\(--spacing-2\);/.test(files.activeVisual)
-      && /--monokai-callout-source-marker-color:\s*var\(--text-faint\);/.test(files.activeVisual)
-      && /\.callout-title,[\s\S]*?\.cm-callout-title[\s\S]*?color:\s*var\(--text-normal\);[\s\S]*?font-weight:\s*600;[\s\S]*?gap:\s*var\(--monokai-callout-title-gap\);/.test(files.activeVisual)
-      && /body \.markdown-source-view\.mod-cm6 \.cm-callout-content[\s\S]*?color:\s*var\(--text-normal\);/.test(files.activeVisual)
-      && /body \.markdown-source-view\.mod-cm6 \.cm-formatting-callout,[\s\S]*?body \.markdown-source-view\.mod-cm6 \.cm-callout \.cm-formatting[\s\S]*?color:\s*var\(--monokai-callout-source-marker-color\);/.test(files.activeVisual),
+    /--monokai-callout-title-gap:\s*var\(--spacing-2\);/.test(files.visual)
+      && /--monokai-callout-source-marker-color:\s*var\(--text-faint\);/.test(files.visual)
+      && /\.callout-title,[\s\S]*?\.cm-callout-title[\s\S]*?color:\s*var\(--text-normal\);[\s\S]*?font-weight:\s*600;[\s\S]*?gap:\s*var\(--monokai-callout-title-gap\);/.test(files.visual)
+      && /body \.markdown-source-view\.mod-cm6 \.cm-callout-content[\s\S]*?color:\s*var\(--text-normal\);/.test(files.visual)
+      && /body \.markdown-source-view\.mod-cm6 \.cm-formatting-callout,[\s\S]*?body \.markdown-source-view\.mod-cm6 \.cm-callout \.cm-formatting[\s\S]*?color:\s*var\(--monokai-callout-source-marker-color\);/.test(files.visual),
   ],
   [
     "代码学习 Callout 语义在阅读模式与编辑模式都有颜色和图标映射",
@@ -374,20 +391,25 @@ const checks = [
       "output",
       "terminal",
     ].every((calloutName) => {
-      const calloutPattern = new RegExp(`\\.callout\\[data-callout="${calloutName}"\\]`);
-      const iconPattern = new RegExp(`\\.callout\\[data-callout="${calloutName}"\\] \\.callout-icon::before[\\s\\S]*?content:`);
-
-      return calloutPattern.test(files.activeVisual) && iconPattern.test(files.activeVisual);
-    }),
+      const typePattern = new RegExp(`\\b${calloutName}\\b`);
+      return typePattern.test(calloutSemanticMap) && typePattern.test(calloutIconMap);
+    })
+      && /\.callout\[data-callout="#\{\$type\}"\]/.test(files.visual)
+      && /content:\s*\$glyph;/.test(files.visual),
   ],
   [
     "块引用多行和嵌套层级在阅读模式与编辑模式收敛",
-    /--monokai-blockquote-nested-gap:\s*#\{\$spacing-3\};/.test(files.activeVisual)
-      && /body \.markdown-rendered blockquote blockquote[\s\S]*?margin-block:\s*var\(--monokai-blockquote-nested-gap\);/.test(files.activeVisual)
-      && /--monokai-callout-source-token-offset:\s*-0\.15rem;/.test(files.activeVisual)
-      && /\.HyperMD-quote:not\(\.HyperMD-quote \+ \.HyperMD-quote\)[\s\S]*?border-start-start-radius:\s*0;[\s\S]*?border-start-end-radius:\s*var\(--radius-l\);[\s\S]*?padding-block-start:\s*0\.65rem;/.test(files.activeVisual)
-      && /\.HyperMD-quote:not\(:has\(\+ \.HyperMD-quote\)\)[\s\S]*?border-end-start-radius:\s*0;[\s\S]*?border-end-end-radius:\s*var\(--radius-l\);[\s\S]*?padding-block-end:\s*0\.65rem;/.test(files.activeVisual)
-      && /\.cm-quote-2,[\s\S]*?\.cm-quote-3[\s\S]*?color:\s*var\(--text-normal\);/.test(files.activeVisual),
+      /--monokai-blockquote-nested-gap:\s*#\{\$spacing-3\};/.test(files.visual)
+      && /body \.markdown-rendered blockquote blockquote[\s\S]*?margin-block:\s*var\(--monokai-blockquote-nested-gap\);/.test(files.visual)
+      && /blockquote blockquote[\s\S]*?--monokai-blockquote-content-gap:\s*1\.75rem;[\s\S]*?--monokai-blockquote-rail-width:\s*2px;[\s\S]*?background-color:\s*transparent;/.test(files.visual)
+      && /blockquote blockquote::before[\s\S]*?opacity:\s*0\.65;/.test(files.visual)
+      && /blockquote blockquote blockquote::before[\s\S]*?opacity:\s*0\.45;/.test(files.visual)
+      && /\.HyperMD-quote:has\(\.cm-quote-2\)[\s\S]*?var\(--monokai-blockquote-border\) 5%/.test(files.visual)
+      && /\.HyperMD-quote:has\(\.cm-quote-3\)[\s\S]*?var\(--monokai-blockquote-border\) 3%/.test(files.visual)
+      && /--monokai-callout-source-token-offset:\s*-0\.15rem;/.test(files.visual)
+      && /\.HyperMD-quote:not\(\.HyperMD-quote \+ \.HyperMD-quote\)[\s\S]*?border-start-start-radius:\s*var\(--radius-l\);[\s\S]*?padding-block-start:\s*0\.65rem;/.test(files.visual)
+      && /\.HyperMD-quote:not\(:has\(\+ \.HyperMD-quote\)\)[\s\S]*?border-end-start-radius:\s*var\(--radius-l\);[\s\S]*?padding-block-end:\s*0\.65rem;/.test(files.visual)
+      && /\.cm-quote-2,[\s\S]*?\.cm-quote-3[\s\S]*?color:\s*var\(--text-muted\);/.test(files.visual),
   ],
   [
     "代码块阅读模式与编辑模式共享边框圆角并弱化 fence token",
@@ -419,10 +441,11 @@ const checks = [
       && /--monokai-editor-selection-background:/.test(files.editor)
       && /--monokai-editor-cursor-color:/.test(files.editor)
       && /--monokai-editor-gutter-background:/.test(files.editor)
-      && /\.cm-active[\s\S]*?background-color:\s*var\(--monokai-editor-active-line-background\);/.test(files.editor)
+      && /\.cm-line\.cm-active[\s\S]*?background-color:\s*transparent;/.test(files.editor)
+      && /\.cm-line\.HyperMD-codeblock\.cm-active[\s\S]*?background-color:\s*var\(--monokai-codeblock-active-line-background\);/.test(files.editor)
       && /\.cm-selectionBackground[\s\S]*?background-color:\s*var\(--monokai-editor-selection-background\);/.test(files.editor)
       && /\.cm-cursor[\s\S]*?border-left-color:\s*var\(--monokai-editor-cursor-color\);/.test(files.editor)
-      && /\.cm-gutters[\s\S]*?background-color:\s*var\(--monokai-editor-gutter-background\);/.test(files.editor)
+      && /\.cm-gutters[\s\S]*?background-color:\s*transparent;/.test(files.editor)
       && /\.cm-matchingBracket[\s\S]*?background-color:\s*var\(--monokai-editor-bracket-match-background\);/.test(files.editor),
   ],
   [
@@ -432,11 +455,7 @@ const checks = [
       && /--monokai-codeblock-selection-background:\s*rgb\(120 220 232 \/ 32%\);/.test(files.editor)
       && /body\.theme-dark[\s\S]*?--monokai-codeblock-active-line-background:\s*#\{\$color-pro-hover\};/.test(files.editor)
       && /body\.theme-dark[\s\S]*?--monokai-codeblock-selection-background:\s*#344349;/.test(files.editor)
-      && /body\.theme-light[\s\S]*?--monokai-codeblock-background:\s*#eee6d8;/.test(files.editor)
-      && /body\.theme-light[\s\S]*?--monokai-codeblock-border-color:\s*#c6b9a6;/.test(files.editor)
-      && /body\.theme-light[\s\S]*?--monokai-codeblock-active-line-background:\s*#e3d4bf;/.test(files.editor)
-      && /body\.theme-light[\s\S]*?--monokai-codeblock-active-line-border:\s*#\{\$color-light-cyan\};/.test(files.editor)
-      && /body\.theme-light[\s\S]*?--monokai-codeblock-selection-background:\s*#c9e8ee;/.test(files.editor)
+      && /body\.theme-light[\s\S]*?--monokai-editor-selection-background:/.test(files.editor)
       && /\.cm-line\.HyperMD-codeblock\.cm-active[\s\S]*?background-color:\s*var\(--monokai-codeblock-active-line-background\);/.test(files.editor)
       && /\.cm-line\.HyperMD-codeblock\.cm-active[\s\S]*?box-shadow:\s*inset 2px 0 0 var\(--monokai-codeblock-active-line-border\);/.test(files.editor)
       && /\.cm-line\.HyperMD-codeblock[\s\S]*?\.cm-selectionBackground[\s\S]*?background-color:\s*var\(--monokai-codeblock-selection-background\);/.test(files.editor)

@@ -1,6 +1,6 @@
 {
   "name": "monokai-syntax",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "面向 Obsidian 的 Monokai Syntax 主题。",
   "author": "lat3ncy",
   "license": "MIT",
@@ -8,7 +8,6 @@
   "type": "module",
   "scripts": {
     "prebuild": "node scripts/generate-icon-theme.js",
-    "prelint:css": "node scripts/generate-icon-theme.js",
     "dev": "vite build --watch",
     "generate:icons": "node scripts/generate-icon-theme.js",
     "build": "vite build",
@@ -16,9 +15,12 @@
     "lint:css": "stylelint \"src/scss/**/*.scss\"",
     "check:contrast": "node scripts/check-contrast.js",
     "audit:css": "node scripts/audit-css.js",
-    "verify": "npm run verify:versions && npm run verify:palette && npm run verify:pip-editor && npm run verify:icons && npm run verify:graph && npm run verify:active-visual && npm run verify:style-polish && npm test && npm run lint:css && npm run check:contrast && npm run build && npm run verify:generated && npm run audit:css",
+    "verify": "npm run verify:source && npm test && npm run lint:css && npm run verify:artifact",
+    "verify:source": "npm run verify:versions && npm run verify:palette && npm run verify:icons-generated && npm run verify:pip-editor && npm run verify:icons && npm run verify:graph && npm run verify:active-visual && npm run verify:style-polish && npm run check:contrast",
+    "verify:artifact": "npm run build && npm run verify:generated && npm run audit:css",
     "verify:versions": "node scripts/verify-versions.js",
     "verify:palette": "node scripts/verify-palette-filters.js",
+    "verify:icons-generated": "node scripts/generate-icon-theme.js --check",
     "verify:generated": "node scripts/verify-generated.js",
     "verify:pip-editor": "node scripts/verify-pip-editor.js",
     "verify:icons": "node scripts/verify-icons.js",
@@ -33,7 +35,7 @@
     "release:pack": "npm run verify"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=22.12.0"
   },
   "devDependencies": {
     "sass": "^1.99.0",

@@ -1,0 +1,99 @@
+// stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。
+
+$callout-semantics: (
+  note: (note, source),
+  abstract: (abstract, summary, tldr, concept),
+  info: (info, syntax),
+  todo: (todo, exercise),
+  tip: (tip, hint, important),
+  question: (question, help, faq),
+  warning: (warning, caution, attention),
+  error: (error, danger, pitfall),
+  failure: (failure, fail, missing),
+  bug: (bug,),
+  success: (success, check, done, api, answer, terminal),
+  example: (example, debug),
+  quote: (quote, cite, output),
+);
+$callout-icons: (
+  "\e66d": (note,),
+  "\e66f": (info, syntax, source),
+  "\e668": (abstract, summary, tldr, concept),
+  "\e671": (warning, caution, attention, pitfall),
+  "\e676": (error, danger),
+  "\e66a": (failure, fail, missing),
+  "\e675": (bug, debug),
+  "\e66b": (success, check, done, answer),
+  "\e66c": (question, help, faq),
+  "\e66e": (tip, hint, important, api, terminal),
+  "\e670": (todo, exercise),
+  "\e672": (quote, cite, output),
+  "\e674": (example,),
+);
+
+@each $semantic, $types in $callout-semantics {
+  @each $type in $types {
+    body :is(
+      .markdown-preview-view.markdown-rendered,
+      .markdown-rendered,
+      .markdown-source-view.mod-cm6
+    ) .callout[data-callout="#{$type}"] {
+      --callout-background: var(--monokai-callout-#{$semantic}-bg);
+      --callout-border: var(--monokai-callout-#{$semantic}-border);
+    }
+  }
+}
+
+body :is(
+  .markdown-preview-view.markdown-rendered,
+  .markdown-rendered,
+  .markdown-source-view.mod-cm6
+) :is(.callout-icon, .cm-callout-icon) {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.35em;
+  min-width: var(--callout-icon-size);
+  overflow: visible;
+}
+
+body :is(
+  .markdown-preview-view.markdown-rendered,
+  .markdown-rendered,
+  .markdown-source-view.mod-cm6
+) :is(.callout-icon, .cm-callout-icon) svg {
+  display: none;
+}
+
+body :is(
+  .markdown-preview-view.markdown-rendered,
+  .markdown-rendered,
+  .markdown-source-view.mod-cm6
+) :is(.callout-icon, .cm-callout-icon)::before {
+  display: inline-block;
+  color: var(--text-normal);
+  content: "";
+  font-family: monokai-pro-icons, monospace;
+  font-size: var(--callout-icon-size);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  speak: never;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+@each $glyph, $types in $callout-icons {
+  @each $type in $types {
+    body :is(
+      .markdown-preview-view.markdown-rendered,
+      .markdown-rendered,
+      .markdown-source-view.mod-cm6
+    ) .callout[data-callout="#{$type}"] :is(.callout-icon, .cm-callout-icon)::before {
+      content: $glyph;
+    }
+  }
+}
+
+// stylelint-enable selector-class-pattern

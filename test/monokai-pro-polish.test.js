@@ -129,7 +129,8 @@ test("低风险基础清理使用统一 token 并避免重复 Callout 基础规�
   const variables = readSource("../src/scss/_variables.scss");
   const base = readSource("../src/scss/_base.scss");
   const editor = readEditorSource();
-  const activeVisual = readSource("../src/scss/_active-visual-overrides.scss");
+  const callout = readSource("../src/scss/components/_callout.scss");
+  const calloutMappings = readSource("../src/scss/components/_callout-mappings.scss");
   const contrast = readSource("../scripts/check-contrast.js");
 
   assert.match(variables, /\$color-light-cyan:\s*#0f6478;/);
@@ -139,7 +140,11 @@ test("低风险基础清理使用统一 token 并避免重复 Callout 基础规�
   assert.match(base, /--monokai-transition-emphasis:\s*180ms ease;/);
   assert.match(base, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\*,[\s\S]*?\*::before,[\s\S]*?\*::after[\s\S]*?transition-duration:\s*0\.01ms;/);
   assert.doesNotMatch(editor, /\.markdown-rendered\s*\{[\s\S]*?\.callout\s*\{/);
-  assert.match(activeVisual, /body \.markdown-preview-view\.markdown-rendered \.callout,[\s\S]*?body \.markdown-rendered \.callout,[\s\S]*?body \.markdown-source-view\.mod-cm6 \.callout/);
+  assert.match(callout, /body \.markdown-preview-view\.markdown-rendered \.callout,[\s\S]*?body \.markdown-rendered \.callout,[\s\S]*?body \.markdown-source-view\.mod-cm6 \.callout/);
+  assert.match(callout, /@use "callout-mappings";/);
+  assert.match(calloutMappings, /\$callout-semantics:/);
+  assert.match(calloutMappings, /\$callout-icons:/);
+  assert.match(calloutMappings, /\.callout\[data-callout="#\{\$type\}"\]/);
 });
 
 test("核心阅读视觉降低噪音并保留 Monokai 语义", () => {
@@ -155,8 +160,8 @@ test("核心阅读视觉降低噪音并保留 Monokai 语义", () => {
   assert.match(base, /--metadata-label-text-color:\s*#\{\$color-pro-cyan\};/);
   assert.match(base, /--monokai-selection-background:\s*rgb\(120 220 232 \/ 30%\);/);
   assert.match(editor, /--bold-weight:\s*700;/);
-  assert.match(editor, /body\.theme-dark[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-pro-green\};/);
-  assert.match(editor, /body\.theme-light[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-light-green\};/);
+  assert.match(editor, /body\.theme-dark[\s\S]*?--blockquote-border-color:\s*(#\{\$color-pro-[a-z-]+\});[\s\S]*?--monokai-blockquote-border:\s*\1;/);
+  assert.match(editor, /body\.theme-light[\s\S]*?--blockquote-border-color:\s*(#\{\$color-light-[a-z-]+\});[\s\S]*?--monokai-blockquote-border:\s*\1;/);
   assert.doesNotMatch(editor, /letter-spacing:\s*-0\.015em;/);
 });
 
@@ -206,21 +211,21 @@ test("Obsidian 常见界面补齐主题 surface 覆盖", () => {
 test("文件树选中态和侧栏分隔线保持低噪音", () => {
   const base = readSource("../src/scss/_base.scss");
 
-  assert.match(base, /--monokai-nav-active-background:\s*rgb\(120 220 232 \/ 12%\);/);
+  assert.match(base, /--monokai-nav-active-background:\s*rgb\([^;]+\);/);
   assert.doesNotMatch(base, /--monokai-nav-active-border-color:/);
   assert.match(base, /--monokai-sidebar-divider-color:\s*rgb\(248 248 242 \/ 4%\);/);
   assert.match(base, /--monokai-sidebar-scrollbar-thumb:\s*rgb\(248 248 242 \/ 10%\);/);
-  assert.match(base, /\.theme-light[\s\S]*?--monokai-nav-active-background:\s*rgb\(15 100 120 \/ 10%\);/);
+  assert.match(base, /\.theme-light[\s\S]*?--monokai-nav-active-background:\s*rgb\([^;]+\);/);
   assert.match(base, /\.theme-light[\s\S]*?--monokai-sidebar-divider-color:\s*rgb\(61 61 61 \/ 5%\);/);
   assert.match(base, /\.theme-light[\s\S]*?--monokai-sidebar-scrollbar-thumb:\s*rgb\(61 61 61 \/ 12%\);/);
   assert.match(base, /\.workspace-split\.mod-left-split\s*\{[\s\S]*?border-inline-end:\s*1px solid var\(--monokai-sidebar-divider-color\);/);
   assert.match(base, /\.workspace-leaf-resize-handle\s*\{[\s\S]*?background-color:\s*transparent;[\s\S]*?border-inline-start:\s*0;[\s\S]*?border-inline-end:\s*0;/);
   assert.match(base, /\.workspace-split\.mod-left-split ::-webkit-scrollbar-thumb\s*\{[\s\S]*?background-color:\s*var\(--monokai-sidebar-scrollbar-thumb\);/);
   assert.match(base, /\.nav-file-title\.is-active[\s\S]*?background-color:\s*var\(--monokai-nav-active-background\);/);
-  const activeFileRule = base.match(/\.nav-file-title\.is-active\s*\{[^}]+\}/)?.[0] ?? "";
+  const activeFileRule = base.match(/\.nav-file-title\.is-active,[\s\S]*?\.tree-item-self\.is-active\s*\{[^}]+\}/)?.[0] ?? "";
   const clickableTreeRule = base.match(/\.tree-item-self\.is-clickable\.is-active,[\s\S]*?\.bookmark\.is-active\s*\{[^}]+\}/)?.[0] ?? "";
   assert.doesNotMatch(activeFileRule, /--monokai-selection-background/);
-  assert.doesNotMatch(activeFileRule, /box-shadow/);
+  assert.match(activeFileRule, /box-shadow:\s*inset 2px 0 0 var\(--interactive-accent\);/);
   assert.match(clickableTreeRule, /background-color:\s*var\(--monokai-nav-active-background\);/);
   assert.doesNotMatch(clickableTreeRule, /--monokai-selection-background/);
   assert.doesNotMatch(clickableTreeRule, /box-shadow/);

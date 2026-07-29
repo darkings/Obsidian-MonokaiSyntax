@@ -1,11 +1,9 @@
-import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { readEditorScss } from "./scss-source.js";
+import { readEditorScss, readVisualScss } from "./scss-source.js";
 
-const activeVisualPath = resolve(import.meta.dirname, "../src/scss/_active-visual-overrides.scss");
 const rootDir = resolve(import.meta.dirname, "..");
 const editorScss = readEditorScss(rootDir);
-const activeVisualScss = readFileSync(activeVisualPath, "utf8");
+const visualScss = readVisualScss(rootDir);
 
 const checks = [
   ["行内代码使用强调背景变量", /--monokai-inline-code-background:/],
@@ -15,14 +13,14 @@ const checks = [
   ["阅读视图块引用背景保持透明", /\.markdown-rendered[\s\S]*?blockquote[\s\S]*?background-color:\s*transparent;/],
   ["Obsidian 块引用原生变量同步透明背景", /--blockquote-background-color:\s*transparent;/],
   ["Obsidian 块引用原生变量同步细边框", /--blockquote-border-thickness:\s*2px;/],
-  ["阅读视图块引用使用左边框", /\.markdown-rendered[\s\S]*?blockquote[\s\S]*?border-inline-start:\s*2px solid var\(--monokai-blockquote-border\);/],
-  ["阅读视图块引用增加左侧呼吸感", /\.markdown-rendered[\s\S]*?blockquote[\s\S]*?padding:\s*#\{\$spacing-3\} #\{\$spacing-3\} #\{\$spacing-3\} var\(--monokai-blockquote-content-gap\);/],
-  ["深色块引用边框使用 Monokai Pro 绿色", /body\.theme-dark[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-pro-green\};/],
-  ["浅色块引用边框使用 Monokai 绿色", /body\.theme-light[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-light-green\};/],
+  ["阅读视图块引用使用内嵌语义色条", /\.markdown-rendered[\s\S]*?blockquote::before[\s\S]*?background-color:\s*var\(--monokai-blockquote-border\);/],
+  ["阅读视图块引用通过语义变量保留左侧呼吸感", /\.markdown-rendered[\s\S]*?blockquote[\s\S]*?padding:[^;]*var\(--monokai-blockquote-content-gap\);/],
+  ["深色块引用边框映射到 Monokai Pro 调色板", /body\.theme-dark[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-pro-[a-z-]+\};/],
+  ["浅色块引用边框映射到 Monokai 浅色调色板", /body\.theme-light[\s\S]*?--monokai-blockquote-border:\s*#\{\$color-light-[a-z-]+\};/],
   ["Live Preview 块引用显示弱化格式符号", /\.cm-formatting-quote[\s\S]*?display:\s*inline;[\s\S]*?color:\s*var\(--monokai-callout-source-marker-color\);/],
   ["Live Preview 块引用标记不重复绘制边框", /\.cm-quote[\s\S]*?border-inline-start:\s*0;/],
-  ["Live Preview 块引用使用代码块背景", /--monokai-callout-source-background:\s*var\(--monokai-codeblock-background\);[\s\S]*?\.HyperMD-quote[\s\S]*?background-color:\s*var\(--monokai-callout-source-background\);/],
-  ["Live Preview 块引用使用无弯钩内嵌色条", /\.HyperMD-quote[\s\S]*?border-inline-start:\s*0;[\s\S]*?box-shadow:\s*inset var\(--monokai-callout-rail-width\) 0 0[\s\S]*?var\(--monokai-callout-source-rail-color\);/],
+  ["Live Preview 块引用背景由语义边框色派生", /\.HyperMD-quote[\s\S]*?background-color:\s*color-mix\(in srgb, var\(--monokai-blockquote-border\)[^;]+;/],
+  ["Live Preview 块引用编辑态不重复显示内嵌色条", /\.HyperMD-quote[\s\S]*?background-image:\s*none;[\s\S]*?border-inline-start:\s*0;[\s\S]*?box-shadow:\s*none;/.test(visualScss)],
   ["Live Preview 块引用文本使用紧凑源码间距", /--monokai-callout-source-content-gap:\s*0\.75rem;[\s\S]*?\.HyperMD-quote[\s\S]*?\.cm-quote[\s\S]*?margin-left:\s*var\(--monokai-callout-source-content-gap\);/],
   ["浅色模式 H1-H3 字重为 700", /body\.theme-light[\s\S]*?--monokai-heading-weight:\s*700;/],
   ["深色模式 H1-H3 字重为 600", /body\.theme-dark[\s\S]*?--monokai-heading-weight:\s*600;/],
@@ -31,7 +29,7 @@ const checks = [
   ["深色 Callout 使用 Monokai Pro 语义背景变量", /body\.theme-dark[\s\S]*?--monokai-callout-note-bg:\s*rgb\(120 220 232 \/ 12%\);[\s\S]*?--monokai-callout-note-border:\s*#\{\$color-pro-cyan\};/],
   ["Obsidian Callout 原生变量同步卡片 padding", /--callout-padding:\s*1rem 1\.25rem 1rem 2\.25rem;/],
   ["Obsidian Callout 原生变量同步内容 padding", /--callout-content-padding:\s*0\.65rem 0 0 0;/],
-  ["Callout 面板与代码块使用相同背景", /--monokai-callout-card-background:\s*var\(--monokai-codeblock-background\);[\s\S]*?\.callout[\s\S]*?background-color:\s*var\(--monokai-callout-card-background\);/],
+  ["Callout 面板通过语义回退复用代码块背景", /--monokai-callout-card-background:\s*var\(--monokai-codeblock-background\);[\s\S]*?\.callout[\s\S]*?background-color:\s*var\(--callout-background, var\(--monokai-callout-card-background\)\);/],
   ["表格外层块容器不绘制边框", /\.markdown-rendered[\s\S]*?\.el-table,[\s\S]*?> div:has\(> table\),[\s\S]*?> div:has\(> \.table-wrapper\)\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?border:\s*0;[\s\S]*?box-shadow:\s*none;[\s\S]*?margin-inline:\s*0;[\s\S]*?max-width:\s*var\(--monokai-table-max-width\);/],
   ["表格未知外层容器按结构兜底清框", /\.markdown-rendered[\s\S]*?> div:has\(> table\),[\s\S]*?> div:has\(> \.table-wrapper\)\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?border:\s*0;[\s\S]*?box-shadow:\s*none;[\s\S]*?outline:\s*0;/],
   ["表格外层滚动容器不绘制边框", /\.markdown-rendered[\s\S]*?\.el-table > \.table-wrapper\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?border:\s*0;[\s\S]*?box-shadow:\s*none;/],
@@ -43,14 +41,14 @@ const checks = [
   ["Live Preview 表格编辑器真实 DOM 左侧对齐", /\.markdown-source-view\.mod-cm6[\s\S]*?\.cm-embed-block\.cm-table-widget\.markdown-rendered\s*\{[\s\S]*?box-sizing:\s*border-box;[\s\S]*?margin-inline:\s*0;[\s\S]*?padding-inline-start:\s*var\(--monokai-editor-block-offset\);[\s\S]*?width:\s*100%;/],
   ["Live Preview 表格编辑器单元格保留内边距", /\.markdown-source-view\.mod-cm6[\s\S]*?\.cm-table-widget table\.table-editor \.table-cell-wrapper\s*\{[\s\S]*?padding:\s*var\(--monokai-table-cell-padding\);/],
   ["已完成任务保持可见", /\.markdown-rendered[\s\S]*?\.task-list-item\.is-checked[\s\S]*?color:\s*var\(--monokai-task-done-color\);/],
-  ["未使用 !important", !/!important/i.test(`${editorScss}\n${activeVisualScss}`)],
+  ["未使用 !important", !/!important/i.test(`${editorScss}\n${visualScss}`)],
 ];
 
 let hasFailure = false;
 
 for (const [label, pattern] of checks) {
   const scss = label.includes("块引用") || label.includes("Callout") || label.includes("Obsidian")
-    ? `${editorScss}\n${activeVisualScss}`
+    ? `${editorScss}\n${visualScss}`
     : editorScss;
   const passed = typeof pattern === "boolean" ? pattern : pattern.test(scss);
   console.log(`${label}: ${passed ? "通过" : "失败"}`);

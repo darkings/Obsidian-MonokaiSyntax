@@ -11,40 +11,45 @@
   h4,
   h5,
   h6 {
-    font-weight: var(--monokai-heading-weight);
     letter-spacing: 0;
     margin-block-start: calc(var(--heading-spacing) * 1.5);
   }
 
   h1 {
+    font-weight: var(--monokai-heading-weight-h1, var(--monokai-heading-weight));
     font-size: var(--h1-size);
     margin-block-end: var(--monokai-heading-gap-h1);
   }
 
   h2 {
+    font-weight: var(--monokai-heading-weight-h2, var(--monokai-heading-weight));
     font-size: var(--h2-size);
     margin-block: var(--monokai-heading-group-spacing) var(--monokai-heading-gap-h2);
   }
 
   h3 {
+    font-weight: var(--monokai-heading-weight-h3, var(--monokai-heading-weight));
     font-size: var(--h3-size);
     margin-block: calc(var(--monokai-heading-group-spacing) * 0.82) var(--monokai-heading-gap-h3);
   }
 
   h4 {
     color: var(--h4-color);
+    font-weight: var(--monokai-heading-weight-h4, var(--monokai-heading-weight));
     font-size: var(--h4-size);
     margin-block-end: var(--monokai-heading-gap-h4);
   }
 
   h5 {
     color: var(--h5-color);
+    font-weight: var(--monokai-heading-weight-h5, var(--monokai-heading-weight));
     font-size: var(--h5-size);
     margin-block-end: var(--monokai-heading-gap-h5);
   }
 
   h6 {
     color: var(--h6-color);
+    font-weight: var(--monokai-heading-weight-h6, var(--monokai-heading-weight));
     font-size: var(--h6-size);
     margin-block-end: var(--monokai-heading-gap-h6);
   }
@@ -173,7 +178,9 @@
   table {
     border: var(--monokai-table-border-width) solid var(--monokai-table-border);
     border-collapse: separate;
+    border-radius: var(--radius-m);
     border-spacing: 0;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 4%);
     font-variant-numeric: tabular-nums;
     line-height: var(--monokai-table-line-height);
     margin-block: var(--monokai-paragraph-spacing);

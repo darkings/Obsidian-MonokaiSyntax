@@ -32,6 +32,19 @@ body.theme-light {
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--radius-m);
   box-shadow: var(--monokai-modal-shadow);
+  animation: monokai-modal-pop 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes monokai-modal-pop {
+  from {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .modal.mod-settings {

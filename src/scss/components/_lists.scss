@@ -1,0 +1,175 @@
+/* Premium Lists and Tasks */
+
+/* stylelint-disable selector-class-pattern -- Obsidian/CodeMirror 内部类名。 */
+
+/* Base list indent variable used by Obsidian */
+body,
+body .cm-s-obsidian,
+body .markdown-source-view,
+body .markdown-rendered {
+  --list-indent: 1.5em;
+}
+
+/* Reading View Lists */
+body .markdown-rendered {
+  /* Colorful nested list markers */
+  $list-item-selector: "ul > li";
+
+  @for $level from 1 through 5 {
+    #{$list-item-selector}::marker {
+      color: var(--list-level-#{$level});
+    }
+
+    $list-item-selector: "#{$list-item-selector} > ul > li";
+  }
+
+  /* Ordered list styling */
+  ol > li::marker {
+    color: var(--monokai-default-link);
+    font-weight: 600;
+  }
+}
+
+/* Reading View Flush Left */
+body .markdown-rendered ul,
+body .markdown-rendered ol {
+  margin-inline-start: 0;
+  padding-inline-start: 1.5em;
+}
+
+body .markdown-rendered li {
+  margin-inline-start: 0;
+}
+
+/* Live Preview Lists */
+body .markdown-source-view.mod-cm6 {
+  /* Force indent guides width so they align perfectly with our 1.5em blocks in Edit Mode */
+  .cm-hmd-list-indent,
+  .cm-indent {
+    width: 1.5em;
+    position: relative;
+
+    /* COMPLETELY hide Obsidian's native indent lines */
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  /* We found that .cm-hmd-list-indent is the CORRECT line wrapper, and .cm-indent is the WRONG one! */
+  .cm-hmd-list-indent::before {
+    /* User specifically requested 0.75em */
+    left: 0.75em;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    border-left: 1px solid var(--background-modifier-border);
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
+  /* Kill the wrong line which is generated on .cm-indent::before */
+  .cm-indent::before,
+  .cm-indent::after,
+  .cm-hmd-list-indent::after {
+    display: none;
+  }
+
+  /* Control the marker's own spacing in Live Preview */
+  .cm-line .cm-formatting-list-ul,
+  .cm-line .cm-formatting-list-ol,
+  .cm-line .cm-formatting-task,
+  .cm-line .cm-formatting-list {
+    display: inline-block;
+    width: 1.5em;
+    box-sizing: border-box;
+    padding-inline: 0.5em 0;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+/* Colorful nested lists for Live Preview! */
+body.theme-dark,
+body.theme-light {
+  .markdown-source-view.mod-cm6 {
+    /* The ULTIMATE solution: Force circle geometry AND explicit background-color! */
+
+    /* By using :not(.cm-active), we ensure the user can still see and edit the '-' dash when clicking the line */
+    .cm-line:not(.cm-active) .list-bullet {
+      color: transparent;
+      position: relative;
+    }
+
+    .cm-line:not(.cm-active) .list-bullet::after {
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Assign colors using our dynamic CSS variables which adapt to Light/Dark mode! */
+    @for $level from 1 through 5 {
+      .cm-line:not(.cm-active).HyperMD-list-line-#{$level} .list-bullet::after {
+        background-color: var(--list-level-#{$level});
+      }
+
+      .HyperMD-list-line-#{$level} {
+        --list-marker-color: var(--list-level-#{$level});
+      }
+    }
+  }
+}
+
+/* Keep task checkboxes on the text baseline in reading and Live Preview modes. */
+body .markdown-rendered .task-list-item > input[type="checkbox"],
+body .markdown-source-view.mod-cm6 .HyperMD-task-line input[type="checkbox"],
+body .task-list-item-checkbox {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  flex: 0 0 auto;
+  cursor: pointer;
+  margin-block: 0;
+  margin-inline: 0 0.45em;
+  pointer-events: auto;
+  vertical-align: -0.125em;
+}
+
+/* Tasks */
+.task-list-item {
+  transition: opacity 0.3s ease;
+}
+
+.task-list-item.is-checked {
+  opacity: 0.6;
+  text-decoration: line-through;
+  text-decoration-color: var(--text-muted);
+}
+
+/* Task Checkbox animations */
+@keyframes checkbox-check-bounce {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.8); }
+  75% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+input[type="checkbox"],
+.task-list-item-checkbox {
+  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  border-radius: var(--radius-s);
+}
+
+input[type="checkbox"]:checked,
+.task-list-item-checkbox:checked {
+  animation: checkbox-check-bounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* stylelint-enable selector-class-pattern */

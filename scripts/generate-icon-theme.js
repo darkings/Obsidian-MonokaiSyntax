@@ -217,7 +217,21 @@ lines.push(iconRule([
   '.nav-file-title[data-path*="/Bug_"][data-path$=".md"]::before',
 ], iconByClass(theme, "bug")));
 
-mkdirSync(dirname(outputPath), { recursive: true });
-writeFileSync(outputPath, `${lines.join("\n")}\n`);
+const generated = `${lines.join("\n")}\n`;
+const existing = existsSync(outputPath) ? readFileSync(outputPath, "utf8") : null;
+const checkOnly = process.argv.includes("--check");
 
-console.log(`已生成文件树图标样式：${outputPath}`);
+if (checkOnly) {
+  if (existing !== generated) {
+    console.error("生成的文件树图标样式已过期，请运行 `npm run generate:icons`。");
+    process.exitCode = 1;
+  } else {
+    console.log(`文件树图标样式已是最新：${outputPath}`);
+  }
+} else if (existing === generated) {
+  console.log(`文件树图标样式无变化：${outputPath}`);
+} else {
+  mkdirSync(dirname(outputPath), { recursive: true });
+  writeFileSync(outputPath, generated);
+  console.log(`已生成文件树图标样式：${outputPath}`);
+}

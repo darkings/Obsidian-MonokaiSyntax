@@ -1,8 +1,7 @@
 @use "../../variables" as *;
 
 
-.markdown-source-view,
-.markdown-preview-view {
+body {
   --bold-color: var(--text-normal);
   --bold-weight: 700;
   --italic-color: var(--text-normal);
@@ -17,6 +16,12 @@
   --monokai-heading-group-spacing: var(--monokai-heading-group-spacing-value, 1.4rem);
   --monokai-heading-anchor-color: var(--text-faint);
   --monokai-heading-weight: 600;
+  --monokai-heading-weight-h1: 700;
+  --monokai-heading-weight-h2: 600;
+  --monokai-heading-weight-h3: 600;
+  --monokai-heading-weight-h4: 500;
+  --monokai-heading-weight-h5: 500;
+  --monokai-heading-weight-h6: 500;
   --monokai-inline-code-color: #a6e22e;
   --monokai-inline-code-background: var(--code-background);
   --monokai-inline-code-font-weight: 500;
@@ -50,6 +55,7 @@
   --monokai-paragraph-line-height: var(--line-height-normal);
   --monokai-paragraph-spacing: var(--monokai-paragraph-spacing-value, #{$spacing-3});
   --monokai-list-indent: 1.5em;
+  --list-indent: var(--monokai-list-indent);
   --monokai-list-item-spacing: 0.35rem;
   --monokai-nested-list-spacing: 0.25rem;
   --monokai-table-source-background: var(--background-secondary);
@@ -63,7 +69,7 @@
   --monokai-table-max-width: min(100%, 62rem);
   --monokai-table-min-width: min(100%, 48rem);
   --monokai-editor-block-offset: 1rem;
-  --monokai-table-row-hover-background: rgb(120 220 232 / 7%);
+  --monokai-table-row-hover-background: rgb(120 220 232 / 12%);
   --monokai-table-row-alt-background: transparent;
   --monokai-table-column-border: rgb(248 248 242 / 6%);
   --monokai-table-api-name-color: var(--monokai-spectrum-cyan, var(--link-color));
@@ -94,6 +100,10 @@
   --monokai-editor-cursor-color: var(--interactive-accent);
   --monokai-editor-gutter-background: var(--background-secondary);
   --monokai-editor-gutter-color: var(--text-faint);
+  --monokai-editor-gutter-content-offset: 1rem;
+  --monokai-editor-gutter-number-gap: 0.6rem;
+  --monokai-editor-gutter-number-offset: 0.25rem;
+  --monokai-editor-gutter-number-width: 3ch;
   --monokai-editor-bracket-match-background: rgb(166 226 46 / 18%);
   --monokai-task-open-color: var(--text-normal);
   --monokai-task-important-color: var(--monokai-spectrum-orange, var(--text-accent));
@@ -109,8 +119,8 @@
 
 body.theme-dark {
   --monokai-heading-weight: 600;
-  --blockquote-border-color: #{$color-pro-green};
-  --monokai-blockquote-border: #{$color-pro-green};
+  --blockquote-border-color: #{$color-pro-purple};
+  --monokai-blockquote-border: #{$color-pro-purple};
   --monokai-callout-note-bg: rgb(120 220 232 / 12%);
   --monokai-callout-note-border: #{$color-pro-cyan};
   --monokai-callout-abstract-bg: rgb(171 157 242 / 8%);
@@ -162,8 +172,8 @@ body.theme-dark {
 
 body.theme-light {
   --monokai-heading-weight: 700;
-  --blockquote-border-color: #{$color-light-green};
-  --monokai-blockquote-border: #{$color-light-green};
+  --blockquote-border-color: #{$color-light-purple};
+  --monokai-blockquote-border: #{$color-light-purple};
   --monokai-callout-note-bg: rgb(20 116 138 / 9%);
   --monokai-callout-note-border: #{$color-light-cyan};
   --monokai-callout-abstract-bg: rgb(107 83 148 / 9%);
@@ -193,12 +203,8 @@ body.theme-light {
   --monokai-inline-code-color: #0b5262;
   --monokai-inline-code-background: rgb(20 116 138 / 16%);
   --monokai-inline-code-font-weight: 600;
-  --monokai-codeblock-background: #eee6d8;
-  --monokai-codeblock-header-background: #f5f3ec;
-  --monokai-codeblock-border-color: #c6b9a6;
-  --monokai-codeblock-active-line-background: #e3d4bf;
-  --monokai-codeblock-active-line-border: #{$color-light-cyan};
-  --monokai-codeblock-selection-background: #c9e8ee;
+
+  /* Removed hardcoded codeblock colors to use semantic defaults (user preference) */
   --monokai-table-border: rgb(61 61 61 / 18%);
   --monokai-table-header-background: var(--background-secondary);
   --monokai-table-row-alt-background: rgb(61 61 61 / 3%);
@@ -216,4 +222,3 @@ body.theme-light {
   --monokai-editor-selection-background: rgb(20 116 138 / 26%);
   --monokai-editor-bracket-match-background: rgb(38 157 105 / 16%);
 }
-

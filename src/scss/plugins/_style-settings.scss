@@ -200,6 +200,11 @@ body.theme-light.monokai-syntax-filter-light {
 body.monokai-syntax-compact {
   @include compact-density;
 
+  --monokai-blockquote-padding-block: 0.6rem;
+  --monokai-blockquote-padding-inline-end: 0.8rem;
+  --monokai-blockquote-content-gap: 1.6rem;
+  --monokai-blockquote-rail-inset: 0.5rem;
+  --monokai-blockquote-rail-offset: 0.6rem;
   --callout-padding: 0.8rem 1rem 0.8rem 1.85rem;
   --callout-content-padding: 0.5rem 0 0 0;
   --monokai-callout-rail-inset: 0.6rem;
@@ -318,8 +323,8 @@ body {
   --interactive-accent: var(--monokai-accent-color, var(--monokai-default-accent));
   --link-color: var(--monokai-link-color, var(--monokai-default-link));
   --link-external-color: var(--monokai-link-color, var(--monokai-default-link));
-  --blockquote-border-color: var(--monokai-success-color, var(--monokai-default-success));
-  --monokai-blockquote-border: var(--monokai-success-color, var(--monokai-default-success));
+  --blockquote-border-color: var(--monokai-purple, var(--monokai-default-purple, #ab9df2));
+  --monokai-blockquote-border: var(--monokai-purple, var(--monokai-default-purple, #ab9df2));
   --checkbox-color-checked: var(--monokai-success-color, var(--monokai-default-success));
   --text-highlight-bg: var(--monokai-warning-color, var(--monokai-default-warning));
   --code-background: var(--monokai-code-background, var(--monokai-default-code-background));

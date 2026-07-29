@@ -453,12 +453,16 @@
   }
 
   // stylelint-disable selector-class-pattern -- CodeMirror 内部类名。
-  .cm-active {
-    background-color: var(--monokai-editor-active-line-background);
+  .cm-line.cm-active {
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
   }
 
   .cm-line.HyperMD-codeblock.cm-active {
+    /* Keep strong visual boundaries inside code blocks */
     background-color: var(--monokai-codeblock-active-line-background);
+    background-image: none;
     box-shadow: inset 2px 0 0 var(--monokai-codeblock-active-line-border);
   }
 
@@ -483,12 +487,37 @@
 
   .cm-gutters {
     color: var(--monokai-editor-gutter-color);
-    background-color: var(--monokai-editor-gutter-background);
-    border-right: 1px solid var(--background-modifier-border);
+    background-color: transparent;
+    border-right: none;
+  }
+
+  .cm-gutters:has(> .cm-lineNumbers) {
+    margin-inline-end: calc(var(--monokai-editor-gutter-content-offset) - var(--monokai-editor-gutter-number-width) - var(--monokai-editor-gutter-number-gap) - var(--monokai-editor-gutter-number-gap));
+  }
+
+  .cm-lineNumbers {
+    width: calc(var(--monokai-editor-gutter-number-width) + var(--monokai-editor-gutter-number-gap) + var(--monokai-editor-gutter-number-gap));
+    z-index: 1;
+    pointer-events: none;
+    transform: translateX(calc(-100% + var(--monokai-editor-gutter-number-offset)));
   }
 
   .cm-lineNumbers .cm-gutterElement {
+    box-sizing: border-box;
     color: var(--monokai-editor-gutter-color);
+    width: 100%;
+    min-width: 100%;
+    padding-inline: var(--monokai-editor-gutter-number-gap);
+    font-variant-numeric: tabular-nums;
+    text-align: end;
+    transition: color var(--monokai-transition-fast);
+  }
+
+  .cm-lineNumbers .cm-gutterElement.cm-active,
+  .cm-lineNumbers .cm-gutterElement.cm-activeLineGutter {
+    color: var(--interactive-accent);
+    background-color: transparent;
+    font-weight: 600;
   }
 
   .cm-matchingBracket {
@@ -498,4 +527,3 @@
   }
   // stylelint-enable selector-class-pattern
 }
-

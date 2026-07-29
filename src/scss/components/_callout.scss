@@ -1,0 +1,275 @@
+@use "../variables" as *;
+@use "callout-mappings";
+
+// stylelint-disable selector-class-pattern -- Obsidian 内部类名，不能改成 kebab-case。
+
+body:is(.theme-dark, .theme-light) {
+  --blockquote-background-color: transparent;
+  --blockquote-border-thickness: 2px;
+  --callout-padding: 1rem 1.25rem 1rem 2.25rem;
+  --callout-content-padding: 0.65rem 0 0 0;
+  --callout-border-width: 0;
+  --callout-radius: var(--radius-l);
+  --monokai-blockquote-padding-block: 0.75rem;
+  --monokai-blockquote-padding-inline-end: 1rem;
+  --monokai-blockquote-content-gap: 2rem;
+  --monokai-blockquote-nested-gap: #{$spacing-3};
+  --monokai-blockquote-rail-inset: 0.75rem;
+  --monokai-blockquote-rail-offset: 0.8rem;
+  --monokai-blockquote-rail-width: 3px;
+  --monokai-callout-title-gap: var(--spacing-2);
+  --monokai-callout-card-background: var(--monokai-codeblock-background);
+  --monokai-callout-rail-inset: 0.75rem;
+  --monokai-callout-rail-offset: 0.8rem;
+  --monokai-callout-rail-width: 3px;
+  --monokai-callout-source-background: var(--monokai-codeblock-background);
+  --monokai-callout-source-content-gap: 0.75rem;
+  --monokai-callout-source-marker-color: var(--text-faint);
+  --monokai-callout-source-rail-color: var(--text-faint);
+  --monokai-callout-source-token-offset: -0.15rem;
+}
+
+/* ===== 块引用（阅读 + 编辑统一） ===== */
+
+body .markdown-preview-view.markdown-rendered blockquote,
+body .markdown-rendered blockquote {
+  position: relative;
+  background-color: transparent;
+  background-color: color-mix(in srgb, var(--monokai-blockquote-border) 8%, transparent);
+  border-inline-start: 0;
+  border-radius: var(--radius-l);
+  color: var(--text-muted);
+  font-style: normal;
+  padding: var(--monokai-blockquote-padding-block) var(--monokai-blockquote-padding-inline-end)
+    var(--monokai-blockquote-padding-block) var(--monokai-blockquote-content-gap);
+  margin-block: #{$spacing-3};
+  box-shadow: 2px 4px 10px rgb(0 0 0 / 5%);
+}
+
+body .markdown-preview-view.markdown-rendered blockquote::before,
+body .markdown-rendered blockquote::before {
+  content: "";
+  position: absolute;
+  inset-block: var(--monokai-blockquote-rail-inset);
+  inset-inline-start: var(--monokai-blockquote-rail-offset);
+  width: var(--monokai-blockquote-rail-width);
+  background-color: var(--monokai-blockquote-border);
+  border-radius: var(--radius-l);
+  pointer-events: none;
+  transition: filter var(--monokai-transition-fast);
+}
+
+body .markdown-rendered blockquote blockquote {
+  --monokai-blockquote-content-gap: 1.75rem;
+  --monokai-blockquote-rail-width: 2px;
+
+  background-color: transparent;
+  box-shadow: none;
+  margin-block: var(--monokai-blockquote-nested-gap);
+}
+
+body .markdown-rendered blockquote blockquote::before {
+  opacity: 0.65;
+}
+
+body .markdown-rendered blockquote blockquote blockquote {
+  --monokai-blockquote-content-gap: 1.5rem;
+}
+
+body .markdown-rendered blockquote blockquote blockquote::before {
+  opacity: 0.45;
+}
+
+body .markdown-preview-view.markdown-rendered blockquote:not(:has(blockquote:hover)):hover::before,
+body .markdown-rendered blockquote:not(:has(blockquote:hover)):hover::before {
+  filter: brightness(1.15) saturate(1.05);
+}
+
+body .markdown-preview-view.markdown-rendered blockquote :is(cite, footer, .blockquote-source),
+body .markdown-rendered blockquote :is(cite, footer, .blockquote-source) {
+  display: block;
+  color: var(--text-faint);
+  font-size: 0.875em;
+  font-style: normal;
+  margin-block-start: 0.65rem;
+  text-align: end;
+}
+
+body .markdown-preview-view.markdown-rendered blockquote :is(cite, footer, .blockquote-source) a,
+body .markdown-rendered blockquote :is(cite, footer, .blockquote-source) a {
+  color: var(--link-color);
+}
+
+body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote,
+body .markdown-source-view.mod-cm6 .HyperMD-quote {
+  background-color: transparent;
+  background-color: color-mix(in srgb, var(--monokai-blockquote-border) 8%, transparent);
+  background-image: none;
+  border-inline-start: 0;
+  box-shadow: none;
+  color: var(--text-muted);
+  font-style: normal;
+  padding-inline-start: 1.25rem;
+  padding-block: 0.12rem;
+}
+
+body .markdown-source-view.mod-cm6 .HyperMD-quote:has(.cm-quote-2) {
+  background-color: transparent;
+  background-color: color-mix(in srgb, var(--monokai-blockquote-border) 5%, transparent);
+}
+
+body .markdown-source-view.mod-cm6 .HyperMD-quote:has(.cm-quote-3) {
+  background-color: transparent;
+  background-color: color-mix(in srgb, var(--monokai-blockquote-border) 3%, transparent);
+}
+
+body .markdown-source-view.mod-cm6
+  .cm-line.HyperMD-quote:not(.cm-line.HyperMD-quote + .cm-line.HyperMD-quote),
+body .markdown-source-view.mod-cm6
+  .HyperMD-quote:not(.HyperMD-quote + .HyperMD-quote) {
+  border-start-start-radius: var(--radius-l);
+  border-start-end-radius: var(--radius-l);
+  padding-block-start: 0.65rem;
+}
+
+body .markdown-source-view.mod-cm6
+  .cm-line.HyperMD-quote:not(:has(+ .cm-line.HyperMD-quote)),
+body .markdown-source-view.mod-cm6
+  .HyperMD-quote:not(:has(+ .HyperMD-quote)) {
+  border-end-start-radius: var(--radius-l);
+  border-end-end-radius: var(--radius-l);
+  padding-block-end: 0.65rem;
+}
+
+body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-quote,
+body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-quote {
+  color: var(--text-normal);
+  border-inline-start: 0;
+  margin-left: var(--monokai-callout-source-content-gap);
+  padding-inline-start: 0;
+}
+
+body .markdown-source-view.mod-cm6 .cm-quote-2,
+body .markdown-source-view.mod-cm6 .cm-quote-3 {
+  color: var(--text-muted);
+}
+
+body .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote .cm-formatting-quote,
+body .markdown-source-view.mod-cm6 .HyperMD-quote .cm-formatting-quote {
+  display: inline;
+  color: var(--monokai-callout-source-marker-color);
+  margin-inline-end: var(--monokai-callout-source-token-offset);
+  opacity: 0.8;
+}
+
+/* ===== Callout 组件（阅读 + 编辑统一：背景 + 竖线 + 内间距） ===== */
+
+body .markdown-preview-view.markdown-rendered .callout,
+body .markdown-rendered .callout,
+body .markdown-source-view.mod-cm6 .callout {
+  position: relative;
+  background-color: var(--callout-background, var(--monokai-callout-card-background));
+  border: 0;
+  border-radius: var(--callout-radius);
+  box-shadow: none;
+  padding: var(--callout-padding);
+  transition: background-color 0.3s ease;
+}
+
+body .markdown-source-view.mod-cm6 .cm-embed-block:has(.callout) {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  outline: 0;
+  padding: 0;
+}
+
+body .markdown-preview-view.markdown-rendered .callout:hover,
+body .markdown-rendered .callout:hover,
+body .markdown-source-view.mod-cm6 .callout:hover {
+  /* Extremely subtle background bump */
+  background-color: var(--callout-background, var(--monokai-callout-card-background));
+  background-color: color-mix(in srgb, var(--callout-background, var(--monokai-callout-card-background)) 98%, var(--text-normal));
+}
+
+body .markdown-preview-view.markdown-rendered .callout::before,
+body .markdown-rendered .callout::before,
+body .markdown-source-view.mod-cm6 .callout::before {
+  content: "";
+  position: absolute;
+  inset-block: var(--monokai-callout-rail-inset);
+  inset-inline-start: var(--monokai-callout-rail-offset);
+  width: var(--monokai-callout-rail-width);
+  background-color: var(--callout-border, var(--monokai-callout-note-border));
+  border-radius: var(--radius-l);
+  pointer-events: none;
+  transition: filter var(--monokai-transition-fast);
+}
+
+body .markdown-source-view.mod-cm6 .callout:has(.cm-callout)::before {
+  display: none;
+}
+
+/* Callout rail uses the same restrained hover response as blockquotes. */
+body .markdown-preview-view.markdown-rendered .callout:hover::before,
+body .markdown-rendered .callout:hover::before,
+body .markdown-source-view.mod-cm6 .callout:hover::before {
+  filter: brightness(1.15) saturate(1.05);
+}
+
+body .markdown-source-view.mod-cm6 .cm-callout {
+  background-color: transparent;
+  border: 0;
+  border-radius: inherit;
+  padding: 0;
+}
+
+body .markdown-preview-view.markdown-rendered .callout-title,
+body .markdown-rendered .callout-title,
+body .markdown-source-view.mod-cm6 .callout-title,
+body .markdown-source-view.mod-cm6 .cm-callout-title {
+  color: var(--text-normal);
+  font-weight: 600;
+  gap: var(--monokai-callout-title-gap);
+  padding-inline-start: 0;
+}
+
+body .markdown-preview-view.markdown-rendered .callout-content,
+body .markdown-rendered .callout-content,
+body .markdown-source-view.mod-cm6 .callout-content,
+body .markdown-source-view.mod-cm6 .cm-callout-content {
+  background-color: transparent;
+  border-radius: 0;
+  margin-block-start: 0;
+  padding: var(--callout-content-padding);
+  padding-inline-start: 0;
+}
+
+body .markdown-preview-view.markdown-rendered .callout-content > :first-child,
+body .markdown-rendered .callout-content > :first-child,
+body .markdown-source-view.mod-cm6 .callout-content > :first-child,
+body .markdown-source-view.mod-cm6 .cm-callout-content > :first-child {
+  margin-block-start: 0;
+}
+
+body .markdown-preview-view.markdown-rendered .callout-content > :last-child,
+body .markdown-rendered .callout-content > :last-child,
+body .markdown-source-view.mod-cm6 .callout-content > :last-child,
+body .markdown-source-view.mod-cm6 .cm-callout-content > :last-child {
+  margin-block-end: 0;
+}
+
+body .markdown-source-view.mod-cm6 .cm-callout-content {
+  color: var(--text-normal);
+}
+
+body .markdown-source-view.mod-cm6 .cm-formatting-callout,
+body .markdown-source-view.mod-cm6 .cm-callout .cm-formatting {
+  display: inline;
+  color: var(--monokai-callout-source-marker-color);
+  margin-inline-end: var(--monokai-callout-source-token-offset);
+  opacity: 0.85;
+}
+
+// stylelint-enable selector-class-pattern

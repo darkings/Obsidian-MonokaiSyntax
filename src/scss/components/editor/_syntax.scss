@@ -3,6 +3,7 @@
 .cm-s-obsidian {
   span.cm-comment {
     color: var(--code-comment);
+    font-style: italic;
   }
 
   span.cm-string {
@@ -11,6 +12,7 @@
 
   span.cm-keyword {
     color: var(--code-keyword);
+    font-style: italic;
   }
 
   span.cm-def,
@@ -48,6 +50,7 @@
   span.cm-type,
   span.cm-class {
     color: var(--code-type);
+    font-style: italic;
   }
 
   span.cm-builtin {
@@ -82,6 +85,7 @@
 
   span.cm-decorator {
     color: var(--code-decorator);
+    font-style: italic;
   }
 
   span.cm-string-2 {
@@ -101,6 +105,7 @@
   .token.doctype,
   .token.cdata {
     color: var(--code-comment);
+    font-style: italic;
   }
 
   .token.property,
@@ -123,6 +128,7 @@
   .token.keyword,
   .token.important {
     color: var(--code-keyword);
+    font-style: italic;
   }
 
   .token.function {
@@ -140,6 +146,7 @@
   .token.class-name,
   .token.type {
     color: var(--code-type);
+    font-style: italic;
   }
 
   .token.builtin {
@@ -153,6 +160,7 @@
   .token.decorator,
   .token.annotation {
     color: var(--code-decorator);
+    font-style: italic;
   }
 
   .token.regex {

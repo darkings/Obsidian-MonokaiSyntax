@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { readEditorScss } from "./scss-source.js";
+import { readEditorScss, readVisualScss } from "./scss-source.js";
 
 const rootDir = resolve(import.meta.dirname, "..");
 const generatedPath = resolve(rootDir, "src/scss/components/_file-icons.generated.scss");
@@ -9,14 +9,13 @@ const componentIndexPath = resolve(rootDir, "src/scss/components/_index.scss");
 const packagePath = resolve(rootDir, "package.json");
 const auditPath = resolve(rootDir, "scripts/audit-css.js");
 const styleSettingsPath = resolve(rootDir, "src/css/style-settings/30-icons.css.md");
-const activeVisualPath = resolve(rootDir, "src/scss/_active-visual-overrides.scss");
 
 const files = {
   generated: existsSync(generatedPath) ? readFileSync(generatedPath, "utf8") : "",
   wrapper: existsSync(wrapperPath) ? readFileSync(wrapperPath, "utf8") : "",
   index: readFileSync(componentIndexPath, "utf8"),
   styleSettings: readFileSync(styleSettingsPath, "utf8"),
-  activeVisual: readFileSync(activeVisualPath, "utf8"),
+  visual: readVisualScss(rootDir),
   editor: readEditorScss(rootDir),
   packageJson: JSON.parse(readFileSync(packagePath, "utf8")),
   audit: readFileSync(auditPath, "utf8"),
@@ -81,8 +80,8 @@ const checks = [
   ["兼容 Obsidian 折叠图标类名", /\.nav-folder-collapse-indicator/.test(files.wrapper) && /\.collapse-icon/.test(files.wrapper)],
   ["第一层文件夹保留 Obsidian 原生折叠图标", !/\.nav-folder\.mod-root\s*>\s*\.nav-folder-children\s*>\s*\.nav-folder\s*>\s*\.nav-folder-title\s+\.nav-folder-collapse-indicator[\s\S]*content:\s*"\\e64d";/.test(files.wrapper)],
   ["Style Settings 可关闭文档树图标", /monokai-syntax-hide-file-tree-icons/.test(files.styleSettings) && /body\.monokai-syntax-hide-file-tree-icons/.test(files.wrapper)],
-  ["Callout 图标使用 icons.woff 字体", /font-family:\s*monokai-pro-icons/.test(files.activeVisual) && /callout\[data-callout="bug"\][\s\S]*content:\s*"\\e675";/.test(files.activeVisual)],
-  ["所有默认 Callout 类型都有背景与边框映射", ["note", "abstract", "info", "todo", "tip", "question", "warning", "failure", "bug", "success", "example", "quote"].every((name) => new RegExp(`--monokai-callout-${name}-bg`).test(files.activeVisual) || new RegExp(`--monokai-callout-${name}-bg`).test(files.editor))],
+  ["Callout 图标使用 icons.woff 字体", /font-family:\s*monokai-pro-icons/.test(files.visual) && /"\\e675":\s*\([^)]*\bbug\b/.test(files.visual) && /content:\s*\$glyph;/.test(files.visual)],
+  ["所有默认 Callout 类型都有背景与边框映射", ["note", "abstract", "info", "todo", "tip", "question", "warning", "failure", "bug", "success", "example", "quote"].every((name) => new RegExp(`--monokai-callout-${name}-bg`).test(files.visual) || new RegExp(`--monokai-callout-${name}-bg`).test(files.editor))],
   ["Callout 图标尺寸放大", /--callout-icon-size:\s*1\.25em/.test(files.editor)],
   ["文件树扩展名颜色多样", /--monokai-file-icon-color:\s*#ff6188/.test(files.generated) && /--monokai-file-icon-color:\s*#fc9867/.test(files.generated) && /--monokai-file-icon-color:\s*#ffd866/.test(files.generated) && /--monokai-file-icon-color:\s*#a9dc76/.test(files.generated) && /--monokai-file-icon-color:\s*#78dce8/.test(files.generated) && /--monokai-file-icon-color:\s*#ab9df2/.test(files.generated)],
   ["二级及更深层文件夹不使用折叠图标伪元素避免双图标", !/\.nav-folder-collapse-indicator::before/.test(files.wrapper) && !/\.collapse-icon::before/.test(files.wrapper) && !/\.nav-folder-title::before/.test(files.wrapper)],

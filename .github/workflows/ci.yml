@@ -8,7 +8,16 @@ on:
 
 jobs:
   check:
+    name: ${{ matrix.script }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - verify:source
+          - test
+          - lint:css
+          - verify:artifact
     steps:
       - uses: actions/checkout@v4
 
@@ -19,5 +28,5 @@ jobs:
 
       - run: npm ci
 
-      - name: Verify
-        run: npm run verify
+      - name: Run ${{ matrix.script }}
+        run: npm run ${{ matrix.script }}

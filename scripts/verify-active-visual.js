@@ -1,13 +1,13 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { readEditorScss } from "./scss-source.js";
+import { readCalloutScss, readEditorScss } from "./scss-source.js";
 
 const rootDir = resolve(import.meta.dirname, "..");
 const paths = {
   base: resolve(rootDir, "src/scss/_base.scss"),
   editor: resolve(rootDir, "src/scss/components/_editor.scss"),
-  index: resolve(rootDir, "src/scss/index.scss"),
-  overrides: resolve(rootDir, "src/scss/_active-visual-overrides.scss"),
+  lists: resolve(rootDir, "src/scss/components/_lists.scss"),
+  componentIndex: resolve(rootDir, "src/scss/components/_index.scss"),
   generatedIcons: resolve(rootDir, "src/scss/components/_file-icons.generated.scss"),
   iconGenerator: resolve(rootDir, "scripts/generate-icon-theme.js"),
   packageJson: resolve(rootDir, "package.json"),
@@ -20,27 +20,33 @@ const files = Object.fromEntries(
   ]),
 );
 files.editor = readEditorScss(rootDir);
+files.callout = readCalloutScss(rootDir);
 
 const packageJson = JSON.parse(files.packageJson);
+
+function mappingContainsAll(source, semantic, types) {
+  const values = source.match(new RegExp(`^\\s*${semantic}:\\s*\\(([^)]*)\\)`, "m"))?.[1] ?? "";
+  return types.every((type) => new RegExp(`\\b${type}\\b`).test(values));
+}
 
 const checks = [
   [
     "Active 视觉验证脚本已接入 release:pack",
-    packageJson.scripts?.verify?.includes("npm run verify:active-visual")
+    packageJson.scripts?.["verify:source"]?.includes("npm run verify:active-visual")
       && (
         packageJson.scripts?.["release:pack"]?.includes("npm run verify:active-visual")
         || packageJson.scripts?.["release:pack"]?.includes("npm run verify")
       ),
   ],
   [
-    "Active 视觉覆盖层位于插件样式之后",
-    /@use "plugins";\s*@use "active-visual-overrides";/.test(files.index)
+    "视觉组件按 editor → callout → lists 顺序注册",
+    /@forward "editor";[\s\S]*?@forward "callout";[\s\S]*?@forward "lists";/.test(files.componentIndex)
       && !/MONOKAI SYNTAX CSS LOADED/.test(files.base),
   ],
   [
-    "Active 视觉覆盖层不保留诊断描边",
-    !/box-shadow:\s*inset 0 0 0 3px/.test(files.overrides)
-      && !/box-shadow:[^;]*#66d9ef/.test(files.overrides),
+    "视觉组件不保留诊断描边",
+    !/box-shadow:\s*inset 0 0 0 3px/.test(files.callout)
+      && !/box-shadow:[^;]*#66d9ef/.test(files.callout),
   ],
   [
     "文件夹不再生成额外 ::before 图标",
@@ -52,10 +58,10 @@ const checks = [
     /\.nav-folder-collapse-indicator[\s\S]*?color:\s*var\(--icon-color\);/.test(files.base),
   ],
   [
-    "属性值不再绘制额外背景色",
+    "属性值背景仅使用主题语义变量",
     !/--monokai-metadata-value-background/.test(files.base)
-      && !/\.metadata-property-value\s*\{[^}]*background-color:/s.test(files.base)
-      && !/\.metadata-property-value:focus-within\s*\{[^}]*background-color:/s.test(files.base),
+      && /\.metadata-property-value\s*\{[^}]*background-color:\s*var\(--metadata-input-background, transparent\);/s.test(files.base)
+      && /\.metadata-property-value:focus-within\s*\{[^}]*background-color:\s*var\(--background-modifier-hover\);/s.test(files.base),
   ],
   [
     "行内代码背景与代码块背景一致",
@@ -66,41 +72,45 @@ const checks = [
     "Callout 使用语义分色变量（note/info → 青）",
     /--monokai-callout-note-bg:/.test(files.editor)
       && /--monokai-callout-note-border:/.test(files.editor)
-      && /\.callout\[data-callout="info"\]/.test(files.overrides),
+      && mappingContainsAll(files.callout, "info", ["info"]),
   ],
   [
     "Callout 使用语义分色变量（warning/caution → 橙）",
     /--monokai-callout-warning-bg:/.test(files.editor)
       && /--monokai-callout-warning-border:/.test(files.editor)
-      && /\.callout\[data-callout="warning"\]/.test(files.overrides),
+      && mappingContainsAll(files.callout, "warning", ["warning", "caution"]),
   ],
   [
     "Callout 使用语义分色变量（error/danger → 红）",
     /--monokai-callout-error-bg:/.test(files.editor)
       && /--monokai-callout-error-border:/.test(files.editor)
-      && /\.callout\[data-callout="error"\]/.test(files.overrides),
+      && mappingContainsAll(files.callout, "error", ["error", "danger"]),
   ],
   [
     "Callout 使用语义分色变量（success/check → 绿）",
     /--monokai-callout-success-bg:/.test(files.editor)
       && /--monokai-callout-success-border:/.test(files.editor)
-      && /\.callout\[data-callout="success"\]/.test(files.overrides),
+      && mappingContainsAll(files.callout, "success", ["success", "check"]),
   ],
   [
     "Callout 使用卡片内嵌语义色条",
-    /\.callout::before[\s\S]*?inset-block:\s*var\(--monokai-callout-rail-inset\);[\s\S]*?background-color:\s*var\(--callout-border/.test(files.overrides)
-      && /border-radius:\s*var\(--callout-radius\);/.test(files.overrides)
-      && /\.callout\s*\{[\s\S]*?box-shadow:\s*none;/.test(files.overrides),
+    /\.callout::before[\s\S]*?inset-block:\s*var\(--monokai-callout-rail-inset\);[\s\S]*?background-color:\s*var\(--callout-border/.test(files.callout)
+      && /border-radius:\s*var\(--callout-radius\);/.test(files.callout)
+      && /\.callout\s*\{[\s\S]*?box-shadow:\s*none;/.test(files.callout)
+      && /\.cm-embed-block:has\(\.callout\)[\s\S]*?border:\s*0;[\s\S]*?border-radius:\s*0;[\s\S]*?box-shadow:\s*none;[\s\S]*?outline:\s*0;/.test(files.callout)
+      && /\.callout:hover::before[\s\S]*?filter:\s*brightness\(1\.15\) saturate\(1\.05\);/.test(files.callout)
+      && !/width:\s*calc\(var\(--monokai-callout-rail-width\)/.test(files.callout),
   ],
   [
     "Callout 内容与标题之间使用紧凑呼吸感",
-    /--callout-content-padding:\s*0\.65rem 0 0 0;/.test(files.overrides)
-      && /margin-block-start:\s*0;/.test(files.overrides),
+    /--callout-content-padding:\s*0\.65rem 0 0 0;/.test(files.callout)
+      && /margin-block-start:\s*0;/.test(files.callout),
   ],
   [
     "Callout 图标隐藏原生 SVG 使用文字替代",
-    /\.callout-icon svg[\s\S]*?display:\s*none/.test(files.overrides)
-      && /\.callout-icon::before[\s\S]*?content:/.test(files.overrides),
+    /:is\(\.callout-icon, \.cm-callout-icon\) svg[\s\S]*?display:\s*none/.test(files.callout)
+      && /:is\(\.callout-icon, \.cm-callout-icon\)::before[\s\S]*?content:/.test(files.callout)
+      && /\.callout\[data-callout="#\{\$type\}"\][\s\S]*?content:\s*\$glyph;/.test(files.callout),
   ],
   [
     "编辑区域顶部冗余标题被隐藏",
@@ -127,21 +137,24 @@ const checks = [
       && !/--monokai-inline-code-border/.test(files.editor),
   ],
   [
-    "阅读态块引用使用左边框，编辑态使用无弯钩内嵌色条",
-    /border-inline-start:\s*2px solid var\(--monokai-blockquote-border/.test(files.overrides)
-      && /--monokai-callout-source-rail-color:\s*var\(--text-faint\);/.test(files.overrides)
-      && /box-shadow:\s*inset var\(--monokai-callout-rail-width\) 0 0[\s\S]*?var\(--monokai-callout-source-rail-color\);/.test(files.overrides),
+    "块引用仅在渲染态显示语义色条",
+    /blockquote::before[\s\S]*?background-color:\s*var\(--monokai-blockquote-border\);/.test(files.callout)
+      && /blockquote:not\(:has\(blockquote:hover\)\):hover::before[\s\S]*?filter:\s*brightness\(1\.15\) saturate\(1\.05\);/.test(files.callout)
+      && /\.HyperMD-quote[\s\S]*?background-image:\s*none;/.test(files.callout)
+      && /\.callout:has\(\.cm-callout\)::before[\s\S]*?display:\s*none;/.test(files.callout)
+      && !/blockquote[\s\S]*?transform:\s*translateX/.test(files.callout),
   ],
   [
     "块引用格式符号在编辑态可见且弱化",
-    /\.cm-formatting-quote[\s\S]*?display:\s*inline;[\s\S]*?color:\s*var\(--monokai-callout-source-marker-color\);[\s\S]*?opacity:\s*0\.8;/.test(files.overrides),
+    /\.cm-formatting-quote[\s\S]*?display:\s*inline;[\s\S]*?color:\s*var\(--monokai-callout-source-marker-color\);[\s\S]*?opacity:\s*0\.8;/.test(files.callout),
   ],
   [
     "复选框未选中为 Monokai Pro 黄色，选中为绿色",
     /--monokai-checkbox-unchecked-color:\s*#\{\$color-pro-yellow\};/.test(files.base)
       && /--monokai-checkbox-checked-color:\s*#\{\$color-pro-green\};/.test(files.base)
       && /input\[type="checkbox"\]:not\(:checked\)[\s\S]*?border-color:\s*var\(--monokai-checkbox-unchecked-color\);/.test(files.base)
-      && /input\[type="checkbox"\]:checked[\s\S]*?background-color:\s*var\(--monokai-checkbox-checked-color\);/.test(files.base),
+      && /input\[type="checkbox"\]:checked[\s\S]*?background-color:\s*var\(--monokai-checkbox-checked-color\);/.test(files.base)
+      && /\.task-list-item-checkbox[\s\S]*?display:\s*inline-block;[\s\S]*?cursor:\s*pointer;[\s\S]*?pointer-events:\s*auto;[\s\S]*?vertical-align:\s*-0\.125em;/.test(files.lists),
   ],
   [
     "AGENTS.md 拥有专属文件名图标规则",
