@@ -12,6 +12,27 @@ const readEditorSource = () => [
   readSource("../src/scss/components/editor/_links.scss"),
 ].join("\n");
 
+test("Style Settings 用户可见文本提供中英双语", () => {
+  const styleSettings = [
+    "00-overview",
+    "10-palette",
+    "20-density",
+    "30-icons",
+    "40-typography",
+    "50-accents",
+  ].map((fileName) => readSource(`../src/css/style-settings/${fileName}.css.md`)).join("\n");
+  const userFacingValues = styleSettings
+    .split(/\r?\n/)
+    .map((line) => line.match(/^\s*(?:name|title|description|label):\s*(.+)$/)?.[1])
+    .filter(Boolean)
+    .filter((value) => value !== "Monokai Syntax");
+
+  assert.ok(userFacingValues.length > 0);
+  for (const value of userFacingValues) {
+    assert.match(value, /\([A-Za-z]/, `缺少英文文本：${value}`);
+  }
+});
+
 test("Monokai Pro 打磨项暴露稳定的样式入口", () => {
   const base = readSource("../src/scss/_base.scss");
   const editor = readEditorSource();

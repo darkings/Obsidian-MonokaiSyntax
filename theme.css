@@ -15,7 +15,7 @@ settings:
   -
     id: monokai-syntax-info
     title: Monokai Syntax
-    description: Monokai Syntax 主题设置。
+    description: Monokai Syntax 主题设置 (Theme settings)。
     type: heading
     level: 1
 */
@@ -23,62 +23,62 @@ settings:
 /*
 @settings
 
-name: Monokai Syntax 调色板
+name: Monokai Syntax 调色板 (Palette)
 id: monokai-syntax-palette
 settings:
   -
     id: monokai-syntax-filter
-    title: 调色板滤镜
+    title: 调色板滤镜 (Palette filter)
     type: class-select
     allowEmpty: false
     default: monokai-syntax-filter-auto
     options:
       -
-        label: 跟随系统
+        label: 跟随系统 (Follow system)
         value: monokai-syntax-filter-auto
       -
-        label: Pro
+        label: Pro 配色 (Pro)
         value: monokai-syntax-filter-pro
       -
-        label: Light
+        label: 浅色 (Light)
         value: monokai-syntax-filter-light
 */
 
 /*
 @settings
 
-name: Monokai Syntax 外观与密度
+name: Monokai Syntax 外观与密度 (Appearance & Density)
 id: monokai-syntax-density
 settings:
   -
     id: monokai-syntax-appearance-heading
-    title: Appearance
+    title: 外观 (Appearance)
     type: heading
     level: 2
   -
     id: monokai-syntax-media-border-style
-    title: 媒体边框
+    title: 媒体边框 (Media border)
     type: class-select
     allowEmpty: false
     default: monokai-syntax-media-border-thin
     options:
       -
-        label: 细边框
+        label: 细边框 (Thin border)
         value: monokai-syntax-media-border-thin
       -
-        label: 关闭
+        label: 关闭 (Off)
         value: monokai-syntax-media-border-none
       -
-        label: 卡片式
+        label: 卡片式 (Card)
         value: monokai-syntax-media-border-card
   -
     id: monokai-syntax-density-heading
-    title: Density
+    title: 密度 (Density)
     type: heading
     level: 2
   -
     id: monokai-syntax-compact
-    title: 紧凑模式
+    title: 紧凑模式 (Compact mode)
     type: class-toggle
     default: false
 */
@@ -86,22 +86,22 @@ settings:
 /*
 @settings
 
-name: Monokai Syntax File Explorer
+name: Monokai Syntax 文件浏览器 (File Explorer)
 id: monokai-syntax-icons
 settings:
   -
     id: monokai-syntax-monochrome-icons
-    title: 单色图标
+    title: 单色图标 (Monochrome icons)
     type: class-toggle
     default: false
   -
     id: monokai-syntax-hide-file-tree-icons
-    title: 关闭文档树图标
+    title: 关闭文档树图标 (Disable file tree icons)
     type: class-toggle
     default: false
   -
     id: monokai-syntax-hide-sync-status-button
-    title: 隐藏右下角同步按钮
+    title: 隐藏右下角同步按钮 (Hide sync status button)
     type: class-toggle
     default: false
 */
@@ -109,17 +109,17 @@ settings:
 /*
 @settings
 
-name: Monokai Syntax 排版
+name: Monokai Syntax 排版 (Typography)
 id: monokai-syntax-typography
 settings:
   -
     id: monokai-syntax-markdown-reading-heading
-    title: Markdown Reading
+    title: Markdown 阅读模式 (Markdown Reading)
     type: heading
     level: 2
   -
     id: monokai-readable-line-width
-    title: 可读行宽
+    title: 可读行宽 (Readable line width)
     type: variable-number-slider
     default: 45
     min: 40
@@ -128,7 +128,7 @@ settings:
     format: rem
   -
     id: monokai-body-font-size
-    title: 正文字号
+    title: 正文字号 (Body font size)
     type: variable-number-slider
     default: 16
     min: 13
@@ -137,12 +137,12 @@ settings:
     format: px
   -
     id: monokai-syntax-editor-heading
-    title: Editor
+    title: 编辑器 (Editor)
     type: heading
     level: 2
   -
     id: monokai-code-font-size
-    title: 代码字号
+    title: 代码字号 (Code font size)
     type: variable-number-slider
     default: 0.9
     min: 0.75
@@ -151,7 +151,7 @@ settings:
     format: em
   -
     id: monokai-code-line-height
-    title: 代码行高
+    title: 代码行高 (Code line height)
     type: variable-number-slider
     default: 1.55
     min: 1.25
@@ -159,7 +159,7 @@ settings:
     step: 0.05
   -
     id: monokai-heading-scale
-    title: 标题缩放
+    title: 标题缩放 (Heading scale)
     type: variable-number-slider
     default: 1
     min: 0.9
@@ -167,7 +167,7 @@ settings:
     step: 0.05
   -
     id: monokai-heading-group-spacing-value
-    title: 标题分组间距
+    title: 标题分组间距 (Heading group spacing)
     type: variable-number-slider
     default: 1.4
     min: 1
@@ -176,49 +176,49 @@ settings:
     format: rem
   -
     id: monokai-syntax-heading-color-mode
-    title: 标题色彩模式
+    title: 标题色彩模式 (Heading color mode)
     type: class-select
     allowEmpty: false
     default: monokai-syntax-heading-full-spectrum
     options:
       -
-        label: 全光谱
+        label: 全光谱 (Full spectrum)
         value: monokai-syntax-heading-full-spectrum
       -
-        label: 低彩尾部
+        label: 低彩尾部 (Muted lower headings)
         value: monokai-syntax-heading-muted-tail
   -
     id: monokai-syntax-heading-accents
-    title: 标题左侧色条
+    title: 标题左侧色条 (Heading accent bars)
     type: class-toggle
     default: false
   -
     id: monokai-syntax-emphasis-heading
-    title: 强调文本
+    title: 强调文本 (Emphasis)
     type: heading
     level: 2
     collapsed: false
   -
     id: monokai-syntax-color-bold
-    title: 粗体颜色（Bold）
-    description: 开启 Monokai 粉色粗体
+    title: 粗体颜色 (Bold color)
+    description: 开启 Monokai 粉色粗体 (Enable Monokai pink bold text)
     type: class-toggle
     default: false
   -
     id: monokai-syntax-color-italic
-    title: 斜体颜色（Italic）
-    description: 开启 Monokai 紫色斜体
+    title: 斜体颜色 (Italic color)
+    description: 开启 Monokai 紫色斜体 (Enable Monokai purple italic text)
     type: class-toggle
     default: false
   -
     id: monokai-syntax-color-bold-italic
-    title: 粗斜体颜色（Bold Italic）
-    description: 开启 Monokai 橙色粗斜体
+    title: 粗斜体颜色 (Bold italic color)
+    description: 开启 Monokai 橙色粗斜体 (Enable Monokai orange bold italic text)
     type: class-toggle
     default: false
   -
     id: monokai-paragraph-spacing-value
-    title: 段落间距
+    title: 段落间距 (Paragraph spacing)
     type: variable-number-slider
     default: 0.75
     min: 0.4
@@ -230,63 +230,63 @@ settings:
 /*
 @settings
 
-name: Monokai Syntax Code Blocks 与强调色
+name: Monokai Syntax 代码块与强调色 (Code Blocks & Accents)
 id: monokai-syntax-accents
 settings:
   -
     id: monokai-syntax-code-blocks-heading
-    title: Code Blocks
+    title: 代码块 (Code Blocks)
     type: heading
     level: 2
   -
     id: monokai-code-background
-    title: 代码背景
+    title: 代码背景 (Code background)
     type: variable-color
     opacity: true
     format: hex
     default: '#1e1f1c'
   -
     id: monokai-syntax-accents-heading
-    title: Accents
+    title: 强调色 (Accents)
     type: heading
     level: 2
   -
     id: monokai-syntax-accent-preset
-    title: 强调色预设
+    title: 强调色预设 (Accent preset)
     type: class-select
     allowEmpty: false
     default: monokai-syntax-accent-default
     options:
       -
-        label: 默认 Pro / Light
+        label: 默认 Pro / Light (Default Pro / Light)
         value: monokai-syntax-accent-default
       -
-        label: Amber / VS Code
+        label: 琥珀色 / VS Code (Amber / VS Code)
         value: monokai-syntax-accent-amber-vscode
   -
     id: monokai-accent-color
-    title: 强调色
+    title: 强调色 (Accent color)
     type: variable-color
     opacity: true
     format: hex
     default: '#f92672'
   -
     id: monokai-link-color
-    title: 链接色
+    title: 链接色 (Link color)
     type: variable-color
     opacity: true
     format: hex
     default: '#66d9ef'
   -
     id: monokai-success-color
-    title: 成功色
+    title: 成功色 (Success color)
     type: variable-color
     opacity: true
     format: hex
     default: '#a6e22e'
   -
     id: monokai-warning-color
-    title: 高亮色
+    title: 高亮色 (Highlight color)
     type: variable-color
     opacity: true
     format: rgb
