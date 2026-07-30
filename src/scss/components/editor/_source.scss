@@ -142,9 +142,15 @@
     font-weight: var(--bold-weight);
   }
 
-  .cm-em {
-    color: var(--italic-color);
-  }
+.cm-em {
+  color: var(--italic-color);
+}
+
+.cm-strong.cm-em,
+.cm-strong .cm-em,
+.cm-em .cm-strong {
+  color: var(--monokai-bold-italic-color);
+}
 
   .cm-strikethrough {
     color: var(--monokai-strikethrough-color);

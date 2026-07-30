@@ -5,6 +5,7 @@ body {
   --bold-color: var(--text-normal);
   --bold-weight: 700;
   --italic-color: var(--text-normal);
+  --monokai-bold-italic-color: var(--bold-color);
   --heading-spacing: #{$spacing-4};
   --monokai-heading-gap-h1: 1.25rem;
   --monokai-heading-gap-h2: 1.1rem;

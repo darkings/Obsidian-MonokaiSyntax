@@ -8,18 +8,18 @@ Monokai Syntax is a Monokai Pro inspired theme for Obsidian. It is designed for 
 
 ## Version
 
-Current version: `1.1.4`
+Current version: `1.1.5`
 
 Minimum Obsidian version: `1.0.0`
 
-## What's New In 1.1.4
+## What's New In 1.1.5
 
-- Improved code block hierarchy with distinct colors for object keys, string values, numbers, keywords, functions, operators, and comments in Reading mode and Live Preview.
-- Refined the Light palette for clearer syntax contrast while preserving the Monokai-inspired spectrum.
-- Redesigned Callouts as compact information cards that share the code block surface and retain semantic accent rails.
-- Made Callout source editing practical by exposing `>` and `[!type]` markers, preserving the card surface, and tightening source-token spacing.
-- Fixed Community Themes search input alignment and language-label overlap in theme README previews.
-- Expanded regression checks for syntax tokens, contrast, Callout editing, modal search inputs, and Community Theme README code blocks.
+- Added an animated accent underline to the active workspace tab.
+- Refined Live Preview line-number spacing so numbers sit cleanly in the editor padding without shifting text when disabled.
+- Improved blockquotes and Callouts with Monokai Pro semantic accents, balanced spacing, nested-state treatment, and clearer source markers.
+- Removed duplicate accent rails and conflicting embedded borders while editing Callouts.
+- Fixed task checkbox alignment and restored checkbox interaction in Reading mode.
+- Modularized visual component styles and expanded release regression checks.
 
 ## Highlights
 

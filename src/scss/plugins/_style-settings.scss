@@ -348,3 +348,27 @@ body.monokai-syntax-heading-muted-tail {
   --h5-color: var(--text-muted);
   --h6-color: var(--text-faint);
 }
+
+body.theme-dark.monokai-syntax-color-bold {
+  --bold-color: #{$color-pro-magenta};
+}
+
+body.theme-light.monokai-syntax-color-bold {
+  --bold-color: #{$color-light-code-magenta};
+}
+
+body.theme-dark.monokai-syntax-color-italic {
+  --italic-color: #{$color-pro-purple};
+}
+
+body.theme-light.monokai-syntax-color-italic {
+  --italic-color: #{$color-light-code-purple};
+}
+
+body.theme-dark.monokai-syntax-color-bold-italic {
+  --monokai-bold-italic-color: #{$color-pro-orange};
+}
+
+body.theme-light.monokai-syntax-color-bold-italic {
+  --monokai-bold-italic-color: #{$color-light-code-orange};
+}

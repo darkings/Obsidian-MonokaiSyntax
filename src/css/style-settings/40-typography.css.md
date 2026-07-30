@@ -85,6 +85,30 @@ settings:
     type: class-toggle
     default: false
   -
+    id: monokai-syntax-emphasis-heading
+    title: 强调文本
+    type: heading
+    level: 2
+    collapsed: false
+  -
+    id: monokai-syntax-color-bold
+    title: 粗体颜色（Bold）
+    description: 开启 Monokai 粉色粗体
+    type: class-toggle
+    default: false
+  -
+    id: monokai-syntax-color-italic
+    title: 斜体颜色（Italic）
+    description: 开启 Monokai 紫色斜体
+    type: class-toggle
+    default: false
+  -
+    id: monokai-syntax-color-bold-italic
+    title: 粗斜体颜色（Bold Italic）
+    description: 开启 Monokai 橙色粗斜体
+    type: class-toggle
+    default: false
+  -
     id: monokai-paragraph-spacing-value
     title: 段落间距
     type: variable-number-slider

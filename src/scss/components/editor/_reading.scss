@@ -68,6 +68,11 @@
     color: var(--italic-color);
   }
 
+  strong em,
+  em strong {
+    color: var(--monokai-bold-italic-color);
+  }
+
   del,
   s {
     color: var(--monokai-strikethrough-color);
@@ -553,4 +558,3 @@
     padding: 0.16rem;
   }
 }
-
