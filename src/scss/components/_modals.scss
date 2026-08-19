@@ -122,6 +122,12 @@ body.theme-light {
     background-color: transparent;
   }
 
+  .vertical-tab-content,
+  .modal-content {
+    color: var(--text-normal);
+    background-color: var(--background-primary);
+  }
+
   .vertical-tab-header-group-title,
   .setting-item-heading,
   .setting-item-name {

@@ -251,6 +251,27 @@ body.monokai-syntax-monochrome-icons {
   --icon-color-active: var(--text-normal);
 }
 
+// stylelint-disable selector-class-pattern -- CodeMirror 内部类名。
+body.monokai-syntax-line-numbers-show,
+body.monokai-syntax-show-line-numbers {
+  .markdown-source-view.mod-cm6 .cm-gutters:has(> .cm-lineNumbers) {
+    display: flex;
+  }
+
+  .markdown-source-view.mod-cm6 .cm-lineNumbers {
+    display: block;
+  }
+}
+
+body.monokai-syntax-line-numbers-hide,
+body.monokai-syntax-hide-line-numbers {
+  .markdown-source-view.mod-cm6 .cm-gutters:has(> .cm-lineNumbers),
+  .markdown-source-view.mod-cm6 .cm-lineNumbers {
+    display: none;
+  }
+}
+// stylelint-enable selector-class-pattern
+
 body.monokai-syntax-heading-accents {
   .markdown-rendered h1,
   .markdown-rendered h2,

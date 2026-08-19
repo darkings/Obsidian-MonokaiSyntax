@@ -8,18 +8,15 @@ Monokai Syntax is a Monokai Pro inspired theme for Obsidian. It is designed for 
 
 ## Version
 
-Current version: `1.1.5`
+Current version: `1.1.6`
 
 Minimum Obsidian version: `1.0.0`
 
-## What's New In 1.1.5
+## What's New In 1.1.6
 
-- Added an animated accent underline to the active workspace tab.
-- Refined Live Preview line-number spacing so numbers sit cleanly in the editor padding without shifting text when disabled.
-- Improved blockquotes and Callouts with Monokai Pro semantic accents, balanced spacing, nested-state treatment, and clearer source markers.
-- Removed duplicate accent rails and conflicting embedded borders while editing Callouts.
-- Fixed task checkbox alignment and restored checkbox interaction in Reading mode.
-- Modularized visual component styles and expanded release regression checks.
+- Added a "Line numbers display" option in Style Settings under Typography (Default/Follow Obsidian, Show line numbers, Hide line numbers).
+- Fixed folder arrow rotation for nested folders (level 2 and deeper) in the file explorer to point down when expanded and right when collapsed, with smooth transition animations.
+- Refined the Obsidian settings modal content area background in light mode to use soft warm Monokai paper surfaces instead of stark pure white.
 
 ## Highlights
 

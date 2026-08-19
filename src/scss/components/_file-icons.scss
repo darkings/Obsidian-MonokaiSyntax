@@ -68,7 +68,11 @@
   width: var(--monokai-file-tree-slot-size);
   min-width: var(--monokai-file-tree-slot-size);
   height: var(--monokai-file-tree-glyph-size);
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    color var(--monokai-transition-fast);
   color: var(--monokai-folder-icon-color, var(--icon-color));
   font-family: monokai-pro-icons, monospace;
   font-size: var(--monokai-file-tree-glyph-size);
@@ -77,6 +81,17 @@
   line-height: 1;
   text-align: center;
   text-rendering: auto;
+}
+
+.is-collapsed > .nav-folder-title[data-path*="/"] .nav-folder-title-content::before,
+.is-collapsed > .tree-item-self[data-path*="/"] .nav-folder-title-content::before,
+.nav-folder.is-collapsed > .nav-folder-title[data-path*="/"] .nav-folder-title-content::before,
+.tree-item.is-collapsed > .nav-folder-title[data-path*="/"] .nav-folder-title-content::before,
+.tree-item.is-collapsed > .tree-item-self[data-path*="/"] .nav-folder-title-content::before,
+.nav-folder.is-collapsed > .tree-item-self[data-path*="/"] .nav-folder-title-content::before,
+.nav-folder-title[data-path*="/"].is-collapsed .nav-folder-title-content::before,
+.tree-item-self[data-path*="/"].is-collapsed .nav-folder-title-content::before {
+  transform: translateY(-50%) rotate(0deg);
 }
 
 body.monokai-syntax-hide-file-tree-icons {

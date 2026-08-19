@@ -75,7 +75,7 @@ const checks = [
   [
     "二级及更深层文件夹图标使用不占文字宽度的 gutter 绝对定位",
     /\.nav-folder-title\s+\.nav-folder-title-content\s*\{[\s\S]*?overflow:\s*visible;[\s\S]*?position:\s*relative;/.test(files.wrapper)
-      && /\.nav-folder-title\[data-path\*="\/"\]\s+\.nav-folder-title-content::before,[\s\S]*?\.nav-folder\[data-path\*="\/"\]\s*>\s*\.nav-folder-title\s+\.nav-folder-title-content::before\s*\{[\s\S]*?position:\s*absolute;[\s\S]*?inset-inline-start:\s*calc\(-1 \* \(var\(--monokai-file-tree-slot-size\) \+ var\(--monokai-file-tree-icon-gap\)\)\);[\s\S]*?inset-block-start:\s*50%;[\s\S]*?width:\s*var\(--monokai-file-tree-slot-size\);[\s\S]*?height:\s*var\(--monokai-file-tree-glyph-size\);[\s\S]*?transform:\s*translateY\(-50%\);/.test(files.wrapper),
+      && /\.nav-folder-title\[data-path\*="\/"\]\s+\.nav-folder-title-content::before,[\s\S]*?\.nav-folder\[data-path\*="\/"\]\s*>\s*\.nav-folder-title\s+\.nav-folder-title-content::before\s*\{[\s\S]*?position:\s*absolute;[\s\S]*?inset-inline-start:\s*calc\(-1 \* \(var\(--monokai-file-tree-slot-size\) \+ var\(--monokai-file-tree-icon-gap\)\)\);[\s\S]*?inset-block-start:\s*50%;[\s\S]*?width:\s*var\(--monokai-file-tree-slot-size\);[\s\S]*?height:\s*var\(--monokai-file-tree-glyph-size\);[\s\S]*?transform:\s*translateY\(-50%\)[^;]*;/.test(files.wrapper),
   ],
   ["兼容 Obsidian 折叠图标类名", /\.nav-folder-collapse-indicator/.test(files.wrapper) && /\.collapse-icon/.test(files.wrapper)],
   ["第一层文件夹保留 Obsidian 原生折叠图标", !/\.nav-folder\.mod-root\s*>\s*\.nav-folder-children\s*>\s*\.nav-folder\s*>\s*\.nav-folder-title\s+\.nav-folder-collapse-indicator[\s\S]*content:\s*"\\e64d";/.test(files.wrapper)],

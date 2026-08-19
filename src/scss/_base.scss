@@ -23,6 +23,9 @@
   --monokai-transition-emphasis: 180ms ease;
   --monokai-popover-shadow: 0 16px 40px rgb(0 0 0 / 22%);
   --monokai-notice-shadow: 0 6px 18px rgb(0 0 0 / 16%);
+  --modal-background: var(--background-secondary);
+  --modal-community-item-background: var(--background-primary);
+  --modal-border-color: var(--background-modifier-border);
 }
 
 body {

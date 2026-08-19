@@ -33,6 +33,23 @@ settings:
     type: heading
     level: 2
   -
+    id: monokai-syntax-line-numbers-mode
+    title: 行号显示 (Line numbers display)
+    description: 设置编辑器行号显示与否 (Configure whether line numbers are displayed in editor)
+    type: class-select
+    allowEmpty: false
+    default: monokai-syntax-line-numbers-default
+    options:
+      -
+        label: 默认 / 跟随设置 (Default / Follow Obsidian)
+        value: monokai-syntax-line-numbers-default
+      -
+        label: 显示行号 (Show line numbers)
+        value: monokai-syntax-line-numbers-show
+      -
+        label: 隐藏行号 (Hide line numbers)
+        value: monokai-syntax-line-numbers-hide
+  -
     id: monokai-code-font-size
     title: 代码字号 (Code font size)
     type: variable-number-slider
