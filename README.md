@@ -17,24 +17,7 @@ Minimum Obsidian version: `1.5.8`
 - **Compatibility:** `minAppVersion` lifted `1.0.0 → 1.5.8` to silence `css-relative-colors / css-scrollbar / text-decoration` warnings (Obsidian 1.5.8 ≈ Electron 28 / Chrome 118 fully supports `rgb(from ...)` / `color-mix`).
 - **Bundle size:** `icons.woff (14.1KB) → icons.woff2 (11.6KB)` via `fontTools + brotli` (`+18%` smaller base64), `font-display: swap` already landed; `theme.css` `161KB → ~158KB` (gzip `~34.7KB`).
 
-## What's New In 1.1.7
-
-Monokai Pro Default filter fidelity + editor engineering polish:
-
-- **Palette fidelity:** `H1` returns to spectrum red `#FF6188` (uses `font-weight` to differentiate, no more `#FF9AB0`); sidebar `hover` (`#3D3A3E`) now separated from `border` (`#403E41`), divider `6%` / scrollbar thumb `12%` for clearer hierarchy; code comment `#727072 → #7A757C` (contrast 3.32 → 3.62, threshold lifted to 3.5).
-- **Light palette:** codeblock background fixed to `#EBE8DF` with border `#C8C2B2` (1.45:1), header `#EDE9DF`; `check-contrast` fixtures aligned to real tokens (`#FAF8F2 / #F0EEE7 / #EBE8DF`).
-- **Typography:** text stack adds `Noto Sans SC / PingFang SC / Microsoft YaHei`, mono adds `JetBrains Mono / Maple Mono / Noto Sans Mono SC`; `type/class` and `decorator` no longer italic by default (keeps Pro's keyword-only italic), new Style Settings toggles `Type italic` / `Decorator italic` (off by default).
-- **Editor gutter:** `translateX(-100% + 0.25rem)` hack → `display:flex` with `padding-inline-end: 1rem` and `transform:none`, robust across zoom/font-size.
-- **Tables:** `min-width: min(100%,48rem)` → `0`, wrapper `overflow-x:auto`, first column `nowrap 5.5rem → anywhere`, fixed overflow on mobile/split view.
-- **Interactions:** tag `translateY/box-shadow → border-color` only, link underline `0.3s → 200ms + will-change`; unified `focus-visible` rings for file tree, tags, graph and canvas.
-- **Engineering:** `$color-pro-comment` single source, `--monokai-editor-selection-background` aliases `--monokai-selection-background`; font `display:block → swap` and auto `woff2` via `icons.woff2` if present; checkbox border `1.5px` for visibility.
-- **Polish:** `blockquote` shadow removed in dark (kept in light); `CODE` label `inset-inline-end` `+1.8rem` to avoid overlapping `Copy` button; default palette filter `Follow system → Pro`.
-
-## What's New In 1.1.6
-
-- Added a "Line numbers display" option in Style Settings under Typography (Default/Follow Obsidian, Show line numbers, Hide line numbers).
-- Fixed folder arrow rotation for nested folders (level 2 and deeper) in the file explorer to point down when expanded and right when collapsed, with smooth transition animations.
-- Refined the Obsidian settings modal content area background in light mode to use soft warm Monokai paper surfaces instead of stark pure white.
+> For older versions, see [CHANGELOG.md](./CHANGELOG.md).
 
 ## Highlights
 
