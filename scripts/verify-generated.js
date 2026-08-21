@@ -44,7 +44,7 @@ export function verifyGeneratedOutputs(rootDir = resolve(import.meta.dirname, ".
 
   if (existsSync(paths.generatedIcons)) {
     const generatedIcons = readFileSync(paths.generatedIcons, "utf8");
-    add("图标 SCSS 包含内联字体", /data:font\/woff;base64,/.test(generatedIcons));
+    add("图标 SCSS 包含内联字体", /data:font\/woff2?;base64,/.test(generatedIcons));
     add("图标 SCSS 包含 AGENTS.md 专属规则", /\[data-path="AGENTS\.md"\]::before/.test(generatedIcons));
   }
 

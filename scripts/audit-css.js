@@ -5,7 +5,7 @@ import { pathToFileURL } from "node:url";
 export function auditCssContent(themeCss) {
   const urlMatches = [...themeCss.matchAll(/url\((["']?)(.*?)\1\)/gi)].map((match) => match[2]);
   const forbiddenRuntimeUrls = urlMatches.filter(
-    (url) => !url.startsWith("data:font/woff;base64,"),
+    (url) => !url.startsWith("data:font/woff;base64,") && !url.startsWith("data:font/woff2;base64,"),
   );
   const checks = [
     ["外部 @import", /@import/i.test(themeCss)],

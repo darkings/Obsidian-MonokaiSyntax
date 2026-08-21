@@ -28,7 +28,7 @@ const checks = [
   ["组件入口导入图标包装", /@forward "file-icons";/.test(files.index)],
   ["构建前会生成图标", files.packageJson.scripts?.prebuild === "node scripts/generate-icon-theme.js"],
   ["存在验证脚本", files.packageJson.scripts?.["verify:icons"] === "node scripts/verify-icons.js"],
-  ["内联 woff 字体", /data:font\/woff;base64,/.test(files.generated)],
+  ["内联 woff 字体", /data:font\/woff2?;base64,/.test(files.generated)],
   ["图标 content 使用 CSS Unicode 转义", /content: "[\\][0-9a-f]{4}";/i.test(files.generated)],
   ["图标 content 未被双重转义", !/content: "[\\][\\][0-9a-f]{4}";/i.test(files.generated)],
   ["默认文件图标规则", /\.nav-file-title::before/.test(files.generated)],
@@ -93,7 +93,7 @@ const checks = [
   ["保留 Obsidian 默认文件夹折叠指示器", /\.nav-folder-collapse-indicator/.test(readFileSync(resolve(rootDir, "src/scss/_base.scss"), "utf8"))],
   ["单色图标模式规则", /body\.monokai-syntax-monochrome-icons/.test(files.wrapper)],
   ["保留彩色图标模式", /--monokai-file-icon-color/.test(files.generated)],
-  ["CSS 审计允许本地内联 woff 字体", /data:font\/woff/.test(files.audit)],
+  ["CSS 审计允许本地内联 woff 字体", /data:font\/woff2?/.test(files.audit)],
   ["没有远程 URL", !/https?:\/\//i.test(files.generated)],
   ["没有 !important", !/!important/i.test(files.generated + files.wrapper)],
 ];
