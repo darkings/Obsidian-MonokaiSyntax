@@ -48,9 +48,10 @@ test("正文行号靠近内容并使用紧凑 gutter", () => {
   assert.match(tokens, /--monokai-editor-gutter-number-gap:\s*0\.6rem;/);
   assert.match(tokens, /--monokai-editor-gutter-number-offset:\s*0\.25rem;/);
   assert.match(tokens, /--monokai-editor-gutter-number-width:\s*3ch;/);
-  assert.match(source, /\.cm-gutters:has\(> \.cm-lineNumbers\)\s*\{[^}]*margin-inline-end:/s);
-  assert.doesNotMatch(source, /\.cm-gutters\s*\{[^}]*margin-inline-end:/s);
-  assert.match(source, /\.cm-lineNumbers\s*\{[^}]*transform:\s*translateX\(calc\(-100% \+ var\(--monokai-editor-gutter-number-offset\)\)\);/s);
+  assert.match(source, /\.cm-gutters\s*\{[^}]*display:\s*flex;/s);
+  assert.match(source, /\.cm-gutters:has\(> \.cm-lineNumbers\)\s*\{[^}]*padding-inline-end:\s*var\(--monokai-editor-gutter-content-offset\);/s);
+  assert.match(source, /\.cm-lineNumbers\s*\{[^}]*display:\s*flex;/s);
+  assert.match(source, /\.cm-lineNumbers\s*\{[^}]*transform:\s*none;/s);
   assert.match(source, /\.cm-lineNumbers \.cm-gutterElement\s*\{[^}]*padding-inline:\s*var\(--monokai-editor-gutter-number-gap\);/s);
   assert.match(source, /\.cm-lineNumbers \.cm-gutterElement\s*\{[^}]*text-align:\s*end;/s);
   assert.doesNotMatch(source, /\.cm-lineNumbers \.cm-gutterElement\s*\{[^}]*text-align:\s*center;/s);

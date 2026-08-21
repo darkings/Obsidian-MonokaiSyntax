@@ -9,7 +9,7 @@ settings:
     title: 调色板滤镜 (Palette filter)
     type: class-select
     allowEmpty: false
-    default: monokai-syntax-filter-auto
+    default: monokai-syntax-filter-pro
     options:
       -
         label: 跟随系统 (Follow system)

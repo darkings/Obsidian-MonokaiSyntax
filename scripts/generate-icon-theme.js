@@ -84,8 +84,15 @@ if (!existsSync(themePath) || !existsSync(fontPath)) {
   process.exit(1);
 }
 
+const fontWoff2Path = resolve(iconDir, "icons.woff2");
+let fontPathResolved = fontPath;
+let fontFormat = "woff";
+if (existsSync(fontWoff2Path)) {
+  fontPathResolved = fontWoff2Path;
+  fontFormat = "woff2";
+}
 const theme = readJson(themePath);
-const fontBase64 = readFileSync(fontPath).toString("base64");
+const fontBase64 = readFileSync(fontPathResolved).toString("base64");
 const defaultFileIcon = iconByClass(theme, "default-accent3");
 const obsidianFileExtensions = {
   "7z": "archive-accent3",
@@ -169,8 +176,8 @@ const lines = [
   "",
   "@font-face {",
   '  font-family: "monokai-pro-icons";',
-  `  src: url("data:font/woff;base64,${fontBase64}") format("woff");`,
-  "  font-display: block;",
+  `  src: url("data:font/${fontFormat};base64,${fontBase64}") format("${fontFormat}");`,
+  "  font-display: swap;",
   "  font-style: normal;",
   "  font-weight: 400;",
   "}",

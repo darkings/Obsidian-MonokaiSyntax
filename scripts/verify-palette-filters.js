@@ -113,8 +113,8 @@ export function inspectPaletteFilters(files = readProjectFiles()) {
     failures.push("Style Settings 缺少跟随系统选项");
   }
 
-  if (!/default:\s*monokai-syntax-filter-auto/.test(files.paletteSettings)) {
-    failures.push("Style Settings 默认滤镜不是跟随系统");
+  if (!/default:\s*monokai-syntax-filter-pro/.test(files.paletteSettings)) {
+    failures.push("Style Settings 默认滤镜不是 Pro");
   }
 
   const paletteOptionMatches = [...files.paletteSettings.matchAll(/value:\s*(monokai-syntax-filter-[a-z-]+)/g)]

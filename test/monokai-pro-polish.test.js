@@ -175,8 +175,8 @@ test("核心阅读视觉降低噪音并保留 Monokai 语义", () => {
   const typographySettings = readSource("../src/css/style-settings/40-typography.css.md");
   const styleSettingsScss = readSource("../src/scss/plugins/_style-settings.scss");
 
-  assert.match(variables, /\$color-pro-heading-h1:\s*#ff9ab0;/);
-  assert.match(base, /--h1-color:\s*#\{\$color-pro-heading-h1\};/);
+  assert.match(variables, /\$color-pro-heading-h1:\s*#ff6188;/);
+  assert.match(base, /--h1-color:\s*#\{\$color-pro-magenta\};/);
   assert.match(base, /--h4-color:\s*#\{\$color-pro-green\};/);
   assert.match(base, /--h5-color:\s*#\{\$color-pro-cyan\};/);
   assert.match(base, /--h6-color:\s*#\{\$color-pro-purple\};/);
@@ -248,8 +248,8 @@ test("文件树选中态和侧栏分隔线保持低噪音", () => {
 
   assert.match(base, /--monokai-nav-active-background:\s*rgb\([^;]+\);/);
   assert.doesNotMatch(base, /--monokai-nav-active-border-color:/);
-  assert.match(base, /--monokai-sidebar-divider-color:\s*rgb\(248 248 242 \/ 4%\);/);
-  assert.match(base, /--monokai-sidebar-scrollbar-thumb:\s*rgb\(248 248 242 \/ 10%\);/);
+  assert.match(base, /--monokai-sidebar-divider-color:\s*rgb\(248 248 242 \/ 6%\);/);
+  assert.match(base, /--monokai-sidebar-scrollbar-thumb:\s*rgb\(248 248 242 \/ 12%\);/);
   assert.match(base, /\.theme-light[\s\S]*?--monokai-nav-active-background:\s*rgb\([^;]+\);/);
   assert.match(base, /\.theme-light[\s\S]*?--monokai-sidebar-divider-color:\s*rgb\(61 61 61 \/ 5%\);/);
   assert.match(base, /\.theme-light[\s\S]*?--monokai-sidebar-scrollbar-thumb:\s*rgb\(61 61 61 \/ 12%\);/);

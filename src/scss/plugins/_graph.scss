@@ -82,6 +82,11 @@
   box-shadow: inset 2px 0 0 var(--monokai-selection-border-color, var(--icon-color-active));
 }
 
+.graph-controls-button:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+
 .graph-view.color-fill,
 .graph-view.color-fill-focused,
 .graph-view.color-fill-tag,

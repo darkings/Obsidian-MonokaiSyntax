@@ -54,12 +54,12 @@ body {
 
   /* Monokai Pro uses a subtle gray/white for active file background in sidebar */
   --monokai-nav-active-background: rgb(255 255 255 / 6%);
-  --monokai-sidebar-divider-color: rgb(248 248 242 / 4%);
-  --monokai-sidebar-scrollbar-thumb: rgb(248 248 242 / 10%);
+  --monokai-sidebar-divider-color: rgb(248 248 242 / 6%);
+  --monokai-sidebar-scrollbar-thumb: rgb(248 248 242 / 12%);
   --text-accent-hover: #{$color-pro-magenta};
   --interactive-accent: #{$color-pro-magenta};
   --interactive-accent-hover: #{$color-pro-magenta};
-  --h1-color: #{$color-pro-heading-h1};
+  --h1-color: #{$color-pro-magenta};
   --h2-color: #{$color-pro-orange};
   --h3-color: #{$color-pro-yellow};
   --h4-color: #{$color-pro-green};
@@ -91,7 +91,7 @@ body {
   --list-level-5: #{$color-pro-purple};
   --code-normal: #{$color-pro-text-normal};
   --code-background: #{$color-pro-background-secondary};
-  --code-comment: #727072;
+  --code-comment: #{$color-pro-comment};
   --code-function: #{$color-pro-green};
   --code-important: #{$color-pro-magenta};
   --code-keyword: #{$color-pro-magenta};
@@ -313,11 +313,13 @@ body.monokai-syntax-hide-sync-status-button {
 input[type="checkbox"]:not(:checked) {
   background-color: transparent;
   border-color: var(--monokai-checkbox-unchecked-color);
+  border-width: 1.5px;
 }
 
 input[type="checkbox"]:checked {
   background-color: var(--monokai-checkbox-checked-color);
   border-color: var(--monokai-checkbox-checked-color);
+  border-width: 1.5px;
 }
 
 .metadata-property-key {
@@ -434,15 +436,17 @@ input[type="checkbox"]:checked {
   background-color: var(--monokai-tag-background, var(--background-secondary));
   border: 1px solid var(--monokai-tag-border-color, var(--background-modifier-border));
   border-radius: var(--monokai-tag-radius, var(--radius-s));
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-block; /* Required for transform */
+  transition:
+    color var(--monokai-transition-fast),
+    background-color var(--monokai-transition-fast),
+    border-color var(--monokai-transition-fast);
+  display: inline-block;
 }
 
 .tag:hover {
   color: var(--link-color-hover);
   background-color: var(--background-modifier-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  border-color: var(--monokai-selection-border-color, var(--background-modifier-border));
 }
 
 ::-webkit-scrollbar-thumb {
@@ -464,6 +468,22 @@ input[type="checkbox"]:checked {
 
 .workspace-split.mod-left-split ::-webkit-scrollbar-thumb:hover {
   background-color: var(--monokai-sidebar-divider-color);
+}
+
+.nav-file-title:focus-visible,
+.nav-folder-title:focus-visible,
+.tree-item-self:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-s);
+}
+
+.tag:focus-visible,
+.search-result-file-match:focus-visible,
+.bookmark:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-s);
 }
 
 ::selection {

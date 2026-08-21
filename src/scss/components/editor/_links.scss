@@ -14,7 +14,10 @@ body .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline {
   background-size: 0% var(--monokai-link-decoration-thickness, 2px);
   background-repeat: no-repeat;
   background-position: left bottom; /* Pin to bottom */
-  transition: background-size 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+  transition:
+    background-size 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    color var(--monokai-transition-fast);
+  will-change: background-size;
 }
 
 body a:hover,

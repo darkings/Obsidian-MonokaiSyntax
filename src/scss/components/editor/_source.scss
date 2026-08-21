@@ -495,17 +495,26 @@
     color: var(--monokai-editor-gutter-color);
     background-color: transparent;
     border-right: none;
+    display: flex;
+    align-items: stretch;
   }
 
   .cm-gutters:has(> .cm-lineNumbers) {
-    margin-inline-end: calc(var(--monokai-editor-gutter-content-offset) - var(--monokai-editor-gutter-number-width) - var(--monokai-editor-gutter-number-gap) - var(--monokai-editor-gutter-number-gap));
+    margin-inline-end: 0;
+    padding-inline-end: var(--monokai-editor-gutter-content-offset);
+    gap: var(--monokai-editor-gutter-number-gap);
   }
 
   .cm-lineNumbers {
-    width: calc(var(--monokai-editor-gutter-number-width) + var(--monokai-editor-gutter-number-gap) + var(--monokai-editor-gutter-number-gap));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: auto;
+    min-width: calc(var(--monokai-editor-gutter-number-width) + var(--monokai-editor-gutter-number-gap) * 2);
     z-index: 1;
+    margin-inline-start: var(--monokai-editor-gutter-number-offset);
     pointer-events: none;
-    transform: translateX(calc(-100% + var(--monokai-editor-gutter-number-offset)));
+    transform: none;
   }
 
   .cm-lineNumbers .cm-gutterElement {

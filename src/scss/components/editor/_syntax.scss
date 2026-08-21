@@ -50,7 +50,6 @@
   span.cm-type,
   span.cm-class {
     color: var(--code-type);
-    font-style: italic;
   }
 
   span.cm-builtin {
@@ -85,7 +84,6 @@
 
   span.cm-decorator {
     color: var(--code-decorator);
-    font-style: italic;
   }
 
   span.cm-string-2 {
@@ -146,7 +144,6 @@
   .token.class-name,
   .token.type {
     color: var(--code-type);
-    font-style: italic;
   }
 
   .token.builtin {
@@ -160,7 +157,6 @@
   .token.decorator,
   .token.annotation {
     color: var(--code-decorator);
-    font-style: italic;
   }
 
   .token.regex {
@@ -169,6 +165,33 @@
 
   .token.variable {
     color: var(--monokai-code-variable);
+  }
+}
+
+body.monokai-syntax-italic-types {
+  .cm-s-obsidian span.cm-type,
+  .cm-s-obsidian span.cm-class {
+    font-style: italic;
+  }
+
+  .markdown-rendered pre code .token.class-name,
+  .markdown-rendered pre code .token.type,
+  .cm-preview-code-block code .token.class-name,
+  .cm-preview-code-block code .token.type {
+    font-style: italic;
+  }
+}
+
+body.monokai-syntax-italic-decorator {
+  .cm-s-obsidian span.cm-decorator {
+    font-style: italic;
+  }
+
+  .markdown-rendered pre code .token.decorator,
+  .markdown-rendered pre code .token.annotation,
+  .cm-preview-code-block code .token.decorator,
+  .cm-preview-code-block code .token.annotation {
+    font-style: italic;
   }
 }
 

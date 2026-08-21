@@ -30,9 +30,15 @@
 }
 
 .canvas-node.is-focused,
-.canvas-node.is-selected {
+.canvas-node.is-selected,
+.canvas-node:focus-within {
   border-color: var(--monokai-selection-border-color, var(--interactive-accent));
   box-shadow: 0 0 0 2px var(--monokai-selection-ring);
+}
+
+.canvas-node:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
 }
 
 .canvas-node-label {

@@ -166,6 +166,8 @@
     margin-inline: 0;
     max-width: var(--monokai-table-max-width);
     outline: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 0;
   }
 
@@ -177,6 +179,8 @@
     margin-inline: 0;
     max-width: var(--monokai-table-max-width);
     outline: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 0;
   }
 
@@ -190,11 +194,18 @@
     line-height: var(--monokai-table-line-height);
     margin-block: var(--monokai-paragraph-spacing);
     margin-inline: 0;
-    max-width: 100%;
-    min-width: var(--monokai-table-min-width);
-    overflow: hidden;
+    max-width: none;
+    min-width: fit-content;
+    overflow-wrap: break-word;
     table-layout: auto;
     width: 100%;
+  }
+
+  @media (width <= 768px) {
+    th,
+    td {
+      padding: 0.4rem 0.6rem;
+    }
   }
 
   th,
@@ -224,8 +235,9 @@
 
   th:first-child,
   td:first-child {
-    min-width: 5.5rem;
-    white-space: nowrap;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
 
   tbody tr:last-child td {
@@ -316,7 +328,7 @@
     position: absolute;
     z-index: 1;
     inset-block-start: 0.45rem;
-    inset-inline-end: var(--monokai-codeblock-padding-inline);
+    inset-inline-end: calc(var(--monokai-codeblock-padding-inline) + 1.8rem);
     min-height: auto;
     color: var(--monokai-codeblock-language-color);
     background-color: transparent;

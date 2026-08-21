@@ -126,6 +126,18 @@ settings:
     type: class-toggle
     default: false
   -
+    id: monokai-syntax-italic-types
+    title: 类型斜体 (Type italic)
+    description: 为类型/类名启用斜体（默认关闭以提升扫描效率，Monokai Pro 仅关键字斜体）(Enable italic for types/classes; off by default)
+    type: class-toggle
+    default: false
+  -
+    id: monokai-syntax-italic-decorator
+    title: 装饰器斜体 (Decorator italic)
+    description: 为装饰器/注解启用斜体 (Enable italic for decorators/annotations)
+    type: class-toggle
+    default: false
+  -
     id: monokai-paragraph-spacing-value
     title: 段落间距 (Paragraph spacing)
     type: variable-number-slider

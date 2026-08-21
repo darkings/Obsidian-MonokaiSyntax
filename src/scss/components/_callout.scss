@@ -46,6 +46,11 @@ body .markdown-rendered blockquote {
   box-shadow: 2px 4px 10px rgb(0 0 0 / 5%);
 }
 
+body.theme-dark .markdown-preview-view.markdown-rendered blockquote,
+body.theme-dark .markdown-rendered blockquote {
+  box-shadow: none;
+}
+
 body .markdown-preview-view.markdown-rendered blockquote::before,
 body .markdown-rendered blockquote::before {
   content: "";
