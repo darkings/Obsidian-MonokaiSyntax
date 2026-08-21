@@ -8,9 +8,14 @@ Monokai Syntax 是一个面向 Obsidian 的 Monokai Pro 风格主题，主要用
 
 ## 版本
 
-当前版本：`1.1.7`
+当前版本：`1.1.8`
 
-最低 Obsidian 版本：`1.0.0`
+最低 Obsidian 版本：`1.5.8`
+
+## 1.1.8 更新说明
+
+- **兼容性：** `minAppVersion` 提升 `1.0.0 → 1.5.8`，消除 `css-relative-colors / css-scrollbar / text-decoration` 在 1.4.5 视口下的部分支持警告（1.5.8 ≈ Electron 28 / Chrome 118 已完整支持 `rgb(from ...)` / `color-mix`）。
+- **体积：** `icons.woff (14.1KB) → icons.woff2 (11.6KB)` 由 `fontTools + brotli` 压缩（base64 体积 `-18%`），`font-display: swap` 已在 1.1.7 落地；`theme.css` `161KB → ~158KB`（gzip `~34.7KB`）。
 
 ## 1.1.7 更新说明
 
