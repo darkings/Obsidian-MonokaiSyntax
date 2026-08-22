@@ -71,7 +71,7 @@ test("Monokai Pro 打磨项暴露稳定的样式入口", () => {
   assert.match(editor, /pre\s*\{[\s\S]*?code\s*\{[\s\S]*?color:\s*var\(--code-normal\);[\s\S]*?background-color:\s*transparent;[\s\S]*?border-radius:\s*0;[\s\S]*?font-weight:\s*inherit;[\s\S]*?\}/);
   assert.match(editor, /\.copy-code-button\s*\{[\s\S]*?display:\s*inline-flex;[\s\S]*?opacity:\s*0\.3;[\s\S]*?visibility:\s*visible;/);
   assert.match(editor, /\.markdown-preview-view \.markdown-rendered[\s\S]*?\.copy-code-button\s*\{[\s\S]*?font-size:\s*0\.58rem;[\s\S]*?min-height:\s*1\.35rem;[\s\S]*?min-width:\s*1\.35rem;[\s\S]*?padding:\s*0\.16rem;/);
-  assert.match(editor, /\.markdown-source-view\.mod-cm6[\s\S]*?\.copy-code-button\s*\{[\s\S]*?opacity:\s*1;[\s\S]*?visibility:\s*visible;/);
+  assert.match(editor, /\.markdown-source-view\.mod-cm6[\s\S]*?\.copy-code-button\s*\{[\s\S]*?opacity:\s*0\.3;[\s\S]*?visibility:\s*visible;/);
   assert.match(editor, /\.markdown-source-view\.mod-cm6[\s\S]*?\.code-block-flair\s*\{[\s\S]*?pointer-events:\s*auto;[\s\S]*?cursor:\s*var\(--cursor\);/);
   assert.match(editor, /\.markdown-source-view\.mod-cm6[\s\S]*?\.code-block-flair:active,[\s\S]*?\.cm-line:focus-within \.code-block-flair\s*\{[\s\S]*?opacity:\s*1;[\s\S]*?visibility:\s*visible;/);
   assert.match(editor, /\.markdown-source-view\.mod-cm6[\s\S]*?\.markdown-rendered \.code-block-flair,[\s\S]*?\.markdown-rendered pre:focus-within::before[\s\S]*?opacity:\s*1;[\s\S]*?transform:\s*none;/);
@@ -174,8 +174,6 @@ test("核心阅读视觉降低噪音并保留 Monokai 语义", () => {
   const editor = readEditorSource();
   const typographySettings = readSource("../src/css/style-settings/40-typography.css.md");
   const styleSettingsScss = readSource("../src/scss/plugins/_style-settings.scss");
-
-  assert.match(variables, /\$color-pro-heading-h1:\s*#ff6188;/);
   assert.match(base, /--h1-color:\s*#\{\$color-pro-magenta\};/);
   assert.match(base, /--h4-color:\s*#\{\$color-pro-green\};/);
   assert.match(base, /--h5-color:\s*#\{\$color-pro-cyan\};/);
@@ -260,7 +258,7 @@ test("文件树选中态和侧栏分隔线保持低噪音", () => {
   const activeFileRule = base.match(/\.nav-file-title\.is-active,[\s\S]*?\.tree-item-self\.is-active\s*\{[^}]+\}/)?.[0] ?? "";
   const clickableTreeRule = base.match(/\.tree-item-self\.is-clickable\.is-active,[\s\S]*?\.bookmark\.is-active\s*\{[^}]+\}/)?.[0] ?? "";
   assert.doesNotMatch(activeFileRule, /--monokai-selection-background/);
-  assert.match(activeFileRule, /box-shadow:\s*inset 2px 0 0 var\(--interactive-accent\);/);
+  assert.match(base, /\.nav-file-title\.is-active::after[\s\S]*?opacity:\s*1;[\s\S]*?transform:\s*scaleY\(1\);/);
   assert.match(clickableTreeRule, /background-color:\s*var\(--monokai-nav-active-background\);/);
   assert.doesNotMatch(clickableTreeRule, /--monokai-selection-background/);
   assert.doesNotMatch(clickableTreeRule, /box-shadow/);
@@ -284,6 +282,6 @@ test("编辑器样式按职责拆分为聚合模块", () => {
   assert.match(reading, /\.markdown-rendered[\s\S]*?\.copy-code-button/);
   assert.match(source, /\.markdown-source-view\.mod-cm6[\s\S]*?\.HyperMD-codeblock/);
   assert.match(syntax, /\.cm-s-obsidian[\s\S]*?span\.cm-keyword/);
-  assert.match(links, /a,[\s\S]*?\.markdown-rendered a,[\s\S]*?\.cm-hmd-internal-link/);
+  assert.match(links, /\.markdown-rendered :is\(a,[\s\S]*?\.cm-hmd-internal-link/);
   assert.ok(reading.length < 35000, "阅读模块不应重新膨胀成完整 editor 大文件");
 });

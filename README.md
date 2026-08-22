@@ -8,14 +8,15 @@ Monokai Syntax is a Monokai Pro inspired theme for Obsidian. It is designed for 
 
 ## Version
 
-Current version: `1.1.8`
+Current version: `1.1.9`
 
 Minimum Obsidian version: `1.5.8`
 
-## What's New In 1.1.8
+## What's New In 1.1.9
 
-- **Compatibility:** `minAppVersion` lifted `1.0.0 → 1.5.8` to silence `css-relative-colors / css-scrollbar / text-decoration` warnings (Obsidian 1.5.8 ≈ Electron 28 / Chrome 118 fully supports `rgb(from ...)` / `color-mix`).
-- **Bundle size:** `icons.woff (14.1KB) → icons.woff2 (11.6KB)` via `fontTools + brotli` (`+18%` smaller base64), `font-display: swap` already landed; `theme.css` `161KB → ~158KB` (gzip `~34.7KB`).
+- **Performance:** file-tree active indicator moved from `inset box-shadow` to a composited `::after` bar (`opacity` + `scaleY`), eliminating repaint cost on high-frequency tree transitions; `will-change: background-size` removed from links.
+- **Consistency:** code `Copy` button now uses progressive disclosure in both Reading and Source/Live Preview (`opacity 0.3` at rest, `1` on hover/focus); link underline animation scoped from global `body a` to note content only (`.markdown-rendered` / `.cm-link`), keeping global `a:focus-visible` for UI links.
+- **Engineering:** 7 unused SCSS variables removed; duplicate selectors merged via `:is()`; verify/test assertions updated to the new `:is()` / `::after` structure.
 
 > For older versions, see [CHANGELOG.md](./CHANGELOG.md).
 

@@ -155,7 +155,7 @@ const checks = [
     "左侧文件导航面板使用更深的 secondary 背景",
     /\.workspace,[\s\S]*?\.workspace-split,[\s\S]*?\.workspace-leaf,[\s\S]*?\.workspace-leaf-content,[\s\S]*?\.workspace-tabs\s*\{[\s\S]*?background-color:\s*var\(--background-primary\);/.test(files.base)
       && !/body::before\s*\{[\s\S]*?--monokai-left-sidebar-strip/.test(files.base)
-      && /\.workspace-split\.mod-left-split,[\s\S]*?\.workspace-split\.mod-left-split \.workspace-tabs,[\s\S]*?\.workspace-split\.mod-left-split \.workspace-leaf,[\s\S]*?\.workspace-split\.mod-left-split \.workspace-leaf-content,[\s\S]*?\.workspace-split\.mod-left-split \.view-content,[\s\S]*?\.workspace-split\.mod-left-split \.nav-files-container\s*\{[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(files.base)
+      && /\.workspace-split\.mod-left-split,[\s\S]*?\.workspace-split\.mod-left-split :is\(\.workspace-tabs, \.workspace-leaf, \.workspace-leaf-content, \.view-content, \.nav-files-container\)\s*\{[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(files.base)
       && /\.workspace-ribbon,[\s\S]*?background-color:\s*var\(--background-secondary\);/.test(readFileSync(resolve(rootDir, "src/scss/components/_ribbon.scss"), "utf8"))
       && !/\.workspace-ribbon\s*\{[\s\S]*?z-index:/.test(readFileSync(resolve(rootDir, "src/scss/components/_ribbon.scss"), "utf8"))
       && /--ribbon-background-collapsed:\s*#\{\$color-pro-background-secondary\};/.test(files.base)
@@ -347,7 +347,7 @@ const checks = [
     "链接阅读模式与编辑模式共享装饰和格式符号变量",
     /--monokai-link-decoration-color:\s*var\(--link-color\);/.test(files.editor)
       && /--monokai-link-decoration-thickness:\s*1px;/.test(files.editor)
-      && /body a,[\s\S]*?body \.markdown-rendered a,[\s\S]*?body \.markdown-source-view\.mod-cm6 \.cm-hmd-internal-link[\s\S]*?color:\s*var\(--link-color\);[\s\S]*?background-image:\s*linear-gradient\(var\(--monokai-link-decoration-color/.test(files.editor)
+      && /body \.markdown-rendered :is\(a, \.internal-link, \.external-link\),[\s\S]*?body \.markdown-source-view\.mod-cm6 :is\(\.cm-link, \.cm-hmd-internal-link\)[\s\S]*?color:\s*var\(--link-color\);[\s\S]*?background-image:\s*linear-gradient\(var\(--monokai-link-decoration-color/.test(files.editor)
       && /background-size:\s*0% var\(--monokai-link-decoration-thickness/.test(files.editor)
       && /\.cm-formatting-link[\s\S]*?color:\s*var\(--monokai-formatting-marker-color\);/.test(files.editor),
   ],

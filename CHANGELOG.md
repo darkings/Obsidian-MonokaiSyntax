@@ -6,6 +6,22 @@ All notable changes to **Monokai Syntax** are documented here. This project adhe
 
 ---
 
+## [1.1.9] - 2026-08-22
+
+Interaction performance + cross-mode consistency polish. No breaking changes, `minAppVersion` stays `1.5.8`.
+
+### Changed
+- **Performance:** file-tree active indicator moved from `inset box-shadow` (repaints on every tree transition) to a composited `::after` bar animated with `opacity` + `scaleY` (`_base.scss`). `::after` chosen because `::before` is taken by file/folder icons (`_file-icons.scss`).
+- **Consistency:** code `Copy` button unified to progressive disclosure in both Reading and Source/Live Preview (`opacity 0.3` at rest → `1` on hover/focus; Source was `opacity 1` always-on).
+- **Scoping:** link underline animation narrowed from global `body a` to note content only — `.markdown-rendered :is(a, .internal-link, .external-link)` and `.markdown-source-view.mod-cm6 :is(.cm-link, .cm-hmd-internal-link)`; global `a:focus-visible` kept for UI links.
+
+### Removed
+- 7 unused SCSS variables (`$color-light-orange-soft`, `$color-light-green-soft`, `$color-light-purple-soft`, `$color-light-blockquote-border`, `$color-pro-heading-h1`, `$spacing-1`, `$spacing-2`) and the now-redundant `will-change: background-size` on links.
+
+### Fixed
+- `test/monokai-pro-polish.test.js` and `scripts/verify-style-polish.js` assertions updated to the new `:is()` link selectors and `::after` active indicator; duplicate selectors merged via `:is()` in `_base.scss` / `_lists.scss`.
+
+---
 ## [1.1.8] - 2026-08-21
 
 ### Changed

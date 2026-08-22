@@ -6,6 +6,22 @@
 
 ---
 
+## [1.1.9] - 2026-08-22
+
+交互性能 + 跨模式一致性打磨。无破坏性变更，`minAppVersion` 保持 `1.5.8`。
+
+### 变更
+- **性能：** 文件树 active 指示条由 `inset box-shadow`（每次树项过渡都会重绘）改为合成器 `::after` 伪元素条，用 `opacity` + `scaleY` 动画（`_base.scss`）。选 `::after` 是因为 `::before` 已被文件/文件夹图标占用（`_file-icons.scss`）。
+- **一致性：** 代码 `Copy` 按钮在阅读视图与 Source/Live Preview 统一为渐进披露（静置 `opacity 0.3` → 悬停/聚焦 `1`；Source 此前一直 `opacity 1` 常显）。
+- **收窄：** 链接下划线动画从全局 `body a` 收窄到仅笔记内容——`.markdown-rendered :is(a, .internal-link, .external-link)` 与 `.markdown-source-view.mod-cm6 :is(.cm-link, .cm-hmd-internal-link)`；保留全局 `a:focus-visible` 供界面链接使用。
+
+### 移除
+- 7 个未使用 SCSS 变量（`$color-light-orange-soft`、`$color-light-green-soft`、`$color-light-purple-soft`、`$color-light-blockquote-border`、`$color-pro-heading-h1`、`$spacing-1`、`$spacing-2`），以及链接上现已冗余的 `will-change: background-size`。
+
+### 修复
+- `test/monokai-pro-polish.test.js` 与 `scripts/verify-style-polish.js` 断言更新为新的 `:is()` 链接选择器与 `::after` active 指示条；`_base.scss` / `_lists.scss` 用 `:is()` 合并重复选择器。
+
+---
 ## [1.1.8] - 2026-08-21
 
 ### 变更

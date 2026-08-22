@@ -8,14 +8,15 @@ Monokai Syntax 是一个面向 Obsidian 的 Monokai Pro 风格主题，主要用
 
 ## 版本
 
-当前版本：`1.1.8`
+当前版本：`1.1.9`
 
 最低 Obsidian 版本：`1.5.8`
 
-## 1.1.8 更新说明
+## 1.1.9 更新说明
 
-- **兼容性：** `minAppVersion` 提升 `1.0.0 → 1.5.8`，消除 `css-relative-colors / css-scrollbar / text-decoration` 在 1.4.5 视口下的部分支持警告（1.5.8 ≈ Electron 28 / Chrome 118 已完整支持 `rgb(from ...)` / `color-mix`）。
-- **体积：** `icons.woff (14.1KB) → icons.woff2 (11.6KB)` 由 `fontTools + brotli` 压缩（base64 体积 `-18%`），`font-display: swap` 已在 1.1.7 落地；`theme.css` `161KB → ~158KB`（gzip `~34.7KB`）。
+- **性能：** 文件树 active 指示条由 `inset box-shadow` 改为合成器 `::after` 伪元素条（`opacity` + `scaleY`），消除高频树项过渡的重绘成本；移除链接上的 `will-change: background-size`。
+- **一致性：** 代码 `Copy` 按钮在阅读视图与 Source/Live Preview 统一为渐进披露（静置 `opacity 0.3`，悬停/聚焦 `1`）；链接下划线动画从全局 `body a` 收窄到仅笔记内容（`.markdown-rendered` / `.cm-link`），保留全局 `a:focus-visible` 供界面链接使用。
+- **工程：** 删除 7 个未使用 SCSS 变量；用 `:is()` 合并重复选择器；校验/测试断言更新为新的 `:is()` / `::after` 结构。
 
 > 历史版本说明请查看 [CHANGELOG.zh.md](./CHANGELOG.zh.md)。
 

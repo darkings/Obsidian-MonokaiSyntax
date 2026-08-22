@@ -1,13 +1,8 @@
 @use "../../variables" as *;
 
-body a,
-body .markdown-rendered a,
-body .markdown-rendered .internal-link,
-body .markdown-rendered .external-link,
-body .markdown-source-view.mod-cm6 .cm-link,
-body .markdown-source-view.mod-cm6 .cm-hmd-internal-link,
-body .markdown-source-view.mod-cm6 .cm-link .cm-underline,
-body .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline {
+body .markdown-rendered :is(a, .internal-link, .external-link),
+body .markdown-source-view.mod-cm6 :is(.cm-link, .cm-hmd-internal-link),
+body .markdown-source-view.mod-cm6 :is(.cm-link, .cm-hmd-internal-link) .cm-underline {
   color: var(--link-color);
   text-decoration: none;
   background-image: linear-gradient(var(--monokai-link-decoration-color, var(--link-color)), var(--monokai-link-decoration-color, var(--link-color)));
@@ -17,17 +12,11 @@ body .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline {
   transition:
     background-size 200ms cubic-bezier(0.4, 0, 0.2, 1),
     color var(--monokai-transition-fast);
-  will-change: background-size;
 }
 
-body a:hover,
-body .markdown-rendered a:hover,
-body .markdown-rendered .internal-link:hover,
-body .markdown-rendered .external-link:hover,
-body .markdown-source-view.mod-cm6 .cm-link:hover,
-body .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover,
-body .markdown-source-view.mod-cm6 .cm-link:hover .cm-underline,
-body .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover .cm-underline {
+body .markdown-rendered :is(a, .internal-link, .external-link):hover,
+body .markdown-source-view.mod-cm6 :is(.cm-link, .cm-hmd-internal-link):hover,
+body .markdown-source-view.mod-cm6 :is(.cm-link, .cm-hmd-internal-link):hover .cm-underline {
   color: var(--link-color-hover);
   background-size: 100% var(--monokai-link-decoration-thickness, 2px);
 }
@@ -40,7 +29,6 @@ body .cm-hmd-internal-link:focus-visible {
   border-radius: var(--radius-s);
 }
 
-body a.external-link,
 body .markdown-rendered a.external-link {
   text-decoration: none;
 }

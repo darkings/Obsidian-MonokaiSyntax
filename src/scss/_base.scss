@@ -228,11 +228,7 @@ body {
 }
 
 .workspace-split.mod-left-split,
-.workspace-split.mod-left-split .workspace-tabs,
-.workspace-split.mod-left-split .workspace-leaf,
-.workspace-split.mod-left-split .workspace-leaf-content,
-.workspace-split.mod-left-split .view-content,
-.workspace-split.mod-left-split .nav-files-container {
+.workspace-split.mod-left-split :is(.workspace-tabs, .workspace-leaf, .workspace-leaf-content, .view-content, .nav-files-container) {
   background-color: var(--background-secondary);
 }
 
@@ -241,10 +237,7 @@ body {
 }
 
 .workspace-split.mod-right-split,
-.workspace-split.mod-right-split .workspace-tabs,
-.workspace-split.mod-right-split .workspace-leaf,
-.workspace-split.mod-right-split .workspace-leaf-content,
-.workspace-split.mod-right-split .view-content {
+.workspace-split.mod-right-split :is(.workspace-tabs, .workspace-leaf, .workspace-leaf-content, .view-content) {
   background-color: var(--background-secondary);
 }
 
@@ -261,14 +254,33 @@ body {
 .nav-file-title,
 .nav-folder-title,
 .tree-item-self {
+  position: relative; /* 伪元素 active 指示条的定位上下文 */
   align-items: center;
   color: var(--nav-item-color);
   border-radius: var(--radius-s);
-  box-shadow: inset 0 0 0 transparent; /* Base for transition slide */
   transition:
     color var(--monokai-transition-fast),
-    background-color var(--monokai-transition-fast),
-    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color var(--monokai-transition-fast);
+}
+
+/* Active 指示条：用伪元素 + transform/opacity 走合成器，避免 box-shadow 重绘 */
+.nav-file-title::after,
+.nav-folder-title::after,
+.tree-item-self::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 2px;
+  border-radius: var(--radius-s);
+  background-color: var(--interactive-accent);
+  opacity: 0;
+  transform: scaleY(0.6);
+  transform-origin: left center;
+  pointer-events: none;
+  transition:
+    opacity var(--monokai-transition-fast),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-file-title:hover,
@@ -283,9 +295,14 @@ body {
 .tree-item-self.is-active {
   color: var(--monokai-selection-foreground, var(--nav-item-color-active));
   background-color: var(--monokai-nav-active-background);
+}
 
-  /* Monokai Pro style active indicator */
-  box-shadow: inset 2px 0 0 var(--interactive-accent);
+/* Monokai Pro style active indicator（合成器动画） */
+.nav-file-title.is-active::after,
+.nav-folder-title.is-active::after,
+.tree-item-self.is-active::after {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .nav-folder-collapse-indicator,
