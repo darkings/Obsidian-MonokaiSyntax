@@ -232,7 +232,7 @@ const checks = [
       && /--monokai-plugin-surface-border:\s*var\(--background-modifier-border\);/.test(files.editor)
       && /--monokai-plugin-surface-padding:\s*#\{\$spacing-4\};/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?\.mermaid\s*\{[\s\S]*?background-color:\s*var\(--monokai-plugin-surface-background\);[\s\S]*?border:\s*1px solid var\(--monokai-plugin-surface-border\);/.test(files.editor)
-      && /\.markdown-rendered[\s\S]*?\.math,[\s\S]*?\.math-block\s*\{[\s\S]*?overflow-x:\s*auto;[\s\S]*?background-color:\s*var\(--monokai-plugin-surface-background\);/.test(files.editor)
+      && /\.markdown-rendered[\s\S]*?\.math-block\s*\{[\s\S]*?overflow-x:\s*auto;[\s\S]*?background-color:\s*var\(--monokai-plugin-surface-background\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?\.math-inline[\s\S]*?color:\s*var\(--monokai-inline-code-color\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?\.block-language-dataview,[\s\S]*?\.dataview\s*\{[\s\S]*?background-color:\s*var\(--monokai-plugin-surface-background\);/.test(files.editor)
       && /\.markdown-rendered[\s\S]*?\.dataview table[\s\S]*?width:\s*100%;/.test(files.editor)
