@@ -76,6 +76,12 @@ body {
   --icon-color-active: #{$color-pro-cyan};
   --metadata-label-text-color: #{$color-pro-cyan};
   --text-highlight-bg: rgb(255 216 102 / 24%);
+  --highlight-background-red: rgb(255 97 136 / 24%);
+  --highlight-background-orange: rgb(252 152 103 / 24%);
+  --highlight-background-yellow: rgb(255 216 102 / 24%);
+  --highlight-background-green: rgb(169 220 118 / 24%);
+  --highlight-background-blue: rgb(120 220 232 / 24%);
+  --highlight-background-purple: rgb(171 157 242 / 24%);
   --blockquote-border-color: #{$color-pro-purple};
   --monokai-checkbox-unchecked-color: #{$color-pro-yellow};
   --monokai-checkbox-checked-color: #{$color-pro-green};
@@ -170,6 +176,12 @@ body {
   --icon-color-active: #{$color-light-cyan};
   --metadata-label-text-color: #{$color-light-cyan};
   --text-highlight-bg: rgb(232 179 10 / 24%);
+  --highlight-background-red: rgb(225 71 117 / 20%);
+  --highlight-background-orange: rgb(225 96 50 / 20%);
+  --highlight-background-yellow: rgb(232 179 10 / 24%);
+  --highlight-background-green: rgb(38 157 105 / 20%);
+  --highlight-background-blue: rgb(15 100 120 / 18%);
+  --highlight-background-purple: rgb(112 88 190 / 18%);
   --blockquote-border-color: #{$color-light-purple};
   --monokai-checkbox-unchecked-color: #{$color-light-yellow};
   --monokai-checkbox-checked-color: #{$color-light-green};
