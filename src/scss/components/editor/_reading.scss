@@ -79,9 +79,10 @@
     text-decoration-color: var(--monokai-strikethrough-color);
   }
 
+  // Native colored highlights (==🔴 text==) switch --highlight-background per color.
   mark {
     color: var(--monokai-highlight-text);
-    background-color: var(--text-highlight-bg);
+    background-color: var(--highlight-background, var(--text-highlight-bg));
     border-radius: var(--monokai-highlight-radius);
     padding-inline: var(--monokai-highlight-padding-inline);
   }
